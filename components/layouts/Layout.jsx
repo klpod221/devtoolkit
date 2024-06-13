@@ -3,7 +3,7 @@ import React from "react";
 import MyNavbar from "./Navbar";
 import MySidebar from "./Sidebar";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, title }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   // when change window size, close the sidebar
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <MyNavbar isOpen={isOpen} setIsOpen={setIsOpen} />
+      <MyNavbar isOpen={isOpen} setIsOpen={setIsOpen} title={title} />
       <MySidebar isOpen={isOpen} setIsOpen={setIsOpen} />
 
       <main className="p-4 mt-14 sm:ml-64">

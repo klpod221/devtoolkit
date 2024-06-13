@@ -1,26 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ToggleSwitch, DarkThemeToggle } from "flowbite-react";
+import { DarkThemeToggle } from "flowbite-react";
 import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
 import { HiBars3BottomLeft } from "react-icons/hi2";
+import { ThemeContext } from "@/providers/ThemeProvider";
 
-const MyNavbar = ({ isOpen, setIsOpen }) => {
-  
-
-  const [isDarkMode, setIsDarkMode] = React.useState(false);
+const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
+  const { theme, setTheme } = React.useContext(ThemeContext);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
-
-  React.useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-    }
-  }, [isDarkMode]);
 
   return (
     <nav className="fixed top-0 left-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -50,7 +41,7 @@ const MyNavbar = ({ isOpen, setIsOpen }) => {
           </div>
 
           <h2 className="sm:block dark:text-white sm:ml-5 text-2xl ml-1">
-            
+            {title}
           </h2>
 
           <div className="flex items-center justify-end flex-1">
@@ -62,8 +53,10 @@ const MyNavbar = ({ isOpen, setIsOpen }) => {
             </Link>
 
             <DarkThemeToggle
-              onClick={() => setIsDarkMode(!isDarkMode)}
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               className="px-3 py-2 text-sm font-medium text-gray-700 rounded-md sm:block dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              iconDark={FaSun}
+              iconLight={FaMoon}
             />
           </div>
         </div>

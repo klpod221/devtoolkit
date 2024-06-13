@@ -1,13 +1,11 @@
 import React from "react";
-import { Card, Button } from "flowbite-react";
+import { Card } from "flowbite-react";
 import Link from "next/link";
-
-import { FaGithub } from "react-icons/fa";
 
 const Home = () => {
   return (
     <div>
-      <Card className="">
+      <Card className="w-full max-w-5xl">
         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Hello Developer! 👋
         </h5>
@@ -42,24 +40,11 @@ const Home = () => {
             klpod221
           </Link>
         </p>
-
-        {/* toggle dark mode by change data-theme attribute */}
-        <Button
-          className="btn btn-primary"
-          onClick={() => {
-            const html = document.querySelector("html");
-            if (html.getAttribute("data-theme") === "dark") {
-              html.setAttribute("data-theme", "light");
-            } else {
-              html.setAttribute("data-theme", "dark");
-            }
-          }}
-        >
-          Toggle Dark Mode
-        </Button>
       </Card>
     </div>
   );
 };
 
+
+Home.title = "Welcome";
 export default Home;

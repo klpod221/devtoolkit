@@ -5,20 +5,11 @@ import { useRouter } from "next/router";
 import { TextInput } from "flowbite-react";
 
 import {
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards,
-} from "react-icons/hi";
-
-import {
   AiOutlineSearch,
   AiOutlineMenuUnfold,
   AiOutlineFileImage,
   AiOutlinePicture,
+  AiOutlineCode,
 } from "react-icons/ai";
 
 const MySidebar = ({ isOpen, setIsOpen }) => {
@@ -28,6 +19,17 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
   const [keyword, setKeyword] = React.useState("");
 
   const toolkit = [
+    {
+      title: "Code Editor",
+      tools: [
+        {
+          title: "Code Editor",
+          description: "Edit your code.",
+          icon: AiOutlineCode,
+          url: "/code-editor",
+        },
+      ],
+    },
     {
       title: "HTML / CSS / JS",
       tools: [

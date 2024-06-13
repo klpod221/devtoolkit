@@ -1,10 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
-    swcMinify: true,
-    images: {
-        domains: ["flowbite.com", "github.com"],
-    },
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        hostname: "**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
