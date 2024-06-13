@@ -2,16 +2,22 @@ import React from "react";
 import MyCodeEditor from "@/components/MyCodeEditor";
 import { Card, Select, Label, Textarea, Button } from "flowbite-react";
 import supportLanguages from "@/const/languages";
+import axios from "axios";
 
 import { BsArrowsExpandVertical, BsPlayFill } from "react-icons/bs";
 
 const CodeEditor = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState(
     supportLanguages[0].slug
-  ); // [1]
+  );
   const [language, setLanguage] = React.useState();
   const [code, setCode] = React.useState("");
+  const [stdin, setStdin] = React.useState("");
+
   const [width, setWidth] = React.useState(70);
+  const [loading, setLoading] = React.useState(false);
+
+  const [output, setOutput] = React.useState();
 
   const handleResizeWidth = (e) => {
     e.preventDefault();
@@ -58,6 +64,27 @@ const CodeEditor = () => {
     window.addEventListener("mouseup", onMouseUp);
   };
 
+  const handleRunCode = async () => {
+    try {
+      setLoading(true);
+
+      const formData = {
+        code,
+        language,
+        stdin,
+      };
+
+      const { data } = await axios.post("/api/run-code", formData);
+
+      setOutput(data);
+    } catch (error) {
+      setOutput(error.message);
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   React.useEffect(() => {
     console.log(code);
   }, [code]);
@@ -70,6 +97,8 @@ const CodeEditor = () => {
     if (selectedLang) {
       setLanguage(selectedLang.theme || selectedLang.slug);
     }
+
+    setOutput(null);
   }, [selectedLanguage]);
 
   React.useEffect(() => {
@@ -111,7 +140,7 @@ const CodeEditor = () => {
               ))}
             </Select>
 
-            <Button size={"sm"} className="py-0">
+            <Button size={"sm"} className="py-0" onClick={handleRunCode}>
               Run Code
               <BsPlayFill className="h-5 w-5" />
             </Button>
@@ -139,7 +168,7 @@ const CodeEditor = () => {
         className="h-screen overflow-auto sm:h-auto"
       >
         <div className="flex h-full flex-col">
-          {language === "html" && (
+          {language !== "html" && (
             <>
               <div className="mb-2 block">
                 <Label
@@ -153,6 +182,8 @@ const CodeEditor = () => {
                 required
                 rows={2}
                 className="mb-4 rounded-none"
+                value={stdin}
+                onChange={(e) => setStdin(e.target.value)}
               />
             </>
           )}
@@ -160,8 +191,20 @@ const CodeEditor = () => {
           <div className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-1">
             Code Output
           </div>
-          <pre className="h-full w-full border text-sm disabled:cursor-not-allowed disabled:opacity-50 border-gray-300 bg-gray-50 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 mb-4 p-4">
-            <iframe src="" title="output" className="w-full h-full"></iframe>
+          <pre className="overflow-auto h-full w-full border text-sm disabled:cursor-not-allowed disabled:opacity-50 border-gray-300 bg-gray-50 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 mb-4 p-4">
+            {loading ? (
+              "Loading..."
+            ) : output?.exception ? (
+              output.exception
+            ) : language === "html" && output?.stdout ? (
+              <iframe
+                title="output"
+                srcDoc={output.stdout}
+                className="w-full h-full"
+              />
+            ) : (
+              output?.stdout
+            )}
           </pre>
         </div>
       </Card>

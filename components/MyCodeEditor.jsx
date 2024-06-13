@@ -25,6 +25,12 @@ const MyCodeEditor = ({ language = "html", code = "", setCode }) => {
     };
   }, []);
 
+  React.useEffect(() => {
+    if (language === "javascript") {
+      setCode(`console.log("Hello klpod221!");`);
+    }
+  }, [language, setCode]);
+
   return (
     <Editor
       height="80vh"
