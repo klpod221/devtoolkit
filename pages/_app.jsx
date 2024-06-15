@@ -9,7 +9,11 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <title>{Component.title + " | DevToolkit by klpod221"}</title>
+        <title>
+          {Component.title
+            ? Component.title + " | DevToolkit by klpod221"
+            : "DevToolkit by klpod221"}
+        </title>
         <meta
           name="description"
           content="Collection of tools for developers. Web development tools, Image tools, Text tools, Password tools, Number tools, Time tools, Color tools, and more."

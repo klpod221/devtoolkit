@@ -1,6 +1,7 @@
 {
   "name": "developer-toolkit",
   "version": "0.1.0",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,6 +13,7 @@
     "axios": "^1.7.2",
     "emmet-monaco-es": "^5.4.0",
     "flowbite-react": "^0.9.0",
+    "jszip": "^3.10.1",
     "next": "14.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",

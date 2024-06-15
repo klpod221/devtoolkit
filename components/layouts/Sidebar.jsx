@@ -2,81 +2,80 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { TextInput } from "flowbite-react";
+import { TextInput, Popover } from "flowbite-react";
 
 import {
   AiOutlineSearch,
-  AiOutlineMenuUnfold,
   AiOutlineFileImage,
-  AiOutlinePicture,
   AiOutlineCode,
 } from "react-icons/ai";
+
+import { RiImageEditLine } from "react-icons/ri";
+
+const toolkitList = [
+  {
+    title: "Code Editor",
+    tools: [
+      {
+        name: "Code Editor",
+        description: "Edit your code.",
+        icon: AiOutlineCode,
+        url: "/code-editor",
+      },
+    ],
+  },
+  {
+    title: "Image Tools",
+    tools: [
+      {
+        name: "Format Converter",
+        description: "Convert your images to different formats.",
+        icon: RiImageEditLine,
+        url: "/image/format-converter",
+      },
+      {
+        name: "Compressor",
+        description: "Reduce the size of your images.",
+        icon: AiOutlineFileImage,
+        url: "/image/compressor",
+      },
+    ],
+  },
+];
 
 const MySidebar = ({ isOpen, setIsOpen }) => {
   const router = useRouter();
   const currentPath = router.pathname;
 
   const [keyword, setKeyword] = React.useState("");
+  const [toolkit, setToolkit] = React.useState(toolkitList)
 
-  const toolkit = [
-    {
-      title: "Code Editor",
-      tools: [
-        {
-          title: "Code Editor",
-          description: "Edit your code.",
-          icon: AiOutlineCode,
-          url: "/code-editor",
-        },
-      ],
-    },
-    {
-      title: "HTML / CSS / JS",
-      tools: [
-        {
-          title: "HTML Formatter",
-          description: "Format your HTML code.",
-          icon: AiOutlineMenuUnfold,
-          url: "/html-formatter",
-        },
-        {
-          title: "CSS Formatter",
-          description: "Format your CSS code.",
-          icon: AiOutlineMenuUnfold,
-          url: "/css-formatter",
-        },
-        {
-          title: "JS Formatter",
-          description: "Format your JavaScript code.",
-          icon: AiOutlineMenuUnfold,
-          url: "/js-formatter",
-        },
-      ],
-    },
-    {
-      title: "Images",
-      tools: [
-        {
-          title: "Image Compressor",
-          description: "Compress your images.",
-          icon: AiOutlineFileImage,
-          url: "/image-compressor",
-        },
-        {
-          title: "Image Cropper",
-          description: "Crop your images.",
-          icon: AiOutlinePicture,
-          url: "/image-cropper",
-        },
-        {
-          title: "Image Resizer",
-          description: "Resize your images.",
-          icon: AiOutlinePicture,
-          url: "/image-resizer",
-        },
-      ],
-    },
-  ];
+  const onSearch = (e) => {
+    setKeyword(e.target.value);
+
+    const search = e.target.value.toLowerCase();
+
+    const filteredToolkit = toolkitList.map((section) => {
+      const tools = section.tools.filter(
+        (tool) =>
+          tool.name.toLowerCase().includes(search) ||
+          tool.description.toLowerCase().includes(search)
+      );
+
+      return {
+        ...section,
+        tools,
+      };
+    })
+
+    setToolkit(filteredToolkit);
+  };
+
+  const popoverContent = (text) => (
+    <div className="px-2 py-1 text-sm text-gray-700 bg-white rounded-lg dark:bg-gray-800 dark:text-gray-300">
+      {text}
+    </div>
+  );
 
   return (
     <>
@@ -94,7 +93,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
               placeholder="Search tools..."
               icon={AiOutlineSearch}
               value={keyword}
-              onChange={(e) => setKeyword(e.target.value)}
+              onChange={onSearch}
             />
           </div>
 
@@ -106,24 +105,28 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                   {section.title}
                 </div>
               </li>
-              {section.tools
-                .filter((tool) =>
-                  tool.title.toLowerCase().includes(keyword.toLowerCase())
-                )
-                .map((tool, index) => (
+              {section.tools.map((tool, index) => (
                   <li key={index} className="text-sm">
-                    <Link
-                      href={tool.url}
-                      className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group
+                    <Popover
+                      content={popoverContent(tool.description)}
+                      placement="right"
+                      trigger="hover"
+                    >
+                      <Link
+                        href={tool.url == currentPath ? "#" : tool.url}
+                        className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group
                       ${
                         currentPath == tool.url
                           ? "bg-gray-200 dark:bg-gray-700"
                           : ""
                       }`}
-                    >
-                      <tool.icon className={`w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white`} />
-                      <span className="ms-3">{tool.title}</span>
-                    </Link>
+                      >
+                        <tool.icon
+                          className={`w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white`}
+                        />
+                        <span className="ms-3">{tool.name}</span>
+                      </Link>
+                    </Popover>
                   </li>
                 ))}
             </ul>

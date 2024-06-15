@@ -27,6 +27,12 @@
   }
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 4rem);
+}
+
 .emoji-404 {
   position: relative;
   animation: mymove 2.5s infinite;

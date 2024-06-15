@@ -33,7 +33,6 @@ const MyCodeEditor = ({ language = "html", code = "", setCode }) => {
 
   return (
     <Editor
-      height="80vh"
       language={language}
       beforeMount={handleEditorDidMount}
       className="w-full h-full border border-gray-200 dark:border-gray-700"
