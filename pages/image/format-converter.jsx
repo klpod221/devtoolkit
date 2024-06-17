@@ -6,6 +6,7 @@ import { Button, FileInput, Label } from "flowbite-react";
 import { AiOutlineCloudUpload, AiOutlineEye } from "react-icons/ai";
 import { BsPlayFill } from "react-icons/bs";
 import { AiOutlineDownload } from "react-icons/ai";
+import MyImagePreview from "@/components/MyImagePreview";
 
 const formatList = ["jpg", "png", "webp", "bmp", "svg"];
 
@@ -15,6 +16,10 @@ const FormatConverter = () => {
   const [images, setImages] = React.useState([]);
   const [imageNames, setImageNames] = React.useState([]);
   const [returnImages, setReturnImages] = React.useState([]);
+
+  React.useEffect(() => {
+    setReturnImages([]);
+  }, [format]);
 
   const convertImages = () => {
     if (images.length === 0) {
@@ -112,7 +117,7 @@ const FormatConverter = () => {
 
       <Label
         htmlFor="dropzone-file"
-        className="flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+        className="flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:border-gray-500 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-gray-300 dark:hover:bg-gray-600 relative"
       >
         <div className="flex flex-col items-center justify-center pb-6 pt-5">
           <AiOutlineCloudUpload className="mb-4 h-8 w-8 text-gray-500 dark:text-gray-400" />
@@ -125,11 +130,11 @@ const FormatConverter = () => {
           </p>
         </div>
         <FileInput
-          className="hidden"
           multiple
           id="dropzone-file"
           accept="image/*"
           onChange={onFileChange}
+          className="w-full h-full absolute top-0 left-0 opacity-0"
         />
       </Label>
       <Button.Group>
@@ -137,9 +142,8 @@ const FormatConverter = () => {
           <Button
             key={f}
             onClick={() => setFormat(f)}
-            className={`border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 enabled:hover:bg-blue-500 enabled:hover:text-white ${
-              format === f ? "bg-blue-500 text-white" : ""
-            }`}
+            color={format === f ? "blue" : "gray"}
+            size={"sm"}
           >
             {f}
           </Button>
@@ -176,8 +180,7 @@ const FormatConverter = () => {
           Format: {format}
         </div>
 
-        {/* Download All */}
-        <div className="flex">
+        {returnImages.length > 0 && (
           <Button
             size={"sm"}
             className="py-0"
@@ -187,7 +190,7 @@ const FormatConverter = () => {
             Download All
             <AiOutlineDownload className="ml-1 h-5 w-5" />
           </Button>
-        </div>
+        )}
       </div>
 
       <div className="flex flex-wrap gap-2">
@@ -217,7 +220,10 @@ const FormatConverter = () => {
   );
 
   return (
-    <TwoColumnLayout leftContent={leftContent} rightContent={rightContent} />
+    <>
+      <TwoColumnLayout leftContent={leftContent} rightContent={rightContent} />
+      {/* <MyImagePreview image="https://via.placeholder.com/200" isShow={true} setIsShow={() => {}} /> */}
+    </>
   );
 };
 

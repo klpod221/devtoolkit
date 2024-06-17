@@ -52,24 +52,6 @@ const CodeEditor = () => {
     setOutput(null);
   }, [selectedLanguage]);
 
-  React.useEffect(() => {
-    if (window.innerWidth < 640) {
-      setWidth(100);
-    }
-
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setWidth(100);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   const leftContent = (
     <>
       <div className="flex justify-between items-center">

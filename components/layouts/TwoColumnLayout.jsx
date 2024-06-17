@@ -30,6 +30,24 @@ const TwoColumnLayout = ({ leftContent, rightContent, defaultWidth = 50 }) => {
     window.addEventListener("mouseup", onMouseUp);
   };
 
+    React.useEffect(() => {
+      if (window.innerWidth < 640) {
+        setWidth(100);
+      }
+
+      const handleResize = () => {
+        if (window.innerWidth < 640) {
+          setWidth(100);
+        }
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }, []);
+
   return (
     <div className="flex sm:flex-row flex-col h-full">
       <MyCard style={{ width: `${width}%` }} className="mb-4 sm:mb-0">

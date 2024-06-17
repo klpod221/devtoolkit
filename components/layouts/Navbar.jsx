@@ -13,8 +13,13 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
     setIsOpen(!isOpen);
   };
 
+  const handleThemeChange = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+    localStorage.setItem("theme", theme);
+  };
+
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <nav className="fixed top-0 left-0 z-40 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
       <div className="px-3 py-3 lg:px-5 lg:pl-3">
         <div className="flex items-center">
           <div className="flex items-center justify-start sm:w-60 w-auto">
@@ -28,7 +33,7 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
             </button>
             <Link href="/" className="items-center hidden sm:flex">
               <Image
-                src="https://github.com/klpod221.png"
+                src="/logo.webp"
                 className="h-8 me-3 rounded-full"
                 width={32}
                 height={32}
@@ -53,7 +58,7 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
             </Link>
 
             <DarkThemeToggle
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              onClick={handleThemeChange}
               className="px-3 py-2 text-sm font-medium text-gray-700 rounded-md sm:block dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
               iconDark={FaSun}
               iconLight={FaMoon}

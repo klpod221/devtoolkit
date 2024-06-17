@@ -1,6 +1,4 @@
-Custom404.title = "404";
-
-export default function Custom404() {
+const Custom404 = () => {
   return (
     <>
       <div className="w-full flex flex-col justify-center items-center">
@@ -23,3 +21,6 @@ export default function Custom404() {
     </>
   );
 }
+
+Custom404.title = "404 - Page Not Found";
+export default Custom404;

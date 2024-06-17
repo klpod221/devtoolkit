@@ -5,12 +5,16 @@ const ThemeContext = React.createContext();
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = React.useState("light");
 
+  // get theme from local storage
   React.useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
+    const localTheme = localStorage.getItem("theme");
+    if (localTheme) {
+      setTheme(localTheme);
     }
+  }, []);
+
+  React.useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   return (
@@ -18,6 +22,6 @@ const ThemeProvider = ({ children }) => {
       {children}
     </ThemeContext.Provider>
   );
-}
+};
 
 export { ThemeProvider, ThemeContext };

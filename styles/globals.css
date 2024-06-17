@@ -25,20 +25,29 @@
       "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
+
+  main {
+    @apply flex flex-col;
+    height: calc(100vh - 4rem);
+  }
+
+  #dropzone-file {
+    @apply h-full cursor-pointer;
+  }
+
+  .emoji-404 {
+    @apply relative;
+    animation: emoji-404 2.5s infinite;
+  }
+
+  .image-preview {
+    @apply flex justify-center items-center;
+    height: 96vh;
+    width: 96vw;
+  }
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 4rem);
-}
-
-.emoji-404 {
-  position: relative;
-  animation: mymove 2.5s infinite;
-}
-
-@keyframes mymove {
+@keyframes emoji-404 {
   33% {
     top: 0px;
   }
