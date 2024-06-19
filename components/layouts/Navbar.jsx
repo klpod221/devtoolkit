@@ -33,7 +33,7 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
             </button>
             <Link href="/" className="items-center hidden sm:flex">
               <Image
-                src="/devtoolkit/logo.webp"
+                src="/logo.webp"
                 className="h-8 me-3 rounded-full"
                 width={32}
                 height={32}

@@ -29,7 +29,7 @@ const CodeEditor = () => {
         stdin,
       };
 
-      const { data } = await axios.post("/devtoolkit/api/run-code", formData);
+      const { data } = await axios.post("/api/run-code", formData);
 
       setOutput(data);
     } catch (error) {
