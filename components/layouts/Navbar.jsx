@@ -15,7 +15,7 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
 
   const handleThemeChange = () => {
     setTheme(theme === "light" ? "dark" : "light");
-    localStorage.setItem("theme", theme);
+    localStorage.setItem("theme", theme === "light" ? "dark" : "light");
   };
 
   return (
