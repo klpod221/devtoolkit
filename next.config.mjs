@@ -10,6 +10,7 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
+  basePath: "/devtoolkit",
 };
 
 export default nextConfig;

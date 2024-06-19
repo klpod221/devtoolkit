@@ -1,8 +1,8 @@
 <div align="center">
     <h1>--// Developer Toolkit //</h1>
-    <img src="https://img.shields.io/github/last-commit/klpod221/developer-toolkit?style=for-the-badge&color=ffb4a2&labelColor=201a19">
-    <img src="https://img.shields.io/github/stars/klpod221/developer-toolkit?style=for-the-badge&color=e6c419&labelColor=1d1b16">
-    <img src="https://img.shields.io/github/repo-size/klpod221/developer-toolkit?style=for-the-badge&color=a8c7ff&labelColor=1a1b1f">
+    <img src="https://img.shields.io/github/last-commit/klpod221/devtoolkit?style=for-the-badge&color=ffb4a2&labelColor=201a19">
+    <img src="https://img.shields.io/github/stars/klpod221/devtoolkit?style=for-the-badge&color=e6c419&labelColor=1d1b16">
+    <img src="https://img.shields.io/github/repo-size/klpod221/devtoolkit?style=for-the-badge&color=a8c7ff&labelColor=1a1b1f">
 </div>
 
 ## About
@@ -15,16 +15,16 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ## Tools (so far)
 
-- [x] [Code Editor](https://klpod221.github.io/developer-toolkit/code-editor)
+- [x] [Code Editor](https://klpod221.github.io/devtoolkit/code-editor)
 
-- [x] [Image Format Converter](https://klpod221.github.io/developer-toolkit//image/format-converter)
-- [ ] [Image Compressor](https://klpod221.github.io/developer-toolkit/image/compressor)
+- [x] [Image Format Converter](https://klpod221.github.io/devtoolkit//image/format-converter)
+- [ ] [Image Compressor](https://klpod221.github.io/devtoolkit/image/compressor)
 
 ... and more to come!
 
 ## How to use
 
-You can access the tools by clicking on the links above or by accessing the [homepage](https://klpod221.github.io/developer-toolkit).
+You can access the tools by clicking on the links above or by accessing the [homepage](https://klpod221.github.io/devtoolkit).
 
 Or you can clone this repository and run the project locally. Project uses [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) and [Flowbite React UI](https://flowbite-react.com/). To run the project locally or for development, follow the steps below:
 
