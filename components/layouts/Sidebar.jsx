@@ -48,7 +48,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
   const currentPath = router.pathname;
 
   const [keyword, setKeyword] = React.useState("");
-  const [toolkit, setToolkit] = React.useState(toolkitList)
+  const [toolkit, setToolkit] = React.useState(toolkitList);
 
   const onSearch = (e) => {
     setKeyword(e.target.value);
@@ -66,7 +66,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
         ...section,
         tools,
       };
-    })
+    });
 
     setToolkit(filteredToolkit);
   };
@@ -79,12 +79,21 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
 
   return (
     <>
+      {isOpen && (
+        <div
+          className="fixed top-0 left-0 z-20 w-screen h-screen bg-black bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50"
+          aria-label="Overlay"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
       <aside
         className={`fixed top-0 left-0 z-30 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700 ${
           isOpen ? "translate-x-0" : ""
         }`}
         aria-label="Sidebar"
       >
+        {/* dark background */}
+
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
           {/* Search tool */}
           <div>
@@ -106,41 +115,33 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                 </div>
               </li>
               {section.tools.map((tool, index) => (
-                  <li key={index} className="text-sm">
-                    <Popover
-                      content={popoverContent(tool.description)}
-                      placement="right"
-                      trigger="hover"
-                    >
-                      <Link
-                        href={tool.url == currentPath ? "#" : tool.url}
-                        className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group
+                <li key={index} className="text-sm">
+                  <Popover
+                    content={popoverContent(tool.description)}
+                    placement="right"
+                    trigger="hover"
+                  >
+                    <Link
+                      href={tool.url == currentPath ? "#" : tool.url}
+                      className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group
                       ${
                         currentPath == tool.url
                           ? "bg-gray-200 dark:bg-gray-700"
                           : ""
                       }`}
-                      >
-                        <tool.icon
-                          className={`w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white`}
-                        />
-                        <span className="ms-3">{tool.name}</span>
-                      </Link>
-                    </Popover>
-                  </li>
-                ))}
+                    >
+                      <tool.icon
+                        className={`w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white`}
+                      />
+                      <span className="ms-3">{tool.name}</span>
+                    </Link>
+                  </Popover>
+                </li>
+              ))}
             </ul>
           ))}
         </div>
       </aside>
-
-      <div
-        className={`fixed top-0 left-0 z-30 w-screen h-full bg-black bg-opacity-50 dark:bg-gray-900 ${
-          isOpen ? "" : "hidden"
-        }`}
-        onClick={() => setIsOpen(false)}
-        aria-hidden="true"
-      ></div>
     </>
   );
 };

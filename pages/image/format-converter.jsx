@@ -8,7 +8,7 @@ import { BsPlayFill } from "react-icons/bs";
 import { AiOutlineDownload } from "react-icons/ai";
 import MyImagePreview from "@/components/MyImagePreview";
 
-const formatList = ["jpg", "png", "webp", "bmp", "svg"];
+const formatList = ["jpg", "png", "webp", "ico", "svg"];
 
 const FormatConverter = () => {
   const [format, setFormat] = React.useState("jpg");
@@ -16,6 +16,8 @@ const FormatConverter = () => {
   const [images, setImages] = React.useState([]);
   const [imageNames, setImageNames] = React.useState([]);
   const [returnImages, setReturnImages] = React.useState([]);
+
+  const [isDrapOver, setIsDrapOver] = React.useState(false);
 
   React.useEffect(() => {
     setReturnImages([]);
@@ -39,9 +41,14 @@ const FormatConverter = () => {
 
           canvas.width = img.width;
           canvas.height = img.height;
+          
+          // if format is ico, resize image to 32x32 pixels
+          if (format === "ico") {
+            ctx.drawImage(img, 0, 0, 32, 32);
+          }
 
           ctx.drawImage(img, 0, 0);
-
+          
           const dataURL = canvas.toDataURL(`image/${format}`);
           setReturnImages((prev) => [...prev, dataURL]);
         };

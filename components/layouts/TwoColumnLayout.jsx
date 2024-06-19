@@ -66,7 +66,7 @@ const TwoColumnLayout = ({ leftContent, rightContent, defaultWidth = 50 }) => {
         />
       </div>
 
-      <MyCard style={{ width: `${100 - width}%` }} className="w-full">
+      <MyCard style={{ width: `${width === 100 ? 100 : 100 - width}%` }}>
         {rightContent}
       </MyCard>
     </div>

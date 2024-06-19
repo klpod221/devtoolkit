@@ -19,7 +19,7 @@ const Home = () => {
         <p className="text-xl text-gray-700 dark:text-gray-400">
           If you like this project, please give it a star on{" "}
           <Link
-            href="https://github.com/klpod221/devtoolkit"
+            href="https://github.com/klpod221/developer-toolkit"
             className="text-blue-500"
           >
             Github
