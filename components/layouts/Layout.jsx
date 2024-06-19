@@ -1,4 +1,5 @@
 import React from "react";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import MyNavbar from "./Navbar";
 import MySidebar from "./Sidebar";
@@ -27,6 +28,8 @@ const Layout = ({ children, title }) => {
 
       <main className="main p-4 mt-14 sm:ml-64">
           {children}
+
+          <SpeedInsights />
       </main>
     </>
   );
