@@ -29,7 +29,7 @@ const MyDocument = () => {
         <meta property="og:url" content="https://klpod221.github.io/" />
         <meta property="og:card" content="summary" />
 
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/devtoolkit/favicon.ico" />
 
         <ThemeModeScript />
       </Head>
