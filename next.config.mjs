@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -11,7 +10,6 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
-  basePath: "/developer-toolkit",
 };
 
 export default nextConfig;
