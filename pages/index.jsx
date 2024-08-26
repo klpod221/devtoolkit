@@ -23,7 +23,7 @@ const Home = () => {
             className="text-blue-500"
           >
             Github
-          </Link>{" "}
+          </Link>
           . And if you have any suggestions or feedback, feel free to open an
           issue on the repository. Thanks for your support! 🙏
         </p>

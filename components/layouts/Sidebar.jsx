@@ -8,36 +8,177 @@ import {
   AiOutlineSearch,
   AiOutlineFileImage,
   AiOutlineCode,
+  AiOutlineFileMarkdown,
+  AiOutlineDiff,
+  AiOutlineFieldString,
+  AiOutlineRetweet,
+  AiOutlinePercentage,
+  AiOutlineSortAscending,
+  AiOutlineQrcode,
 } from "react-icons/ai";
 
+import { BsRegex } from "react-icons/bs";
 import { RiImageEditLine } from "react-icons/ri";
+import {
+  GiDigitalTrace,
+  GiPerspectiveDiceSixFacesRandom,
+} from "react-icons/gi";
+import { HiSpeakerphone } from "react-icons/hi";
 
 const toolkitList = [
   {
-    title: "Code Editor",
+    title: "Text Editor",
+    path: "/editor",
     tools: [
       {
-        name: "Code Editor",
-        description: "Edit your code.",
+        name: "Code Editor & Compiler",
+        description: "Write and run your code.",
         icon: AiOutlineCode,
-        url: "/code-editor",
+        path: "/code",
+      },
+      {
+        name: "Markdown Editor",
+        description: "Write markdown and preview it.",
+        icon: AiOutlineFileMarkdown,
+        path: "/markdown",
       },
     ],
   },
   {
+    title: "Web Tools",
+    path: "/web",
+    tools: [
+      {
+        name: "Base64 Encoder/Decoder",
+        description: "Encode or decode base64 strings.",
+        icon: AiOutlineRetweet,
+        path: "/base64",
+      },
+      {
+        name: "Base64 Image Encoder/Decoder",
+        description: "Encode or decode base64 images.",
+        icon: AiOutlineRetweet,
+        path: "/base64-image",
+      },
+      {
+        name: "Url Encoder/Decoder",
+        description: "Encode or decode url strings.",
+        icon: AiOutlineRetweet,
+        path: "/url",
+      },
+      {
+        name: "Url Parser",
+        description: "Parse url strings.",
+        icon: AiOutlineRetweet,
+        path: "/url-parser",
+      },
+      {
+        name: "JSON Converter",
+        description: "Convert JSON to XML, YAML, CSV, etc and vice versa.",
+        icon: AiOutlineRetweet,
+        path: "/json",
+      }
+    ]
+  },
+  {
     title: "Image Tools",
+    path: "/image",
     tools: [
       {
         name: "Format Converter",
         description: "Convert your images to different formats.",
         icon: RiImageEditLine,
-        url: "/image/format-converter",
+        path: "/converter",
       },
       {
         name: "Compressor",
         description: "Reduce the size of your images.",
         icon: AiOutlineFileImage,
-        url: "/image/compressor",
+        path: "/compressor",
+      },
+    ],
+  },
+  {
+    title: "Text Tools",
+    path: "/text",
+    tools: [
+      {
+        name: "Regex Tester",
+        description: "Test your regular expressions.",
+        icon: BsRegex,
+        path: "/regex",
+      },
+      {
+        name: "Text Diff",
+        description: "Compare two texts.",
+        icon: AiOutlineDiff,
+        path: "/diff",
+      },
+      {
+        name: "Word Counter",
+        description: "Count words, characters and distribution.",
+        icon: GiDigitalTrace,
+        path: "/counter",
+      },
+      {
+        name: "Lorem Ipsum",
+        description: "Generate placeholder text.",
+        icon: AiOutlineFieldString,
+        path: "/lorem-ipsum",
+      },
+      {
+        name: "Random String",
+        description: "Generate random strings for passwords etc.",
+        icon: GiPerspectiveDiceSixFacesRandom,
+        path: "/random",
+      },
+      {
+        name: "Hex Converter",
+        description: "Convert hex to unicode and vice versa.",
+        icon: AiOutlineRetweet,
+        path: "/hex",
+      },
+      {
+        name: "Text Case Converter",
+        description: "Convert text to upper, lower, title, sentence case.",
+        icon: AiOutlineRetweet,
+        path: "/case",
+      },
+      {
+        name: "Text to Image",
+        description: "Convert text to image.",
+        icon: AiOutlineRetweet,
+        path: "/to-image",
+      },
+      {
+        name: "Backslash Converter",
+        description: "Escape or unescape backslashes.",
+        icon: AiOutlinePercentage,
+        path: "/backslash",
+      },
+      {
+        name: "List Sorter/Randomizer",
+        description: "Sort or randomize lists.",
+        icon: AiOutlineSortAscending,
+        path: "/sort",
+      },
+      {
+        name: "Text to Speech",
+        description: "Convert text to speech.",
+        icon: HiSpeakerphone,
+        path: "/speech",
+      },
+      {
+        name: "Text to Morse Code",
+        description: "Convert text to morse code.",
+        icon: AiOutlineFieldString,
+        path: "/morse",
+      },
+      {
+        name: "Text to QR Code",
+        description: "Convert text to QR code.",
+        icon: AiOutlineQrcode,
+        path: "/qr-code",
       },
     ],
   },
@@ -122,10 +263,10 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                     trigger="hover"
                   >
                     <Link
-                      href={tool.url == currentPath ? "#" : tool.url}
+                      href={section.path + tool.path}
                       className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group
                       ${
-                        currentPath == tool.url
+                        currentPath === section.path + tool.path
                           ? "bg-gray-200 dark:bg-gray-700"
                           : ""
                       }`}
