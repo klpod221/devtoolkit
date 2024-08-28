@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@/styles/html-preview.css";
 
 import Head from "next/head";
 

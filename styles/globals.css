@@ -45,6 +45,10 @@
     height: 96vh;
     width: 96vw;
   }
+
+  button span {
+    white-space: nowrap;
+  }
 }
 
 @keyframes emoji-404 {

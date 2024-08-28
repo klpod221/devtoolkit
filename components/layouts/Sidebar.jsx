@@ -15,8 +15,8 @@ import {
   AiOutlinePercentage,
   AiOutlineSortAscending,
   AiOutlineQrcode,
+  AiOutlineBgColors,
 } from "react-icons/ai";
-
 import { BsRegex } from "react-icons/bs";
 import { RiImageEditLine } from "react-icons/ri";
 import {
@@ -24,6 +24,12 @@ import {
   GiPerspectiveDiceSixFacesRandom,
 } from "react-icons/gi";
 import { HiSpeakerphone } from "react-icons/hi";
+import { TbNumber10Small } from "react-icons/tb";
+import { LiaWeightSolid } from "react-icons/lia";
+import { MdCurrencyExchange, MdOutlinePassword } from "react-icons/md";
+import { FaLock, FaRegClock, FaHashtag, FaIdCardAlt } from "react-icons/fa";
+import { TbWorldWww } from "react-icons/tb";
+import { TfiReload } from "react-icons/tfi";
 
 const toolkitList = [
   {
@@ -55,6 +61,12 @@ const toolkitList = [
         path: "/base64",
       },
       {
+        name: "Bcrypt Hash Generator",
+        description: "Bcrypt hash generator and verifier.",
+        icon: FaHashtag,
+        path: "/bcrypt",
+      },
+      {
         name: "Base64 Image Encoder/Decoder",
         description: "Encode or decode base64 images.",
         icon: AiOutlineRetweet,
@@ -73,12 +85,18 @@ const toolkitList = [
         path: "/url-parser",
       },
       {
+        name: "Digital Certificate Decoder",
+        description: "Decode digital certificates.",
+        icon: FaLock,
+        path: "/certificate",
+      },
+      {
         name: "JSON Converter",
         description: "Convert JSON to XML, YAML, CSV, etc and vice versa.",
         icon: AiOutlineRetweet,
         path: "/json",
-      }
-    ]
+      },
+    ],
   },
   {
     title: "Image Tools",
@@ -179,6 +197,78 @@ const toolkitList = [
         description: "Convert text to QR code.",
         icon: AiOutlineQrcode,
         path: "/qr-code",
+      },
+    ],
+  },
+  {
+    title: "Utility Tools",
+    path: "/utility",
+    tools: [
+      {
+        name: "Color Converter",
+        description: "Convert color codes to different formats.",
+        icon: AiOutlineBgColors,
+        path: "/color",
+      },
+      {
+        name: "Number Base Converter",
+        description: "Convert number bases.",
+        icon: TbNumber10Small,
+        path: "/number",
+      },
+      {
+        name: "Unit Converter",
+        description: "Convert units.",
+        icon: LiaWeightSolid,
+        path: "/unit",
+      },
+      {
+        name: "Time Converter",
+        description: "Convert time zones and formats.",
+        icon: FaRegClock,
+        path: "/time",
+      },
+      {
+        name: "Currency Converter",
+        description: "Convert currencies.",
+        icon: MdCurrencyExchange,
+        path: "/currency",
+      },
+      {
+        name: "Hash Generator",
+        description: "Generate hashes.",
+        icon: FaHashtag,
+        path: "/hash",
+      },
+      {
+        name: "UUID Generator",
+        description: "Generate UUIDs.",
+        icon: FaIdCardAlt,
+        path: "/uuid",
+      },
+      {
+        name: "Password Generator",
+        description: "Generate passwords.",
+        icon: MdOutlinePassword,
+        path: "/password",
+      },
+      {
+        name: "Unix Timestamp Converter",
+        description: "Convert unix timestamps.",
+        icon: FaRegClock,
+        path: "/timestamp",
+      },
+      {
+        name: "IP Address Converter",
+        description: "Convert IP addresses.",
+        icon: TbWorldWww,
+        path: "/ip",
+      },
+      {
+        name: "Cron Expression Generator",
+        description: "Generate cron expressions.",
+        icon: TfiReload,
+        path: "/cron",
       },
     ],
   },

@@ -3,8 +3,29 @@ import MyCard from "@/components/MyCard";
 
 import { BsArrowsExpandVertical } from "react-icons/bs";
 
-const TwoColumnLayout = ({ leftContent, rightContent, defaultWidth = 50 }) => {
-  const [width, setWidth] = React.useState(defaultWidth);
+const LeftContent = (props) => {
+  return <>{props.children}</>;
+};
+
+const RightContent = (props) => {
+  return <>{props.children}</>;
+};
+
+const TwoColumnComponent = (props) => {
+  const [width, setWidth] = React.useState(props.leftWidth || 50);
+
+  let leftContent = null;
+  let rightContent = null;
+
+  React.Children.forEach(props.children, (child) => {
+    if (!React.isValidElement(child)) return;
+
+    if (child.type === LeftContent) {
+      leftContent = child.props.children;
+    } else if (child.type === RightContent) {
+      rightContent = child.props.children;
+    }
+  });
 
   const handleResizeWidth = (e) => {
     e.preventDefault();
@@ -30,28 +51,28 @@ const TwoColumnLayout = ({ leftContent, rightContent, defaultWidth = 50 }) => {
     window.addEventListener("mouseup", onMouseUp);
   };
 
-    React.useEffect(() => {
+  React.useEffect(() => {
+    if (window.innerWidth < 640) {
+      setWidth(100);
+    }
+
+    const handleResize = () => {
       if (window.innerWidth < 640) {
         setWidth(100);
       }
+    };
 
-      const handleResize = () => {
-        if (window.innerWidth < 640) {
-          setWidth(100);
-        }
-      };
+    window.addEventListener("resize", handleResize);
 
-      window.addEventListener("resize", handleResize);
-
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, []);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="flex sm:flex-row flex-col h-full">
       <MyCard style={{ width: `${width}%` }} className="mb-4 sm:mb-0">
-        {leftContent}
+        {!!leftContent && leftContent}
       </MyCard>
 
       <div
@@ -67,10 +88,12 @@ const TwoColumnLayout = ({ leftContent, rightContent, defaultWidth = 50 }) => {
       </div>
 
       <MyCard style={{ width: `${width === 100 ? 100 : 100 - width}%` }}>
-        {rightContent}
+        {!!rightContent && rightContent}
       </MyCard>
     </div>
   );
 };
 
-export default TwoColumnLayout;
+TwoColumnComponent.LeftContent = LeftContent;
+TwoColumnComponent.RightContent = RightContent;
+export default TwoColumnComponent;

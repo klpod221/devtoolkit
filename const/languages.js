@@ -1,5 +1,11 @@
 const languages = [
-  { name: "HTML", slug: "html", extension: "html" },
+  {
+    name: "HTML",
+    slug: "html",
+    extension: "html",
+    helper:
+      "You can use styles, scripts, Emmet, cdn links, and see console output in the browser.",
+  },
   { name: "JavaScript", slug: "javascript", extension: "js" },
   { name: "Java", slug: "java", extension: "java" },
   { name: "Python", slug: "python", extension: "py" },
@@ -21,13 +27,28 @@ const languages = [
   { name: "Pascal", slug: "pascal", extension: "pas" },
   { name: "Rust", slug: "rust", extension: "rs" },
   { name: "Swift", slug: "swift", extension: "swift" },
-  { name: "Objective-C", slug: "objectivec", theme: "objective-c", extension: "m" },
+  {
+    name: "Objective-C",
+    slug: "objectivec",
+    theme: "objective-c",
+    extension: "m",
+  },
   { name: "CoffeeScript", slug: "coffeescript", extension: "coffee" },
   { name: "MySQL", slug: "mysql", theme: "sql" },
   { name: "MariaDB", slug: "mariadb", theme: "sql", extension: "sql" },
-  { name: "Microsoft SQL Server", slug: "sqlserver", theme: "sql", extension: "sql" },
+  {
+    name: "Microsoft SQL Server",
+    slug: "sqlserver",
+    theme: "sql",
+    extension: "sql",
+  },
   { name: "SQLite", slug: "sqlite", theme: "sql", extension: "sql" },
-  { name: "Oracle Database", slug: "oracle-database", theme: "sql", extension: "sql" },
+  {
+    name: "Oracle Database",
+    slug: "oracle-database",
+    theme: "sql",
+    extension: "sql",
+  },
   { name: "Redis", slug: "redis", theme: "sql", extension: "sql" },
   { name: "MongoDB", slug: "mongodb", theme: "javascript", extension: "js" },
 ];
