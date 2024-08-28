@@ -39,16 +39,6 @@ const MyCodeEditor = ({
     };
   }, []);
 
-  React.useEffect(() => {
-    if (document) {
-      if (isFullScreen) {
-        console.log("full screen");
-      } else {
-        console.log("exit full screen");
-      }
-    }
-  }, [isFullScreen]);
-
   return (
     <>
       {isFullScreen && (

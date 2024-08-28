@@ -34,7 +34,7 @@ const MyDocument = () => {
         <ThemeModeScript />
       </Head>
 
-      <body className="w-full bg-gray-100 dark:bg-gray-900">
+      <body className="w-full bg-gray-100 dark:bg-dark-secondary">
         <Main />
         <NextScript />
       </body>

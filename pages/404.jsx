@@ -1,3 +1,8 @@
+import { Button } from "flowbite-react";
+import Link from "next/link";
+import { AiFillHome, AiFillPhone } from "react-icons/ai";
+
+
 const Custom404 = () => {
   return (
     <>
@@ -8,19 +13,33 @@ const Custom404 = () => {
         <div className="bg-[#FF6A3D] px-2 text-sm rounded rotate-12 absolute">
           Page Not Found
         </div>
-        <button className="mt-5">
-          <a className="relative inline-block text-sm font-medium group active:text-orange-500 focus:outline-none focus:ring">
-            <span className="absolute inset-0 transition-transform translate-x-1 translate-y-1 bg-[#FF6A3D] group-hover:translate-y-0 group-hover:translate-x-0 rounded-lg"></span>
 
-            <span className="relative block px-8 py-3 bg-gray-200 border border-current dark:bg-gray-800 dark:border-gray-700 dark:text-white rounded-lg">
-              <router-link to="/">Go Home</router-link>
-            </span>
-          </a>
-        </button>
+        <p className="text-gray-600 dark:text-gray-400 mt-4 text-center">
+          The page you are looking for does not exist or still under development
+        </p>
+
+        <div className="flex justify-center items-center space-x-2 mt-4">
+          <Button>
+            <Link href="/" className="flex items-center space-x-2">
+              <AiFillHome />
+              <span>Go back home</span>
+            </Link>
+          </Button>
+
+          <Button>
+            <Link
+              href="https://github.com/klpod221/devtoolkit/issues"
+              className="flex items-center space-x-2"
+            >
+              <AiFillPhone />
+              <span>Contact Support</span>
+            </Link>
+          </Button>
+        </div>
       </div>
     </>
   );
-}
+};
 
 Custom404.title = "404 - Page Not Found";
 export default Custom404;

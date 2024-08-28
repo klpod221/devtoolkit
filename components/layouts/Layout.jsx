@@ -1,10 +1,13 @@
 import React from "react";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { ToastContainer } from "react-toastify";
+import { ThemeContext } from "@/providers/ThemeProvider";
 
 import MyNavbar from "./Navbar";
 import MySidebar from "./Sidebar";
 
 const Layout = ({ children, title }) => {
+  const { theme } = React.useContext(ThemeContext);
   const [isOpen, setIsOpen] = React.useState(false);
 
   // when change window size, close the sidebar
@@ -27,10 +30,23 @@ const Layout = ({ children, title }) => {
       <MySidebar isOpen={isOpen} setIsOpen={setIsOpen} />
 
       <main className="main p-4 mt-14 sm:ml-64">
-          {children}
+        {children}
 
-          <SpeedInsights />
+        <SpeedInsights />
       </main>
+
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={theme}
+      />
     </>
   );
 };

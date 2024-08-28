@@ -61,16 +61,16 @@ const toolkitList = [
         path: "/base64",
       },
       {
-        name: "Bcrypt Hash Generator",
-        description: "Bcrypt hash generator and verifier.",
-        icon: FaHashtag,
-        path: "/bcrypt",
-      },
-      {
         name: "Base64 Image Encoder/Decoder",
         description: "Encode or decode base64 images.",
         icon: AiOutlineRetweet,
         path: "/base64-image",
+      },
+      {
+        name: "Bcrypt Hash Generator",
+        description: "Bcrypt hash generator and verifier.",
+        icon: FaHashtag,
+        path: "/bcrypt",
       },
       {
         name: "Url Encoder/Decoder",
@@ -187,14 +187,14 @@ const toolkitList = [
         path: "/speech",
       },
       {
-        name: "Text to Morse Code",
-        description: "Convert text to morse code.",
+        name: "Morse Code Converter",
+        description: "Convert text to Morse code and vice versa.",
         icon: AiOutlineFieldString,
         path: "/morse",
       },
       {
-        name: "Text to QR Code",
-        description: "Convert text to QR code.",
+        name: "QR Code Generator",
+        description: "Convert text to QR code and vice versa.",
         icon: AiOutlineQrcode,
         path: "/qr-code",
       },

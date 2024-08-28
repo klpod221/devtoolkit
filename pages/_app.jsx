@@ -1,5 +1,8 @@
+import React from "react";
+
 import "@/styles/globals.css";
 import "@/styles/html-preview.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import Head from "next/head";
 
