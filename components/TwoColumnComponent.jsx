@@ -3,12 +3,12 @@ import MyCard from "@/components/MyCard";
 
 import { BsArrowsExpandVertical } from "react-icons/bs";
 
-const LeftContent = (props) => {
-  return <>{props.children}</>;
+const LeftContent = ({ children }) => {
+  return <>{children}</>;
 };
 
-const RightContent = (props) => {
-  return <>{props.children}</>;
+const RightContent = ({ children }) => {
+  return <>{children}</>;
 };
 
 const TwoColumnComponent = (props) => {
@@ -77,13 +77,13 @@ const TwoColumnComponent = (props) => {
 
       <div
         id="resize-line"
-        className="hidden items-center cursor-ew-resize w-1 relative z-10 group hover:bg-gray-300 dark:hover:bg-gray-600 sm:flex"
+        className="hidden items-center cursor-ew-resize w-0 relative z-10 group hover:bg-gray-300 dark:hover:bg-dark-secondary sm:flex border border-gray-200 dark:border-dark m-1"
         onMouseDown={handleResizeWidth}
         onDoubleClick={() => setWidth(50)}
       >
         <BsArrowsExpandVertical
           id="resize-icon"
-          className="text-gray-600 dark:text-gray-400 hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 group-hover:block"
+          className="text-gray-600 dark:text-dark-text hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 group-hover:block"
         />
       </div>
 

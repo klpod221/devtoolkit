@@ -1,4 +1,4 @@
-import { Button } from "flowbite-react";
+import MyButton from "@components/MyButton";
 import Link from "next/link";
 import { AiFillHome, AiFillPhone } from "react-icons/ai";
 
@@ -19,14 +19,14 @@ const Custom404 = () => {
         </p>
 
         <div className="flex justify-center items-center space-x-2 mt-4">
-          <Button>
+          <MyButton>
             <Link href="/" className="flex items-center space-x-2">
               <AiFillHome />
               <span>Go back home</span>
             </Link>
-          </Button>
+          </MyButton>
 
-          <Button>
+          <MyButton color="warning">
             <Link
               href="https://github.com/klpod221/devtoolkit/issues"
               className="flex items-center space-x-2"
@@ -34,7 +34,7 @@ const Custom404 = () => {
               <AiFillPhone />
               <span>Contact Support</span>
             </Link>
-          </Button>
+          </MyButton>
         </div>
       </div>
     </>

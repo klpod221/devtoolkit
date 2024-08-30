@@ -40,12 +40,6 @@
     animation: emoji-404 2.5s infinite;
   }
 
-  .image-preview {
-    @apply flex justify-center items-center;
-    height: 96vh;
-    width: 96vw;
-  }
-
   button span {
     white-space: nowrap;
   }

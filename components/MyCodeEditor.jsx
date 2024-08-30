@@ -43,14 +43,14 @@ const MyCodeEditor = ({
     <>
       {isFullScreen && (
         <div className="fixed inset-0 z-50 bg-gray-900 bg-opacity-80 flex justify-center items-center">
-          <div className="w-full h-full p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg relative">
+          <div className="w-full h-full p-4 bg-white dark:bg-dark rounded-lg shadow-lg relative">
             <div
-              className="absolute top-6 right-6 cursor-pointer z-10 p-2 bg-white dark:bg-gray-800 rounded-full shadow-md"
+              className="absolute top-6 right-6 cursor-pointer z-10 p-2 bg-white dark:bg-dark rounded-full shadow-md"
               onClick={() => {
                 setIsFullScreen(!isFullScreen);
               }}
             >
-              <IoContractOutline className="text-gray-800 dark:text-gray-200" />
+              <IoContractOutline className="text-gray-800 dark:text-dark-text" />
             </div>
 
             <Editor
@@ -58,7 +58,7 @@ const MyCodeEditor = ({
               onChange={onChange}
               language={language}
               beforeMount={handleEditorDidMount}
-              className="w-full h-full border border-gray-200 dark:border-gray-700 code-editor"
+              className="w-full h-full border border-gray-200 dark:border-dark-secondary code-editor"
               theme={theme === "dark" ? "vs-dark" : "vs-light"}
               options={{
                 smoothScrolling: true,
@@ -70,12 +70,12 @@ const MyCodeEditor = ({
 
       <div className="relative w-full h-full group">
         <div
-          className="absolute top-2 right-2 cursor-pointer z-10 p-2 bg-white dark:bg-gray-800 rounded-full shadow-md hidden group-hover:block transition-all duration-300"
+          className="absolute top-2 right-2 cursor-pointer z-10 p-2 bg-white dark:bg-dark rounded-full shadow-md hidden group-hover:block transition-all duration-300"
           onClick={() => {
             setIsFullScreen(!isFullScreen);
           }}
         >
-          <IoExpandOutline className="text-gray-800 dark:text-gray-200" />
+          <IoExpandOutline className="text-gray-800 dark:text-dark-text" />
         </div>
 
         <Editor
@@ -83,7 +83,7 @@ const MyCodeEditor = ({
           onChange={onChange}
           language={language}
           beforeMount={handleEditorDidMount}
-          className="w-full h-full border border-gray-200 dark:border-gray-700 code-editor"
+          className="w-full h-full border border-gray-200 dark:border-dark-secondary code-editor"
           theme={theme === "dark" ? "vs-dark" : "vs-light"}
           options={{
             scrollbar: {

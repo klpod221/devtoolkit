@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import MyInput from "@/components/MyInput";
 import { TextInput, Popover } from "flowbite-react";
 
 import {
@@ -303,7 +303,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
   };
 
   const popoverContent = (text) => (
-    <div className="px-2 py-1 text-sm text-gray-700 bg-white rounded-lg dark:bg-gray-800 dark:text-gray-300">
+    <div className="px-2 py-1 text-sm text-gray-700 bg-white rounded-lg dark:bg-dark dark:text-gray-300">
       {text}
     </div>
   );
@@ -312,23 +312,21 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
     <>
       {isOpen && (
         <div
-          className="fixed top-0 left-0 z-20 w-screen h-screen bg-black bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50"
+          className="fixed top-0 left-0 z-20 w-screen h-screen bg-black bg-opacity-50 dark:bg-gray dark:bg-opacity-50"
           aria-label="Overlay"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
       <aside
-        className={`fixed top-0 left-0 z-30 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700 ${
+        className={`fixed top-0 left-0 z-30 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-dark dark:border-dark-secondary ${
           isOpen ? "translate-x-0" : ""
         }`}
         aria-label="Sidebar"
       >
-        {/* dark background */}
-
-        <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+        <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-dark">
           {/* Search tool */}
           <div>
-            <TextInput
+            <MyInput
               type="search"
               placeholder="Search tools..."
               icon={AiOutlineSearch}
@@ -341,7 +339,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
           {toolkit.map((section, index) => (
             <ul key={index} className="pt-4 space-y-2">
               <li>
-                <div className="text-gray-400 text-sm font-medium uppercase dark:text-white w-full border-b border-gray-200 dark:border-white pb-1">
+                <div className="text-gray-400 text-sm font-medium uppercase w-full border-b border-gray-200 pb-1 dark:border-dark-secondary dark:text-dark-text">
                   {section.title}
                 </div>
               </li>
@@ -354,17 +352,19 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                   >
                     <Link
                       href={section.path + tool.path}
-                      className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group
+                      className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-dark-text hover:bg-gray-200 dark:hover:bg-dark-secondary group
                       ${
                         currentPath === section.path + tool.path
-                          ? "bg-gray-200 dark:bg-gray-700"
+                          ? "bg-gray-200 dark:bg-dark-secondary"
                           : ""
                       }`}
                     >
                       <tool.icon
-                        className={`w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white`}
+                        className={`w-5 h-5 text-gray-500 transition duration-75 dark:text-dark-text-secondary group-hover:text-gray-900 dark:group-hover:text-dark-text`}
                       />
-                      <span className="ms-3">{tool.name}</span>
+                      <span className="ms-3 dark:text-dark-text">
+                        {tool.name}
+                      </span>
                     </Link>
                   </Popover>
                 </li>

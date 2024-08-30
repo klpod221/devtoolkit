@@ -1,11 +1,15 @@
 import React from "react";
 import TwoColumnComponent from "@/components/TwoColumnComponent";
 import MyCodeEditor from "@/components/MyCodeEditor";
-import { Select, Label, Textarea, Button, Spinner } from "flowbite-react";
+import MyButton from "@/components/MyButton";
+import { Select, Label, Textarea, Spinner } from "flowbite-react";
 import supportLanguages from "@/const/languages";
 import axios from "axios";
 
 import { BsPlayFill } from "react-icons/bs";
+import MyCard from "@components/MyCard";
+import MyTextarea from "@components/MyTextarea";
+import CodeOutput from "@components/CodeOutput";
 
 const CodeEditor = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState(
@@ -16,7 +20,9 @@ const CodeEditor = () => {
   const [stdin, setStdin] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [output, setOutput] = React.useState();
-  const [helperMessage, setHelperMessage] = React.useState("You can write your code here");
+  const [helperMessage, setHelperMessage] = React.useState(
+    "You can write your code here"
+  );
 
   const handleRunCode = async () => {
     try {
@@ -56,14 +62,10 @@ const CodeEditor = () => {
   return (
     <TwoColumnComponent leftWidth={70}>
       <TwoColumnComponent.LeftContent>
-        <div className="flex justify-between items-center gap-3">
-          <div className="text-xl font-semibold text-gray-800 dark:text-gray-200">
-            Code Input{" "}
-            <p className="text-xs text-gray-400 dark:text-gray-400">
-              ({helperMessage || "You can write your code here"})
-            </p>
-          </div>
-
+        <MyCard.Header
+          title="Code Input"
+          helper={helperMessage || "You can write your code here"}
+        >
           <div className="flex space-x-2">
             <Select
               value={selectedLanguage}
@@ -77,7 +79,7 @@ const CodeEditor = () => {
               ))}
             </Select>
 
-            <Button
+            <MyButton
               size={"sm"}
               className="py-0"
               onClick={handleRunCode}
@@ -89,9 +91,9 @@ const CodeEditor = () => {
               ) : (
                 <BsPlayFill className="h-5 w-5" />
               )}
-            </Button>
+            </MyButton>
           </div>
-        </div>
+        </MyCard.Header>
 
         <MyCodeEditor language={language} code={code} onChange={setCode} />
       </TwoColumnComponent.LeftContent>
@@ -107,18 +109,18 @@ const CodeEditor = () => {
                   className="text-xl font-semibold"
                 />
               </div>
-              <Textarea
+              <MyTextarea
                 id="stdin"
-                required
-                rows={2}
                 className="mb-4 rounded-none"
                 value={stdin}
+                rows={2}
+                required
                 onChange={(e) => setStdin(e.target.value)}
               />
             </>
           )}
 
-          <div className="text-gray-800 dark:text-gray-200 mb-1 flex justify-between">
+          <div className="text-gray-800 dark:text-dark-text flex mb-1 justify-between">
             <span className="text-xl font-semibold">STDOUT</span>
             <span className="text-sm text-gray-500 dark:text-gray-400">
               {loading ? (
@@ -131,24 +133,7 @@ const CodeEditor = () => {
             </span>
           </div>
 
-          <div className="overflow-auto h-full w-full border text-sm disabled:cursor-not-allowed disabled:opacity-50 border-gray-300 bg-gray-50 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500">
-            {output?.exception ? (
-              <pre className="text-red-500 dark:text-red-400">
-                <code>{output.exception}</code>
-              </pre>
-            ) : language === "html" && output?.stdout ? (
-              <iframe
-                title="output"
-                srcDoc={output.stdout}
-                className="w-full h-full bg-white"
-                id="iframe-output"
-              />
-            ) : (
-              <pre>
-                <code>{output?.stdout}</code>
-              </pre>
-            )}
-          </div>
+          <CodeOutput language={language} error={output?.exception} output={output?.stdout} />
         </div>
       </TwoColumnComponent.RightContent>
     </TwoColumnComponent>

@@ -6,20 +6,31 @@ import { AiOutlineClose } from "react-icons/ai";
 const MyImagePreview = ({ isShow, setIsShow, image }) => {
   return (
     <div
-      className={`fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex justify-center items-center ${
+      className={`fixed top-0 left-0 z-50 w-screen h-screen ${
         isShow ? "" : "hidden"
       }`}
     >
-      <div className="relative image-preview">
-        <Image src={image} layout="fill" objectFit="contain" alt="image" />
+      <div
+        className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"
+        onClick={() => setIsShow(false)}
+      ></div>
 
-        <button
-          className="absolute top-0 right-0 p-2 bg-black bg-opacity-50 text-white rounded-bl-lg"
-          onClick={() => setIsShow(false)}
-        >
-          <AiOutlineClose className="w-6 h-6" />
-        </button>
-      </div>
+      {image && (
+        <Image
+          src={image}
+          layout="fill"
+          objectFit="contain"
+          alt="image"
+          className={`!w-auto !h-auto !max-w-full !max-h-full !fixed !top-1/2 !left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300`}
+        />
+      )}
+
+      <button
+        className="absolute top-3 right-3 p-2 text-white bg-black bg-opacity-50 rounded-full"
+        onClick={() => setIsShow(false)}
+      >
+        <AiOutlineClose className="h-6 w-6" />
+      </button>
     </div>
   );
 };
