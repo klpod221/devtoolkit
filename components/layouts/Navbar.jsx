@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { DarkThemeToggle } from "flowbite-react";
 import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
 import { HiBars3BottomLeft } from "react-icons/hi2";

@@ -1,5 +1,5 @@
 import React from "react";
-import NextImage from "next/image";
+import NextImage from "next/legacy/image";
 import TwoColumnComponent from "@/components/TwoColumnComponent";
 import JSZip from "jszip";
 import { Button, FileInput, Label } from "flowbite-react";
