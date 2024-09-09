@@ -1,11 +1,11 @@
 import React from "react";
-import { Card } from "flowbite-react";
-import Link from "next/link";
+import MyCard from "@components/MyCard";
+import NextLink from "next/link";
 
 const Home = () => {
   return (
     <div>
-      <Card className="w-full max-w-5xl">
+      <MyCard className="w-full max-w-5xl">
         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Hello Developer! 👋
         </h5>
@@ -18,12 +18,12 @@ const Home = () => {
         {/* Github */}
         <p className="text-xl text-gray-700 dark:text-gray-400">
           If you like this project, please give it a star on{" "}
-          <Link
+          <NextLink
             href="https://github.com/klpod221/devtoolkit"
             className="text-blue-500"
           >
             Github
-          </Link>
+          </NextLink>
           . And if you have any suggestions or feedback, feel free to open an
           issue on the repository. Thanks for your support! 🙏
         </p>
@@ -31,16 +31,16 @@ const Home = () => {
         {/* Credit */}
         <p className="text-gray-700 dark:text-gray-400">
           Made with ❤️ by{" "}
-          <Link
+          <NextLink
             href="https://klpod221.github.io"
             className="text-blue-500"
             target="_blank"
             rel="noopener noreferrer"
           >
             klpod221
-          </Link>
+          </NextLink>
         </p>
-      </Card>
+      </MyCard>
     </div>
   );
 };

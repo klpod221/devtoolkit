@@ -2,13 +2,19 @@ import React from "react";
 import MyImage from "@components/MyImage";
 import MyTabs from "@components/MyTabs";
 import MyTab from "@components/MyTab";
-import { toast } from "react-toastify";
+import MyFileInput from "@components/MyFileInput";
 
 const Base64Image = () => {
+  const [images, setImages] = React.useState([]);
+
+  const onChange = (files) => {
+    console.log(files);
+  }
+
   return (
     <MyTabs>
       <MyTab title="Encoder">
-        <MyImage src="/logo.webp" alt="logo" />
+        <MyFileInput onChange={onChange} />
       </MyTab>
       <MyTab title="Decoder">Decoder</MyTab>
     </MyTabs>

@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import NextLink from "next/link";
 import { useRouter } from "next/router";
 import MyInput from "@/components/MyInput";
 import { TextInput, Popover } from "flowbite-react";
@@ -350,7 +350,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                     placement="right"
                     trigger="hover"
                   >
-                    <Link
+                    <NextLink
                       href={section.path + tool.path}
                       className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-dark-text hover:bg-gray-200 dark:hover:bg-dark-secondary group
                       ${
@@ -365,7 +365,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                       <span className="ms-3 dark:text-dark-text">
                         {tool.name}
                       </span>
-                    </Link>
+                    </NextLink>
                   </Popover>
                 </li>
               ))}

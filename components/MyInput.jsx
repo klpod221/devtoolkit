@@ -4,7 +4,7 @@ const MyInput = (props) => {
   const theme = {
     base: "flex",
     addon:
-      "inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-200 px-3 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-600 dark:text-dark-text-secondary",
+      "inline-flex items-center rounded-l-md border border-r-0 border-gray-200 bg-gray-200 px-3 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-600 dark:text-dark-text-secondary",
     field: {
       base: "relative w-full",
       icon: {
@@ -23,7 +23,7 @@ const MyInput = (props) => {
           lg: "p-4 sm:text-base",
         },
         colors: {
-          gray: "border-gray-300 bg-gray-50 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-dark-secondary dark:bg-dark dark:text-white dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-tex",
+          gray: "border-gray-200 bg-gray-50 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-dark-secondary dark:bg-dark dark:text-white dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-tex",
           info: "border-cyan-500 bg-cyan-50 text-cyan-900 placeholder-cyan-700 focus:border-cyan-500 focus:ring-cyan-500 dark:border-cyan-400 dark:bg-cyan-100 dark:focus:border-cyan-500 dark:focus:ring-cyan-500",
           failure:
             "border-red-500 bg-red-50 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500 dark:border-red-400 dark:bg-red-100 dark:focus:border-red-500 dark:focus:ring-red-500",

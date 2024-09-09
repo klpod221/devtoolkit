@@ -20,7 +20,7 @@ const Header = ({ children, title, helper }) => {
 const MyCard = ({ children, ...props }) => {
   const theme = {
     root: {
-      base: "flex rounded-lg border border-gray-200 bg-white shadow-md dark:border-dark-secondary dark:bg-dark",
+      base: "flex rounded-lg border border-gray-200 bg-white dark:border-dark-secondary dark:bg-dark",
       children: "flex h-full flex-col gap-3 p-6",
       horizontal: {
         off: "flex-col",
