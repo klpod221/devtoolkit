@@ -6,7 +6,6 @@ import { Button, FileInput, Label } from "flowbite-react";
 import { AiOutlineCloudUpload, AiOutlineEye } from "react-icons/ai";
 import { BsPlayFill } from "react-icons/bs";
 import { AiOutlineDownload } from "react-icons/ai";
-import MyImagePreview from "@/components/MyImagePreview";
 import MyButton from "@/components/MyButton";
 import MyCard from "@components/MyCard";
 
@@ -228,12 +227,6 @@ const FormatConverter = () => {
         </div>
       </TwoColumnComponent.RightContent>
     </TwoColumnComponent>
-
-    <MyImagePreview
-      isShow={isShowImagePreview}
-      setIsShow={setIsShowImagePreview}
-      image={previewImage}
-    />
   </>;
 };
 
