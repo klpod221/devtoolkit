@@ -2,7 +2,7 @@ import React from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import MyInput from "@/components/MyInput";
-import { TextInput, Popover } from "flowbite-react";
+import { Popover } from "flowbite-react";
 
 import {
   AiOutlineSearch,
@@ -281,10 +281,8 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
   const [keyword, setKeyword] = React.useState("");
   const [toolkit, setToolkit] = React.useState(toolkitList);
 
-  const onSearch = (e) => {
-    setKeyword(e.target.value);
-
-    const search = e.target.value.toLowerCase();
+  React.useEffect(() => {
+    const search = keyword.toLowerCase();
 
     const filteredToolkit = toolkitList.map((section) => {
       const tools = section.tools.filter(
@@ -300,7 +298,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
     });
 
     setToolkit(filteredToolkit);
-  };
+  }, [keyword]);
 
   const popoverContent = (text) => (
     <div className="px-2 py-1 text-sm text-gray-700 bg-white rounded-lg dark:bg-dark dark:text-gray-300">
@@ -331,7 +329,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
               placeholder="Search tools..."
               icon={AiOutlineSearch}
               value={keyword}
-              onChange={onSearch}
+              onChange={setKeyword}
             />
           </div>
 

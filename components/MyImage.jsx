@@ -64,17 +64,17 @@ const MyImage = ({ src, alt, className, preview = true, download = true }) => {
           <NextImage
             src={src}
             alt={alt}
-            width={500}
-            height={500}
-            className="object-contain animate-zoom-in"
+            width={1500}
+            height={1500}
+            className="object-contain animate-zoom-in p-5"
           />
 
           <div
-            className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 -z-10 animate-fade-in"
+            className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 -z-10 animate-fade-in"
             onClick={() => setIsShowPreview(false)}
           ></div>
 
-          <div className="absolute top-5 right-5 flex gap-1 animate-fade-in">
+          <div className="fixed top-5 right-5 flex gap-1 animate-fade-in">
             {download && (
               <button className="bg-black bg-opacity-50 text-white rounded-lg p-1" onClick={onDownload}>
                 <AiOutlineDownload className="h-6 w-6" />

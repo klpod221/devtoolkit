@@ -1,8 +1,8 @@
 import React from "react";
+import { toast } from "react-toastify";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
-import { FaRegCopy } from "react-icons/fa";
-import { toast } from "react-toastify";
+import MyTextarea from "@components/MyTextarea";
 import CodeOutput from "@components/CodeOutput";
 
 const Base64EncoderDecoder = () => {
@@ -19,22 +19,13 @@ const Base64EncoderDecoder = () => {
     toast.success("Decoded successfully");
   };
 
-  const onCopy = () => {
-    navigator.clipboard.writeText(output);
-    toast.success("Copied to clipboard");
-  };
-
   return (
     <MyCard className="w-full">
       <div className="w-full h-full">
         <div className="font-semibold text-gray-800 dark:text-dark-text">
           Input
         </div>
-        <textarea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="w-full h-24 border border-gray-200 dark:border-dark-secondary p-2 dark:bg-dark dark:text-dark-text"
-        />
+        <MyTextarea value={input} onChange={setInput} />
 
         <div className="flex justify-center items-center space-x-4 my-2">
           <MyButton onClick={encode}>Encode</MyButton>

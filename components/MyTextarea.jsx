@@ -1,11 +1,32 @@
 import React from "react";
 import { Textarea } from "flowbite-react";
+import { FaCopy } from "react-icons/fa";
+import { toast } from "react-toastify";
 
-const MyTextarea = (props) => {
+const MyTextarea = ({ showCopy = true, value, onChange = () => {}, ...props }) => {
+  const copyToClipboard = () => {
+    if (!navigator.clipboard) {
+      toast.error("Clipboard API not available");
+      return;
+    }
+
+    if (!props.value) {
+      toast.error("No output to copy");
+      return;
+    }
+
+    navigator.clipboard.writeText(props.value);
+    toast.success("Copied to clipboard!");
+  };
+
+  const onTextChange = (e) => {
+    onChange(e.target.value, e);
+  };
+
   const theme = {
     base: "block w-full rounded-lg border text-sm disabled:cursor-not-allowed disabled:opacity-50",
     colors: {
-      gray: "border-gray-200 bg-gray-50 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-dark-secondary dark:bg-dark",
+      gray: "border-gray-200 bg-gray-50 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-dark-secondary dark:bg-dark dark:text-dark-text dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text",
       info: "border-cyan-500 bg-cyan-50 text-cyan-900 placeholder-cyan-700 focus:border-cyan-500 focus:ring-cyan-500 dark:border-dark-secondary dark:bg-dark",
       failure:
         "border-red-500 bg-red-50 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500 dark:border-red-400 dark:bg-red-100 dark:focus:border-red-500 dark:focus:ring-red-500",
@@ -20,7 +41,20 @@ const MyTextarea = (props) => {
     },
   };
 
-  return <Textarea {...props} theme={theme} />;
+  return (
+    <div className="relative group overflow-auto">
+      {showCopy && (
+        <button
+          className="absolute top-1 right-1 p-1 bg-gray-200 dark:bg-dark-secondary rounded-md group-hover:block hidden"
+          onClick={copyToClipboard}
+        >
+          <FaCopy />
+        </button>
+      )}
+
+      <Textarea theme={theme} rows={props.rows || 4} value={value} onChange={onTextChange} {...props} />
+    </div>
+  );
 };
 
 export default MyTextarea;

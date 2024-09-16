@@ -2,7 +2,7 @@ import React from "react";
 import { FileInput, Label } from "flowbite-react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
-const MyFileInput = ({ onChange = () => {}, multiple = true, type = "image", placeholder = null }) => {
+const MyFileInput = ({ onChange = () => {}, multiple = true, type = "image", placeholder = null, accept = null }) => {
   const [isDragging, setIsDragging] = React.useState(false);
   const [message, setMessage] = React.useState(placeholder);
   const [id, setId] = React.useState(null);
@@ -96,7 +96,7 @@ const MyFileInput = ({ onChange = () => {}, multiple = true, type = "image", pla
       <FileInput
         id={`dropzone-file-${id}`}
         multiple={multiple}
-        accept={`${type === "image" ? "image/*" : "*/*"}`}
+        accept={`${type === "image" ? "image/*" : accept}`}
         onChange={onFileChange}
         className="w-full h-full absolute top-0 left-0 opacity-0"
       />

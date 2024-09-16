@@ -10,6 +10,7 @@ import { BsPlayFill } from "react-icons/bs";
 import MyCard from "@components/MyCard";
 import MyTextarea from "@components/MyTextarea";
 import CodeOutput from "@components/CodeOutput";
+import MySelect from "@components/MySelect";
 
 const CodeEditor = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState(
@@ -67,17 +68,17 @@ const CodeEditor = () => {
           helper={helperMessage || "You can write your code here"}
         >
           <div className="flex space-x-2">
-            <Select
+            <MySelect
               value={selectedLanguage}
-              onChange={(e) => setSelectedLanguage(e.target.value)}
-              sizing={"sm"}
+              onChange={setSelectedLanguage}
+              sizing="sm"
             >
               {supportLanguages.map((lang) => (
                 <option key={lang.slug} value={lang.slug}>
                   {lang.name}
                 </option>
               ))}
-            </Select>
+            </MySelect>
 
             <MyButton
               size={"sm"}
@@ -111,11 +112,11 @@ const CodeEditor = () => {
               </div>
               <MyTextarea
                 id="stdin"
-                className="mb-4 rounded-none"
+                className="mb-4"
                 value={stdin}
                 rows={2}
                 required
-                onChange={(e) => setStdin(e.target.value)}
+                onChange={setStdin}
               />
             </>
           )}
@@ -133,7 +134,11 @@ const CodeEditor = () => {
             </span>
           </div>
 
-          <CodeOutput language={language} error={output?.exception} output={output?.stdout} />
+          <CodeOutput
+            language={language}
+            error={output?.exception}
+            output={output?.stdout}
+          />
         </div>
       </TwoColumnComponent.RightContent>
     </TwoColumnComponent>

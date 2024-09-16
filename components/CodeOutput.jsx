@@ -2,7 +2,7 @@ import React from "react";
 import { FaCopy } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-const CodeOutput = ({ language, output = false, error = false, canCopy = true }) => {
+const CodeOutput = ({ language, output = false, error = false, canCopy = true, textWrap = false }) => {
   const copyToClipboard = () => {
     if (!navigator.clipboard) {
       toast.error("Clipboard API not available");
