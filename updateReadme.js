@@ -26,7 +26,7 @@ toolList.forEach((category) => {
   text += `| Status | Name | Description |\n`;
   text += `| --- | --- | --- |\n`;
   category.tools.forEach((tool) => {
-    text += `| [${tool.status ? "x" : " "}] | [${
+    text += `| <li>- [${tool.status ? "x" : " "}] </li> | [${
       tool.name
     }](https://devtools.klpod221.site${category.path}${tool.path}) | ${
       tool.description
