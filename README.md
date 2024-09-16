@@ -26,7 +26,7 @@ And if you have any suggestions, please let me know by creating an issue.
 
 | Status                    | Name                                                                            | Description                                         |
 | ------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------- |
-| <ul><li> - [ ] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)                    | Upload and share files.                             |
+| <ul><li> - [x] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)                    | Upload and share files.                             |
 | <ul><li> - [x] </li></ul> | [Base64 Encoder/Decoder](https://devtools.klpod221.site/web/base64)             | Encode or decode base64 strings.                    |
 | <ul><li> - [x] </li></ul> | [Base64 Image Encoder/Decoder](https://devtools.klpod221.site/web/base64-image) | Encode or decode base64 images.                     |
 | <ul><li> - [ ] </li></ul> | [Bcrypt Hash Generator](https://devtools.klpod221.site/web/bcrypt)              | Bcrypt hash generator and verifier.                 |

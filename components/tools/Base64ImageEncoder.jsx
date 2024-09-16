@@ -59,7 +59,7 @@ const Base64ImageEncoder = () => {
         ))}
       </div>
 
-      <MyFileInput onChange={setImages} multiple={false} />
+      <MyFileInput onChange={setImages} multiple={false} type="image" />
 
       <div className="flex justify-center items-center space-x-4 my-2">
         <MyButton onClick={convertImages}>Convert</MyButton>

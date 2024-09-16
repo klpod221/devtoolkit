@@ -9,6 +9,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 import MyButton from "@/components/MyButton";
 import MyCard from "@components/MyCard";
 import MyImage from "@components/MyImage";
+import MyFileInput from "@components/MyFileInput";
 
 const formatList = ["jpg", "png", "webp", "ico", "svg"];
 
@@ -57,14 +58,10 @@ const FormatConverter = () => {
     });
   };
 
-  const onFileChange = (e) => {
-    const files = e.target.files;
-    const fileArray = Array.from(files).filter((file) =>
-      file.type.includes("image")
-    );
-    setImages(fileArray);
+  const onFileChange = (files) => {
+    setImages(files);
 
-    const names = fileArray.map((file) => {
+    const names = files.map((file) => {
       const split = file.name.split(".");
       split.pop();
       return split.join(".");
@@ -119,28 +116,7 @@ const FormatConverter = () => {
             </MyButton>
           </MyCard.Header>
 
-          <Label
-            htmlFor="dropzone-file"
-            className="flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 hover:border-gray-500 hover:bg-gray-100 dark:border-dark-secondary dark:bg-dark dark:hover:border-dark-text-secondary dark:hover:bg-dark-secondary relative"
-          >
-            <div className="flex flex-col items-center justify-center pb-6 pt-5">
-              <AiOutlineCloudUpload className="mb-4 h-8 w-8 text-gray-500 dark:text-gray-400" />
-              <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                <span className="font-semibold">Click to upload</span> or drag
-                and drop
-              </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
-                You can upload multiple images (jpg, png, svg, etc.)
-              </p>
-            </div>
-            <FileInput
-              multiple
-              id="dropzone-file"
-              accept="image/*"
-              onChange={onFileChange}
-              className="w-full h-full absolute top-0 left-0 opacity-0"
-            />
-          </Label>
+          <MyFileInput onChange={onFileChange} multiple={true} type="image" />
           <Button.Group>
             {formatList.map((f) => (
               <Button

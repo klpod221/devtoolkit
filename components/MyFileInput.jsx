@@ -2,7 +2,7 @@ import React from "react";
 import { FileInput, Label } from "flowbite-react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
-const MyFileInput = ({ onChange = () => {}, multiple = true, type = "image", placeholder = null, accept = null }) => {
+const MyFileInput = ({ onChange = () => {}, multiple = true, type = "file", placeholder = null, accept = null }) => {
   const [isDragging, setIsDragging] = React.useState(false);
   const [message, setMessage] = React.useState(placeholder);
   const [id, setId] = React.useState(null);
@@ -60,7 +60,7 @@ const MyFileInput = ({ onChange = () => {}, multiple = true, type = "image", pla
     } else if (type === "image" && !multiple) {
       setMessage("You can upload an image (jpg, png, svg, etc.)");
     } else {
-      setMessage("You can upload your file here");
+      setMessage(`You can upload your file here (${multiple ? "multiple" : "single"})`);
     }
   }, [placeholder, type, multiple]);
 

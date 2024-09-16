@@ -55,7 +55,7 @@ const toolList = [
         description: "Upload and share files.",
         icon: AiOutlineCloudUpload,
         path: "/uploader",
-        status: false, // true if tool is ready
+        status: true, // true if tool is ready
       },
       {
         name: "Base64 Encoder/Decoder",

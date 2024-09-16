@@ -7,7 +7,8 @@ const Header = ({ children, title, helper }) => {
         <div className="text-xl font-semibold text-gray-800 dark:text-dark-text">
           {title}
           <p className="text-xs text-gray-400 dark:text-gray-400">
-            {helper}
+            {/* helper can be html string */}
+            <span dangerouslySetInnerHTML={{ __html: helper }} />
           </p>
         </div>
       ) : null}
