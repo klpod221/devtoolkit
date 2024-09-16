@@ -17,64 +17,64 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Text Editor
 
-| Status | Name                                                                 | Description                    |
-| ------ | -------------------------------------------------------------------- | ------------------------------ |
-| - [x]  | [Code Editor & Compiler](https://devtools.klpod221.site/editor/code) | Write and run your code.       |
-| - [x]  | [Markdown Editor](https://devtools.klpod221.site/editor/markdown)    | Write markdown and preview it. |
+| Status                    | Name                                                                 | Description                    |
+| ------------------------- | -------------------------------------------------------------------- | ------------------------------ |
+| <ul><li> - [x] </li></ul> | [Code Editor & Compiler](https://devtools.klpod221.site/editor/code) | Write and run your code.       |
+| <ul><li> - [x] </li></ul> | [Markdown Editor](https://devtools.klpod221.site/editor/markdown)    | Write markdown and preview it. |
 
 ### Web Tools
 
-| Status | Name                                                                            | Description                                         |
-| ------ | ------------------------------------------------------------------------------- | --------------------------------------------------- |
-| - [ ]  | [File Uploader](https://devtools.klpod221.site/web/uploader)                    | Upload and share files.                             |
-| - [x]  | [Base64 Encoder/Decoder](https://devtools.klpod221.site/web/base64)             | Encode or decode base64 strings.                    |
-| - [x]  | [Base64 Image Encoder/Decoder](https://devtools.klpod221.site/web/base64-image) | Encode or decode base64 images.                     |
-| - [ ]  | [Bcrypt Hash Generator](https://devtools.klpod221.site/web/bcrypt)              | Bcrypt hash generator and verifier.                 |
-| - [ ]  | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)                   | Encode or decode url strings.                       |
-| - [ ]  | [Url Parser](https://devtools.klpod221.site/web/url-parser)                     | Parse url strings.                                  |
-| - [ ]  | [Digital Certificate Decoder](https://devtools.klpod221.site/web/certificate)   | Decode digital certificates.                        |
-| - [ ]  | [JSON Converter](https://devtools.klpod221.site/web/json)                       | Convert JSON to XML, YAML, CSV, etc and vice versa. |
+| Status                    | Name                                                                            | Description                                         |
+| ------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------- |
+| <ul><li> - [ ] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)                    | Upload and share files.                             |
+| <ul><li> - [x] </li></ul> | [Base64 Encoder/Decoder](https://devtools.klpod221.site/web/base64)             | Encode or decode base64 strings.                    |
+| <ul><li> - [x] </li></ul> | [Base64 Image Encoder/Decoder](https://devtools.klpod221.site/web/base64-image) | Encode or decode base64 images.                     |
+| <ul><li> - [ ] </li></ul> | [Bcrypt Hash Generator](https://devtools.klpod221.site/web/bcrypt)              | Bcrypt hash generator and verifier.                 |
+| <ul><li> - [ ] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)                   | Encode or decode url strings.                       |
+| <ul><li> - [ ] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                     | Parse url strings.                                  |
+| <ul><li> - [ ] </li></ul> | [Digital Certificate Decoder](https://devtools.klpod221.site/web/certificate)   | Decode digital certificates.                        |
+| <ul><li> - [ ] </li></ul> | [JSON Converter](https://devtools.klpod221.site/web/json)                       | Convert JSON to XML, YAML, CSV, etc and vice versa. |
 
 ### Image Tools
 
-| Status | Name                                                               | Description                               |
-| ------ | ------------------------------------------------------------------ | ----------------------------------------- |
-| - [x]  | [Format Converter](https://devtools.klpod221.site/image/converter) | Convert your images to different formats. |
-| - [ ]  | [Compressor](https://devtools.klpod221.site/image/compressor)      | Reduce the size of your images.           |
+| Status                    | Name                                                               | Description                               |
+| ------------------------- | ------------------------------------------------------------------ | ----------------------------------------- |
+| <ul><li> - [x] </li></ul> | [Format Converter](https://devtools.klpod221.site/image/converter) | Convert your images to different formats. |
+| <ul><li> - [ ] </li></ul> | [Compressor](https://devtools.klpod221.site/image/compressor)      | Reduce the size of your images.           |
 
 ### Text Tools
 
-| Status | Name                                                                 | Description                                         |
-| ------ | -------------------------------------------------------------------- | --------------------------------------------------- |
-| - [ ]  | [Regex Tester](https://devtools.klpod221.site/text/regex)            | Test your regular expressions.                      |
-| - [ ]  | [Text Diff](https://devtools.klpod221.site/text/diff)                | Compare two texts.                                  |
-| - [ ]  | [Word Counter](https://devtools.klpod221.site/text/counter)          | Count words, characters and distribution.           |
-| - [ ]  | [Lorem Ipsum](https://devtools.klpod221.site/text/lorem-ipsum)       | Generate placeholder text.                          |
-| - [ ]  | [Random String](https://devtools.klpod221.site/text/random)          | Generate random strings for passwords etc.          |
-| - [ ]  | [Hex Converter](https://devtools.klpod221.site/text/hex)             | Convert hex to unicode and vice versa.              |
-| - [ ]  | [Text Case Converter](https://devtools.klpod221.site/text/case)      | Convert text to upper, lower, title, sentence case. |
-| - [ ]  | [Text to Image](https://devtools.klpod221.site/text/to-image)        | Convert text to image.                              |
-| - [ ]  | [Backslash Converter](https://devtools.klpod221.site/text/backslash) | Escape or unescape backslashes.                     |
-| - [ ]  | [List Sorter/Randomizer](https://devtools.klpod221.site/text/sort)   | Sort or randomize lists.                            |
-| - [ ]  | [Text to Speech](https://devtools.klpod221.site/text/speech)         | Convert text to speech.                             |
-| - [ ]  | [Morse Code Converter](https://devtools.klpod221.site/text/morse)    | Convert text to Morse code and vice versa.          |
-| - [ ]  | [QR Code Generator](https://devtools.klpod221.site/text/qr-code)     | Convert text to QR code and vice versa.             |
+| Status                    | Name                                                                 | Description                                         |
+| ------------------------- | -------------------------------------------------------------------- | --------------------------------------------------- |
+| <ul><li> - [ ] </li></ul> | [Regex Tester](https://devtools.klpod221.site/text/regex)            | Test your regular expressions.                      |
+| <ul><li> - [ ] </li></ul> | [Text Diff](https://devtools.klpod221.site/text/diff)                | Compare two texts.                                  |
+| <ul><li> - [ ] </li></ul> | [Word Counter](https://devtools.klpod221.site/text/counter)          | Count words, characters and distribution.           |
+| <ul><li> - [ ] </li></ul> | [Lorem Ipsum](https://devtools.klpod221.site/text/lorem-ipsum)       | Generate placeholder text.                          |
+| <ul><li> - [ ] </li></ul> | [Random String](https://devtools.klpod221.site/text/random)          | Generate random strings for passwords etc.          |
+| <ul><li> - [ ] </li></ul> | [Hex Converter](https://devtools.klpod221.site/text/hex)             | Convert hex to unicode and vice versa.              |
+| <ul><li> - [ ] </li></ul> | [Text Case Converter](https://devtools.klpod221.site/text/case)      | Convert text to upper, lower, title, sentence case. |
+| <ul><li> - [ ] </li></ul> | [Text to Image](https://devtools.klpod221.site/text/to-image)        | Convert text to image.                              |
+| <ul><li> - [ ] </li></ul> | [Backslash Converter](https://devtools.klpod221.site/text/backslash) | Escape or unescape backslashes.                     |
+| <ul><li> - [ ] </li></ul> | [List Sorter/Randomizer](https://devtools.klpod221.site/text/sort)   | Sort or randomize lists.                            |
+| <ul><li> - [ ] </li></ul> | [Text to Speech](https://devtools.klpod221.site/text/speech)         | Convert text to speech.                             |
+| <ul><li> - [ ] </li></ul> | [Morse Code Converter](https://devtools.klpod221.site/text/morse)    | Convert text to Morse code and vice versa.          |
+| <ul><li> - [ ] </li></ul> | [QR Code Generator](https://devtools.klpod221.site/text/qr-code)     | Convert text to QR code and vice versa.             |
 
 ### Utility Tools
 
-| Status | Name                                                                         | Description                               |
-| ------ | ---------------------------------------------------------------------------- | ----------------------------------------- |
-| - [ ]  | [Color Converter](https://devtools.klpod221.site/utility/color)              | Convert color codes to different formats. |
-| - [ ]  | [Number Base Converter](https://devtools.klpod221.site/utility/number)       | Convert number bases.                     |
-| - [ ]  | [Unit Converter](https://devtools.klpod221.site/utility/unit)                | Convert units.                            |
-| - [ ]  | [Time Converter](https://devtools.klpod221.site/utility/time)                | Convert time zones and formats.           |
-| - [ ]  | [Currency Converter](https://devtools.klpod221.site/utility/currency)        | Convert currencies.                       |
-| - [ ]  | [Hash Generator](https://devtools.klpod221.site/utility/hash)                | Generate hashes.                          |
-| - [ ]  | [UUID Generator](https://devtools.klpod221.site/utility/uuid)                | Generate UUIDs.                           |
-| - [ ]  | [Password Generator](https://devtools.klpod221.site/utility/password)        | Generate passwords.                       |
-| - [ ]  | [Unix Timestamp Converter](https://devtools.klpod221.site/utility/timestamp) | Convert unix timestamps.                  |
-| - [ ]  | [IP Address Converter](https://devtools.klpod221.site/utility/ip)            | Convert IP addresses.                     |
-| - [ ]  | [Cron Expression Generator](https://devtools.klpod221.site/utility/cron)     | Generate cron expressions.                |
+| Status                    | Name                                                                         | Description                               |
+| ------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------- |
+| <ul><li> - [ ] </li></ul> | [Color Converter](https://devtools.klpod221.site/utility/color)              | Convert color codes to different formats. |
+| <ul><li> - [ ] </li></ul> | [Number Base Converter](https://devtools.klpod221.site/utility/number)       | Convert number bases.                     |
+| <ul><li> - [ ] </li></ul> | [Unit Converter](https://devtools.klpod221.site/utility/unit)                | Convert units.                            |
+| <ul><li> - [ ] </li></ul> | [Time Converter](https://devtools.klpod221.site/utility/time)                | Convert time zones and formats.           |
+| <ul><li> - [ ] </li></ul> | [Currency Converter](https://devtools.klpod221.site/utility/currency)        | Convert currencies.                       |
+| <ul><li> - [ ] </li></ul> | [Hash Generator](https://devtools.klpod221.site/utility/hash)                | Generate hashes.                          |
+| <ul><li> - [ ] </li></ul> | [UUID Generator](https://devtools.klpod221.site/utility/uuid)                | Generate UUIDs.                           |
+| <ul><li> - [ ] </li></ul> | [Password Generator](https://devtools.klpod221.site/utility/password)        | Generate passwords.                       |
+| <ul><li> - [ ] </li></ul> | [Unix Timestamp Converter](https://devtools.klpod221.site/utility/timestamp) | Convert unix timestamps.                  |
+| <ul><li> - [ ] </li></ul> | [IP Address Converter](https://devtools.klpod221.site/utility/ip)            | Convert IP addresses.                     |
+| <ul><li> - [ ] </li></ul> | [Cron Expression Generator](https://devtools.klpod221.site/utility/cron)     | Generate cron expressions.                |
 
 All tools are open-source and available on [GitHub](https://github.com/klpod221/devtoolkit).
 
