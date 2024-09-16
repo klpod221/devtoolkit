@@ -8,6 +8,7 @@ import { BsPlayFill } from "react-icons/bs";
 import { AiOutlineDownload } from "react-icons/ai";
 import MyButton from "@/components/MyButton";
 import MyCard from "@components/MyCard";
+import MyImage from "@components/MyImage";
 
 const formatList = ["jpg", "png", "webp", "ico", "svg"];
 
@@ -17,9 +18,6 @@ const FormatConverter = () => {
   const [images, setImages] = React.useState([]);
   const [imageNames, setImageNames] = React.useState([]);
   const [returnImages, setReturnImages] = React.useState([]);
-
-  const [isShowImagePreview, setIsShowImagePreview] = React.useState(false);
-  const [previewImage, setPreviewImage] = React.useState("");
 
   React.useEffect(() => {
     setReturnImages([]);
@@ -110,124 +108,100 @@ const FormatConverter = () => {
     a.click();
   };
 
-  const showImagePreview = (image) => {
-    setPreviewImage(image);
-    setIsShowImagePreview(true);
-  };
+  return (
+    <>
+      <TwoColumnComponent>
+        <TwoColumnComponent.LeftContent>
+          <MyCard.Header title="Image Input">
+            <MyButton size={"sm"} className="py-0" onClick={convertImages}>
+              Convert
+              <BsPlayFill className="h-5 w-5" />
+            </MyButton>
+          </MyCard.Header>
 
-  return <>
-    <TwoColumnComponent>
-      <TwoColumnComponent.LeftContent>
-        <MyCard.Header title="Image Input">
-          <MyButton size={"sm"} className="py-0" onClick={convertImages}>
-            Convert
-            <BsPlayFill className="h-5 w-5" />
-          </MyButton>
-        </MyCard.Header>
-
-        <Label
-          htmlFor="dropzone-file"
-          className="flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 hover:border-gray-500 hover:bg-gray-100 dark:border-dark-secondary dark:bg-dark dark:hover:border-dark-text-secondary dark:hover:bg-dark-secondary relative"
-        >
-          <div className="flex flex-col items-center justify-center pb-6 pt-5">
-            <AiOutlineCloudUpload className="mb-4 h-8 w-8 text-gray-500 dark:text-gray-400" />
-            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-              <span className="font-semibold">Click to upload</span> or drag
-              and drop
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
-              You can upload multiple images (jpg, png, svg, etc.)
-            </p>
-          </div>
-          <FileInput
-            multiple
-            id="dropzone-file"
-            accept="image/*"
-            onChange={onFileChange}
-            className="w-full h-full absolute top-0 left-0 opacity-0"
-          />
-        </Label>
-        <Button.Group>
-          {formatList.map((f) => (
-            <Button
-              key={f}
-              onClick={() => setFormat(f)}
-              color={format === f ? "blue" : "gray"}
-              size={"sm"}
-            >
-              {f}
-            </Button>
-          ))}
-        </Button.Group>
-
-        <div className="flex flex-wrap mt-4 gap-2">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="relative group overflow-hidden rounded-lg shadow-lg w-40 h-40"
-            >
-              <NextImage
-                src={URL.createObjectURL(image)}
-                width={150}
-                height={150}
-                alt="image"
-                className="object-cover w-full h-full"
-                style={{
-                  maxWidth: "100%",
-                  height: "auto"
-                }} />
-
-              <button className="absolute top-0 right-0 w-full h-full bg-black bg-opacity-50 items-center justify-center flex -translate-x-full group-hover:translate-x-0 transition-transform duration-300" onClick={() => showImagePreview(URL.createObjectURL(image))}>
-                <AiOutlineEye className="text-white h-8 w-8" />
-              </button>
+          <Label
+            htmlFor="dropzone-file"
+            className="flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 hover:border-gray-500 hover:bg-gray-100 dark:border-dark-secondary dark:bg-dark dark:hover:border-dark-text-secondary dark:hover:bg-dark-secondary relative"
+          >
+            <div className="flex flex-col items-center justify-center pb-6 pt-5">
+              <AiOutlineCloudUpload className="mb-4 h-8 w-8 text-gray-500 dark:text-gray-400" />
+              <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                <span className="font-semibold">Click to upload</span> or drag
+                and drop
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                You can upload multiple images (jpg, png, svg, etc.)
+              </p>
             </div>
-          ))}
-        </div>
-      </TwoColumnComponent.LeftContent>
-      <TwoColumnComponent.RightContent>
-        <MyCard.Header title={`Format: ${format}`}>
-          {returnImages.length > 0 && (
-            <Button
-              size={"sm"}
-              className="py-0"
-              onClick={() => onDownloadAll()}
-              color="success"
-            >
-              Download All
-              <AiOutlineDownload className="ml-1 h-5 w-5" />
-            </Button>
-          )}
-        </MyCard.Header>
-
-        <div className="flex flex-wrap gap-2">
-          {returnImages.map((image, index) => (
-            <div
-              key={index}
-              className="relative group overflow-hidden rounded-lg shadow-lg w-40 h-40"
-            >
-              <NextImage
-                src={image}
-                width={150}
-                height={150}
-                alt="image"
-                className="object-cover w-full h-full"
-                style={{
-                  maxWidth: "100%",
-                  height: "auto"
-                }} />
-
-              <button
-                className="absolute top-0 right-0 w-full h-full bg-black bg-opacity-50 items-center justify-center flex -translate-x-full group-hover:translate-x-0 transition-transform duration-300"
-                onClick={() => onDownload(image)}
+            <FileInput
+              multiple
+              id="dropzone-file"
+              accept="image/*"
+              onChange={onFileChange}
+              className="w-full h-full absolute top-0 left-0 opacity-0"
+            />
+          </Label>
+          <Button.Group>
+            {formatList.map((f) => (
+              <Button
+                key={f}
+                onClick={() => setFormat(f)}
+                color={format === f ? "blue" : "gray"}
+                size={"sm"}
               >
-                <AiOutlineDownload className="text-white h-8 w-8" />
-              </button>
-            </div>
-          ))}
-        </div>
-      </TwoColumnComponent.RightContent>
-    </TwoColumnComponent>
-  </>;
+                {f}
+              </Button>
+            ))}
+          </Button.Group>
+
+          <div className="flex flex-wrap mt-4 gap-2">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-lg shadow-lg w-40 h-40"
+              >
+                <MyImage
+                  src={URL.createObjectURL(image)}
+                  alt="image"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            ))}
+          </div>
+        </TwoColumnComponent.LeftContent>
+        <TwoColumnComponent.RightContent>
+          <MyCard.Header title={`Format: ${format}`}>
+            {returnImages.length > 0 && (
+              <Button
+                size={"sm"}
+                className="py-0"
+                onClick={() => onDownloadAll()}
+                color="success"
+              >
+                Download All
+                <AiOutlineDownload className="ml-1 h-5 w-5" />
+              </Button>
+            )}
+          </MyCard.Header>
+
+          <div className="flex flex-wrap gap-2">
+            {returnImages.map((image, index) => (
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-lg shadow-lg w-40 h-40"
+              >
+                <MyImage
+                  src={image}
+                  alt="image"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            ))}
+          </div>
+        </TwoColumnComponent.RightContent>
+      </TwoColumnComponent>
+    </>
+  );
 };
 
 FormatConverter.title = "Image Format Converter";

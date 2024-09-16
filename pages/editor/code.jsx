@@ -3,7 +3,7 @@ import TwoColumnComponent from "@/components/TwoColumnComponent";
 import MyCodeEditor from "@/components/MyCodeEditor";
 import MyButton from "@/components/MyButton";
 import { Select, Label, Textarea, Spinner } from "flowbite-react";
-import supportLanguages from "@/const/languages";
+import supportLanguages from "@constants/ProgramingLanguages";
 import axios from "axios";
 
 import { BsPlayFill } from "react-icons/bs";

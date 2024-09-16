@@ -56,6 +56,7 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
             <NextLink
               href="https://github.com/klpod221/devtoolkit"
               className="px-3 py-2 text-sm font-medium text-gray-700 rounded-md sm:block dark:text-dark-text hover:bg-gray-100 dark:hover:bg-dark-secondary"
+              target="_blank"
             >
               <FaGithub className="w-5 h-5" />
             </NextLink>

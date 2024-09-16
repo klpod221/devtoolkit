@@ -1,10 +1,10 @@
 import axios from "axios";
-import languages from "@/const/languages";
+import programmingLanguages from "@constants/ProgramingLanguages";
 
 const post = async (req, res) => {
   const { code, language, stdin } = req.body;
 
-  const selectedLanguage = languages.find((lang) => lang.slug === language);
+  const selectedLanguage = programmingLanguages.find((lang) => lang.slug === language);
 
   if (!selectedLanguage) {
     return res.status(400).json({ error: "Invalid language" });

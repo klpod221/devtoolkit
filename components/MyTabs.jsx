@@ -19,7 +19,7 @@ const MyTabs = (props) => {
         {tabs.map((tab, index) => (
           <div
             key={index}
-            className={`cursor-pointer px-4 py-2 hover:bg-white dark:hover:bg-dark dark:hover:text-dark-text rounded-t-lg transition-all duration-300 border border-gray-200 dark:border-dark-secondary border-b-0
+            className={`cursor-pointer px-4 py-2 hover:bg-white dark:hover:bg-dark dark:hover:text-dark-text rounded-t-lg transition-all duration-300 border border-gray-200 dark:border-dark border-b-0
             ${
               activeTab === index
                 ? "bg-white dark:bg-dark dark:text-dark-text"
@@ -32,7 +32,7 @@ const MyTabs = (props) => {
         ))}
       </div>
 
-      <div className="border border-gray-200 dark:border-dark-secondary rounded-b-lg bg-white dark:bg-dark p-4">
+      <div className="border border-gray-200 dark:border-dark rounded-b-lg bg-white dark:bg-dark p-4">
         {tabs[activeTab] && tabs[activeTab].props.children}
       </div>
     </div>

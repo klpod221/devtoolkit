@@ -1,4 +1,4 @@
-const languages = [
+const programmingLanguages = [
   {
     name: "HTML",
     slug: "html",
@@ -53,4 +53,4 @@ const languages = [
   { name: "MongoDB", slug: "mongodb", theme: "javascript", extension: "js" },
 ];
 
-export default languages;
+export default programmingLanguages;
