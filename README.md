@@ -80,7 +80,7 @@ All tools are open-source and available on [GitHub](https://github.com/klpod221/
 
 ## How to use
 
-You can access the tools by clicking on the links above or by accessing the [homepage](https://klpod221.github.io/devtoolkit).
+You can access the tools by clicking on the links above or by accessing the [website](https://devtools.klpod221.site).
 
 Or you can clone this repository and run the project locally. Project uses [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) and [Flowbite React UI](https://flowbite-react.com/). To run the project locally or for development, follow the steps below:
 
