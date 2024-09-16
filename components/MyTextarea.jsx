@@ -10,12 +10,12 @@ const MyTextarea = ({ showCopy = true, value, onChange = () => {}, ...props }) =
       return;
     }
 
-    if (!props.value) {
+    if (!value) {
       toast.error("No output to copy");
       return;
     }
 
-    navigator.clipboard.writeText(props.value);
+    navigator.clipboard.writeText(value);
     toast.success("Copied to clipboard!");
   };
 
