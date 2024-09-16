@@ -7,11 +7,13 @@ import MyImage from "@components/MyImage";
 import { MdDelete } from "react-icons/md";
 import { AiOutlineCloudUpload, AiOutlineCloseCircle } from "react-icons/ai";
 import { toast } from "react-toastify";
+import MySelect from "@components/MySelect";
 
 const Uploader = () => {
   const [queueList, setQueueList] = React.useState([]);
   const [uploadedFiles, setUploadedFiles] = React.useState([]);
   const [listRequest, setListRequest] = React.useState([]);
+  const [uploadType, setUploadType] = React.useState("temp"); // temp, forever
 
   const onChange = (files) => {
     const fileList = [];
@@ -32,21 +34,50 @@ const Uploader = () => {
   };
 
   const fileSizeFormat = (size) => {
-    return size > 1024 * 1024 * 1024
-      ? `${(size / (1024 * 1024 * 1024)).toFixed(2)} GB`
-      : size > 1024 * 1024
-      ? `${(size / (1024 * 1024)).toFixed(2)} MB`
-      : size > 1024
-      ? `${(size / 1024).toFixed(2)} KB`
+    return size > 1000 * 1000 * 1000
+      ? `${(size / (1000 * 1000 * 1000)).toFixed(2)} GB`
+      : size > 1000 * 1000
+      ? `${(size / (1000 * 1000)).toFixed(2)} MB`
+      : size > 1000
+      ? `${(size / 1000).toFixed(2)} KB`
       : `${size} bytes`;
   };
 
+  const getRemainingTime = (file) => {
+    if (file.uploadType === "temp") {
+      // show how much time left (like 10hours 30mins)
+      const uploadedAt = new Date(file.uploadedAt).getTime();
+      const now = new Date().getTime();
+      const remainingTime = 72 * 60 * 60 * 1000 - (now - uploadedAt);
+
+      const hours = Math.floor(remainingTime / (60 * 60 * 1000));
+      const mins = Math.floor((remainingTime % (60 * 60 * 1000)) / (60 * 1000));
+
+      return `${hours} hours ${mins} mins`;
+    }
+
+    return "Forever";
+  }
+
   const uploadFile = (queue, notify = true) => {
+    const file = queue.file;
+
+    if (
+      (uploadType === "temp" && file.size > 15 * 1000 * 1000 * 1000) ||
+      (uploadType === "forever" && file.size > 5 * 1000 * 1000 * 1000)
+    ) {
+      toast.error(
+        `File size of ${file.name} exceeds the limit (${
+          uploadType === "temp" ? "15GB" : "5GB"
+        })`
+      );
+      return;
+    }
+
     queue.status = "uploading";
     queue.startTime = new Date().getTime();
     setQueueList([...queueList]);
 
-    const file = queue.file;
     const uploadUrl = "https://up1.fileditch.com/upload.php";
 
     const xhr = new XMLHttpRequest();
@@ -81,6 +112,7 @@ const Uploader = () => {
           name: file.name,
           type: file.type,
           size: file.size,
+          uploadType,
           uploadedAt: new Date().toISOString(),
           url: response.files[0].url,
         };
@@ -155,7 +187,18 @@ const Uploader = () => {
     const localFiles = JSON.parse(localStorage.getItem("uploadedFiles"));
 
     if (localFiles) {
-      setUploadedFiles(localFiles);
+      const now = new Date().getTime();
+      const filteredFiles = localFiles.filter((file) => {
+        if (file.uploadType === "temp") {
+          const uploadedAt = new Date(file.uploadedAt).getTime();
+          const remainingTime = 72 * 60 * 60 * 1000 - (now - uploadedAt);
+          return remainingTime > 0;
+        }
+
+        return true;
+      });
+
+      setUploadedFiles(filteredFiles);
     }
   }, []);
 
@@ -179,6 +222,11 @@ const Uploader = () => {
 
         <MyCard.Header title="Queue List">
           <div className="flex gap-2">
+            <MySelect value={uploadType} onChange={setUploadType} sizing="sm">
+              <option value="temp">72 Hours</option>
+              <option value="forever">Forever</option>
+            </MySelect>
+
             <MyButton
               size={"sm"}
               className="py-0"
@@ -219,7 +267,7 @@ const Uploader = () => {
                     {queue.file.name}
                   </div>
                   <div className="text-xs text-gray-500 dark:text-dark-text-secondary">
-                    { fileSizeFormat(queue.file.size) }
+                    {fileSizeFormat(queue.file.size)}
                   </div>
                 </div>
               </div>
@@ -254,11 +302,11 @@ const Uploader = () => {
 
                   {queue.uploadSpeed !== undefined && (
                     <div className="text-xs text-gray-500 dark:text-dark-text-secondary">
-                      {queue.uploadSpeed > 1024 * 1024
-                        ? `${(queue.uploadSpeed / (1024 * 1024)).toFixed(
+                      {queue.uploadSpeed > 1000 * 1000
+                        ? `${(queue.uploadSpeed / (1000 * 1000)).toFixed(
                             2
                           )} MB/s`
-                        : `${(queue.uploadSpeed / 1024).toFixed(2)} KB/s`}
+                        : `${(queue.uploadSpeed / 1000).toFixed(2)} KB/s`}
                     </div>
                   )}
 
@@ -329,7 +377,7 @@ const Uploader = () => {
                       {file.name}
                     </div>
                     <div className="text-xs text-gray-500 dark:text-dark-text-secondary">
-                      { fileSizeFormat(file.size) }
+                      {fileSizeFormat(file.size)} - {getRemainingTime(file)}
                     </div>
                   </div>
                 </div>
