@@ -76,7 +76,7 @@ const toolList = [
         description: "Bcrypt hash generator and verifier.",
         icon: FaHashtag,
         path: "/bcrypt",
-        status: false, // true if tool is ready
+        status: true, // true if tool is ready
       },
       {
         name: "Url Encoder/Decoder",
