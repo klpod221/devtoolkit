@@ -12,6 +12,7 @@
     "@monaco-editor/react": "^4.6.0",
     "@vercel/speed-insights": "^1.0.12",
     "axios": "^1.7.2",
+    "bcryptjs": "^2.4.3",
     "emmet-monaco-es": "^5.4.0",
     "flowbite-react": "^0.9.0",
     "jszip": "^3.10.1",

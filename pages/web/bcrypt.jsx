@@ -1,0 +1,201 @@
+import React from "react";
+import bcrypt from "bcryptjs";
+import { Label } from "flowbite-react";
+import {
+  AiOutlineLock,
+  AiOutlineUnlock,
+  AiOutlineCheck,
+  AiOutlineClose,
+} from "react-icons/ai";
+import { toast } from "react-toastify";
+
+import MyCard from "@components/MyCard";
+import TwoColumnComponent from "@components/TwoColumnComponent";
+import MyButton from "@components/MyButton";
+import MySelect from "@components/MySelect";
+import MyTextarea from "@components/MyTextarea";
+import MyInput from "@components/MyInput";
+
+const BcryptHashGenerator = () => {
+  const [salt, setSalt] = React.useState(10);
+  const [input, setInput] = React.useState("");
+  const [output, setOutput] = React.useState("");
+
+  const [hash, setHash] = React.useState("");
+  const [stringToCheck, setStringToCheck] = React.useState("");
+  const [isMatched, setIsMatched] = React.useState(false);
+  const [isShowResult, setIsShowResult] = React.useState(false);
+
+  const textToHash = async () => {
+    try {
+      if (!input.trim()) {
+        toast.error("Please enter some text to encrypt");
+        return;
+      }
+
+      const saltRounds = bcrypt.genSaltSync(salt);
+
+      const hashed = await toast.promise(bcrypt.hash(input, saltRounds), {
+        pending: "Encrypting...",
+        success: "Encrypted successfully",
+        error: "Error encrypting",
+      });
+
+      setOutput(hashed);
+    } catch (error) {
+      console.error(error);
+      toast.error("Error encrypting");
+    }
+  };
+
+  const hashChecker = async () => {
+    try {
+      setIsShowResult(false);
+
+      if (!hash.trim() || !stringToCheck.trim()) {
+        toast.error("Please enter both hash and string to check");
+        return;
+      }
+
+      const matched = await toast.promise(bcrypt.compare(stringToCheck, hash), {
+        pending: "Checking...",
+        success: "Compared successfully",
+        error: "Error checking hash",
+      });
+
+      setIsMatched(matched);
+      setIsShowResult(true);
+    } catch (error) {
+      console.error(error);
+      toast.error("Error checking hash");
+    }
+  };
+
+  return (
+    <TwoColumnComponent>
+      <TwoColumnComponent.LeftContent>
+        <MyCard.Header
+          title="Encrypt"
+          helper="Encrypt some text. The result shown will be a Bcrypt encrypted hash."
+        >
+          <div className="flex justify-center items-center space-x-4 my-2">
+            <MySelect
+              label="Salt Rounds"
+              value={salt}
+              onChange={setSalt}
+              sizing="sm"
+              className="min-w-[65px]"
+            >
+              {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+                <option key={num} value={num}>
+                  {num}
+                </option>
+              ))}
+            </MySelect>
+
+            <MyButton onClick={textToHash} size={"sm"}>
+              <AiOutlineLock className="w-5 h-5 mr-2" />
+              Encrypt
+            </MyButton>
+          </div>
+        </MyCard.Header>
+
+        <div className="flex flex-col">
+          <Label
+            htmlFor="text"
+            value="Text Input"
+            className="text-md font-semibold"
+          />
+
+          <MyInput
+            id="text"
+            value={input}
+            onChange={setInput}
+            placeholder="Enter text to encrypt"
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <Label
+            htmlFor="output"
+            value="Output"
+            className="text-md font-semibold"
+          />
+
+          <MyTextarea
+            id="output"
+            value={output}
+            rows={4}
+            readOnly
+            placeholder="Output will be shown here"
+          />
+        </div>
+      </TwoColumnComponent.LeftContent>
+
+      <TwoColumnComponent.RightContent>
+        <MyCard.Header
+          title="Decrypt"
+          helper="Test your Bcrypt hash against some plaintext, to see if they match."
+        >
+          <MyButton onClick={hashChecker} size="sm">
+            <AiOutlineUnlock className="w-5 h-5 mr-2" />
+            Decrypt
+          </MyButton>
+        </MyCard.Header>
+
+        <div className="flex flex-col">
+          <Label
+            htmlFor="hash"
+            value="Hash to check"
+            className="text-md font-semibold"
+          />
+
+          <MyInput
+            id="hash"
+            placeholder="Enter hash to check"
+            value={hash}
+            onChange={setHash}
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <Label
+            htmlFor="stringToCheck"
+            value="String to check"
+            className="text-md font-semibold"
+          />
+
+          <MyInput
+            id="stringToCheck"
+            placeholder="Enter string to check"
+            value={stringToCheck}
+            onChange={setStringToCheck}
+          />
+        </div>
+
+        {isShowResult && (
+          <div
+            className={`text-lg font-semibold flex items-center ${
+              isMatched ? "text-green-500" : "text-red-500"
+            }`}
+          >
+            {isMatched ? (
+              <>
+                <AiOutlineCheck className="w-5 h-5 mr-2" />
+                Matched
+              </>
+            ) : (
+              <>
+                <AiOutlineClose className="w-5 h-5 mr-2" />
+                Not Matched
+              </>
+            )}
+          </div>
+        )}
+      </TwoColumnComponent.RightContent>
+    </TwoColumnComponent>
+  );
+};
+
+BcryptHashGenerator.title = "Bcrypt Generator";
+export default BcryptHashGenerator;

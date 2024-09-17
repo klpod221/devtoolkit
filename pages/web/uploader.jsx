@@ -57,7 +57,7 @@ const Uploader = () => {
     }
 
     return "Forever";
-  }
+  };
 
   const uploadFile = (queue, notify = true) => {
     const file = queue.file;
@@ -78,7 +78,10 @@ const Uploader = () => {
     queue.startTime = new Date().getTime();
     setQueueList([...queueList]);
 
-    const uploadUrl = "https://up1.fileditch.com/upload.php";
+    const uploadUrl =
+      uploadType === "temp"
+        ? "https://up1.fileditch.com/temp/upload.php"
+        : "https://up1.fileditch.com/upload.php";
 
     const xhr = new XMLHttpRequest();
 
