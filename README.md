@@ -41,6 +41,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | ------------------------- | ------------------------------------------------------------------ | ----------------------------------------- |
 | <ul><li> - [x] </li></ul> | [Format Converter](https://devtools.klpod221.site/image/converter) | Convert your images to different formats. |
 | <ul><li> - [ ] </li></ul> | [Compressor](https://devtools.klpod221.site/image/compressor)      | Reduce the size of your images.           |
+| <ul><li> - [ ] </li></ul> | [Resizer](https://devtools.klpod221.site/image/resizer)            | Resize your images.                       |
 
 ### Text Tools
 

@@ -126,6 +126,13 @@ const toolList = [
         path: "/compressor",
         status: false, // true if tool is ready
       },
+      {
+        name: "Resizer",
+        description: "Resize your images.",
+        icon: AiOutlineFileImage,
+        path: "/resizer",
+        status: false, // true if tool is ready
+      },
     ],
   },
   {
