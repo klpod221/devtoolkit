@@ -11,7 +11,7 @@ import MyCodeEditor from "@components/MyCodeEditor";
 import MyPopover from "@components/MyPopover";
 import MyButton from "@components/MyButton";
 
-import { FaCopy } from "react-icons/fa";
+import { AiOutlineCopy } from "react-icons/ai";
 import { GoChevronDown } from "react-icons/go";
 import { BsRegex } from "react-icons/bs";
 import MyDrawer from "@components/MyDrawer";
@@ -266,7 +266,7 @@ const RegexTester = () => {
         <MyCard.Header title="Regex Tester" helper="Test your regex pattern">
           <div className="flex items-center space-x-2">
             <MyButton size="sm" onClick={onCopyRegex}>
-              <FaCopy className="w-4 h-4 mr-1" />
+              <AiOutlineCopy className="w-4 h-4 mr-1" />
               Copy
             </MyButton>
             <MyButton size="sm" onClick={() => setIsOpenDrawer(true)}>
@@ -347,10 +347,7 @@ const RegexTester = () => {
         >
           <div className="flex flex-col space-y-3 overflow-y-auto text-sm">
             {commonRegexPatterns.map((item, index) => (
-              <div
-                className="flex flex-col"
-                key={index}
-              >
+              <div className="flex flex-col" key={index}>
                 <span className="dark:text-dark-text font-semibold">
                   {item.name}
                 </span>
