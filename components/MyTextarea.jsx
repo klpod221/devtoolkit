@@ -1,8 +1,7 @@
 import React from "react";
 import { Label, Textarea } from "flowbite-react";
-import { AiOutlineCopy } from "react-icons/ai";
 
-import copyToClipboard from "@utils/copyToClipboard";
+import MyCopyButton from "./MyCopyButton";
 
 const MyTextarea = ({
   showCopy = true,
@@ -46,12 +45,7 @@ const MyTextarea = ({
 
       <div className="relative group overflow-auto">
         {showCopy && value && (
-          <button
-            className="absolute top-1 right-1 p-1 bg-gray-200 dark:bg-dark-secondary rounded-md group-hover:block hidden"
-            onClick={() => copyToClipboard(value)}
-          >
-            <AiOutlineCopy />
-          </button>
+          <MyCopyButton value={value} type="absolute" className="hidden group-hover:block" />
         )}
 
         <Textarea

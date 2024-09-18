@@ -1,7 +1,6 @@
 import React from "react";
-import { AiOutlineCopy } from "react-icons/ai";
 
-import copyToClipboard from "@utils/copyToClipboard";
+import MyCopyButton from "./MyCopyButton";
 
 const CodeOutput = ({
   language,
@@ -27,12 +26,7 @@ const CodeOutput = ({
       )}
 
       {canCopy && output && (
-        <button
-          className="absolute top-1 right-1 p-1 bg-gray-200 dark:bg-dark-secondary rounded-md group-hover:block hidden"
-          onClick={() => copyToClipboard(output)}
-        >
-          <AiOutlineCopy />
-        </button>
+        <MyCopyButton value={output} type="absolute" className="hidden group-hover:block" />
       )}
     </div>
   );
