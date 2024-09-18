@@ -1,6 +1,14 @@
 import React from "react";
 import bcrypt from "bcryptjs";
 import { Label } from "flowbite-react";
+
+import TwoColumnComponent from "@components/TwoColumnComponent";
+import MyCard from "@components/MyCard";
+import MyButton from "@components/MyButton";
+import MySelect from "@components/MySelect";
+import MyTextarea from "@components/MyTextarea";
+import MyInput from "@components/MyInput";
+
 import {
   AiOutlineLock,
   AiOutlineUnlock,
@@ -8,13 +16,6 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 import { toast } from "react-toastify";
-
-import MyCard from "@components/MyCard";
-import TwoColumnComponent from "@components/TwoColumnComponent";
-import MyButton from "@components/MyButton";
-import MySelect from "@components/MySelect";
-import MyTextarea from "@components/MyTextarea";
-import MyInput from "@components/MyInput";
 
 const BcryptHashGenerator = () => {
   const [salt, setSalt] = React.useState(10);

@@ -1,7 +1,7 @@
 import MyButton from "@components/MyButton";
 import NextLink from "next/link";
-import { AiFillHome, AiFillPhone } from "react-icons/ai";
 
+import { AiFillHome, AiFillPhone } from "react-icons/ai";
 
 const Custom404 = () => {
   return (

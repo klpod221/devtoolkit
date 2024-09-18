@@ -1,11 +1,13 @@
 import React from "react";
 import { toast } from "react-toastify";
-import MyCard from "@components/MyCard";
-import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 import { Label } from "flowbite-react";
+
+import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
 import MyInput from "@components/MyInput";
 import MyTextarea from "@components/MyTextarea";
+
+import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 
 const UrlEncoderDecoder = () => {
   const [input, setInput] = React.useState("");

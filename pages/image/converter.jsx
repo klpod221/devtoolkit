@@ -1,15 +1,15 @@
 import React from "react";
-import NextImage from "next/image";
-import TwoColumnComponent from "@/components/TwoColumnComponent";
 import JSZip from "jszip";
-import { Button, FileInput, Label } from "flowbite-react";
-import { AiOutlineCloudUpload, AiOutlineEye } from "react-icons/ai";
-import { BsPlayFill } from "react-icons/bs";
-import { AiOutlineDownload } from "react-icons/ai";
+import { Button } from "flowbite-react";
+
+import TwoColumnComponent from "@/components/TwoColumnComponent";
 import MyButton from "@/components/MyButton";
 import MyCard from "@components/MyCard";
 import MyImage from "@components/MyImage";
 import MyFileInput from "@components/MyFileInput";
+
+import { BsPlayFill } from "react-icons/bs";
+import { AiOutlineDownload } from "react-icons/ai";
 
 const formatList = ["jpg", "png", "webp", "ico", "svg"];
 

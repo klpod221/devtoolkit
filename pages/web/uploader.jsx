@@ -1,13 +1,15 @@
 import React from "react";
+import { toast } from "react-toastify";
+
+import TwoColumnComponent from "@components/TwoColumnComponent";
 import MyFileInput from "@components/MyFileInput";
 import MyCard from "@components/MyCard";
-import TwoColumnComponent from "@components/TwoColumnComponent";
 import MyButton from "@components/MyButton";
 import MyImage from "@components/MyImage";
+import MySelect from "@components/MySelect";
+
 import { MdDelete } from "react-icons/md";
 import { AiOutlineCloudUpload, AiOutlineCloseCircle } from "react-icons/ai";
-import { toast } from "react-toastify";
-import MySelect from "@components/MySelect";
 
 const Uploader = () => {
   const [queueList, setQueueList] = React.useState([]);

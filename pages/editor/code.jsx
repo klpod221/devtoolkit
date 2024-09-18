@@ -1,16 +1,18 @@
 import React from "react";
+import axios from "axios";
+import { Label, Spinner } from "flowbite-react";
+
+import supportLanguages from "@constants/ProgramingLanguages";
+
 import TwoColumnComponent from "@/components/TwoColumnComponent";
+import CodeOutput from "@components/CodeOutput";
 import MyCodeEditor from "@/components/MyCodeEditor";
 import MyButton from "@/components/MyButton";
-import { Select, Label, Textarea, Spinner } from "flowbite-react";
-import supportLanguages from "@constants/ProgramingLanguages";
-import axios from "axios";
-
-import { BsPlayFill } from "react-icons/bs";
 import MyCard from "@components/MyCard";
 import MyTextarea from "@components/MyTextarea";
-import CodeOutput from "@components/CodeOutput";
 import MySelect from "@components/MySelect";
+
+import { BsPlayFill } from "react-icons/bs";
 
 const CodeEditor = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState(

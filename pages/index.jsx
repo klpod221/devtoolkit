@@ -1,6 +1,7 @@
 import React from "react";
-import MyCard from "@components/MyCard";
 import NextLink from "next/link";
+
+import MyCard from "@components/MyCard";
 
 const Home = () => {
   return (

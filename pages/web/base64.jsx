@@ -1,9 +1,10 @@
 import React from "react";
 import { toast } from "react-toastify";
+
+import CodeOutput from "@components/CodeOutput";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
 import MyTextarea from "@components/MyTextarea";
-import CodeOutput from "@components/CodeOutput";
 
 const Base64EncoderDecoder = () => {
   const [input, setInput] = React.useState("");

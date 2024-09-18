@@ -3,13 +3,14 @@ import { toast } from "react-toastify";
 
 import RegexCheatsheet from "@constants/RegexCheatsheet";
 
+import findTextPosition from "@utils/findTextPosition";
+
 import MyCard from "@components/MyCard";
 import TwoColumnComponent from "@components/TwoColumnComponent";
 import MyCodeEditor from "@components/MyCodeEditor";
 import MyPopover from "@components/MyPopover";
 import MyButton from "@components/MyButton";
 
-import findTextPosition from "@utils/findTextPosition";
 
 import { FaCopy } from "react-icons/fa";
 import { GoChevronDown } from "react-icons/go";
@@ -365,7 +366,7 @@ const RegexTester = () => {
                 className="flex flex-col"
                 key={index}
               >
-                <span className="dark:text-dark-text">
+                <span className="dark:text-dark-text font-semibold">
                   {item.name}
                 </span>
                 <kbd

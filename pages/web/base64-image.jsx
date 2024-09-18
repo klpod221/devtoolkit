@@ -1,8 +1,9 @@
 import React from "react";
-import MyTabs from "@components/MyTabs";
-import MyTab from "@components/MyTab";
+
 import Base64ImageEncoder from "@components/tools/Base64ImageEncoder";
 import Base64ImageDecoder from "@components/tools/Base64ImageDecoder";
+import MyTabs from "@components/MyTabs";
+import MyTab from "@components/MyTab";
 
 const Base64Image = () => {
   return (

@@ -1,8 +1,9 @@
 import React from "react";
 import MarkdownIt from "markdown-it";
+
 import TwoColumnComponent from "@/components/TwoColumnComponent";
-import MyCodeEditor from "@/components/MyCodeEditor";
 import CodeOutput from "@components/CodeOutput";
+import MyCodeEditor from "@/components/MyCodeEditor";
 import MyCard from "@components/MyCard";
 
 const MarkdownEditor = () => {
