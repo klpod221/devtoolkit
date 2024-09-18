@@ -42,10 +42,6 @@ const UrlParser = () => {
     }
   };
 
-  React.useEffect(() => {
-    console.log("parsedUrl", parsedUrl);
-  }, [parsedUrl]);
-
   return (
     <TwoColumn>
       <TwoColumn.LeftContent>
