@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 import copyToClipboard from "@utils/copyToClipboard";
 
-import TwoColumnComponent from "@components/TwoColumnComponent";
+import TwoColumnLayout from "@components/TwoColumnLayout";
 import MyFileInput from "@components/MyFileInput";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
@@ -211,8 +211,8 @@ const Uploader = () => {
   }, [uploadedFiles]);
 
   return (
-    <TwoColumnComponent leftWidth={70}>
-      <TwoColumnComponent.LeftContent>
+    <TwoColumnLayout leftWidth={70}>
+      <TwoColumnLayout.LeftContent>
         <MyCard.Header
           title="Upload File"
           helper={`Your files will be uploaded to <a class='underline hover:opacity-75 transition-all' href='https://fileditch.com/'>FileDitch</a> (max 5GB per file for forever storage and 15GB per file for 72 hours storage)`}
@@ -330,8 +330,8 @@ const Uploader = () => {
             </li>
           ))}
         </ul>
-      </TwoColumnComponent.LeftContent>
-      <TwoColumnComponent.RightContent>
+      </TwoColumnLayout.LeftContent>
+      <TwoColumnLayout.RightContent>
         <MyCard.Header
           title="Uploaded Files"
           helper="Your uploaded files will be listed here (local storage)"
@@ -400,8 +400,8 @@ const Uploader = () => {
               </li>
             ))}
         </ul>
-      </TwoColumnComponent.RightContent>
-    </TwoColumnComponent>
+      </TwoColumnLayout.RightContent>
+    </TwoColumnLayout>
   );
 };
 

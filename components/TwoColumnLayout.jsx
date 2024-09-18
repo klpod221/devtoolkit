@@ -11,7 +11,7 @@ const RightContent = ({ children }) => {
   return <>{children}</>;
 };
 
-const TwoColumnComponent = (props) => {
+const TwoColumnLayout = (props) => {
   const [width, setWidth] = React.useState(props.leftWidth || 50);
 
   let leftContent = null;
@@ -94,6 +94,6 @@ const TwoColumnComponent = (props) => {
   );
 };
 
-TwoColumnComponent.LeftContent = LeftContent;
-TwoColumnComponent.RightContent = RightContent;
-export default TwoColumnComponent;
+TwoColumnLayout.LeftContent = LeftContent;
+TwoColumnLayout.RightContent = RightContent;
+export default TwoColumnLayout;

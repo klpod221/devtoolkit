@@ -2,7 +2,7 @@ import React from "react";
 import JSZip from "jszip";
 import { Button } from "flowbite-react";
 
-import TwoColumnComponent from "@/components/TwoColumnComponent";
+import TwoColumnLayout from "@/components/TwoColumnLayout";
 import MyButton from "@/components/MyButton";
 import MyCard from "@components/MyCard";
 import MyImage from "@components/MyImage";
@@ -107,8 +107,8 @@ const FormatConverter = () => {
 
   return (
     <>
-      <TwoColumnComponent>
-        <TwoColumnComponent.LeftContent>
+      <TwoColumnLayout>
+        <TwoColumnLayout.LeftContent>
           <MyCard.Header title="Image Input">
             <MyButton size={"sm"} className="py-0" onClick={convertImages}>
               Convert
@@ -144,8 +144,8 @@ const FormatConverter = () => {
               </div>
             ))}
           </div>
-        </TwoColumnComponent.LeftContent>
-        <TwoColumnComponent.RightContent>
+        </TwoColumnLayout.LeftContent>
+        <TwoColumnLayout.RightContent>
           <MyCard.Header title={`Format: ${format}`}>
             {returnImages.length > 0 && (
               <Button
@@ -174,8 +174,8 @@ const FormatConverter = () => {
               </div>
             ))}
           </div>
-        </TwoColumnComponent.RightContent>
-      </TwoColumnComponent>
+        </TwoColumnLayout.RightContent>
+      </TwoColumnLayout>
     </>
   );
 };

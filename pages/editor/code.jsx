@@ -4,7 +4,7 @@ import { Label, Spinner } from "flowbite-react";
 
 import supportLanguages from "@constants/ProgramingLanguages";
 
-import TwoColumnComponent from "@/components/TwoColumnComponent";
+import TwoColumnLayout from "@/components/TwoColumnLayout";
 import CodeOutput from "@components/CodeOutput";
 import MyCodeEditor from "@/components/MyCodeEditor";
 import MyButton from "@/components/MyButton";
@@ -63,8 +63,8 @@ const CodeEditor = () => {
   }, [selectedLanguage]);
 
   return (
-    <TwoColumnComponent leftWidth={70}>
-      <TwoColumnComponent.LeftContent>
+    <TwoColumnLayout leftWidth={70}>
+      <TwoColumnLayout.LeftContent>
         <MyCard.Header
           title="Code Input"
           helper={helperMessage || "You can write your code here"}
@@ -99,9 +99,9 @@ const CodeEditor = () => {
         </MyCard.Header>
 
         <MyCodeEditor language={language} value={code} onChange={setCode} />
-      </TwoColumnComponent.LeftContent>
+      </TwoColumnLayout.LeftContent>
 
-      <TwoColumnComponent.RightContent>
+      <TwoColumnLayout.RightContent>
         <div className="flex h-full flex-col">
           {language !== "html" && (
             <MyTextarea
@@ -134,8 +134,8 @@ const CodeEditor = () => {
             output={output?.stdout}
           />
         </div>
-      </TwoColumnComponent.RightContent>
-    </TwoColumnComponent>
+      </TwoColumnLayout.RightContent>
+    </TwoColumnLayout>
   );
 };
 

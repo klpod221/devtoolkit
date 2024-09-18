@@ -7,7 +7,7 @@ import findTextPosition from "@utils/findTextPosition";
 import copyToClipboard from "@utils/copyToClipboard";
 
 import MyCard from "@components/MyCard";
-import TwoColumnComponent from "@components/TwoColumnComponent";
+import TwoColumnLayout from "@components/TwoColumnLayout";
 import MyCodeEditor from "@components/MyCodeEditor";
 import MyPopover from "@components/MyPopover";
 import MyButton from "@components/MyButton";
@@ -262,8 +262,8 @@ const RegexTester = () => {
   };
 
   return (
-    <TwoColumnComponent leftWidth="70">
-      <TwoColumnComponent.LeftContent>
+    <TwoColumnLayout leftWidth="70">
+      <TwoColumnLayout.LeftContent>
         <MyCard.Header title="Regex Tester" helper="Test your regex pattern">
           <div className="flex items-center space-x-2">
             <MyButton size="sm" onClick={onCopyRegex}>
@@ -365,8 +365,8 @@ const RegexTester = () => {
             ))}
           </div>
         </MyDrawer>
-      </TwoColumnComponent.LeftContent>
-      <TwoColumnComponent.RightContent>
+      </TwoColumnLayout.LeftContent>
+      <TwoColumnLayout.RightContent>
         <MyCard.Header
           title="Regex Cheatsheet"
           helper="A quick reference for regex syntax"
@@ -397,8 +397,8 @@ const RegexTester = () => {
             </>
           ))}
         </div>
-      </TwoColumnComponent.RightContent>
-    </TwoColumnComponent>
+      </TwoColumnLayout.RightContent>
+    </TwoColumnLayout>
   );
 };
 
