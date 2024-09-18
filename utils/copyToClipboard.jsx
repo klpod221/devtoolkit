@@ -19,8 +19,8 @@ const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
     toast.success("Copied to clipboard!");
   } catch (error) {
+    toast.error(error.message || "Copy failed");
     console.error(error);
-    toast.error("Error copying to clipboard");
   }
 };
 

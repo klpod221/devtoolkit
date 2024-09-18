@@ -43,8 +43,8 @@ const BcryptHashGenerator = () => {
 
       setOutput(hashed);
     } catch (error) {
+      toast.error(error.message || "Error encrypting");
       console.error(error);
-      toast.error("Error encrypting");
     }
   };
 
@@ -66,8 +66,8 @@ const BcryptHashGenerator = () => {
       setIsMatched(matched);
       setIsShowResult(true);
     } catch (error) {
+      toast.error(error.message || "Error checking hash");
       console.error(error);
-      toast.error("Error checking hash");
     }
   };
 

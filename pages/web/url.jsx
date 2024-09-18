@@ -24,8 +24,8 @@ const UrlEncoderDecoder = () => {
       setOutput(encoded);
       toast.success("Encoded successfully");
     } catch (error) {
+      toast.error(error.message || "Error encoding");
       console.error(error);
-      toast.error("Error encoding");
     }
   };
 
@@ -40,8 +40,8 @@ const UrlEncoderDecoder = () => {
       setOutput(decoded);
       toast.success("Decoded successfully");
     } catch (error) {
+      toast.error(error.message || "Error decoding");
       console.error(error);
-      toast.error("Error decoding");
     }
   }
 

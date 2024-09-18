@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 import RegexCheatsheet from "@constants/RegexCheatsheet";
 
@@ -251,6 +252,7 @@ const RegexTester = () => {
 
       setDecorationIds(editorRef.current?.deltaDecorations([], decorations));
     } catch (error) {
+      toast.error(error.message || "Regex error");
       console.error(error);
     }
   };

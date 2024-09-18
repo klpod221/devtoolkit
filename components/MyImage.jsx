@@ -1,5 +1,8 @@
 import React from "react";
 import NextImage from "next/image";
+
+const { toast } = require("react-toastify");
+
 import {
   AiOutlineEye,
   AiOutlineDownload,
@@ -20,7 +23,8 @@ const MyImage = ({ src, alt, className, preview = true, download = true }) => {
       a.download = alt;
       a.click();
     } catch (error) {
-      console.error("Error on download image", error);
+      toast.error(error.message || "Download failed");
+      console.error(error);
     }
   };
 
