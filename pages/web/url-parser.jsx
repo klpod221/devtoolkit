@@ -7,6 +7,7 @@ import TwoColumn from "@components/TwoColumn";
 
 import { FaArrowRight } from "react-icons/fa";
 import MyInput from "@components/MyInput";
+import MyCopyButton from "@components/MyCopyButton";
 
 const UrlParser = () => {
   const [url, setUrl] = React.useState("");
@@ -68,11 +69,20 @@ const UrlParser = () => {
           {Object.entries(parsedUrl).map(([key, value]) => (
             <div
               key={key}
-              className="flex flex-col dark:text-dark-text p-5 border-b border-gray-300/50 dark:border-dark-secondary/50"
+              className="flex flex-col dark:text-dark-text p-5 border-b border-gray-300/50 dark:border-dark-secondary/50 last:border-b-0"
             >
               <span className="font-semibold capitalize">{key}:</span>
-              <span className="text-sm" style={{ whiteSpace: "pre-wrap" }}>
+              <span
+                className="text-sm flex items-center"
+                style={{ whiteSpace: "pre-wrap" }}
+              >
                 {value}
+                {value && (
+                  <MyCopyButton
+                    className="ml-2"
+                    value={value}
+                  />
+                )}
               </span>
             </div>
           ))}

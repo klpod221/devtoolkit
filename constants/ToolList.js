@@ -83,14 +83,14 @@ const toolList = [
         description: "Encode or decode url strings.",
         icon: AiOutlineRetweet,
         path: "/url",
-        status: false, // true if tool is ready
+        status: true, // true if tool is ready
       },
       {
         name: "Url Parser",
         description: "Parse url strings.",
         icon: AiOutlineRetweet,
         path: "/url-parser",
-        status: false, // true if tool is ready
+        status: true, // true if tool is ready
       },
       {
         name: "Digital Certificate Decoder",

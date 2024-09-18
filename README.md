@@ -30,8 +30,8 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Base64 Encoder/Decoder](https://devtools.klpod221.site/web/base64)             | Encode or decode base64 strings.                    |
 | <ul><li> - [x] </li></ul> | [Base64 Image Encoder/Decoder](https://devtools.klpod221.site/web/base64-image) | Encode or decode base64 images.                     |
 | <ul><li> - [x] </li></ul> | [Bcrypt Hash Generator](https://devtools.klpod221.site/web/bcrypt)              | Bcrypt hash generator and verifier.                 |
-| <ul><li> - [ ] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)                   | Encode or decode url strings.                       |
-| <ul><li> - [ ] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                     | Parse url strings.                                  |
+| <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)                   | Encode or decode url strings.                       |
+| <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                     | Parse url strings.                                  |
 | <ul><li> - [ ] </li></ul> | [Digital Certificate Decoder](https://devtools.klpod221.site/web/certificate)   | Decode digital certificates.                        |
 | <ul><li> - [ ] </li></ul> | [JSON Converter](https://devtools.klpod221.site/web/json)                       | Convert JSON to XML, YAML, CSV, etc and vice versa. |
 
