@@ -1,8 +1,7 @@
 import React from "react";
 import bcrypt from "bcryptjs";
-import { Label } from "flowbite-react";
 
-import TwoColumnLayout from "@components/TwoColumnLayout";
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
 import MySelect from "@components/MySelect";
@@ -73,8 +72,8 @@ const BcryptHashGenerator = () => {
   };
 
   return (
-    <TwoColumnLayout>
-      <TwoColumnLayout.LeftContent>
+    <TwoColumn>
+      <TwoColumn.LeftContent>
         <MyCard.Header
           title="Encrypt"
           helper="Encrypt some text. The result shown will be a Bcrypt encrypted hash."
@@ -117,9 +116,9 @@ const BcryptHashGenerator = () => {
           readOnly
           placeholder="Output will be shown here"
         />
-      </TwoColumnLayout.LeftContent>
+      </TwoColumn.LeftContent>
 
-      <TwoColumnLayout.RightContent>
+      <TwoColumn.RightContent>
         <MyCard.Header
           title="Decrypt"
           helper="Test your Bcrypt hash against some plaintext, to see if they match."
@@ -165,8 +164,8 @@ const BcryptHashGenerator = () => {
             )}
           </div>
         )}
-      </TwoColumnLayout.RightContent>
-    </TwoColumnLayout>
+      </TwoColumn.RightContent>
+    </TwoColumn>
   );
 };
 

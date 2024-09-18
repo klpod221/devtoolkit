@@ -1,5 +1,4 @@
 import React from "react";
-import { toast } from "react-toastify";
 
 import RegexCheatsheet from "@constants/RegexCheatsheet";
 
@@ -7,7 +6,7 @@ import findTextPosition from "@utils/findTextPosition";
 import copyToClipboard from "@utils/copyToClipboard";
 
 import MyCard from "@components/MyCard";
-import TwoColumnLayout from "@components/TwoColumnLayout";
+import TwoColumn from "@components/TwoColumn";
 import MyCodeEditor from "@components/MyCodeEditor";
 import MyPopover from "@components/MyPopover";
 import MyButton from "@components/MyButton";
@@ -262,8 +261,8 @@ const RegexTester = () => {
   };
 
   return (
-    <TwoColumnLayout leftWidth="70">
-      <TwoColumnLayout.LeftContent>
+    <TwoColumn leftWidth="70">
+      <TwoColumn.LeftContent>
         <MyCard.Header title="Regex Tester" helper="Test your regex pattern">
           <div className="flex items-center space-x-2">
             <MyButton size="sm" onClick={onCopyRegex}>
@@ -365,8 +364,8 @@ const RegexTester = () => {
             ))}
           </div>
         </MyDrawer>
-      </TwoColumnLayout.LeftContent>
-      <TwoColumnLayout.RightContent>
+      </TwoColumn.LeftContent>
+      <TwoColumn.RightContent>
         <MyCard.Header
           title="Regex Cheatsheet"
           helper="A quick reference for regex syntax"
@@ -397,8 +396,8 @@ const RegexTester = () => {
             </>
           ))}
         </div>
-      </TwoColumnLayout.RightContent>
-    </TwoColumnLayout>
+      </TwoColumn.RightContent>
+    </TwoColumn>
   );
 };
 

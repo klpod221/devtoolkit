@@ -1,7 +1,7 @@
 import React from "react";
 import MarkdownIt from "markdown-it";
 
-import TwoColumnLayout from "@/components/TwoColumnLayout";
+import TwoColumn from "@components/TwoColumn";
 import CodeOutput from "@components/CodeOutput";
 import MyCodeEditor from "@/components/MyCodeEditor";
 import MyCard from "@components/MyCard";
@@ -16,8 +16,8 @@ const MarkdownEditor = () => {
   }, [code]);
 
   return (
-    <TwoColumnLayout>
-      <TwoColumnLayout.LeftContent>
+    <TwoColumn>
+      <TwoColumn.LeftContent>
         <div className="flex justify-between items-center">
           <div className="text-xl font-semibold text-gray-800 dark:text-dark-text">
             Markdown Input
@@ -25,9 +25,9 @@ const MarkdownEditor = () => {
         </div>
 
         <MyCodeEditor language={"markdown"} value={code} onChange={setCode} />
-      </TwoColumnLayout.LeftContent>
+      </TwoColumn.LeftContent>
 
-      <TwoColumnLayout.RightContent>
+      <TwoColumn.RightContent>
         <MyCard.Header>
           <div className="text-xl font-semibold text-gray-800 dark:text-dark-text">
             Preview
@@ -35,8 +35,8 @@ const MarkdownEditor = () => {
         </MyCard.Header>
 
         <CodeOutput language={"html"} output={output} canCopy={false} />
-      </TwoColumnLayout.RightContent>
-    </TwoColumnLayout>
+      </TwoColumn.RightContent>
+    </TwoColumn>
   );
 };
 
