@@ -5,16 +5,29 @@ import MyCard from "@components/MyCard";
 import TwoColumnComponent from "@components/TwoColumnComponent";
 
 import { FaArrowRight } from "react-icons/fa";
+import MyInput from "@components/MyInput";
 
 const UrlParser = () => {
   return (
     <TwoColumnComponent>
       <TwoColumnComponent.LeftContent>
         <MyCard.Header title="Input" helper="Enter the URL to parse">
-          <MyButton>Parse</MyButton>
+          <MyButton size="sm">
+            Parse <FaArrowRight className="ml-2" />
+          </MyButton>
         </MyCard.Header>
+
+        <MyInput
+          id="url"
+          label="URL"
+          placeholder="https://example.com"
+          type="text"
+          required
+        />
       </TwoColumnComponent.LeftContent>
-      <TwoColumnComponent.RightContent></TwoColumnComponent.RightContent>
+      <TwoColumnComponent.RightContent>
+        <MyCard.Header title="Output" helper="Parsed URL will be shown here" />
+      </TwoColumnComponent.RightContent>
     </TwoColumnComponent>
   );
 };

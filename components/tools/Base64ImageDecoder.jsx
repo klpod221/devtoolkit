@@ -24,11 +24,7 @@ const Base64ImageDecoder = () => {
 
   return (
     <>
-      <div className="font-semibold text-gray-800 dark:text-dark-text flex items-center mb-2">
-        <span>Input</span>
-      </div>
-
-      <MyTextarea value={input} onChange={setInput} />
+      <MyTextarea label="Input" value={input} onChange={setInput} />
 
       <div className="flex justify-center items-center space-x-4 my-2">
         <MyButton onClick={convertImages}>Convert</MyButton>

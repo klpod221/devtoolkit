@@ -23,17 +23,18 @@ const Base64EncoderDecoder = () => {
   return (
     <MyCard className="w-full">
       <div className="w-full h-full">
-        <div className="font-semibold text-gray-800 dark:text-dark-text">
-          Input
-        </div>
-        <MyTextarea value={input} onChange={setInput} />
+        <MyTextarea
+          label="input"
+          value={input}
+          onChange={setInput}
+        />
 
         <div className="flex justify-center items-center space-x-4 my-2">
           <MyButton onClick={encode}>Encode</MyButton>
           <MyButton onClick={decode}>Decode</MyButton>
         </div>
 
-        <div className="font-semibold text-gray-800 dark:text-dark-text">
+        <div className="text-gray-800 dark:text-dark-text text-base">
           Output
         </div>
 

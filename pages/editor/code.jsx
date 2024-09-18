@@ -104,27 +104,19 @@ const CodeEditor = () => {
       <TwoColumnComponent.RightContent>
         <div className="flex h-full flex-col">
           {language !== "html" && (
-            <>
-              <div className="mb-2 block">
-                <Label
-                  htmlFor="stdin"
-                  value="STDIN"
-                  className="text-xl font-semibold"
-                />
-              </div>
-              <MyTextarea
-                id="stdin"
-                className="mb-4"
-                value={stdin}
-                rows={2}
-                required
-                onChange={setStdin}
-              />
-            </>
+            <MyTextarea
+              id="stdin"
+              label="INPUT"
+              className="mb-4"
+              value={stdin}
+              rows={2}
+              required
+              onChange={setStdin}
+            />
           )}
 
           <div className="text-gray-800 dark:text-dark-text flex mb-1 justify-between">
-            <span className="text-xl font-semibold">STDOUT</span>
+            <span className="text-base">OUTPUT</span>
             <span className="text-sm text-gray-500 dark:text-gray-400">
               {loading ? (
                 <div className="flex items-center">Processing...</div>

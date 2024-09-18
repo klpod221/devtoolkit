@@ -1,6 +1,12 @@
-import { TextInput } from "flowbite-react";
+import { Label, TextInput } from "flowbite-react";
 
-const MyInput = ({ value, onChange = () => {}, ...props }) => {
+const MyInput = ({
+  value,
+  onChange = () => {},
+  label,
+  labelStyle,
+  ...props
+}) => {
   const theme = {
     base: "flex",
     addon:
@@ -54,9 +60,26 @@ const MyInput = ({ value, onChange = () => {}, ...props }) => {
 
   const onInputChange = (e) => {
     onChange(e.target.value, e);
-  }
+  };
 
-  return <TextInput theme={theme} value={value} onChange={onInputChange} {...props} />;
+  return (
+    <div className="flex flex-col">
+      {label && (
+        <Label
+          htmlFor={props.id}
+          value={label}
+          className={`text-base dark:text-dark-text ${labelStyle}`}
+        />
+      )}
+
+      <TextInput
+        theme={theme}
+        value={value}
+        onChange={onInputChange}
+        {...props}
+      />
+    </div>
+  );
 };
 
 export default MyInput;

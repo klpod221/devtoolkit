@@ -115,7 +115,11 @@ const MyButton = (props) => {
     },
   };
 
-  return <Button theme={theme} {...props} />;
+  return (
+    <Button theme={theme} {...props}>
+      <div className="flex items-center">{props.children}</div>
+    </Button>
+  );
 };
 
 export default MyButton;

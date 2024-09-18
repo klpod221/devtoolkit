@@ -1,6 +1,8 @@
 import React from "react";
 import { toast } from "react-toastify";
 
+import copyToClipboard from "@utils/copyToClipboard";
+
 import TwoColumnComponent from "@components/TwoColumnComponent";
 import MyFileInput from "@components/MyFileInput";
 import MyCard from "@components/MyCard";
@@ -181,11 +183,6 @@ const Uploader = () => {
 
     queue.status = "queued";
     setQueueList((queueList) => [...queueList]);
-  };
-
-  const copyUrl = (url) => () => {
-    navigator.clipboard.writeText(url);
-    toast.success("URL copied to clipboard");
   };
 
   React.useEffect(() => {
@@ -377,7 +374,7 @@ const Uploader = () => {
                   <div>
                     <div
                       className="text-sm font-semibold dark:text-dark-text cursor-pointer"
-                      onClick={copyUrl(file.url)}
+                      onClick={() => copyToClipboard(file.url)}
                     >
                       {file.name}
                     </div>

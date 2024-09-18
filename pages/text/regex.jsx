@@ -4,13 +4,13 @@ import { toast } from "react-toastify";
 import RegexCheatsheet from "@constants/RegexCheatsheet";
 
 import findTextPosition from "@utils/findTextPosition";
+import copyToClipboard from "@utils/copyToClipboard";
 
 import MyCard from "@components/MyCard";
 import TwoColumnComponent from "@components/TwoColumnComponent";
 import MyCodeEditor from "@components/MyCodeEditor";
 import MyPopover from "@components/MyPopover";
 import MyButton from "@components/MyButton";
-
 
 import { FaCopy } from "react-icons/fa";
 import { GoChevronDown } from "react-icons/go";
@@ -257,23 +257,9 @@ const RegexTester = () => {
   };
 
   const onCopyRegex = () => {
-    try {
-      const regex = new RegExp(pattern, flags.join("")).toString();
-      navigator.clipboard.writeText(regex);
-      toast.success("Regex copied to clipboard");
-    } catch (error) {
-      console.error(error);
-    }
+      const regex = new RegExp(pattern, flags.join(""));
+      copyToClipboard(regex);
   };
-
-  const onCopyPattern = (pattern) => {
-    try {
-      navigator.clipboard.writeText(pattern);
-      toast.success("Pattern copied to clipboard");
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
   return (
     <TwoColumnComponent leftWidth="70">
@@ -370,7 +356,7 @@ const RegexTester = () => {
                   {item.name}
                 </span>
                 <kbd
-                  onClick={() => onCopyPattern(item.pattern)}
+                  onClick={() => copyToClipboard(item.pattern)}
                   className="cursor-pointer"
                 >
                   {new RegExp(item.pattern, item.flags.join("")).toString()}

@@ -65,7 +65,7 @@ const Base64ImageEncoder = () => {
         <MyButton onClick={convertImages}>Convert</MyButton>
       </div>
 
-      <div className="font-semibold text-gray-800 dark:text-dark-text flex items-center mb-2">
+      <div className="text-gray-800 dark:text-dark-text flex items-center mb-2">
         <span>Output</span>
         <MySelect
           value={outputType}

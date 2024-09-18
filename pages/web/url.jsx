@@ -68,7 +68,7 @@ const UrlEncoderDecoder = () => {
         <Label
           htmlFor="url"
           value="Url Input"
-          className="text-md font-semibold"
+          className="text-base font-semibold"
         />
 
         <MyInput
@@ -83,7 +83,7 @@ const UrlEncoderDecoder = () => {
         <Label
           htmlFor="output"
           value="Output"
-          className="text-md font-semibold"
+          className="text-base font-semibold"
         />
 
         <MyTextarea

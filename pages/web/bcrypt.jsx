@@ -101,36 +101,22 @@ const BcryptHashGenerator = () => {
           </div>
         </MyCard.Header>
 
-        <div className="flex flex-col">
-          <Label
-            htmlFor="text"
-            value="Text Input"
-            className="text-md font-semibold"
-          />
+        <MyInput
+          id="text"
+          label="Text Input"
+          value={input}
+          onChange={setInput}
+          placeholder="Enter text to encrypt"
+        />
 
-          <MyInput
-            id="text"
-            value={input}
-            onChange={setInput}
-            placeholder="Enter text to encrypt"
-          />
-        </div>
-
-        <div className="flex flex-col">
-          <Label
-            htmlFor="output"
-            value="Output"
-            className="text-md font-semibold"
-          />
-
-          <MyTextarea
-            id="output"
-            value={output}
-            rows={4}
-            readOnly
-            placeholder="Output will be shown here"
-          />
-        </div>
+        <MyTextarea
+          id="output"
+          label="Output"
+          value={output}
+          rows={4}
+          readOnly
+          placeholder="Output will be shown here"
+        />
       </TwoColumnComponent.LeftContent>
 
       <TwoColumnComponent.RightContent>
@@ -144,35 +130,21 @@ const BcryptHashGenerator = () => {
           </MyButton>
         </MyCard.Header>
 
-        <div className="flex flex-col">
-          <Label
-            htmlFor="hash"
-            value="Hash to check"
-            className="text-md font-semibold"
-          />
+        <MyInput
+          id="hash"
+          label="Hash to check"
+          placeholder="Enter hash to check"
+          value={hash}
+          onChange={setHash}
+        />
 
-          <MyInput
-            id="hash"
-            placeholder="Enter hash to check"
-            value={hash}
-            onChange={setHash}
-          />
-        </div>
-
-        <div className="flex flex-col">
-          <Label
-            htmlFor="stringToCheck"
-            value="String to check"
-            className="text-md font-semibold"
-          />
-
-          <MyInput
-            id="stringToCheck"
-            placeholder="Enter string to check"
-            value={stringToCheck}
-            onChange={setStringToCheck}
-          />
-        </div>
+        <MyInput
+          id="stringToCheck"
+          label="String to check"
+          placeholder="Enter string to check"
+          value={stringToCheck}
+          onChange={setStringToCheck}
+        />
 
         {isShowResult && (
           <div

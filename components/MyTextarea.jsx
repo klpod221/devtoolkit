@@ -1,24 +1,17 @@
 import React from "react";
-import { Textarea } from "flowbite-react";
+import { Label, Textarea } from "flowbite-react";
 import { FaCopy } from "react-icons/fa";
-import { toast } from "react-toastify";
 
-const MyTextarea = ({ showCopy = true, value, onChange = () => {}, ...props }) => {
-  const copyToClipboard = () => {
-    if (!navigator.clipboard) {
-      toast.error("Clipboard API not available");
-      return;
-    }
+import copyToClipboard from "@utils/copyToClipboard";
 
-    if (!value) {
-      toast.error("No output to copy");
-      return;
-    }
-
-    navigator.clipboard.writeText(value);
-    toast.success("Copied to clipboard!");
-  };
-
+const MyTextarea = ({
+  showCopy = true,
+  value,
+  onChange = () => {},
+  label,
+  labelStyle,
+  ...props
+}) => {
   const onTextChange = (e) => {
     onChange(e.target.value, e);
   };
@@ -42,17 +35,33 @@ const MyTextarea = ({ showCopy = true, value, onChange = () => {}, ...props }) =
   };
 
   return (
-    <div className="relative group overflow-auto">
-      {showCopy && (
-        <button
-          className="absolute top-1 right-1 p-1 bg-gray-200 dark:bg-dark-secondary rounded-md group-hover:block hidden"
-          onClick={copyToClipboard}
-        >
-          <FaCopy />
-        </button>
+    <div className="flex flex-col">
+      {label && (
+        <Label
+          htmlFor={props.id}
+          value={label}
+          className={`text-base dark:text-dark-text ${labelStyle}`}
+        />
       )}
 
-      <Textarea theme={theme} rows={props.rows || 4} value={value} onChange={onTextChange} {...props} />
+      <div className="relative group overflow-auto">
+        {showCopy && value && (
+          <button
+            className="absolute top-1 right-1 p-1 bg-gray-200 dark:bg-dark-secondary rounded-md group-hover:block hidden"
+            onClick={() => copyToClipboard(value)}
+          >
+            <FaCopy />
+          </button>
+        )}
+
+        <Textarea
+          theme={theme}
+          rows={props.rows || 4}
+          value={value}
+          onChange={onTextChange}
+          {...props}
+        />
+      </div>
     </div>
   );
 };
