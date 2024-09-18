@@ -18,7 +18,7 @@ const UrlEncoderDecoder = () => {
         return;
       }
 
-      const encoded = encodeURIComponent(input);
+      const encoded = encodeURI(input);
       setOutput(encoded);
       toast.success("Encoded successfully");
     } catch (error) {
@@ -34,7 +34,7 @@ const UrlEncoderDecoder = () => {
         return;
       }
 
-      const decoded = decodeURIComponent(input);
+      const decoded = decodeURI(input);
       setOutput(decoded);
       toast.success("Decoded successfully");
     } catch (error) {

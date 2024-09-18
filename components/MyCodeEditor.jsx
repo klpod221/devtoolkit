@@ -6,14 +6,16 @@ import { IoExpandOutline, IoContractOutline } from "react-icons/io5";
 
 const MyCodeEditor = ({
   language = "html",
-  code = "",
-  onChange = () => {},
+  fullScreen = true,
+  options = {},
+  editorRef = null,
+  ...props
 }) => {
   const [isFullScreen, setIsFullScreen] = React.useState(false);
   const { theme } = React.useContext(ThemeContext);
   const disposeEmmet = React.useRef();
 
-  const handleEditorDidMount = () => {
+  const handleEditorWillMount = () => {
     if (language === "html") {
       disposeEmmet.current = emmetHTML(monaco);
     } else if (language === "css") {
@@ -25,12 +27,19 @@ const MyCodeEditor = ({
     }
   };
 
+  const handleEditorDidMount = (editor, monaco) => {
+    if (editorRef) {
+      editorRef.current = editor;
+      editorRef.monaco = monaco;
+    }
+  };
+
   React.useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
         setIsFullScreen(false);
       }
-    }
+    };
 
     document.addEventListener("keydown", handleKeyDown);
 
@@ -54,35 +63,37 @@ const MyCodeEditor = ({
             </div>
 
             <Editor
-              value={code}
-              onChange={onChange}
               language={language}
-              beforeMount={handleEditorDidMount}
+              beforeMount={handleEditorWillMount}
+              onMount={handleEditorDidMount}
               className="w-full h-full border border-gray-200 dark:border-dark-secondary code-editor"
               theme={theme === "dark" ? "vs-dark" : "vs-light"}
               options={{
                 smoothScrolling: true,
+                ...options,
               }}
+              {...props}
             />
           </div>
         </div>
       )}
 
       <div className="relative w-full h-full group">
-        <div
-          className="absolute top-2 right-2 cursor-pointer z-10 p-2 bg-white dark:bg-dark rounded-full shadow-md hidden group-hover:block transition-all duration-300"
-          onClick={() => {
-            setIsFullScreen(!isFullScreen);
-          }}
-        >
-          <IoExpandOutline className="text-gray-800 dark:text-dark-text" />
-        </div>
+        {fullScreen && (
+          <div
+            className="absolute top-2 right-2 cursor-pointer z-10 p-2 bg-white dark:bg-dark rounded-full shadow-md hidden group-hover:block transition-all duration-300"
+            onClick={() => {
+              setIsFullScreen(!isFullScreen);
+            }}
+          >
+            <IoExpandOutline className="text-gray-800 dark:text-dark-text" />
+          </div>
+        )}
 
         <Editor
-          value={code}
-          onChange={onChange}
           language={language}
-          beforeMount={handleEditorDidMount}
+          beforeMount={handleEditorWillMount}
+          onMount={handleEditorDidMount}
           className="w-full h-full border border-gray-200 dark:border-dark-secondary code-editor"
           theme={theme === "dark" ? "vs-dark" : "vs-light"}
           options={{
@@ -90,7 +101,9 @@ const MyCodeEditor = ({
               vertical: "hidden",
               smoothScrolling: true,
             },
+            ...options,
           }}
+          {...props}
         />
       </div>
     </>

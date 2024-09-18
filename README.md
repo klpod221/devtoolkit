@@ -47,7 +47,7 @@ And if you have any suggestions, please let me know by creating an issue.
 
 | Status                    | Name                                                                 | Description                                         |
 | ------------------------- | -------------------------------------------------------------------- | --------------------------------------------------- |
-| <ul><li> - [ ] </li></ul> | [Regex Tester](https://devtools.klpod221.site/text/regex)            | Test your regular expressions.                      |
+| <ul><li> - [x] </li></ul> | [Regex Tester](https://devtools.klpod221.site/text/regex)            | Test your regular expressions.                      |
 | <ul><li> - [ ] </li></ul> | [Text Diff](https://devtools.klpod221.site/text/diff)                | Compare two texts.                                  |
 | <ul><li> - [ ] </li></ul> | [Word Counter](https://devtools.klpod221.site/text/counter)          | Count words, characters and distribution.           |
 | <ul><li> - [ ] </li></ul> | [Lorem Ipsum](https://devtools.klpod221.site/text/lorem-ipsum)       | Generate placeholder text.                          |

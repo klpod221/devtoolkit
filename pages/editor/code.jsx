@@ -96,7 +96,7 @@ const CodeEditor = () => {
           </div>
         </MyCard.Header>
 
-        <MyCodeEditor language={language} code={code} onChange={setCode} />
+        <MyCodeEditor language={language} value={code} onChange={setCode} />
       </TwoColumnComponent.LeftContent>
 
       <TwoColumnComponent.RightContent>

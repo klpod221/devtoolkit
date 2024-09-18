@@ -23,7 +23,7 @@ const MarkdownEditor = () => {
           </div>
         </div>
 
-        <MyCodeEditor language={"markdown"} code={code} onChange={setCode} />
+        <MyCodeEditor language={"markdown"} value={code} onChange={setCode} />
       </TwoColumnComponent.LeftContent>
 
       <TwoColumnComponent.RightContent>

@@ -144,7 +144,7 @@ const toolList = [
         description: "Test your regular expressions.",
         icon: BsRegex,
         path: "/regex",
-        status: false, // true if tool is ready
+        status: true, // true if tool is ready
       },
       {
         name: "Text Diff",

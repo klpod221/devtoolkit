@@ -43,6 +43,15 @@
   button span {
     white-space: nowrap;
   }
+
+  kbd {
+    @apply px-1 py-0.5 bg-gray-200 text-gray-800 rounded h-fit;
+    font-family: "Fira Code", "Courier New", monospace;
+  }
+
+  .regex-match {
+    @apply bg-orange-200 !text-black;
+  }
 }
 
 @keyframes emoji-404 {
