@@ -46,14 +46,14 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
     <>
       {isOpen && (
         <div
-          className="fixed top-0 left-0 z-20 w-screen h-screen bg-black bg-opacity-50 dark:bg-gray dark:bg-opacity-50"
+          className="fixed top-0 left-0 z-40 w-screen h-screen bg-black bg-opacity-50 dark:bg-gray"
           aria-label="Overlay"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
       <aside
-        className={`fixed top-0 left-0 z-30 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-dark dark:border-dark-secondary ${
-          isOpen ? "translate-x-0" : ""
+        className={`fixed top-0 left-0 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-dark dark:border-dark-secondary ${
+          isOpen ? "translate-x-0 z-40" : ""
         }`}
         aria-label="Sidebar"
       >

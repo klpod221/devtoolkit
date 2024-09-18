@@ -19,7 +19,7 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 z-40 w-full bg-white border-b border-gray-200 dark:bg-dark dark:border-dark-secondary">
+    <nav className="fixed top-0 left-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-dark dark:border-dark-secondary">
       <div className="px-3 py-3 lg:px-5 lg:pl-3">
         <div className="flex items-center">
           <div className="flex items-center justify-start sm:w-60 w-auto">

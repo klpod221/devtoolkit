@@ -52,6 +52,10 @@
   .regex-match {
     @apply bg-orange-200 !text-black;
   }
+
+  .h-without-nav {
+    height: calc(100vh - 60px);
+  }
 }
 
 @keyframes emoji-404 {
