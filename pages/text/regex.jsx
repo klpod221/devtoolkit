@@ -1,12 +1,18 @@
-import MyCard from "@components/MyCard";
-import RegexCheatsheet from "@constants/RegexCheatsheet";
-import TwoColumnComponent from "@components/TwoColumnComponent";
 import React from "react";
+import { toast } from "react-toastify";
+
+import RegexCheatsheet from "@constants/RegexCheatsheet";
+
+import MyCard from "@components/MyCard";
+import TwoColumnComponent from "@components/TwoColumnComponent";
 import MyCodeEditor from "@components/MyCodeEditor";
 import MyPopover from "@components/MyPopover";
-import { GoChevronDown } from "react-icons/go";
-import debounce from "@utils/debounce";
+import MyButton from "@components/MyButton";
+
 import findTextPosition from "@utils/findTextPosition";
+
+import { FaCopy } from "react-icons/fa";
+import { GoChevronDown } from "react-icons/go";
 
 const flagOptions = [
   {
@@ -38,7 +44,12 @@ const flagOptions = [
 const commonRegexPatterns = [
   {
     name: "Whole Numbers",
-    pattern: "^d+$",
+    pattern: `^\d+$`,
+    flags: ["g", "m"],
+  },
+  {
+    name: "Decimal Numbers",
+    pattern: `^\d*\.\d+$`,
     flags: ["g", "m"],
   },
 ];
@@ -127,10 +138,25 @@ const RegexTester = () => {
     }
   };
 
+  const onCopyRegex = () => {
+    try {
+      const regex = new RegExp(pattern, flags.join("")).toString();
+      navigator.clipboard.writeText(regex);
+      toast.success("Regex copied to clipboard");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <TwoColumnComponent leftWidth="70">
       <TwoColumnComponent.LeftContent>
-        <MyCard.Header title="Regex Tester" helper="Test your regex pattern" />
+        <MyCard.Header title="Regex Tester" helper="Test your regex pattern">
+          <MyButton size="sm" onClick={onCopyRegex}>
+            <FaCopy className="w-4 h-4 mr-1" />
+            Copy
+          </MyButton>
+        </MyCard.Header>
 
         <div className="border border-gray-200 dark:border-dark-secondary rounded-lg flex overflow-hidden">
           <span className="px-4 py-1.5 flex items-center bg-gray-100 dark:bg-dark-secondary dark:text-dark-text">
