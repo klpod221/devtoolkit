@@ -64,7 +64,7 @@ const CodeEditor = () => {
 
   return (
     <TwoColumn leftWidth={70}>
-      <TwoColumn.LeftContent>
+      <TwoColumn.Left>
         <MyCard.Header
           title="Code Input"
           helper={helperMessage || "You can write your code here"}
@@ -99,9 +99,9 @@ const CodeEditor = () => {
         </MyCard.Header>
 
         <MyCodeEditor language={language} value={code} onChange={setCode} />
-      </TwoColumn.LeftContent>
+      </TwoColumn.Left>
 
-      <TwoColumn.RightContent>
+      <TwoColumn.Right>
         <div className="flex h-full flex-col">
           {language !== "html" && (
             <MyTextarea
@@ -134,7 +134,7 @@ const CodeEditor = () => {
             output={output?.stdout}
           />
         </div>
-      </TwoColumn.RightContent>
+      </TwoColumn.Right>
     </TwoColumn>
   );
 };

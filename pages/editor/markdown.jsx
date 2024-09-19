@@ -17,7 +17,7 @@ const MarkdownEditor = () => {
 
   return (
     <TwoColumn>
-      <TwoColumn.LeftContent>
+      <TwoColumn.Left>
         <div className="flex justify-between items-center">
           <div className="text-xl font-semibold text-gray-800 dark:text-dark-text">
             Markdown Input
@@ -25,9 +25,9 @@ const MarkdownEditor = () => {
         </div>
 
         <MyCodeEditor language={"markdown"} value={code} onChange={setCode} />
-      </TwoColumn.LeftContent>
+      </TwoColumn.Left>
 
-      <TwoColumn.RightContent>
+      <TwoColumn.Right>
         <MyCard.Header>
           <div className="text-xl font-semibold text-gray-800 dark:text-dark-text">
             Preview
@@ -35,7 +35,7 @@ const MarkdownEditor = () => {
         </MyCard.Header>
 
         <CodeOutput language={"html"} output={output} canCopy={false} />
-      </TwoColumn.RightContent>
+      </TwoColumn.Right>
     </TwoColumn>
   );
 };

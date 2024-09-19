@@ -108,7 +108,7 @@ const FormatConverter = () => {
   return (
     <>
       <TwoColumn>
-        <TwoColumn.LeftContent>
+        <TwoColumn.Left>
           <MyCard.Header title="Image Input">
             <MyButton size={"sm"} className="py-0" onClick={convertImages}>
               Convert
@@ -144,8 +144,8 @@ const FormatConverter = () => {
               </div>
             ))}
           </div>
-        </TwoColumn.LeftContent>
-        <TwoColumn.RightContent>
+        </TwoColumn.Left>
+        <TwoColumn.Right>
           <MyCard.Header title={`Format: ${format}`}>
             {returnImages.length > 0 && (
               <Button
@@ -174,7 +174,7 @@ const FormatConverter = () => {
               </div>
             ))}
           </div>
-        </TwoColumn.RightContent>
+        </TwoColumn.Right>
       </TwoColumn>
     </>
   );

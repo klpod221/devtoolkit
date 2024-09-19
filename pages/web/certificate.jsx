@@ -49,7 +49,7 @@ const DigitalCertificateDecoder = () => {
 
   return (
     <TwoColumn>
-      <TwoColumn.LeftContent>
+      <TwoColumn.Left>
         <MyCard.Header title="Input" helper="Enter the certificate to decode">
           <MyButton size="sm" onClick={decodeCertificate}>
             Decode <FaArrowRight className="ml-2" />
@@ -62,8 +62,8 @@ const DigitalCertificateDecoder = () => {
           onChange={setInput}
           options={{ minimap: { enabled: false } }}
         />
-      </TwoColumn.LeftContent>
-      <TwoColumn.RightContent>
+      </TwoColumn.Left>
+      <TwoColumn.Right>
         <MyCard.Header title="Output" helper="Decoded certificate" />
 
         <div className="flex flex-col overflow-y-auto">
@@ -94,7 +94,7 @@ const DigitalCertificateDecoder = () => {
             </>
           )}
         </div>
-      </TwoColumn.RightContent>
+      </TwoColumn.Right>
     </TwoColumn>
   );
 };

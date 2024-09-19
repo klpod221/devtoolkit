@@ -73,7 +73,7 @@ const BcryptHashGenerator = () => {
 
   return (
     <TwoColumn>
-      <TwoColumn.LeftContent>
+      <TwoColumn.Left>
         <MyCard.Header
           title="Encrypt"
           helper="Encrypt some text. The result shown will be a Bcrypt encrypted hash."
@@ -116,9 +116,9 @@ const BcryptHashGenerator = () => {
           readOnly
           placeholder="Output will be shown here"
         />
-      </TwoColumn.LeftContent>
+      </TwoColumn.Left>
 
-      <TwoColumn.RightContent>
+      <TwoColumn.Right>
         <MyCard.Header
           title="Decrypt"
           helper="Test your Bcrypt hash against some plaintext, to see if they match."
@@ -164,7 +164,7 @@ const BcryptHashGenerator = () => {
             )}
           </div>
         )}
-      </TwoColumn.RightContent>
+      </TwoColumn.Right>
     </TwoColumn>
   );
 };

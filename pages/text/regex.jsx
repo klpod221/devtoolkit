@@ -264,7 +264,7 @@ const RegexTester = () => {
 
   return (
     <TwoColumn leftWidth="70">
-      <TwoColumn.LeftContent>
+      <TwoColumn.Left>
         <MyCard.Header title="Regex Tester" helper="Test your regex pattern">
           <div className="flex items-center space-x-2">
             <MyButton size="sm" onClick={onCopyRegex}>
@@ -363,8 +363,8 @@ const RegexTester = () => {
             ))}
           </div>
         </MyDrawer>
-      </TwoColumn.LeftContent>
-      <TwoColumn.RightContent>
+      </TwoColumn.Left>
+      <TwoColumn.Right>
         <MyCard.Header
           title="Regex Cheatsheet"
           helper="A quick reference for regex syntax"
@@ -395,7 +395,7 @@ const RegexTester = () => {
             </>
           ))}
         </div>
-      </TwoColumn.RightContent>
+      </TwoColumn.Right>
     </TwoColumn>
   );
 };

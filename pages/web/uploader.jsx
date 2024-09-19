@@ -212,7 +212,7 @@ const Uploader = () => {
 
   return (
     <TwoColumn leftWidth={70}>
-      <TwoColumn.LeftContent>
+      <TwoColumn.Left>
         <MyCard.Header
           title="Upload File"
           helper={`Your files will be uploaded to <a class='underline hover:opacity-75 transition-all' href='https://fileditch.com/'>FileDitch</a> (max 5GB per file for forever storage and 15GB per file for 72 hours storage)`}
@@ -330,8 +330,8 @@ const Uploader = () => {
             </li>
           ))}
         </ul>
-      </TwoColumn.LeftContent>
-      <TwoColumn.RightContent>
+      </TwoColumn.Left>
+      <TwoColumn.Right>
         <MyCard.Header
           title="Uploaded Files"
           helper="Your uploaded files will be listed here (local storage)"
@@ -400,7 +400,7 @@ const Uploader = () => {
               </li>
             ))}
         </ul>
-      </TwoColumn.RightContent>
+      </TwoColumn.Right>
     </TwoColumn>
   );
 };

@@ -38,7 +38,7 @@ const UrlParser = () => {
 
   return (
     <TwoColumn>
-      <TwoColumn.LeftContent>
+      <TwoColumn.Left>
         <MyCard.Header title="Input" helper="Enter the URL to parse">
           <MyButton size="sm" onClick={parseUrl}>
             Parse <FaArrowRight className="ml-2" />
@@ -54,12 +54,12 @@ const UrlParser = () => {
           type="text"
           required
         />
-      </TwoColumn.LeftContent>
-      <TwoColumn.RightContent>
+      </TwoColumn.Left>
+      <TwoColumn.Right>
         <MyCard.Header title="Output" helper="Parsed URL will be shown here" />
 
         <ObjectOutput object={parsedUrl} />
-      </TwoColumn.RightContent>
+      </TwoColumn.Right>
     </TwoColumn>
   );
 };

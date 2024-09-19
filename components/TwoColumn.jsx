@@ -3,27 +3,27 @@ import MyCard from "@/components/MyCard";
 
 import { BsArrowsExpandVertical } from "react-icons/bs";
 
-const LeftContent = ({ children }) => {
+const Left = ({ children }) => {
   return <>{children}</>;
 };
 
-const RightContent = ({ children }) => {
+const Right = ({ children }) => {
   return <>{children}</>;
 };
 
 const TwoColumn = (props) => {
   const [width, setWidth] = React.useState(props.leftWidth || 50);
 
-  let leftContent = null;
-  let rightContent = null;
+  let Left = null;
+  let Right = null;
 
   React.Children.forEach(props.children, (child) => {
     if (!React.isValidElement(child)) return;
 
-    if (child.type === LeftContent) {
-      leftContent = child.props.children;
-    } else if (child.type === RightContent) {
-      rightContent = child.props.children;
+    if (child.type === Left) {
+      Left = child.props.children;
+    } else if (child.type === Right) {
+      Right = child.props.children;
     }
   });
 
@@ -72,7 +72,7 @@ const TwoColumn = (props) => {
   return (
     <div className="flex sm:flex-row flex-col h-full">
       <MyCard style={{ width: `${width}%` }} className="mb-4 sm:mb-0">
-        {!!leftContent && leftContent}
+        {!!Left && Left}
       </MyCard>
 
       <div
@@ -88,12 +88,12 @@ const TwoColumn = (props) => {
       </div>
 
       <MyCard style={{ width: `${width === 100 ? 100 : 100 - width}%` }}>
-        {!!rightContent && rightContent}
+        {!!Right && Right}
       </MyCard>
     </div>
   );
 };
 
-TwoColumn.LeftContent = LeftContent;
-TwoColumn.RightContent = RightContent;
+TwoColumn.Left = Left;
+TwoColumn.Right = Right;
 export default TwoColumn;
