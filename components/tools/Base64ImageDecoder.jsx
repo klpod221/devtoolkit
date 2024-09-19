@@ -31,7 +31,7 @@ const Base64ImageDecoder = () => {
       </div>
 
       {output && (
-        <div className="flex flex-wrap mb-4 gap-2">
+        <div className="flex flex-wrap mb-4 space-x-2">
           <div
             className="relative group overflow-hidden rounded-lg shadow-lg w-40 h-40"
           >

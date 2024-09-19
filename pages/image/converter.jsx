@@ -130,7 +130,7 @@ const FormatConverter = () => {
             ))}
           </Button.Group>
 
-          <div className="flex flex-wrap mt-4 gap-2">
+          <div className="flex flex-wrap mt-4 space-x-2">
             {images.map((image, index) => (
               <div
                 key={index}
@@ -160,7 +160,7 @@ const FormatConverter = () => {
             )}
           </MyCard.Header>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap space-x-2">
             {returnImages.map((image, index) => (
               <div
                 key={index}

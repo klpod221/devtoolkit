@@ -218,12 +218,12 @@ const Uploader = () => {
           helper={`Your files will be uploaded to <a class='underline hover:opacity-75 transition-all' href='https://fileditch.com/'>FileDitch</a> (max 5GB per file for forever storage and 15GB per file for 72 hours storage)`}
         />
 
-        <div className="flex flex-col gap-4 mb-4">
+        <div className="flex flex-col mb-4 space-x-4">
           <MyFileInput onChange={onChange} />
         </div>
 
         <MyCard.Header title="Queue List">
-          <div className="flex gap-2">
+          <div className="flex space-x-2">
             <MySelect value={uploadType} onChange={setUploadType} sizing="sm">
               <option value="temp">72 Hours</option>
               <option value="forever">Forever</option>
@@ -246,10 +246,10 @@ const Uploader = () => {
           </div>
         </MyCard.Header>
 
-        <ul className="flex flex-col w-full gap-4 overflow-y-auto">
+        <ul className="flex flex-col w-full space-x-4 overflow-y-auto">
           {queueList.map((queue, index) => (
-            <li key={index} className="flex items-center gap-2">
-              <div className="flex items-center gap-2">
+            <li key={index} className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
                   {queue.file.type.includes("image") ? (
                     <MyImage
@@ -273,7 +273,7 @@ const Uploader = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex gap-2">
+              <div className="flex space-x-2">
                 <MyButton
                   size={"xs"}
                   color="red"
@@ -295,7 +295,7 @@ const Uploader = () => {
               </div>
 
               {queue.status === "uploading" && (
-                <div className="flex items-center gap-2">
+                <div className="flex items-center space-x-2">
                   {queue.progress !== undefined && (
                     <div className="text-xs text-gray-500 dark:text-dark-text-secondary">
                       {queue.progress.toFixed(2)}%
@@ -350,13 +350,13 @@ const Uploader = () => {
           </MyButton>
         </MyCard.Header>
 
-        <ul className="flex flex-col w-full gap-4 overflow-y-auto">
+        <ul className="flex flex-col w-full space-x-4 overflow-y-auto">
           {uploadedFiles
             .slice(0)
             .reverse()
             .map((file, index) => (
-              <li key={index} className="flex items-center gap-2">
-                <div className="flex items-center gap-2">
+              <li key={index} className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
                     {file.type.includes("image") ? (
                       <MyImage
@@ -383,7 +383,7 @@ const Uploader = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex space-x-2">
                   <MyButton
                     size={"xs"}
                     color="red"

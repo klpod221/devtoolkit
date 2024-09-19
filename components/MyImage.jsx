@@ -47,7 +47,7 @@ const MyImage = ({ src, alt, className, preview = true, download = true }) => {
           }}
         />
 
-        <div className="absolute top-1 right-1 hidden justify-center items-center group-hover:flex gap-1 animate-fade-in">
+        <div className="absolute top-1 right-1 hidden justify-center items-center group-hover:flex animate-fade-in space-x-1">
           {canDownload && (
             <button className="bg-black bg-opacity-50 text-white rounded-lg p-1" onClick={onDownload}>
               <AiOutlineDownload className="h-6 w-6" />
@@ -80,7 +80,7 @@ const MyImage = ({ src, alt, className, preview = true, download = true }) => {
             onClick={() => setIsShowPreview(false)}
           ></div>
 
-          <div className="fixed top-5 right-5 flex gap-1 animate-fade-in">
+          <div className="fixed top-5 right-5 flex space-x-1 animate-fade-in">
             {canDownload && (
               <button className="bg-black bg-opacity-50 text-white rounded-lg p-1" onClick={onDownload}>
                 <AiOutlineDownload className="h-6 w-6" />

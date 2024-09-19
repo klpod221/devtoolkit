@@ -1,24 +1,17 @@
 import React from "react";
 import { toast } from "react-toastify";
 
+import TwoColumn from "@components/TwoColumn";
+import ObjectOutput from "@components/ObjectOutput";
 import MyButton from "@components/MyButton";
 import MyCard from "@components/MyCard";
-import TwoColumn from "@components/TwoColumn";
+import MyInput from "@components/MyInput";
 
 import { FaArrowRight } from "react-icons/fa";
-import MyInput from "@components/MyInput";
-import MyCopyButton from "@components/MyCopyButton";
 
 const UrlParser = () => {
   const [url, setUrl] = React.useState("");
-  const [parsedUrl, setParsedUrl] = React.useState({
-    protocol: "",
-    hostname: "",
-    post: "",
-    path: "",
-    query: "",
-    hash: "",
-  });
+  const [parsedUrl, setParsedUrl] = React.useState({});
 
   const parseUrl = () => {
     try {
@@ -65,28 +58,7 @@ const UrlParser = () => {
       <TwoColumn.RightContent>
         <MyCard.Header title="Output" helper="Parsed URL will be shown here" />
 
-        <div className="flex flex-col border border-gray-300 dark:border-dark-secondary dark:text-dark-text rounded-md">
-          {Object.entries(parsedUrl).map(([key, value]) => (
-            <div
-              key={key}
-              className="flex flex-col dark:text-dark-text p-5 border-b border-gray-300/50 dark:border-dark-secondary/50 last:border-b-0"
-            >
-              <span className="font-semibold capitalize">{key}:</span>
-              <span
-                className="text-sm flex items-center"
-                style={{ whiteSpace: "pre-wrap" }}
-              >
-                {value}
-                {value && (
-                  <MyCopyButton
-                    className="ml-2"
-                    value={value}
-                  />
-                )}
-              </span>
-            </div>
-          ))}
-        </div>
+        <ObjectOutput object={parsedUrl} />
       </TwoColumn.RightContent>
     </TwoColumn>
   );

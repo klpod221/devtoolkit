@@ -44,7 +44,7 @@ const Base64ImageEncoder = () => {
 
   return (
     <>
-      <div className="flex flex-wrap mb-4 gap-2">
+      <div className="flex flex-wrap mb-4 space-x-2">
         {images.map((image, index) => (
           <div
             key={index}

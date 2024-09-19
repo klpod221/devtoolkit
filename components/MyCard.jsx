@@ -2,7 +2,7 @@ import { Card } from "flowbite-react";
 
 const Header = ({ children, title, helper }) => {
   return (
-    <div className="flex justify-between items-center gap-3">
+    <div className="flex flex-col space-x-0 space-y-2 md:items-center md:space-x-4 md:justify-between md:flex-row">
       {title || helper ? (
         <div className="text-xl font-semibold text-gray-800 dark:text-dark-text">
           {title}
@@ -22,7 +22,7 @@ const MyCard = ({ children, ...props }) => {
   const theme = {
     root: {
       base: "flex rounded-lg border border-gray-200 bg-white dark:border-dark-secondary dark:bg-dark",
-      children: "flex h-full flex-col gap-3 p-6",
+      children: "flex h-full flex-col p-6 space-y-3",
       horizontal: {
         off: "flex-col",
         on: "flex-col md:max-w-xl md:flex-row",

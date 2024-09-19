@@ -97,7 +97,7 @@ const toolList = [
         description: "Decode digital certificates.",
         icon: FaLock,
         path: "/certificate",
-        status: false, // true if tool is ready
+        status: true, // true if tool is ready
       },
       {
         name: "JSON Converter",

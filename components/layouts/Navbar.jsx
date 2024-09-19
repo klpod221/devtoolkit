@@ -42,13 +42,13 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
                   maxWidth: "100%",
                   height: "auto"
                 }} />
-              <span className="self-center text-xl font-semibold sm:text-xl whitespace-nowrap dark:text-dark-text">
+              <span className="self-center text-lg font-semibold sm:text-xl whitespace-nowrap dark:text-dark-text">
                 DevToolkit
               </span>
             </NextLink>
           </div>
 
-          <h2 className="sm:block dark:text-dark-text sm:ml-5 text-2xl ml-1">
+          <h2 className="sm:block dark:text-dark-text sm:ml-5 md:text-2xl text-xl ml-1">
             {title}
           </h2>
 
