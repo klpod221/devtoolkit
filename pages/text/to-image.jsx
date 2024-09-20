@@ -14,7 +14,7 @@ const TexttoImage = () => {
       </h5>
 
       <p className="text-xl text-gray-700 dark:text-gray-400">
-        We are currently working on this tool. Please check back later or create
+        I{"'"}m currently working on this tool (or not). Please check back later or create
         a request on our Github repository if you want to see this tool sooner.
       </p>
 
