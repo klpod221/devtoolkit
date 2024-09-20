@@ -22,8 +22,8 @@ const MyTabs = (props) => {
             className={`cursor-pointer px-4 py-2 hover:bg-white dark:hover:bg-dark dark:hover:text-dark-text rounded-t-lg transition-all duration-300 border border-gray-200 dark:border-dark border-b-0
             ${
               activeTab === index
-                ? "bg-white dark:bg-dark dark:text-dark-text"
-                : "bg-gray-100 dark:bg-dark-secondary dark:text-dark-text"
+                ? "bg-white dark:bg-dark "
+                : "bg-gray-100 dark:bg-dark-secondary "
             }`}
             onClick={() => setActiveTab(index)}
           >

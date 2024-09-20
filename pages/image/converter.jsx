@@ -109,7 +109,7 @@ const FormatConverter = () => {
     <>
       <TwoColumn>
         <TwoColumn.Left>
-          <MyCard.Header title="Image Input">
+          <MyCard.Header title="Image Input" helper="Select images to convert">
             <MyButton size={"sm"} className="py-0" onClick={convertImages}>
               Convert
               <BsPlayFill className="h-5 w-5" />
@@ -146,7 +146,10 @@ const FormatConverter = () => {
           </div>
         </TwoColumn.Left>
         <TwoColumn.Right>
-          <MyCard.Header title={`Format: ${format}`}>
+          <MyCard.Header
+            title={`Format: ${format}`}
+            helper="Converted images will be displayed here"
+          >
             {returnImages.length > 0 && (
               <Button
                 size={"sm"}

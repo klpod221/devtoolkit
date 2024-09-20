@@ -14,16 +14,16 @@ const Right = ({ children }) => {
 const TwoColumn = (props) => {
   const [width, setWidth] = React.useState(props.leftWidth || 50);
 
-  let Left = null;
-  let Right = null;
+  let LeftContent = null;
+  let RightContent = null;
 
   React.Children.forEach(props.children, (child) => {
     if (!React.isValidElement(child)) return;
 
     if (child.type === Left) {
-      Left = child.props.children;
+      LeftContent = child.props.children;
     } else if (child.type === Right) {
-      Right = child.props.children;
+      RightContent = child.props.children;
     }
   });
 
@@ -72,7 +72,7 @@ const TwoColumn = (props) => {
   return (
     <div className="flex sm:flex-row flex-col h-full">
       <MyCard style={{ width: `${width}%` }} className="mb-4 sm:mb-0">
-        {!!Left && Left}
+        {!!LeftContent && LeftContent}
       </MyCard>
 
       <div
@@ -83,12 +83,12 @@ const TwoColumn = (props) => {
       >
         <BsArrowsExpandVertical
           id="resize-icon"
-          className="text-gray-600 dark:text-dark-text hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 group-hover:block"
+          className="text-gray-600  hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 group-hover:block"
         />
       </div>
 
       <MyCard style={{ width: `${width === 100 ? 100 : 100 - width}%` }}>
-        {!!Right && Right}
+        {!!RightContent && RightContent}
       </MyCard>
     </div>
   );

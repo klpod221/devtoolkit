@@ -6,7 +6,7 @@ import MyButton from "@components/MyButton";
 
 import { AiFillHome, AiFillGithub } from "react-icons/ai";
 
-const Compressor = () => {
+const CronExpressionGenerator = () => {
   return (
     <MyCard className="w-full max-w-5xl">
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 ">
@@ -41,5 +41,5 @@ const Compressor = () => {
   );
 };
 
-Compressor.title = "Compressor";
-export default Compressor;
+CronExpressionGenerator.title = "Cron Expression Generator";
+export default CronExpressionGenerator;

@@ -1,22 +1,24 @@
+import React from "react";
 import { Card } from "flowbite-react";
 
 const Header = ({ children, title, helper }) => {
   return (
     <div className="flex flex-col space-x-0 space-y-2 md:items-center md:space-x-4 md:justify-between md:flex-row">
       {title || helper ? (
-        <div className="text-xl font-semibold text-gray-800 dark:text-dark-text">
+        <div className="text-xl font-semibold text-gray-800">
           {title}
-          <p className="text-xs text-gray-400 dark:text-gray-400">
-            {/* helper can be html string */}
+          <p className="text-xs text-gray-400 dark:text-gray-400 italic font-light">
             <span dangerouslySetInnerHTML={{ __html: helper }} />
           </p>
         </div>
       ) : null}
 
-      {children}
+      <div className="flex space-x-2 items-center justify-center">
+        {children}
+      </div>
     </div>
   );
-}
+};
 
 const MyCard = ({ children, ...props }) => {
   const theme = {

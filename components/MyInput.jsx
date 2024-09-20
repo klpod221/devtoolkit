@@ -68,7 +68,7 @@ const MyInput = ({
         <Label
           htmlFor={props.id}
           value={label}
-          className={`text-base dark:text-dark-text ${labelStyle}`}
+          className={`text-base  ${labelStyle}`}
         />
       )}
 

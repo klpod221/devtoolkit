@@ -69,7 +69,7 @@ const DigitalCertificateDecoder = () => {
         <div className="flex flex-col overflow-y-auto">
           {output.general && (
             <>
-              <div className="font-semibold dark:text-dark-text">General</div>
+              <div className="font-semibold ">General</div>
               <div className="pt-1 pb-4">
                 <ObjectOutput object={output.general} />
               </div>
@@ -78,7 +78,7 @@ const DigitalCertificateDecoder = () => {
 
           {output.subject && (
             <>
-              <div className="font-semibold dark:text-dark-text">Subject</div>
+              <div className="font-semibold ">Subject</div>
               <div className="pt-1 pb-4">
                 <ObjectOutput object={output.subject} />
               </div>
@@ -87,7 +87,7 @@ const DigitalCertificateDecoder = () => {
 
           {output.issuer && (
             <>
-              <div className="font-semibold dark:text-dark-text">Issuer</div>
+              <div className="font-semibold ">Issuer</div>
               <div className="pt-1 pb-4">
                 <ObjectOutput object={output.issuer} />
               </div>

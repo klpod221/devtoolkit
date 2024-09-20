@@ -15,7 +15,7 @@ const MyCopyButton = ({ value, type, className }) => {
 
   return (
     <button
-      className={`p-1 bg-gray-200 dark:bg-dark-secondary rounded-md dark:text-dark-text hover:opacity-80 transition-all duration-300 ease-in-out  ${classes} ${className}`}
+      className={`p-1 bg-gray-200 dark:bg-dark-secondary rounded-md  hover:opacity-80 transition-all duration-300 ease-in-out  ${classes} ${className}`}
       onClick={() => copyToClipboard(value)}
     >
       <AiOutlineCopy />

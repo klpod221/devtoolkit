@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List
+## Tools List (11/45)
 
 ### Text Editor
 
@@ -22,19 +22,6 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Code Editor & Compiler](https://devtools.klpod221.site/editor/code) | Write and run your code.       |
 | <ul><li> - [x] </li></ul> | [Markdown Editor](https://devtools.klpod221.site/editor/markdown)    | Write markdown and preview it. |
 
-### Web Tools
-
-| Status                    | Name                                                                            | Description                                         |
-| ------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------- |
-| <ul><li> - [x] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)                    | Upload and share files.                             |
-| <ul><li> - [x] </li></ul> | [Base64 Encoder/Decoder](https://devtools.klpod221.site/web/base64)             | Encode or decode base64 strings.                    |
-| <ul><li> - [x] </li></ul> | [Base64 Image Encoder/Decoder](https://devtools.klpod221.site/web/base64-image) | Encode or decode base64 images.                     |
-| <ul><li> - [x] </li></ul> | [Bcrypt Hash Generator](https://devtools.klpod221.site/web/bcrypt)              | Bcrypt hash generator and verifier.                 |
-| <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)                   | Encode or decode url strings.                       |
-| <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                     | Parse url strings.                                  |
-| <ul><li> - [x] </li></ul> | [Digital Certificate Decoder](https://devtools.klpod221.site/web/certificate)   | Decode digital certificates.                        |
-| <ul><li> - [ ] </li></ul> | [JSON Converter](https://devtools.klpod221.site/web/json)                       | Convert JSON to XML, YAML, CSV, etc and vice versa. |
-
 ### Image Tools
 
 | Status                    | Name                                                               | Description                               |
@@ -42,6 +29,33 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Format Converter](https://devtools.klpod221.site/image/converter) | Convert your images to different formats. |
 | <ul><li> - [ ] </li></ul> | [Compressor](https://devtools.klpod221.site/image/compressor)      | Reduce the size of your images.           |
 | <ul><li> - [ ] </li></ul> | [Resizer](https://devtools.klpod221.site/image/resizer)            | Resize your images.                       |
+
+### Web Tools
+
+| Status                    | Name                                                                            | Description                                     |
+| ------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------- |
+| <ul><li> - [x] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)                    | Upload and share files.                         |
+| <ul><li> - [x] </li></ul> | [Base64 Encoder/Decoder](https://devtools.klpod221.site/web/base64)             | Encode or decode base64 strings.                |
+| <ul><li> - [x] </li></ul> | [Base64 Image Encoder/Decoder](https://devtools.klpod221.site/web/base64-image) | Encode or decode base64 images.                 |
+| <ul><li> - [x] </li></ul> | [Bcrypt Hash Generator](https://devtools.klpod221.site/web/bcrypt)              | Bcrypt hash generator and verifier.             |
+| <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)                   | Encode or decode url strings.                   |
+| <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                     | Parse url strings.                              |
+| <ul><li> - [ ] </li></ul> | [JSON Converter](https://devtools.klpod221.site/web/json)                       | Convert JSON to XML, YAML, CSV, SQL insert etc. |
+| <ul><li> - [ ] </li></ul> | [Back to JSON](https://devtools.klpod221.site/web/back-to-json)                 | Convert XML, YAML, CSV, SQL insert to JSON.     |
+
+### System Tools
+
+| Status                    | Name                                                                                         | Description                                   |
+| ------------------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| <ul><li> - [ ] </li></ul> | [Nginx Config Generator](https://devtools.klpod221.site/system/nginx)                        | Generate Nginx configuration files.           |
+| <ul><li> - [ ] </li></ul> | [Dockerize helper](https://devtools.klpod221.site/system/docker)                             | Generate Dockerfile and docker-compose files. |
+| <ul><li> - [ ] </li></ul> | [Ubuntu Server Configurator](https://devtools.klpod221.site/system/ubuntu)                   | Generate Ubuntu server configuration.         |
+| <ul><li> - [ ] </li></ul> | [IMAP/POP3/SMTP Tester](https://devtools.klpod221.site/system/mail)                          | Test IMAP, POP3, SMTP servers.                |
+| <ul><li> - [ ] </li></ul> | [IP Address Converter](https://devtools.klpod221.site/system/ip)                             | Convert IP addresses to different formats.    |
+| <ul><li> - [ ] </li></ul> | [Cron Expression Generator](https://devtools.klpod221.site/system/cron-generator)            | Generate cron expressions.                    |
+| <ul><li> - [ ] </li></ul> | [Cron Expression Parser](https://devtools.klpod221.site/system/cron-parser)                  | Parse cron expressions.                       |
+| <ul><li> - [x] </li></ul> | [Digital Certificate Decoder](https://devtools.klpod221.site/system/certificate-decoder)     | Decode digital certificates.                  |
+| <ul><li> - [ ] </li></ul> | [Digital Certificate Generator](https://devtools.klpod221.site/system/certificate-generator) | Generate digital certificates.                |
 
 ### Text Tools
 
@@ -63,19 +77,18 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Utility Tools
 
-| Status                    | Name                                                                         | Description                               |
-| ------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------- |
-| <ul><li> - [ ] </li></ul> | [Color Converter](https://devtools.klpod221.site/utility/color)              | Convert color codes to different formats. |
-| <ul><li> - [ ] </li></ul> | [Number Base Converter](https://devtools.klpod221.site/utility/number)       | Convert number bases.                     |
-| <ul><li> - [ ] </li></ul> | [Unit Converter](https://devtools.klpod221.site/utility/unit)                | Convert units.                            |
-| <ul><li> - [ ] </li></ul> | [Time Converter](https://devtools.klpod221.site/utility/time)                | Convert time zones and formats.           |
-| <ul><li> - [ ] </li></ul> | [Currency Converter](https://devtools.klpod221.site/utility/currency)        | Convert currencies.                       |
-| <ul><li> - [ ] </li></ul> | [Hash Generator](https://devtools.klpod221.site/utility/hash)                | Generate hashes.                          |
-| <ul><li> - [ ] </li></ul> | [UUID Generator](https://devtools.klpod221.site/utility/uuid)                | Generate UUIDs.                           |
-| <ul><li> - [ ] </li></ul> | [Password Generator](https://devtools.klpod221.site/utility/password)        | Generate passwords.                       |
-| <ul><li> - [ ] </li></ul> | [Unix Timestamp Converter](https://devtools.klpod221.site/utility/timestamp) | Convert unix timestamps.                  |
-| <ul><li> - [ ] </li></ul> | [IP Address Converter](https://devtools.klpod221.site/utility/ip)            | Convert IP addresses.                     |
-| <ul><li> - [ ] </li></ul> | [Cron Expression Generator](https://devtools.klpod221.site/utility/cron)     | Generate cron expressions.                |
+| Status                    | Name                                                                         | Description                                           |
+| ------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------- |
+| <ul><li> - [ ] </li></ul> | [Color Converter](https://devtools.klpod221.site/utility/color)              | Convert color codes to different formats.             |
+| <ul><li> - [ ] </li></ul> | [Color Picker](https://devtools.klpod221.site/utility/picker)                | Pick colors from the color picker or upload an image. |
+| <ul><li> - [ ] </li></ul> | [Number Base Converter](https://devtools.klpod221.site/utility/number)       | Convert number bases.                                 |
+| <ul><li> - [ ] </li></ul> | [Unit Converter](https://devtools.klpod221.site/utility/unit)                | Convert units.                                        |
+| <ul><li> - [ ] </li></ul> | [Time Converter](https://devtools.klpod221.site/utility/time)                | Convert time zones and formats.                       |
+| <ul><li> - [ ] </li></ul> | [Currency Converter](https://devtools.klpod221.site/utility/currency)        | Convert currencies.                                   |
+| <ul><li> - [ ] </li></ul> | [Hash Generator](https://devtools.klpod221.site/utility/hash)                | Generate hashes.                                      |
+| <ul><li> - [ ] </li></ul> | [UUID Generator](https://devtools.klpod221.site/utility/uuid)                | Generate UUIDs.                                       |
+| <ul><li> - [ ] </li></ul> | [Password Generator](https://devtools.klpod221.site/utility/password)        | Generate passwords.                                   |
+| <ul><li> - [ ] </li></ul> | [Unix Timestamp Converter](https://devtools.klpod221.site/utility/timestamp) | Convert unix timestamps.                              |
 
 All tools are open-source and available on [GitHub](https://github.com/klpod221/devtoolkit).
 

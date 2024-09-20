@@ -25,7 +25,7 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
           <div className="flex items-center justify-start sm:w-60 w-auto">
             <button
               type="button"
-              className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-dark-text dark:hover:bg-dark-secondary dark:focus:bg-dark-secondary"
+              className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200  dark:hover:bg-dark-secondary dark:focus:bg-dark-secondary"
               onClick={toggleSidebar}
             >
               <span className="sr-only">Open sidebar</span>
@@ -42,20 +42,20 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
                   maxWidth: "100%",
                   height: "auto"
                 }} />
-              <span className="self-center text-lg font-semibold sm:text-xl whitespace-nowrap dark:text-dark-text">
+              <span className="self-center text-lg font-semibold sm:text-xl whitespace-nowrap ">
                 DevToolkit
               </span>
             </NextLink>
           </div>
 
-          <h2 className="sm:block dark:text-dark-text sm:ml-5 md:text-2xl text-xl ml-1">
+          <h2 className="sm:block  sm:ml-5 md:text-2xl text-xl ml-1">
             {title}
           </h2>
 
           <div className="flex items-center justify-end flex-1">
             <NextLink
               href="https://github.com/klpod221/devtoolkit"
-              className="px-3 py-2 text-sm font-medium text-gray-700 rounded-md sm:block dark:text-dark-text hover:bg-gray-100 dark:hover:bg-dark-secondary"
+              className="px-3 py-2 text-sm font-medium text-gray-700 rounded-md sm:block  hover:bg-gray-100 dark:hover:bg-dark-secondary"
               target="_blank"
             >
               <FaGithub className="w-5 h-5" />
@@ -63,7 +63,7 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
 
             <DarkThemeToggle
               onClick={handleThemeChange}
-              className="px-3 py-2 text-sm font-medium text-gray-700 rounded-md sm:block dark:text-dark-text hover:bg-gray-100 dark:hover:bg-dark-secondary"
+              className="px-3 py-2 text-sm font-medium text-gray-700 rounded-md sm:block  hover:bg-gray-100 dark:hover:bg-dark-secondary"
               iconDark={FaSun}
               iconLight={FaMoon}
             />

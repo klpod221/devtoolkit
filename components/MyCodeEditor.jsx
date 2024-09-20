@@ -65,9 +65,9 @@ const MyCodeEditor = ({
                 }}
               >
                 {wordWrap === "off" ? (
-                  <MdOutlineWrapText className="dark:text-dark-text" />
+                  <MdOutlineWrapText />
                 ) : (
-                  <MdFormatAlignLeft className="dark:text-dark-text" />
+                  <MdFormatAlignLeft />
                 )}
               </div>
 
@@ -77,7 +77,7 @@ const MyCodeEditor = ({
                   setIsFullScreen(!isFullScreen);
                 }}
               >
-                <IoContractOutline className="text-gray-800 dark:text-dark-text" />
+                <IoContractOutline className="text-gray-800 " />
               </div>
             </div>
 
@@ -107,9 +107,9 @@ const MyCodeEditor = ({
             }}
           >
             {wordWrap === "off" ? (
-              <MdOutlineWrapText className="dark:text-dark-text" />
+              <MdOutlineWrapText />
             ) : (
-              <MdFormatAlignLeft className="dark:text-dark-text" />
+              <MdFormatAlignLeft />
             )}
           </div>
 
@@ -120,7 +120,7 @@ const MyCodeEditor = ({
                 setIsFullScreen(!isFullScreen);
               }}
             >
-              <IoExpandOutline className="dark:text-dark-text" />
+              <IoExpandOutline />
             </div>
           )}
         </div>

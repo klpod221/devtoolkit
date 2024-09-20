@@ -18,21 +18,16 @@ const MarkdownEditor = () => {
   return (
     <TwoColumn>
       <TwoColumn.Left>
-        <div className="flex justify-between items-center">
-          <div className="text-xl font-semibold text-gray-800 dark:text-dark-text">
-            Markdown Input
-          </div>
-        </div>
+        <MyCard.Header
+          title="Markdown Editor"
+          helper="Write your markdown here"
+        />
 
         <MyCodeEditor language={"markdown"} value={code} onChange={setCode} />
       </TwoColumn.Left>
 
       <TwoColumn.Right>
-        <MyCard.Header>
-          <div className="text-xl font-semibold text-gray-800 dark:text-dark-text">
-            Preview
-          </div>
-        </MyCard.Header>
+        <MyCard.Header title="Preview" />
 
         <CodeOutput language={"html"} output={output} canCopy={false} />
       </TwoColumn.Right>

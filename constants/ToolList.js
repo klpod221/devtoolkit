@@ -12,7 +12,7 @@ import {
   AiOutlineCloudUpload,
 } from "react-icons/ai";
 import { BsRegex } from "react-icons/bs";
-import { RiImageEditLine } from "react-icons/ri";
+import { RiImageEditLine, RiMailSendLine } from "react-icons/ri";
 import {
   GiDigitalTrace,
   GiPerspectiveDiceSixFacesRandom,
@@ -21,9 +21,19 @@ import { HiSpeakerphone } from "react-icons/hi";
 import { TbNumber10Small } from "react-icons/tb";
 import { LiaWeightSolid } from "react-icons/lia";
 import { MdCurrencyExchange, MdOutlinePassword } from "react-icons/md";
-import { FaLock, FaRegClock, FaHashtag, FaIdCardAlt } from "react-icons/fa";
+import {
+  FaLock,
+  FaUnlock,
+  FaRegClock,
+  FaHashtag,
+  FaIdCardAlt,
+  FaDocker,
+  FaUbuntu,
+} from "react-icons/fa";
 import { TbWorldWww } from "react-icons/tb";
 import { TfiReload } from "react-icons/tfi";
+import { SiNginx } from "react-icons/si";
+import { CgColorPicker } from "react-icons/cg";
 
 const toolList = [
   {
@@ -35,76 +45,14 @@ const toolList = [
         description: "Write and run your code.",
         icon: AiOutlineCode,
         path: "/code",
-        status: true, // true if tool is ready
+        status: true,
       },
       {
         name: "Markdown Editor",
         description: "Write markdown and preview it.",
         icon: AiOutlineFileMarkdown,
         path: "/markdown",
-        status: true, // true if tool is ready
-      },
-    ],
-  },
-  {
-    title: "Web Tools",
-    path: "/web",
-    tools: [
-      {
-        name: "File Uploader",
-        description: "Upload and share files.",
-        icon: AiOutlineCloudUpload,
-        path: "/uploader",
-        status: true, // true if tool is ready
-      },
-      {
-        name: "Base64 Encoder/Decoder",
-        description: "Encode or decode base64 strings.",
-        icon: AiOutlineRetweet,
-        path: "/base64",
-        status: true, // true if tool is ready
-      },
-      {
-        name: "Base64 Image Encoder/Decoder",
-        description: "Encode or decode base64 images.",
-        icon: AiOutlineRetweet,
-        path: "/base64-image",
-        status: true, // true if tool is ready
-      },
-      {
-        name: "Bcrypt Hash Generator",
-        description: "Bcrypt hash generator and verifier.",
-        icon: FaHashtag,
-        path: "/bcrypt",
-        status: true, // true if tool is ready
-      },
-      {
-        name: "Url Encoder/Decoder",
-        description: "Encode or decode url strings.",
-        icon: AiOutlineRetweet,
-        path: "/url",
-        status: true, // true if tool is ready
-      },
-      {
-        name: "Url Parser",
-        description: "Parse url strings.",
-        icon: AiOutlineRetweet,
-        path: "/url-parser",
-        status: true, // true if tool is ready
-      },
-      {
-        name: "Digital Certificate Decoder",
-        description: "Decode digital certificates.",
-        icon: FaLock,
-        path: "/certificate",
-        status: true, // true if tool is ready
-      },
-      {
-        name: "JSON Converter",
-        description: "Convert JSON to XML, YAML, CSV, etc and vice versa.",
-        icon: AiOutlineRetweet,
-        path: "/json",
-        status: false, // true if tool is ready
+        status: true,
       },
     ],
   },
@@ -117,21 +65,152 @@ const toolList = [
         description: "Convert your images to different formats.",
         icon: RiImageEditLine,
         path: "/converter",
-        status: true, // true if tool is ready
+        status: true,
       },
       {
         name: "Compressor",
         description: "Reduce the size of your images.",
         icon: AiOutlineFileImage,
         path: "/compressor",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Resizer",
         description: "Resize your images.",
         icon: AiOutlineFileImage,
         path: "/resizer",
-        status: false, // true if tool is ready
+        status: false,
+      },
+    ],
+  },
+  {
+    title: "Web Tools",
+    path: "/web",
+    tools: [
+      {
+        name: "File Uploader",
+        description: "Upload and share files.",
+        icon: AiOutlineCloudUpload,
+        path: "/uploader",
+        status: true,
+      },
+      {
+        name: "Base64 Encoder/Decoder",
+        description: "Encode or decode base64 strings.",
+        icon: AiOutlineRetweet,
+        path: "/base64",
+        status: true,
+      },
+      {
+        name: "Base64 Image Encoder/Decoder",
+        description: "Encode or decode base64 images.",
+        icon: AiOutlineRetweet,
+        path: "/base64-image",
+        status: true,
+      },
+      {
+        name: "Bcrypt Hash Generator",
+        description: "Bcrypt hash generator and verifier.",
+        icon: FaHashtag,
+        path: "/bcrypt",
+        status: true,
+      },
+      {
+        name: "Url Encoder/Decoder",
+        description: "Encode or decode url strings.",
+        icon: AiOutlineRetweet,
+        path: "/url",
+        status: true,
+      },
+      {
+        name: "Url Parser",
+        description: "Parse url strings.",
+        icon: AiOutlineRetweet,
+        path: "/url-parser",
+        status: true,
+      },
+      {
+        name: "JSON Converter",
+        description: "Convert JSON to XML, YAML, CSV, SQL insert etc.",
+        icon: AiOutlineRetweet,
+        path: "/json",
+        status: false,
+      },
+      {
+        name: "Back to JSON",
+        description: "Convert XML, YAML, CSV, SQL insert to JSON.",
+        icon: AiOutlineRetweet,
+        path: "/back-to-json",
+        status: false,
+      },
+    ],
+  },
+  {
+    title: "System Tools",
+    path: "/system",
+    tools: [
+      {
+        name: "Nginx Config Generator",
+        description: "Generate Nginx configuration files.",
+        icon: SiNginx,
+        path: "/nginx",
+        status: false,
+      },
+      {
+        name: "Dockerize helper",
+        description: "Generate Dockerfile and docker-compose files.",
+        icon: FaDocker,
+        path: "/docker",
+        status: false,
+      },
+      {
+        name: "Ubuntu Server Configurator",
+        description: "Generate Ubuntu server configuration.",
+        icon: FaUbuntu,
+        path: "/ubuntu",
+        status: false,
+      },
+      {
+        name: "IMAP/POP3/SMTP Tester",
+        description: "Test IMAP, POP3, SMTP servers.",
+        icon: RiMailSendLine,
+        path: "/mail",
+        status: false,
+      },
+      {
+        name: "IP Address Converter",
+        description: "Convert IP addresses to different formats.",
+        icon: TbWorldWww,
+        path: "/ip",
+        status: false,
+      },
+      {
+        name: "Cron Expression Generator",
+        description: "Generate cron expressions.",
+        icon: TfiReload,
+        path: "/cron-generator",
+        status: false,
+      },
+      {
+        name: "Cron Expression Parser",
+        description: "Parse cron expressions.",
+        icon: TfiReload,
+        path: "/cron-parser",
+        status: false,
+      },
+      {
+        name: "Digital Certificate Decoder",
+        description: "Decode digital certificates.",
+        icon: FaUnlock,
+        path: "/certificate-decoder",
+        status: true,
+      },
+      {
+        name: "Digital Certificate Generator",
+        description: "Generate digital certificates.",
+        icon: FaLock,
+        path: "/certificate-generator",
+        status: false,
       },
     ],
   },
@@ -144,91 +223,91 @@ const toolList = [
         description: "Test your regular expressions.",
         icon: BsRegex,
         path: "/regex",
-        status: true, // true if tool is ready
+        status: true,
       },
       {
         name: "Text Diff",
         description: "Compare two texts.",
         icon: AiOutlineDiff,
         path: "/diff",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Word Counter",
         description: "Count words, characters and distribution.",
         icon: GiDigitalTrace,
         path: "/counter",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Lorem Ipsum",
         description: "Generate placeholder text.",
         icon: AiOutlineFieldString,
         path: "/lorem-ipsum",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Random String",
         description: "Generate random strings for passwords etc.",
         icon: GiPerspectiveDiceSixFacesRandom,
         path: "/random",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Hex Converter",
         description: "Convert hex to unicode and vice versa.",
         icon: AiOutlineRetweet,
         path: "/hex",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Text Case Converter",
         description: "Convert text to upper, lower, title, sentence case.",
         icon: AiOutlineRetweet,
         path: "/case",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Text to Image",
         description: "Convert text to image.",
         icon: AiOutlineRetweet,
         path: "/to-image",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Backslash Converter",
         description: "Escape or unescape backslashes.",
         icon: AiOutlinePercentage,
         path: "/backslash",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "List Sorter/Randomizer",
         description: "Sort or randomize lists.",
         icon: AiOutlineSortAscending,
         path: "/sort",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Text to Speech",
         description: "Convert text to speech.",
         icon: HiSpeakerphone,
         path: "/speech",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Morse Code Converter",
         description: "Convert text to Morse code and vice versa.",
         icon: AiOutlineFieldString,
         path: "/morse",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "QR Code Generator",
         description: "Convert text to QR code and vice versa.",
         icon: AiOutlineQrcode,
         path: "/qr-code",
-        status: false, // true if tool is ready
+        status: false,
       },
     ],
   },
@@ -241,77 +320,70 @@ const toolList = [
         description: "Convert color codes to different formats.",
         icon: AiOutlineBgColors,
         path: "/color",
-        status: false, // true if tool is ready
+        status: false,
+      },
+      {
+        name: "Color Picker",
+        description: "Pick colors from the color picker or upload an image.",
+        icon: CgColorPicker,
+        path: "/picker",
+        status: false,
       },
       {
         name: "Number Base Converter",
         description: "Convert number bases.",
         icon: TbNumber10Small,
         path: "/number",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Unit Converter",
         description: "Convert units.",
         icon: LiaWeightSolid,
         path: "/unit",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Time Converter",
         description: "Convert time zones and formats.",
         icon: FaRegClock,
         path: "/time",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Currency Converter",
         description: "Convert currencies.",
         icon: MdCurrencyExchange,
         path: "/currency",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Hash Generator",
         description: "Generate hashes.",
         icon: FaHashtag,
         path: "/hash",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "UUID Generator",
         description: "Generate UUIDs.",
         icon: FaIdCardAlt,
         path: "/uuid",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Password Generator",
         description: "Generate passwords.",
         icon: MdOutlinePassword,
         path: "/password",
-        status: false, // true if tool is ready
+        status: false,
       },
       {
         name: "Unix Timestamp Converter",
         description: "Convert unix timestamps.",
         icon: FaRegClock,
         path: "/timestamp",
-        status: false, // true if tool is ready
-      },
-      {
-        name: "IP Address Converter",
-        description: "Convert IP addresses.",
-        icon: TbWorldWww,
-        path: "/ip",
-        status: false, // true if tool is ready
-      },
-      {
-        name: "Cron Expression Generator",
-        description: "Generate cron expressions.",
-        icon: TfiReload,
-        path: "/cron",
-        status: false, // true if tool is ready
+        status: false,
       },
     ],
   },

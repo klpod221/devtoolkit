@@ -43,7 +43,7 @@ const UrlEncoderDecoder = () => {
       toast.error(error.message || "Error decoding");
       console.error(error);
     }
-  }
+  };
 
   return (
     <MyCard>
@@ -51,17 +51,15 @@ const UrlEncoderDecoder = () => {
         title="Url Encoder/Decoder"
         helper="Encode or decode url strings."
       >
-        <div className="flex justify-center items-center space-x-2">
-          <MyButton size="sm" onClick={encodeUrl}>
-            <AiOutlineLock className="w-5 h-5 mr-2" />
-            Encode
-          </MyButton>
+        <MyButton size="sm" onClick={encodeUrl}>
+          <AiOutlineLock className="w-5 h-5 mr-2" />
+          Encode
+        </MyButton>
 
-          <MyButton size="sm" onClick={decodeUrl}>
-            <AiOutlineUnlock className="w-5 h-5 mr-2" />
-            Decode
-          </MyButton>
-        </div>
+        <MyButton size="sm" onClick={decodeUrl}>
+          <AiOutlineUnlock className="w-5 h-5 mr-2" />
+          Decode
+        </MyButton>
       </MyCard.Header>
 
       <div className="flex flex-col">

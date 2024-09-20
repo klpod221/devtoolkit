@@ -242,7 +242,7 @@ const RegexTester = () => {
             startPos.row,
             startPos.col,
             endPos.row,
-            endPos.col
+            endPos.col,
           ),
           options: {
             inlineClassName: "regex-match",
@@ -258,8 +258,8 @@ const RegexTester = () => {
   };
 
   const onCopyRegex = () => {
-      const regex = new RegExp(pattern, flags.join(""));
-      copyToClipboard(regex);
+    const regex = new RegExp(pattern, flags.join(""));
+    copyToClipboard(regex);
   };
 
   return (
@@ -278,7 +278,7 @@ const RegexTester = () => {
         </MyCard.Header>
 
         <div className="border border-gray-200 dark:border-dark-secondary rounded-lg flex overflow-hidden">
-          <span className="px-4 py-1.5 flex items-center bg-gray-100 dark:bg-dark-secondary dark:text-dark-text">
+          <span className="px-4 py-1.5 flex items-center bg-gray-100 dark:bg-dark-secondary ">
             /
           </span>
 
@@ -295,9 +295,7 @@ const RegexTester = () => {
             trigger="click"
             content={
               <div className="p-4 space-y-2">
-                <div className="text-sm font-semibold dark:text-dark-text">
-                  Flags
-                </div>
+                <div className="text-sm font-semibold ">Flags</div>
                 {flagOptions.map((option, index) => (
                   <div key={index} className="flex items-center">
                     <input
@@ -320,7 +318,7 @@ const RegexTester = () => {
               </div>
             }
           >
-            <button className="px-2 py-1.5 flex items-center bg-gray-100 dark:bg-dark-secondary dark:text-dark-text w-24 justify-between">
+            <button className="px-2 py-1.5 flex items-center bg-gray-100 dark:bg-dark-secondary  w-24 justify-between">
               <span className="text-blue-500 dark:text-blue-400">
                 /{flags.join("")}
               </span>
@@ -350,9 +348,7 @@ const RegexTester = () => {
           <div className="flex flex-col space-y-3 overflow-y-auto text-sm">
             {commonRegexPatterns.map((item, index) => (
               <div className="flex flex-col" key={index}>
-                <span className="dark:text-dark-text font-semibold">
-                  {item.name}
-                </span>
+                <span className=" font-semibold">{item.name}</span>
                 <kbd
                   onClick={() => copyToClipboard(item.pattern)}
                   className="cursor-pointer"
@@ -373,7 +369,7 @@ const RegexTester = () => {
         <div className="flex flex-col space-y-2 overflow-y-auto">
           {RegexCheatsheet.map((item, index) => (
             <>
-              <div className="font-semibold dark:text-dark-text" key={index}>
+              <div className="font-semibold " key={index}>
                 {item.title}
               </div>
 
@@ -387,9 +383,7 @@ const RegexTester = () => {
                       <kbd key={index}>{expression}</kbd>
                     ))}
                   </div>
-                  <span className="dark:text-dark-text text-right">
-                    {subItem.explanation}
-                  </span>
+                  <span className=" text-right">{subItem.explanation}</span>
                 </div>
               ))}
             </>

@@ -16,7 +16,7 @@ import { BsPlayFill } from "react-icons/bs";
 
 const CodeEditor = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState(
-    supportLanguages[0].slug
+    supportLanguages[0].slug,
   );
   const [language, setLanguage] = React.useState();
   const [code, setCode] = React.useState("");
@@ -24,7 +24,7 @@ const CodeEditor = () => {
   const [loading, setLoading] = React.useState(false);
   const [output, setOutput] = React.useState();
   const [helperMessage, setHelperMessage] = React.useState(
-    "You can write your code here"
+    "You can write your code here",
   );
 
   const handleRunCode = async () => {
@@ -51,7 +51,7 @@ const CodeEditor = () => {
 
   React.useEffect(() => {
     const selectedLang = supportLanguages.find(
-      (lang) => lang.slug === selectedLanguage
+      (lang) => lang.slug === selectedLanguage,
     );
 
     if (selectedLang) {
@@ -69,33 +69,31 @@ const CodeEditor = () => {
           title="Code Input"
           helper={helperMessage || "You can write your code here"}
         >
-          <div className="flex space-x-2">
-            <MySelect
-              value={selectedLanguage}
-              onChange={setSelectedLanguage}
-              sizing="sm"
-            >
-              {supportLanguages.map((lang) => (
-                <option key={lang.slug} value={lang.slug}>
-                  {lang.name}
-                </option>
-              ))}
-            </MySelect>
+          <MySelect
+            value={selectedLanguage}
+            onChange={setSelectedLanguage}
+            sizing="sm"
+          >
+            {supportLanguages.map((lang) => (
+              <option key={lang.slug} value={lang.slug}>
+                {lang.name}
+              </option>
+            ))}
+          </MySelect>
 
-            <MyButton
-              size={"sm"}
-              className="py-0"
-              onClick={handleRunCode}
-              disabled={loading}
-            >
-              Run Code
-              {loading ? (
-                <Spinner size="sm" className="ml-1" />
-              ) : (
-                <BsPlayFill className="h-5 w-5" />
-              )}
-            </MyButton>
-          </div>
+          <MyButton
+            size={"sm"}
+            className="py-0"
+            onClick={handleRunCode}
+            disabled={loading}
+          >
+            Run Code
+            {loading ? (
+              <Spinner size="sm" className="ml-1" />
+            ) : (
+              <BsPlayFill className="h-5 w-5" />
+            )}
+          </MyButton>
         </MyCard.Header>
 
         <MyCodeEditor language={language} value={code} onChange={setCode} />
@@ -115,7 +113,7 @@ const CodeEditor = () => {
             />
           )}
 
-          <div className="text-gray-800 dark:text-dark-text flex mb-1 justify-between">
+          <div className="text-gray-800  flex mb-1 justify-between">
             <span className="text-base">OUTPUT</span>
             <span className="text-sm text-gray-500 dark:text-gray-400">
               {loading ? (

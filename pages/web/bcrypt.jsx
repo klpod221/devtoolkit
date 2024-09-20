@@ -78,26 +78,24 @@ const BcryptHashGenerator = () => {
           title="Encrypt"
           helper="Encrypt some text. The result shown will be a Bcrypt encrypted hash."
         >
-          <div className="flex justify-center items-center space-x-4 my-2">
-            <MySelect
-              label="Salt Rounds"
-              value={salt}
-              onChange={setSalt}
-              sizing="sm"
-              className="min-w-[65px]"
-            >
-              {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
-                <option key={num} value={num}>
-                  {num}
-                </option>
-              ))}
-            </MySelect>
+          <MySelect
+            label="Salt Rounds"
+            value={salt}
+            onChange={setSalt}
+            sizing="sm"
+            className="min-w-[65px]"
+          >
+            {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+              <option key={num} value={num}>
+                {num}
+              </option>
+            ))}
+          </MySelect>
 
-            <MyButton onClick={textToHash} size={"sm"}>
-              <AiOutlineLock className="w-5 h-5 mr-2" />
-              Encrypt
-            </MyButton>
-          </div>
+          <MyButton onClick={textToHash} size={"sm"}>
+            <AiOutlineLock className="w-5 h-5 mr-2" />
+            Encrypt
+          </MyButton>
         </MyCard.Header>
 
         <MyInput

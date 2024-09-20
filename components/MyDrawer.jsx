@@ -33,7 +33,7 @@ const MyDrawer = ({ title, titleIcon, children, isOpen, onClose, position = "rig
         closeIcon: "h-4 w-4",
         titleIcon: "me-2.5 h-5 w-5",
         titleText:
-          "mb-4 inline-flex items-center text-base font-semibold dark:text-dark-text",
+          "mb-4 inline-flex items-center text-base font-semibold ",
       },
       collapsed: {
         on: "hidden",

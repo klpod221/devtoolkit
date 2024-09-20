@@ -53,7 +53,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
       )}
       <aside
         className={`fixed top-0 left-0 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-dark dark:border-dark-secondary ${
-          isOpen ? "translate-x-0 z-40" : ""
+          isOpen ? "translate-x-0 z-40" : "z-10"
         }`}
         aria-label="Sidebar"
       >
@@ -73,7 +73,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
           {toolkit.map((section, index) => (
             <ul key={index} className="pt-4 space-y-2">
               <li>
-                <div className="text-gray-400 text-sm font-medium uppercase w-full border-b border-gray-200 pb-1 dark:border-dark-secondary dark:text-dark-text">
+                <div className="text-gray-400 text-sm font-medium uppercase w-full border-b border-gray-200 pb-1 dark:border-dark-secondary ">
                   {section.title}
                 </div>
               </li>
@@ -86,7 +86,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                   >
                     <NextLink
                       href={section.path + tool.path}
-                      className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-dark-text hover:bg-gray-200 dark:hover:bg-dark-secondary group
+                      className={`flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200 dark:hover:bg-dark-secondary group
                       ${
                         currentPath === section.path + tool.path
                           ? "bg-gray-200 dark:bg-dark-secondary"
@@ -96,7 +96,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                       <tool.icon
                         className={`w-5 h-5 text-gray-500 transition duration-75 dark:text-dark-text-secondary group-hover:text-gray-900 dark:group-hover:text-dark-text`}
                       />
-                      <span className="ms-3 dark:text-dark-text">
+                      <span className="ms-3 ">
                         {tool.name}
                       </span>
                     </NextLink>

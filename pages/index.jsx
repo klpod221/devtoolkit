@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div>
       <MyCard className="w-full max-w-5xl">
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-dark-text">
+        <h5 className="text-2xl font-bold tracking-tight text-gray-900 ">
           Hello Developer! 👋
         </h5>
         <p className="text-xl text-gray-700 dark:text-gray-400">
@@ -16,7 +16,6 @@ const Home = () => {
           Encoder/Decoder, JWT, Bcrypt, and more.
         </p>
 
-        {/* Github */}
         <p className="text-xl text-gray-700 dark:text-gray-400">
           If you like this project, please give it a star on{" "}
           <NextLink
