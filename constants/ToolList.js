@@ -34,6 +34,7 @@ import { TbWorldWww } from "react-icons/tb";
 import { TfiReload } from "react-icons/tfi";
 import { SiNginx } from "react-icons/si";
 import { CgColorPicker } from "react-icons/cg";
+import { LuFileJson } from "react-icons/lu";
 
 const toolList = [
   {
@@ -131,15 +132,15 @@ const toolList = [
       },
       {
         name: "JSON Converter",
-        description: "Convert JSON to XML, YAML, CSV, SQL insert etc.",
-        icon: AiOutlineRetweet,
+        description: "Convert JSON to XML, YAML etc.",
+        icon: LuFileJson,
         path: "/json",
-        status: false,
+        status: true,
       },
       {
         name: "Back to JSON",
         description: "Convert XML, YAML, CSV, SQL insert to JSON.",
-        icon: AiOutlineRetweet,
+        icon: LuFileJson,
         path: "/back-to-json",
         status: false,
       },

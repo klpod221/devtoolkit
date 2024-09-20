@@ -52,7 +52,7 @@ toolList.forEach((category) => {
     const fileName = tool.path.replace("/", "");
     const filePath = folderPath + "/" + fileName + ".jsx";
 
-    if (!fs.existsSync(filePath) || !tool.status) {
+    if (!fs.existsSync(filePath)) {
       const componentName = tool.name.replace(/[^a-zA-Z0-9]/g, "");
 
       let content = `

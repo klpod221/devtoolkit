@@ -5,12 +5,14 @@ import { emmetHTML, emmetCSS, emmetJSX } from "emmet-monaco-es";
 
 import { IoExpandOutline, IoContractOutline } from "react-icons/io5";
 import { MdOutlineWrapText, MdFormatAlignLeft } from "react-icons/md";
+import MyCopyButton from "./MyCopyButton";
 
 const MyCodeEditor = ({
   language = "html",
   fullScreen = true,
   options = {},
   editorRef = null,
+  copy = false,
   ...props
 }) => {
   const [isFullScreen, setIsFullScreen] = React.useState(false);
@@ -106,11 +108,7 @@ const MyCodeEditor = ({
               setWordWrap(wordWrap === "off" ? "on" : "off");
             }}
           >
-            {wordWrap === "off" ? (
-              <MdOutlineWrapText />
-            ) : (
-              <MdFormatAlignLeft />
-            )}
+            {wordWrap === "off" ? <MdOutlineWrapText /> : <MdFormatAlignLeft />}
           </div>
 
           {fullScreen && (
@@ -122,6 +120,13 @@ const MyCodeEditor = ({
             >
               <IoExpandOutline />
             </div>
+          )}
+
+          {copy && (
+            <MyCopyButton
+              text={props.value}
+              className="cursor-pointer p-2 bg-white dark:bg-dark rounded-full shadow-md hidden group-hover:block transition-all duration-300 w-fit h-fit"
+            />
           )}
         </div>
 
