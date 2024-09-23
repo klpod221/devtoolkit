@@ -45,7 +45,7 @@ const Base64ImageEncoder = () => {
     <>
       <div className="flex flex-wrap mb-4 space-x-2">
         {image && (
-          <div className="relative group overflow-hidden rounded-lg w-40 h-40">
+          <div className="relative group overflow-hidden rounded-lg w-32 h-32">
             <MyImage
               src={URL.createObjectURL(image)}
               alt="image"

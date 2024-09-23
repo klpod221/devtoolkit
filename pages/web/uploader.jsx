@@ -246,9 +246,9 @@ const Uploader = () => {
           </div>
         </MyCard.Header>
 
-        <ul className="flex flex-col w-full space-x-4 overflow-y-auto">
+        <ul className="flex flex-col w-full space-y-4 overflow-y-auto">
           {queueList.map((queue, index) => (
-            <li key={index} className="flex items-center space-x-2">
+            <li key={index} className="flex items-center space-x-2 justify-between">
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
                   {queue.file.type.includes("image") ? (
@@ -350,7 +350,7 @@ const Uploader = () => {
           </MyButton>
         </MyCard.Header>
 
-        <ul className="flex flex-col w-full space-x-4 overflow-y-auto">
+        <ul className="flex flex-col w-full space-y-4 overflow-y-auto">
           {uploadedFiles
             .slice(0)
             .reverse()

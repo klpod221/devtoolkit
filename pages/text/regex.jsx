@@ -318,7 +318,7 @@ const RegexTester = () => {
               </div>
             }
           >
-            <button className="px-2 py-1.5 flex items-center bg-gray-100 dark:bg-dark-secondary  w-24 justify-between">
+            <button className="px-2 py-1.5 flex items-center bg-gray-100 dark:bg-dark-secondary w-24 justify-between">
               <span className="text-blue-500 dark:text-blue-400">
                 /{flags.join("")}
               </span>

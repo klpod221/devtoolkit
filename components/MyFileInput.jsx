@@ -80,7 +80,7 @@ const MyFileInput = ({
 
   React.useEffect(() => {
     if (size === "small") {
-      setTitle(isDragging ? "Drop here" : "Upload");
+      setTitle(isDragging ? "Drop here" : "File Upload");
     } else {
       setTitle(isDragging ? "Drop your file here" : "Upload your file");
     }
@@ -100,7 +100,7 @@ const MyFileInput = ({
         <AiOutlineCloudUpload
           className={`h-8 w-8 text-gray-500 dark:text-gray-400 ${
             isDragging ? "animate-bounce" : ""
-          } ${size === "small" ? "" : "mb-2"}
+          } ${size === "small" ? "mb-1" : "mb-2"}
           `}
         />
         <p className="mb-2 text-sm text-gray-500 dark:text-gray-400 font-semibold">

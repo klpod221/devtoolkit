@@ -2,6 +2,8 @@ import React from "react";
 import JSZip from "jszip";
 import { Button } from "flowbite-react";
 
+import convertImageFormat from "@utils/convertImageFormat";
+
 import TwoColumn from "@components/TwoColumn";
 import MyButton from "@/components/MyButton";
 import MyCard from "@components/MyCard";
@@ -24,7 +26,7 @@ const FormatConverter = () => {
     setReturnImages([]);
   }, [format]);
 
-  const convertImages = () => {
+  const convertImages = async () => {
     if (images.length === 0) {
       return;
     }
@@ -32,29 +34,9 @@ const FormatConverter = () => {
     setReturnImages([]);
 
     images.forEach((image) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const img = new Image();
-        img.src = e.target.result;
-        img.onload = () => {
-          const canvas = document.createElement("canvas");
-          const ctx = canvas.getContext("2d");
-
-          canvas.width = img.width;
-          canvas.height = img.height;
-
-          // if format is ico, resize image to 32x32 pixels
-          if (format === "ico") {
-            ctx.drawImage(img, 0, 0, 32, 32);
-          }
-
-          ctx.drawImage(img, 0, 0);
-
-          const dataURL = canvas.toDataURL(`image/${format}`);
-          setReturnImages((prev) => [...prev, dataURL]);
-        };
-      };
-      reader.readAsDataURL(image);
+      convertImageFormat(image, format).then((dataURL) => {
+        setReturnImages((prev) => [...prev, dataURL]);
+      });
     });
   };
 
@@ -130,11 +112,11 @@ const FormatConverter = () => {
             ))}
           </Button.Group>
 
-          <div className="flex flex-wrap mt-4 space-x-2">
+          <div className="flex flex-wrap mt-4 gap-2 overflow-y-auto">
             {images.map((image, index) => (
               <div
                 key={index}
-                className="relative group overflow-hidden rounded-lg w-40 h-40"
+                className="relative group overflow-hidden rounded-lg w-32 h-32"
               >
                 <MyImage
                   src={URL.createObjectURL(image)}
@@ -163,11 +145,11 @@ const FormatConverter = () => {
             )}
           </MyCard.Header>
 
-          <div className="flex flex-wrap space-x-2">
+          <div className="flex flex-wrap gap-2 overflow-y-auto">
             {returnImages.map((image, index) => (
               <div
                 key={index}
-                className="relative group overflow-hidden rounded-lg w-40 h-40"
+                className="relative group overflow-hidden rounded-lg w-32 h-32"
               >
                 <MyImage
                   src={image}
