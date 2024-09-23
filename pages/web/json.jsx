@@ -1,7 +1,8 @@
 import React from "react";
-import { json2xml } from "xml-js";
-import { parse, stringify } from "yaml";
 import { toast } from "react-toastify";
+
+import jsonToYaml from "@utils/jsonToYaml";
+import jsonToXml from "@utils/jsonToXml";
 
 import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
@@ -19,23 +20,15 @@ const JSONConverter = () => {
   const [convertTo, setConvertTo] = React.useState("yaml");
   const [output, setOutput] = React.useState({ xml: "", yaml: "" });
 
-  const jsonToXml = (json) => {
-    const xml = json2xml(json, { compact: true, spaces: 4 });
-    setOutput((prev) => ({ ...prev, xml }));
-  };
-
-  const jsonToYaml = (json) => {
-    const yamlObject = parse(json);
-    const yaml = stringify(yamlObject, { indent: 2 });
-    setOutput((prev) => ({ ...prev, yaml }));
-  };
-
   const convertJson = () => {
     try {
       setOutput({ xml: "", yaml: "" });
 
-      jsonToXml(json);
-      jsonToYaml(json);
+      const xml = jsonToXml(json);
+      const yaml = jsonToYaml(json);
+
+      setOutput((prev) => ({ ...prev, xml, yaml }));
+
       toast.success("Converted successfully");
     } catch (error) {
       toast.error(error.message || "Invalid json");

@@ -139,10 +139,10 @@ const toolList = [
       },
       {
         name: "Back to JSON",
-        description: "Convert XML, YAML, CSV, SQL insert to JSON.",
+        description: "Convert XML, YAML to JSON.",
         icon: LuFileJson,
         path: "/back-to-json",
-        status: false,
+        status: true,
       },
     ],
   },

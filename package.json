@@ -16,6 +16,7 @@
     "bcryptjs": "^2.4.3",
     "emmet-monaco-es": "^5.4.0",
     "flowbite-react": "^0.10.1",
+    "js-beautify": "^1.15.1",
     "jszip": "^3.10.1",
     "markdown-it": "^14.1.0",
     "next": "14.2.12",

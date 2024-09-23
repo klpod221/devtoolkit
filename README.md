@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (12/45)
+## Tools List (13/45)
 
 ### Text Editor
 
@@ -32,16 +32,16 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Web Tools
 
-| Status                    | Name                                                                            | Description                                 |
-| ------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------- |
-| <ul><li> - [x] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)                    | Upload and share files.                     |
-| <ul><li> - [x] </li></ul> | [Base64 Encoder/Decoder](https://devtools.klpod221.site/web/base64)             | Encode or decode base64 strings.            |
-| <ul><li> - [x] </li></ul> | [Base64 Image Encoder/Decoder](https://devtools.klpod221.site/web/base64-image) | Encode or decode base64 images.             |
-| <ul><li> - [x] </li></ul> | [Bcrypt Hash Generator](https://devtools.klpod221.site/web/bcrypt)              | Bcrypt hash generator and verifier.         |
-| <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)                   | Encode or decode url strings.               |
-| <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                     | Parse url strings.                          |
-| <ul><li> - [x] </li></ul> | [JSON Converter](https://devtools.klpod221.site/web/json)                       | Convert JSON to XML, YAML etc.              |
-| <ul><li> - [ ] </li></ul> | [Back to JSON](https://devtools.klpod221.site/web/back-to-json)                 | Convert XML, YAML, CSV, SQL insert to JSON. |
+| Status                    | Name                                                                            | Description                         |
+| ------------------------- | ------------------------------------------------------------------------------- | ----------------------------------- |
+| <ul><li> - [x] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)                    | Upload and share files.             |
+| <ul><li> - [x] </li></ul> | [Base64 Encoder/Decoder](https://devtools.klpod221.site/web/base64)             | Encode or decode base64 strings.    |
+| <ul><li> - [x] </li></ul> | [Base64 Image Encoder/Decoder](https://devtools.klpod221.site/web/base64-image) | Encode or decode base64 images.     |
+| <ul><li> - [x] </li></ul> | [Bcrypt Hash Generator](https://devtools.klpod221.site/web/bcrypt)              | Bcrypt hash generator and verifier. |
+| <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)                   | Encode or decode url strings.       |
+| <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                     | Parse url strings.                  |
+| <ul><li> - [x] </li></ul> | [JSON Converter](https://devtools.klpod221.site/web/json)                       | Convert JSON to XML, YAML etc.      |
+| <ul><li> - [x] </li></ul> | [Back to JSON](https://devtools.klpod221.site/web/back-to-json)                 | Convert XML, YAML to JSON.          |
 
 ### System Tools
 
