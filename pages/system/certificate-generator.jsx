@@ -33,7 +33,7 @@ const DigitalCertificateGenerator = () => {
             className="flex items-center space-x-2"
           >
             <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
+            <span>Create request</span>
           </NextLink>
         </MyButton>
       </div>
