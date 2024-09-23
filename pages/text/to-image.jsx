@@ -6,7 +6,7 @@ import MyButton from "@components/MyButton";
 
 import { AiFillHome, AiFillGithub } from "react-icons/ai";
 
-const TexttoImage = () => {
+const TextToImage = () => {
   return (
     <MyCard className="w-full max-w-5xl">
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 ">
@@ -14,8 +14,9 @@ const TexttoImage = () => {
       </h5>
 
       <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later or create
-        a request on our Github repository if you want to see this tool sooner.
+        I{"'"}m currently working on this tool (or not). Please check back later
+        or create a request on our Github repository if you want to see this
+        tool sooner.
       </p>
 
       <div className="flex items-center space-x-2 mt-4">
@@ -41,5 +42,5 @@ const TexttoImage = () => {
   );
 };
 
-TexttoImage.title = "Text to Image";
-export default TexttoImage;
+TextToImage.title = "Text to Image";
+export default TextToImage;

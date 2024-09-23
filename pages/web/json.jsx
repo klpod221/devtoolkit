@@ -17,32 +17,26 @@ const types = ["xml", "yaml"];
 const JSONConverter = () => {
   const [json, setJson] = React.useState("");
   const [convertTo, setConvertTo] = React.useState("yaml");
-  const [output, setOutput] = React.useState({
-    xml: "",
-    yaml: "",
-  });
+  const [output, setOutput] = React.useState({ xml: "", yaml: "" });
 
-  const jsonToXml = (data) => {
-    const xml = json2xml(data, { compact: true, spaces: 4 });
+  const jsonToXml = (json) => {
+    const xml = json2xml(json, { compact: true, spaces: 4 });
     setOutput((prev) => ({ ...prev, xml }));
   };
 
-  const jsonToYaml = (data) => {
-    const yamlObject = parse(data);
+  const jsonToYaml = (json) => {
+    const yamlObject = parse(json);
     const yaml = stringify(yamlObject, { indent: 2 });
     setOutput((prev) => ({ ...prev, yaml }));
   };
 
   const convertJson = () => {
     try {
-      const data = JSON.parse(json);
+      setOutput({ xml: "", yaml: "" });
 
-      if (!Array.isArray(data)) {
-        throw new Error("Invalid json");
-      }
-
-      jsonToXml(data);
-      jsonToYaml(data);
+      jsonToXml(json);
+      jsonToYaml(json);
+      toast.success("Converted successfully");
     } catch (error) {
       toast.error(error.message || "Invalid json");
       console.error(error);

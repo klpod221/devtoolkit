@@ -52,8 +52,12 @@ toolList.forEach((category) => {
     const fileName = tool.path.replace("/", "");
     const filePath = folderPath + "/" + fileName + ".jsx";
 
-    if (!fs.existsSync(filePath)) {
-      const componentName = tool.name.replace(/[^a-zA-Z0-9]/g, "");
+    if (!tool.status) {
+      let componentName = tool.name
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join("")
+        .replace(/[^a-zA-Z0-9]/g, "");
 
       let content = `
         import React from "react";

@@ -15,8 +15,8 @@ const BackslashConverter = () => {
 
       <p className="text-xl text-gray-700 dark:text-gray-400">
         I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this tool
-        sooner.
+        or create a request on our Github repository if you want to see this
+        tool sooner.
       </p>
 
       <div className="flex items-center space-x-2 mt-4">
