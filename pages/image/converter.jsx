@@ -134,7 +134,7 @@ const FormatConverter = () => {
             {images.map((image, index) => (
               <div
                 key={index}
-                className="relative group overflow-hidden rounded-lg shadow-lg w-40 h-40"
+                className="relative group overflow-hidden rounded-lg w-40 h-40"
               >
                 <MyImage
                   src={URL.createObjectURL(image)}
@@ -167,7 +167,7 @@ const FormatConverter = () => {
             {returnImages.map((image, index) => (
               <div
                 key={index}
-                className="relative group overflow-hidden rounded-lg shadow-lg w-40 h-40"
+                className="relative group overflow-hidden rounded-lg w-40 h-40"
               >
                 <MyImage
                   src={image}

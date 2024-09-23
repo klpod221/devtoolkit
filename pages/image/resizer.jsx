@@ -1,44 +1,61 @@
 import React from "react";
-import NextLink from "next/link";
 
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
+import MyFileInput from "@components/MyFileInput";
+import MyImage from "@components/MyImage";
 
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import { FaArrowRight } from "react-icons/fa";
+import MyInput from "@components/MyInput";
 
 const Resizer = () => {
+  const [image, setImage] = React.useState(null);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight text-gray-900 ">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header title="Input" helper="Enter your image here">
+          <MyButton size="sm" onClick={() => convertToJSON()}>
+            Resize
+            <FaArrowRight className="ml-2" />
+          </MyButton>
+        </MyCard.Header>
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <MyFileInput
+          type="image"
+          multiple={false}
+          onChange={setImage}
+          size="small"
+        />
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+        <div className="flex flex-wrap mb-4 space-x-2">
+          {image && (
+            <div className="relative group overflow-hidden rounded-lg w-40 h-40">
+              <MyImage
+                src={URL.createObjectURL(image)}
+                alt="image"
+                className="object-cover w-full h-full"
+              />
+            </div>
+          )}
+        </div>
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+        <div className="flex flex-wrap mb-4 space-x-2 w-full">
+          <MyInput
+            label="Width <small class='text-gray-500'>(px)</small>"
+            placeholder="Width"
+            type="number"
+          />
+          <MyInput
+            label="Height <small class='text-gray-500'>(px)</small>"
+            placeholder="Height"
+            type="number"
+          />
+        </div>
+      </TwoColumn.Left>
+      <TwoColumn.Right></TwoColumn.Right>
+    </TwoColumn>
   );
 };
 

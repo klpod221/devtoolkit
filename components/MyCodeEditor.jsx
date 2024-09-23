@@ -79,7 +79,7 @@ const MyCodeEditor = ({
                   setIsFullScreen(!isFullScreen);
                 }}
               >
-                <IoContractOutline className="text-gray-800 " />
+                <IoContractOutline />
               </div>
             </div>
 

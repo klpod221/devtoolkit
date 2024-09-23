@@ -2,15 +2,23 @@ import React from "react";
 import { FileInput, Label } from "flowbite-react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
-const MyFileInput = ({ onChange = () => {}, multiple = true, type = "file", placeholder = null, accept = null }) => {
+const MyFileInput = ({
+  onChange = () => {},
+  multiple = true,
+  type = "file",
+  placeholder = null,
+  accept = null,
+  size = "normal",
+}) => {
+  const [id, setId] = React.useState(null);
   const [isDragging, setIsDragging] = React.useState(false);
   const [message, setMessage] = React.useState(placeholder);
-  const [id, setId] = React.useState(null);
+  const [title, setTitle] = React.useState("Upload");
 
   const onFileChange = (e) => {
     const files = e.target.files;
     const fileArray = Array.from(files);
-    onChange(fileArray);
+    onChange(multiple ? fileArray : fileArray[0]);
   };
 
   React.useEffect(() => {
@@ -21,7 +29,7 @@ const MyFileInput = ({ onChange = () => {}, multiple = true, type = "file", plac
       const files = e.dataTransfer.files;
       if (files.length > 0) {
         const fileArray = Array.from(files);
-        onChange(fileArray);
+        onChange(multiple ? fileArray : fileArray[0]);
       }
     };
 
@@ -50,7 +58,7 @@ const MyFileInput = ({ onChange = () => {}, multiple = true, type = "file", plac
         dropZone.removeEventListener("dragleave", dragLeaveHandler);
       });
     };
-  }, [onChange]);
+  }, [onChange, multiple]);
 
   React.useEffect(() => {
     if (placeholder) {
@@ -60,7 +68,9 @@ const MyFileInput = ({ onChange = () => {}, multiple = true, type = "file", plac
     } else if (type === "image" && !multiple) {
       setMessage("You can upload an image (jpg, png, svg, etc.)");
     } else {
-      setMessage(`You can upload your file here (${multiple ? "multiple" : "single"})`);
+      setMessage(
+        `You can upload your file here (${multiple ? "multiple" : "single"})`
+      );
     }
   }, [placeholder, type, multiple]);
 
@@ -68,30 +78,37 @@ const MyFileInput = ({ onChange = () => {}, multiple = true, type = "file", plac
     setId(Math.random().toString(36).substr(2, 9));
   }, []);
 
+  React.useEffect(() => {
+    if (size === "small") {
+      setTitle(isDragging ? "Drop here" : "Upload");
+    } else {
+      setTitle(isDragging ? "Drop your file here" : "Upload your file");
+    }
+  }, [isDragging, size]);
+
   return (
     <Label
       htmlFor={`dropzone-file-${id}`}
-      className={`flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 hover:border-gray-500 hover:bg-gray-100 dark:border-dark-secondary dark:bg-dark dark:hover:border-dark-text-secondary dark:hover:bg-dark-secondary relative transition-all duration-300 ease-in-out dropzone-file ${
-        isDragging
-          ? "border-gray-500 bg-gray-100 dark:border-dark-text-secondary dark:bg-dark-secondary"
-          : ""
+      className={`flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 hover:border-gray-500 hover:bg-gray-100 dark:border-dark-secondary dark:bg-dark dark:hover:border-dark-text-secondary dark:hover:bg-dark-secondary relative transition-all duration-300 ease-in-out dropzone-file ${
+        size === "small" ? "w-28 h-28" : "w-full"
+      } ${
+        isDragging &&
+        "border-gray-500 bg-gray-100 dark:border-dark-text-secondary dark:bg-dark-secondary"
       }`}
     >
       <div className="flex flex-col items-center justify-center pb-6 pt-5">
-        <AiOutlineCloudUpload className="mb-4 h-8 w-8 text-gray-500 dark:text-gray-400" />
-        <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-          {isDragging ? (
-            <span className="font-semibold">Drop here</span>
-          ) : (
-            <>
-              <span className="font-semibold">Click to upload</span> or drag and
-              drop
-            </>
-          )}
+        <AiOutlineCloudUpload
+          className={`h-8 w-8 text-gray-500 dark:text-gray-400 ${
+            isDragging ? "animate-bounce" : ""
+          } ${size === "small" ? "" : "mb-2"}
+          `}
+        />
+        <p className="mb-2 text-sm text-gray-500 dark:text-gray-400 font-semibold">
+          {title}
         </p>
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          {message}
-        </p>
+        {size !== "small" && (
+          <p className="text-xs text-gray-500 dark:text-gray-400">{message}</p>
+        )}
       </div>
       <FileInput
         id={`dropzone-file-${id}`}

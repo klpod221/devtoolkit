@@ -80,7 +80,7 @@ const toolList = [
         description: "Resize your images.",
         icon: AiOutlineFileImage,
         path: "/resizer",
-        status: false,
+        status: true,
       },
     ],
   },

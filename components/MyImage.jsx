@@ -38,7 +38,7 @@ const MyImage = ({ src, alt, className, preview = true, download = true }) => {
           alt={alt}
           width={500}
           height={500}
-          className={`object-cover w-full h-full rounded-lg`}
+          className={`object-cover w-full h-full rounded-lg border-2 border-gray-200 dark:border-dark-secondary`}
           onError={(e) => {
             e.target.src = "/images/placeholder.png";
             e.target.srcset = "/images/placeholder.png";
@@ -49,7 +49,10 @@ const MyImage = ({ src, alt, className, preview = true, download = true }) => {
 
         <div className="absolute top-1 right-1 hidden justify-center items-center group-hover:flex animate-fade-in space-x-1">
           {canDownload && (
-            <button className="bg-black bg-opacity-50 text-white rounded-lg p-1" onClick={onDownload}>
+            <button
+              className="bg-black bg-opacity-50 text-white rounded-lg p-1"
+              onClick={onDownload}
+            >
               <AiOutlineDownload className="h-6 w-6" />
             </button>
           )}
@@ -72,7 +75,7 @@ const MyImage = ({ src, alt, className, preview = true, download = true }) => {
             alt={alt}
             width={1500}
             height={1500}
-            className="object-contain animate-zoom-in p-5"
+            className="object-contain animate-zoom-in p-5 max-w-full max-h-full"
           />
 
           <div
@@ -82,7 +85,10 @@ const MyImage = ({ src, alt, className, preview = true, download = true }) => {
 
           <div className="fixed top-5 right-5 flex space-x-1 animate-fade-in">
             {canDownload && (
-              <button className="bg-black bg-opacity-50 text-white rounded-lg p-1" onClick={onDownload}>
+              <button
+                className="bg-black bg-opacity-50 text-white rounded-lg p-1"
+                onClick={onDownload}
+              >
                 <AiOutlineDownload className="h-6 w-6" />
               </button>
             )}

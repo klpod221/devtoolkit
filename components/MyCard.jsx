@@ -5,9 +5,9 @@ const Header = ({ children, title, helper }) => {
   return (
     <div className="flex flex-col space-x-0 space-y-2 md:items-center md:space-x-4 md:justify-between md:flex-row">
       {title || helper ? (
-        <div className="text-xl font-semibold text-gray-800">
+        <div className="text-xl font-semibold">
           {title}
-          <p className="text-xs text-gray-400 dark:text-gray-400 italic font-light">
+          <p className="text-xs text-gray-400 dark:text-dark-text-secondary italic font-light">
             <span dangerouslySetInnerHTML={{ __html: helper }} />
           </p>
         </div>

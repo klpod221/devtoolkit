@@ -1,5 +1,5 @@
 import React from "react";
-import { toast } from "react-toastify";
+
 import MyImage from "@components/MyImage";
 import MyButton from "@components/MyButton";
 import MyTextarea from "@components/MyTextarea";
@@ -33,7 +33,7 @@ const Base64ImageDecoder = () => {
       {output && (
         <div className="flex flex-wrap mb-4 space-x-2">
           <div
-            className="relative group overflow-hidden rounded-lg shadow-lg w-40 h-40"
+            className="relative group overflow-hidden rounded-lg w-40 h-40"
           >
             <MyImage
               src={output}

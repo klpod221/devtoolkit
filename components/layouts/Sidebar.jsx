@@ -4,9 +4,7 @@ import { useRouter } from "next/router";
 import MyInput from "@/components/MyInput";
 import { Popover } from "flowbite-react";
 
-import {
-  AiOutlineSearch,
-} from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 
 import toolList from "@/constants/ToolList";
 
@@ -73,7 +71,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
           {toolkit.map((section, index) => (
             <ul key={index} className="pt-4 space-y-2">
               <li>
-                <div className="text-gray-400 text-sm font-medium uppercase w-full border-b border-gray-200 pb-1 dark:border-dark-secondary ">
+                <div className="text-gray-400 text-sm font-medium uppercase w-full border-b border-gray-200 pb-1 dark:border-dark-secondary dark:text-dark-text-secondary">
                   {section.title}
                 </div>
               </li>
@@ -86,7 +84,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                   >
                     <NextLink
                       href={section.path + tool.path}
-                      className={`flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200 dark:hover:bg-dark-secondary group
+                      className={`flex items-center p-2 rounded-lg  hover:bg-gray-200 dark:hover:bg-dark-secondary group
                       ${
                         currentPath === section.path + tool.path
                           ? "bg-gray-200 dark:bg-dark-secondary"
@@ -96,9 +94,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                       <tool.icon
                         className={`w-5 h-5 text-gray-500 transition duration-75 dark:text-dark-text-secondary group-hover:text-gray-900 dark:group-hover:text-dark-text`}
                       />
-                      <span className="ms-3 ">
-                        {tool.name}
-                      </span>
+                      <span className="ms-3 ">{tool.name}</span>
                     </NextLink>
                   </Popover>
                 </li>

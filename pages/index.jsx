@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div>
       <MyCard className="w-full max-w-5xl">
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 ">
+        <h5 className="text-2xl font-bold tracking-tight">
           Hello Developer! 👋
         </h5>
         <p className="text-xl text-gray-700 dark:text-gray-400">

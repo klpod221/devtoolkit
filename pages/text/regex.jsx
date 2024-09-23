@@ -287,7 +287,7 @@ const RegexTester = () => {
             placeholder="Enter your regex pattern here"
             value={pattern}
             onChange={(e) => onPatternChange(e.target.value)}
-            className="block w-full border disabled:cursor-not-allowed disabled:opacity-50 border-gray-200 bg-gray-50 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-dark-secondary dark:bg-dark dark:text-white dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text p-2.5 text-sm font-mono"
+            className="block w-full border disabled:cursor-not-allowed disabled:opacity-50 border-gray-200 bg-gray-50 focus:border-cyan-500 focus:ring-cyan-500 dark:border-dark-secondary dark:bg-dark dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text p-2.5 text-sm font-mono"
           />
 
           <MyPopover

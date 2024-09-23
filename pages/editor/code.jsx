@@ -113,7 +113,7 @@ const CodeEditor = () => {
             />
           )}
 
-          <div className="text-gray-800  flex mb-1 justify-between">
+          <div className="flex mb-1 justify-between">
             <span className="text-base">OUTPUT</span>
             <span className="text-sm text-gray-500 dark:text-gray-400">
               {loading ? (
