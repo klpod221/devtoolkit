@@ -5,6 +5,7 @@ import MyInput from "@/components/MyInput";
 import { Popover } from "flowbite-react";
 
 import { AiOutlineSearch } from "react-icons/ai";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 import toolList from "@/constants/ToolList";
 
@@ -94,7 +95,10 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                       <tool.icon
                         className={`w-5 h-5 text-gray-500 transition duration-75 dark:text-dark-text-secondary group-hover:text-gray-900 dark:group-hover:text-dark-text`}
                       />
-                      <span className="ms-3 ">{tool.name}</span>
+                      <span className="ms-3 ml-1">{tool.name}</span>
+                      {tool.status && (
+                        <FaRegCheckCircle className="w-4 h-4 ms-auto text-green-500" />
+                      )}
                     </NextLink>
                   </Popover>
                 </li>

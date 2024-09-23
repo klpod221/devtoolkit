@@ -96,14 +96,14 @@ const toolList = [
         status: true,
       },
       {
-        name: "Base64 Encoder/Decoder",
+        name: "Base64 Converter",
         description: "Encode or decode base64 strings.",
         icon: AiOutlineRetweet,
         path: "/base64",
         status: true,
       },
       {
-        name: "Base64 Image Encoder/Decoder",
+        name: "Base64 Image Converter",
         description: "Encode or decode base64 images.",
         icon: AiOutlineRetweet,
         path: "/base64-image",
