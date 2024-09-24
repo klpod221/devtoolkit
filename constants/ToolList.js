@@ -69,11 +69,11 @@ const toolList = [
         status: true,
       },
       {
-        name: "Compressor",
-        description: "Reduce the size of your images.",
+        name: "JPEG/WEBP Compressor",
+        description: "Reduce the size of your images for JPEG and WEBP formats.",
         icon: AiOutlineFileImage,
         path: "/compressor",
-        status: false,
+        status: true,
       },
       {
         name: "Resizer",

@@ -1,6 +1,8 @@
 import React from "react";
 import { toast } from "react-toastify";
 
+import imageToBase64 from "@utils/imageToBase64";
+
 import MyImage from "@components/MyImage";
 import MyFileInput from "@components/MyFileInput";
 import MyButton from "@components/MyButton";
@@ -23,9 +25,7 @@ const Base64ImageEncoder = () => {
 
     setOutput({ base64: "", dataUrl: "", imgTag: "" });
 
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      const result = e.target.result;
+    imageToBase64(image).then((result) => {
       let base64 = result.split(",")[1];
       let dataUrl = result;
       let imgTag = `<img src="${dataUrl}" alt="image" />`;
@@ -35,8 +35,7 @@ const Base64ImageEncoder = () => {
         dataUrl: prev.dataUrl + dataUrl,
         imgTag: prev.imgTag + imgTag,
       }));
-    };
-    reader.readAsDataURL(image);
+    });
 
     toast.success("Images converted successfully");
   };

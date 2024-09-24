@@ -93,7 +93,11 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                       }`}
                     >
                       <tool.icon
-                        className={`w-5 h-5 text-gray-500 transition duration-75 dark:text-dark-text-secondary group-hover:text-gray-900 dark:group-hover:text-dark-text`}
+                        className={`w-5 h-5 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-dark-text ${
+                          currentPath === section.path + tool.path
+                            ? "text-gray-900 dark:text-dark-text"
+                            : "text-gray-500 dark:text-dark-text-secondary"
+                        }`}
                       />
                       <span className="ms-3 ml-1">{tool.name}</span>
                       {tool.status && (

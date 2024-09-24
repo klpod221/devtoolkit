@@ -1,5 +1,6 @@
 import React from "react";
 import JSZip from "jszip";
+import { toast } from "react-toastify";
 import { Button } from "flowbite-react";
 
 import convertImageFormat from "@utils/convertImageFormat";
@@ -10,7 +11,7 @@ import MyCard from "@components/MyCard";
 import MyImage from "@components/MyImage";
 import MyFileInput from "@components/MyFileInput";
 
-import { BsPlayFill } from "react-icons/bs";
+import { FaArrowRight } from "react-icons/fa";
 import { AiOutlineDownload } from "react-icons/ai";
 
 const formatList = ["jpg", "png", "webp", "ico", "svg"];
@@ -33,11 +34,18 @@ const FormatConverter = () => {
 
     setReturnImages([]);
 
-    images.forEach((image) => {
-      convertImageFormat(image, format).then((dataURL) => {
-        setReturnImages((prev) => [...prev, dataURL]);
+    try {
+      images.forEach((image) => {
+        convertImageFormat(image, format).then((dataURL) => {
+          setReturnImages((prev) => [...prev, dataURL]);
+        });
       });
-    });
+
+      toast.success("Images converted successfully");
+    } catch (error) {
+      toast.error(error.message || "Failed to convert images");
+      console.error(error);
+    }
   };
 
   const onFileChange = (files) => {
@@ -94,7 +102,7 @@ const FormatConverter = () => {
           <MyCard.Header title="Image Input" helper="Select images to convert">
             <MyButton size={"sm"} className="py-0" onClick={convertImages}>
               Convert
-              <BsPlayFill className="h-5 w-5" />
+              <FaArrowRight className="ml-2" />
             </MyButton>
           </MyCard.Header>
 
@@ -133,15 +141,14 @@ const FormatConverter = () => {
             helper="Converted images will be displayed here"
           >
             {returnImages.length > 0 && (
-              <Button
+              <MyButton
                 size={"sm"}
                 className="py-0"
                 onClick={() => onDownloadAll()}
-                color="success"
               >
                 Download All
                 <AiOutlineDownload className="ml-1 h-5 w-5" />
-              </Button>
+              </MyButton>
             )}
           </MyCard.Header>
 

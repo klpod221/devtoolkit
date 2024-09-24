@@ -11,7 +11,7 @@ import MyCheckbox from "@components/MyCheckbox";
 
 import { FaArrowRight } from "react-icons/fa";
 
-const Resizer = () => {
+const ImageResizer = () => {
   const [image, setImage] = React.useState(null);
   const [outputImage, setOutputImage] = React.useState(null);
 
@@ -164,5 +164,5 @@ const Resizer = () => {
   );
 };
 
-Resizer.title = "Resizer";
-export default Resizer;
+ImageResizer.title = "Image Resizer";
+export default ImageResizer;

@@ -67,7 +67,7 @@ const MyInput = ({
       {label && (
         <label
           htmlFor={props.id}
-          className={`text-base dark:text-dark-text ${labelStyle}`}
+          className={`text-base ${labelStyle}`}
         >
           <span dangerouslySetInnerHTML={{ __html: label }} />
         </label>

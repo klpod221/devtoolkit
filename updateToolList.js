@@ -119,7 +119,7 @@ toolList.forEach((category) => {
   <url>
     <loc>https://devtools.klpod221.site${category.path}${tool.path}</loc>
     <lastmod>${lastModified}</lastmod>
-    <priority>0.8</priority>
+    <priority>1</priority>
   </url>`;
   });
 

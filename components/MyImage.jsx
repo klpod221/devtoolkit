@@ -9,7 +9,14 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 
-const MyImage = ({ src, alt, className, preview = true, download = true }) => {
+const MyImage = ({
+  src,
+  alt,
+  data,
+  className,
+  preview = true,
+  download = true,
+}) => {
   const [canPreview, setCanPreview] = React.useState(preview);
   const [canDownload, setCanDownload] = React.useState(download);
   const [isShowPreview, setIsShowPreview] = React.useState(false);
@@ -67,6 +74,8 @@ const MyImage = ({ src, alt, className, preview = true, download = true }) => {
           )}
         </div>
       </div>
+
+      <div className="text-center mt-2">{data}</div>
 
       {isShowPreview && (
         <div className="fixed inset-0 z-50 flex justify-center items-center">

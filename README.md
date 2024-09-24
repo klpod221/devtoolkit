@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (14/45)
+## Tools List (15/45)
 
 ### Text Editor
 
@@ -24,11 +24,11 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Image Tools
 
-| Status                    | Name                                                               | Description                               |
-| ------------------------- | ------------------------------------------------------------------ | ----------------------------------------- |
-| <ul><li> - [x] </li></ul> | [Format Converter](https://devtools.klpod221.site/image/converter) | Convert your images to different formats. |
-| <ul><li> - [ ] </li></ul> | [Compressor](https://devtools.klpod221.site/image/compressor)      | Reduce the size of your images.           |
-| <ul><li> - [x] </li></ul> | [Resizer](https://devtools.klpod221.site/image/resizer)            | Resize your images.                       |
+| Status                    | Name                                                                    | Description                                               |
+| ------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------- |
+| <ul><li> - [x] </li></ul> | [Format Converter](https://devtools.klpod221.site/image/converter)      | Convert your images to different formats.                 |
+| <ul><li> - [x] </li></ul> | [JPEG/WEBP Compressor](https://devtools.klpod221.site/image/compressor) | Reduce the size of your images for JPEG and WEBP formats. |
+| <ul><li> - [x] </li></ul> | [Resizer](https://devtools.klpod221.site/image/resizer)                 | Resize your images.                                       |
 
 ### Web Tools
 
