@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 import wordCount from "@utils/wordCount";
 
@@ -20,18 +21,28 @@ const WordCounter = () => {
   });
 
   const countWords = () => {
-    const characters = text.length;
-    const spaces = text.split(" ").length - 1;
-    const lines = text.split("\n").length;
+    try {
+      if (!text) {
+        toast.error("Please enter some text.");
+        return;
+      }
 
-    const wordCounter = wordCount(text);
-    const words = Object.values(wordCounter).reduce((a, b) => a + b, 0);
+      const characters = text.length;
+      const spaces = text.split(" ").length - 1;
+      const lines = text.split("\n").length;
 
-    const distribution = Object.entries(wordCounter)
-      .map(([word, count]) => ({ word, count }))
-      .sort((a, b) => b.count - a.count);
+      const wordCounter = wordCount(text);
+      const words = Object.values(wordCounter).reduce((a, b) => a + b, 0);
 
-    setAnalysis({ words, characters, spaces, lines, distribution });
+      const distribution = Object.entries(wordCounter)
+        .map(([word, count]) => ({ word, count }))
+        .sort((a, b) => b.count - a.count);
+
+      setAnalysis({ words, characters, spaces, lines, distribution });
+    } catch (error) {
+      toast.error(error.message || "An error occurred.");
+      console.error(error);
+    }
   };
 
   return (

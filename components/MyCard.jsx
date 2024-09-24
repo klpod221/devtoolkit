@@ -24,7 +24,7 @@ const MyCard = ({ children, ...props }) => {
   const theme = {
     root: {
       base: "flex rounded-lg border border-gray-200 bg-white dark:border-dark-secondary dark:bg-dark",
-      children: "flex h-full flex-col p-6 space-y-3",
+      children: "flex h-full flex-col p-6 space-y-4",
       horizontal: {
         off: "flex-col",
         on: "flex-col md:max-w-xl md:flex-row",

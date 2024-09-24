@@ -1,46 +1,97 @@
 import React from "react";
-import NextLink from "next/link";
+import { toast } from "react-toastify";
 
+import generateLoremIpsum from "@utils/generateLoremIpsum";
+
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
+import MyInput from "@components/MyInput";
+import MyRadio from "@components/MyRadio";
+import MyCheckbox from "@components/MyCheckbox";
+import MyCodeEditor from "@components/MyCodeEditor";
 
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import { FaArrowRight } from "react-icons/fa";
+import MyCopyButton from "@components/MyCopyButton";
+
+const typeOptions = ["words", "sentences", "paragraphs"];
 
 const LoremIpsum = () => {
+  const [length, setLength] = React.useState(5);
+  const [type, setType] = React.useState("words");
+  const [isStartWithLorem, setIsStartWithLorem] = React.useState(true);
+
+  const [output, setOutput] = React.useState("");
+
+  const generator = () => {
+    try {
+      const generatedText = generateLoremIpsum(length, type, isStartWithLorem);
+      setOutput(generatedText);
+      toast.success("Text generated successfully.");
+    } catch (error) {
+      toast.error(error.message || "An error occurred.");
+      console.error(error);
+    }
+  };
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header title="Input" helper="Enter style of Lorem Ipsum below.">
+          <MyButton onClick={() => generator()}>
+            Generate
+            <FaArrowRight className="ml-2" />
+          </MyButton>
+        </MyCard.Header>
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <MyInput
+          label="How long to generate?"
+          placeholder="Enter number of words, sentences or paragraphs"
+          type="number"
+          value={length}
+          onChange={setLength}
+          min="1"
+          max="1000"
+          step="1"
+        />
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+        <div className="flex items-center space-x-4">
+          {typeOptions.map((option) => (
+            <MyRadio
+              key={option}
+              label={option}
+              id={option}
+              name="type"
+              checked={type === option}
+              onChange={() => setType(option)}
+            />
+          ))}
+        </div>
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+        <MyCheckbox
+          label="Start with 'Lorem ipsum ...'"
+          checked={isStartWithLorem}
+          onChange={() => setIsStartWithLorem(!isStartWithLorem)}
+        />
+      </TwoColumn.Left>
+      <TwoColumn.Right>
+        <MyCard.Header
+          title="Output"
+          helper="Generated text will be displayed here."
+        >
+          <MyCopyButton value={output} type="button" />
+        </MyCard.Header>
+
+        <MyCodeEditor
+          language="plaintext"
+          value={output}
+          readOnly
+          options={{ minimap: { enabled: false } }}
+        />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 
-LoremIpsum.title = "Lorem Ipsum";
+LoremIpsum.title = "Lorem Ipsum Generator";
 export default LoremIpsum;

@@ -12,7 +12,7 @@ const copyToClipboard = (text) => {
     }
 
     if (!text) {
-      toast.error("No output to copy");
+      toast.error("No text to copy");
       return;
     }
 

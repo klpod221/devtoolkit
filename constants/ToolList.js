@@ -245,7 +245,7 @@ const toolList = [
         description: "Generate placeholder text.",
         icon: AiOutlineFieldString,
         path: "/lorem-ipsum",
-        status: false,
+        status: true,
       },
       {
         name: "Random String",
