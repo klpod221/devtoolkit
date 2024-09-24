@@ -51,7 +51,7 @@ const DigitalCertificateDecoder = () => {
     <TwoColumn>
       <TwoColumn.Left>
         <MyCard.Header title="Input" helper="Enter the certificate to decode">
-          <MyButton size="sm" onClick={decodeCertificate}>
+          <MyButton onClick={decodeCertificate}>
             Decode <FaArrowRight className="ml-2" />
           </MyButton>
         </MyCard.Header>

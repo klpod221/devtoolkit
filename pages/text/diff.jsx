@@ -1,42 +1,48 @@
 import React from "react";
-import NextLink from "next/link";
+import { DiffEditor } from "@monaco-editor/react";
 
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
-
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import MyCodeEditor from "@components/MyCodeEditor";
 
 const TextDiff = () => {
+  const [original, setOriginal] = React.useState("");
+  const [modified, setModified] = React.useState("");
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <MyCard>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="flex flex-col">
+          <label>Original Text</label>
+          <div className="h-96">
+            <MyCodeEditor
+              value={original}
+              onChange={setOriginal}
+              options={{
+                minimap: { enabled: false },
+              }}
+            />
+          </div>
+        </div>
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <div className="flex flex-col">
+          <label>Modified Text</label>
+          <div className="h-96">
+            <MyCodeEditor
+              value={modified}
+              onChange={setModified}
+              options={{
+                minimap: { enabled: false },
+              }}
+            />
+          </div>
+        </div>
+      </div>
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
-
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
+      <div className="flex flex-col">
+        <label>Diff Text</label>
+        <div className="h-96">
+          <MyCodeEditor type="diff" original={original} modified={modified} />
+        </div>
       </div>
     </MyCard>
   );

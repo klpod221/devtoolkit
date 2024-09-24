@@ -35,6 +35,17 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
     setToolkit(filteredToolkit);
   }, [keyword]);
 
+  // scroll to selected item
+  React.useEffect(() => {
+    const selected = document.querySelector(".sidebar-selected");
+    if (selected) {
+      selected.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [currentPath]);
+
   const popoverContent = (text) => (
     <div className="px-2 py-1 text-sm text-gray-700 bg-white rounded-lg dark:bg-dark dark:text-gray-300">
       {text}
@@ -88,7 +99,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                       className={`flex items-center p-2 rounded-lg  hover:bg-gray-200 dark:hover:bg-dark-secondary group
                       ${
                         currentPath === section.path + tool.path
-                          ? "bg-gray-200 dark:bg-dark-secondary"
+                          ? "sidebar-selected bg-gray-200 dark:bg-dark-secondary"
                           : ""
                       }`}
                     >

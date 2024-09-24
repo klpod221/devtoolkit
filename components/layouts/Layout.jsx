@@ -29,7 +29,7 @@ const Layout = ({ children, title }) => {
       <MyNavbar isOpen={isOpen} setIsOpen={setIsOpen} title={title} />
       <MySidebar isOpen={isOpen} setIsOpen={setIsOpen} />
 
-      <main className="main p-4 mt-14 sm:ml-64">
+      <main className="main p-4 mt-14 sm:ml-64 overflow-y-auto">
         {children}
 
         <SpeedInsights />

@@ -98,7 +98,7 @@ const ImageCompressor = () => {
     <TwoColumn>
       <TwoColumn.Left>
         <MyCard.Header title="Image Compressor" helper="Compress your images">
-          <MyButton size="sm" onClick={() => compressImages()}>
+          <MyButton onClick={() => compressImages()}>
             Compress
             <FaArrowRight className="ml-2" />
           </MyButton>
@@ -133,7 +133,6 @@ const ImageCompressor = () => {
         <MyCard.Header title="Output" helper="Your compressed images">
           {returnImages.length > 0 && (
             <MyButton
-              size={"sm"}
               className="py-0"
               onClick={() => downloadAll()}
               color="success"

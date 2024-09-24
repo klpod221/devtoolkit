@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (15/45)
+## Tools List (16/45)
 
 ### Text Editor
 
@@ -62,7 +62,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | Status                    | Name                                                                 | Description                                         |
 | ------------------------- | -------------------------------------------------------------------- | --------------------------------------------------- |
 | <ul><li> - [x] </li></ul> | [Regex Tester](https://devtools.klpod221.site/text/regex)            | Test your regular expressions.                      |
-| <ul><li> - [ ] </li></ul> | [Text Diff](https://devtools.klpod221.site/text/diff)                | Compare two texts.                                  |
+| <ul><li> - [x] </li></ul> | [Text Diff](https://devtools.klpod221.site/text/diff)                | Compare two texts.                                  |
 | <ul><li> - [ ] </li></ul> | [Word Counter](https://devtools.klpod221.site/text/counter)          | Count words, characters and distribution.           |
 | <ul><li> - [ ] </li></ul> | [Lorem Ipsum](https://devtools.klpod221.site/text/lorem-ipsum)       | Generate placeholder text.                          |
 | <ul><li> - [ ] </li></ul> | [Random String](https://devtools.klpod221.site/text/random)          | Generate random strings for passwords etc.          |

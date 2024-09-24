@@ -51,12 +51,12 @@ const UrlEncoderDecoder = () => {
         title="Url Encoder/Decoder"
         helper="Encode or decode url strings."
       >
-        <MyButton size="sm" onClick={encodeUrl}>
+        <MyButton onClick={encodeUrl}>
           <AiOutlineLock className="w-5 h-5 mr-2" />
           Encode
         </MyButton>
 
-        <MyButton size="sm" onClick={decodeUrl}>
+        <MyButton onClick={decodeUrl}>
           <AiOutlineUnlock className="w-5 h-5 mr-2" />
           Decode
         </MyButton>

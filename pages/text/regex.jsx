@@ -267,11 +267,11 @@ const RegexTester = () => {
       <TwoColumn.Left>
         <MyCard.Header title="Regex Tester" helper="Test your regex pattern">
           <div className="flex items-center space-x-2">
-            <MyButton size="sm" onClick={onCopyRegex}>
+            <MyButton onClick={onCopyRegex}>
               <AiOutlineCopy className="w-4 h-4 mr-1" />
               Copy
             </MyButton>
-            <MyButton size="sm" onClick={() => setIsOpenDrawer(true)}>
+            <MyButton onClick={() => setIsOpenDrawer(true)}>
               Common Patterns
             </MyButton>
           </div>

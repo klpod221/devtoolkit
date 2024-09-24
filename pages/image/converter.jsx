@@ -100,7 +100,7 @@ const FormatConverter = () => {
       <TwoColumn>
         <TwoColumn.Left>
           <MyCard.Header title="Image Input" helper="Select images to convert">
-            <MyButton size={"sm"} className="py-0" onClick={convertImages}>
+            <MyButton className="py-0" onClick={convertImages}>
               Convert
               <FaArrowRight className="ml-2" />
             </MyButton>

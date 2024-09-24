@@ -45,7 +45,7 @@ const BackToJSON = () => {
             ))}
           </MySelect>
 
-          <MyButton size="sm" onClick={() => convertToJSON()}>
+          <MyButton onClick={() => convertToJSON()}>
             Convert
             <FaArrowRight className="ml-2" />
           </MyButton>

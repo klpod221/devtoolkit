@@ -91,7 +91,7 @@ const ImageResizer = () => {
     <TwoColumn>
       <TwoColumn.Left>
         <MyCard.Header title="Input" helper="Enter your image here">
-          <MyButton size="sm" onClick={() => resizeImage()}>
+          <MyButton onClick={() => resizeImage()}>
             Resize
             <FaArrowRight className="ml-2" />
           </MyButton>

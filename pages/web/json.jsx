@@ -40,7 +40,7 @@ const JSONConverter = () => {
     <TwoColumn>
       <TwoColumn.Left>
         <MyCard.Header title="Json Input" helper="Enter your json here">
-          <MyButton size="sm" onClick={() => convertJson()}>
+          <MyButton onClick={() => convertJson()}>
             Convert
             <FaArrowRight className="ml-2" />
           </MyButton>

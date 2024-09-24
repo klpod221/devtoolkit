@@ -231,7 +231,7 @@ const toolList = [
         description: "Compare two texts.",
         icon: AiOutlineDiff,
         path: "/diff",
-        status: false,
+        status: true,
       },
       {
         name: "Word Counter",

@@ -82,7 +82,6 @@ const CodeEditor = () => {
           </MySelect>
 
           <MyButton
-            size={"sm"}
             className="py-0"
             onClick={handleRunCode}
             disabled={loading}

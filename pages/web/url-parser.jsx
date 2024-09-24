@@ -40,7 +40,7 @@ const UrlParser = () => {
     <TwoColumn>
       <TwoColumn.Left>
         <MyCard.Header title="Input" helper="Enter the URL to parse">
-          <MyButton size="sm" onClick={parseUrl}>
+          <MyButton onClick={parseUrl}>
             Parse <FaArrowRight className="ml-2" />
           </MyButton>
         </MyCard.Header>

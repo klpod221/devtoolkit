@@ -92,7 +92,7 @@ const BcryptHashGenerator = () => {
             ))}
           </MySelect>
 
-          <MyButton onClick={textToHash} size={"sm"}>
+          <MyButton onClick={textToHash}>
             <AiOutlineLock className="w-5 h-5 mr-2" />
             Encrypt
           </MyButton>
@@ -121,7 +121,7 @@ const BcryptHashGenerator = () => {
           title="Decrypt"
           helper="Test your Bcrypt hash against some plaintext, to see if they match."
         >
-          <MyButton onClick={hashChecker} size="sm">
+          <MyButton onClick={hashChecker}>
             <AiOutlineUnlock className="w-5 h-5 mr-2" />
             Decrypt
           </MyButton>

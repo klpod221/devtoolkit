@@ -230,7 +230,6 @@ const Uploader = () => {
             </MySelect>
 
             <MyButton
-              size={"sm"}
               className="py-0"
               color="red"
               onClick={() => setQueueList([])}
@@ -239,7 +238,7 @@ const Uploader = () => {
               Clear Queue
             </MyButton>
 
-            <MyButton size={"sm"} className="py-0" onClick={uploadAll}>
+            <MyButton className="py-0" onClick={uploadAll}>
               <AiOutlineCloudUpload className="h-5 w-5 mr-1" />
               Upload All
             </MyButton>
@@ -337,7 +336,6 @@ const Uploader = () => {
           helper="Your uploaded files will be listed here (local storage)"
         >
           <MyButton
-            size={"sm"}
             className="py-0"
             color="red"
             onClick={() => {
