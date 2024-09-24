@@ -238,7 +238,7 @@ const toolList = [
         description: "Count words, characters and distribution.",
         icon: GiDigitalTrace,
         path: "/counter",
-        status: false,
+        status: true,
       },
       {
         name: "Lorem Ipsum",

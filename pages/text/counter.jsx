@@ -1,44 +1,98 @@
 import React from "react";
-import NextLink from "next/link";
 
+import wordCount from "@utils/wordCount";
+
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
+import MyCodeEditor from "@components/MyCodeEditor";
 
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import { FaArrowRight } from "react-icons/fa";
 
 const WordCounter = () => {
+  const [text, setText] = React.useState("");
+  const [analysis, setAnalysis] = React.useState({
+    words: 0,
+    characters: 0,
+    spaces: 0,
+    lines: 0,
+    distribution: [],
+  });
+
+  const countWords = () => {
+    const characters = text.length;
+    const spaces = text.split(" ").length - 1;
+    const lines = text.split("\n").length;
+
+    const wordCounter = wordCount(text);
+    const words = Object.values(wordCounter).reduce((a, b) => a + b, 0);
+
+    const distribution = Object.entries(wordCounter)
+      .map(([word, count]) => ({ word, count }))
+      .sort((a, b) => b.count - a.count);
+
+    setAnalysis({ words, characters, spaces, lines, distribution });
+  };
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header title="Input" helper="Enter your text below.">
+          <MyButton onClick={() => countWords()}>
+            Count Words
+            <FaArrowRight className="ml-2" />
+          </MyButton>
+        </MyCard.Header>
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <MyCodeEditor language="plaintext" value={text} onChange={setText} />
+      </TwoColumn.Left>
+      <TwoColumn.Right>
+        <MyCard.Header
+          title="Output"
+          helper="Word count will be displayed here."
+        />
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+        <div className="flex flex-wrap gap-4">
+          <div className="w-32 h-32 border border-gray-300 dark:border-gray-700 rounded-lg flex flex-col items-center justify-center">
+            <div className="text-gray-400 dark:text-dark-text-secondary">
+              Words
+            </div>
+            <div className="text-3xl">{analysis.words}</div>
+          </div>
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+          <div className="w-32 h-32 border border-gray-300 dark:border-gray-700 rounded-lg flex flex-col items-center justify-center">
+            <div className="text-gray-400 dark:text-dark-text-secondary">
+              Characters
+            </div>
+            <div className="text-3xl">{analysis.characters}</div>
+          </div>
+
+          <div className="w-32 h-32 border border-gray-300 dark:border-gray-700 rounded-lg flex flex-col items-center justify-center">
+            <div className="text-gray-400 dark:text-dark-text-secondary">
+              Spaces
+            </div>
+            <div className="text-3xl">{analysis.spaces}</div>
+          </div>
+
+          <div className="w-32 h-32 border border-gray-300 dark:border-gray-700 rounded-lg flex flex-col items-center justify-center">
+            <div className="text-gray-400 dark:text-dark-text-secondary">
+              Lines
+            </div>
+            <div className="text-3xl">{analysis.lines}</div>
+          </div>
+        </div>
+
+        <div className="mt-8">Word Distribution</div>
+        <div className="h-full overflow-auto mt-2 border border-gray-300 dark:border-gray-700 rounded-lg p-4">
+          {analysis.distribution.map((item, index) => (
+            <div key={index} className="flex items-center justify-between mb-4">
+              <kbd>{item.word}</kbd>
+              <span>x {item.count}</span>
+            </div>
+          ))}
+        </div>
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 

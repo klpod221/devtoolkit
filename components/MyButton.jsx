@@ -117,7 +117,7 @@ const MyButton = ({ size = "sm", ...props }) => {
 
   return (
     <Button theme={theme} size={size} {...props}>
-      <div className="flex items-center">{props.children}</div>
+      <div className="flex items-center space-x-2">{props.children}</div>
     </Button>
   );
 };
