@@ -252,7 +252,7 @@ const toolList = [
         description: "Generate random strings for passwords etc.",
         icon: GiPerspectiveDiceSixFacesRandom,
         path: "/random",
-        status: false,
+        status: true,
       },
       {
         name: "Hex Converter",

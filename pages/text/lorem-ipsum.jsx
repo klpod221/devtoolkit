@@ -85,8 +85,7 @@ const LoremIpsum = () => {
         <MyCodeEditor
           language="plaintext"
           value={output}
-          readOnly
-          options={{ minimap: { enabled: false } }}
+          options={{ minimap: { enabled: false }, readOnly: true }}
         />
       </TwoColumn.Right>
     </TwoColumn>
