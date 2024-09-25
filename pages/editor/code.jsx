@@ -72,7 +72,6 @@ const CodeEditor = () => {
           <MySelect
             value={selectedLanguage}
             onChange={setSelectedLanguage}
-            sizing="sm"
           >
             {supportLanguages.map((lang) => (
               <option key={lang.slug} value={lang.slug}>

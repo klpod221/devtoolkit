@@ -82,7 +82,6 @@ const BcryptHashGenerator = () => {
             label="Salt Rounds"
             value={salt}
             onChange={setSalt}
-            sizing="sm"
             className="min-w-[65px]"
           >
             {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (

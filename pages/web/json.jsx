@@ -50,7 +50,7 @@ const JSONConverter = () => {
       </TwoColumn.Left>
       <TwoColumn.Right>
         <MyCard.Header title="Output" helper="Converted json">
-          <MySelect value={convertTo} onChange={setConvertTo} sizing="sm">
+          <MySelect value={convertTo} onChange={setConvertTo}>
             {types.map((type) => (
               <option key={type} value={type}>
                 {type}

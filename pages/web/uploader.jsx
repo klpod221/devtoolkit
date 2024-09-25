@@ -224,7 +224,7 @@ const Uploader = () => {
 
         <MyCard.Header title="Queue List">
           <div className="flex space-x-2">
-            <MySelect value={uploadType} onChange={setUploadType} sizing="sm">
+            <MySelect value={uploadType} onChange={setUploadType}>
               <option value="temp">72 Hours</option>
               <option value="forever">Forever</option>
             </MySelect>

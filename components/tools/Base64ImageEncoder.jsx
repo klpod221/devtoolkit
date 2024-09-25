@@ -66,7 +66,6 @@ const Base64ImageEncoder = () => {
           value={outputType}
           onChange={setOutputType}
           className="ml-2"
-          sizing="sm"
         >
           <option value="base64">Base64</option>
           <option value="dataUrl">Data URL</option>

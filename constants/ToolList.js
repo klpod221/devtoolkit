@@ -294,8 +294,8 @@ const toolList = [
         name: "List Sorter/Randomizer",
         description: "Sort or randomize lists.",
         icon: AiOutlineSortAscending,
-        path: "/sort",
-        status: false,
+        path: "/sort-random",
+        status: true,
       },
       {
         name: "Text to Speech",

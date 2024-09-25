@@ -1,6 +1,6 @@
 import React from "react";
 
-const MySelect = ({ onChange = () => {}, value, children, className = "", sizing = "md" }) => {
+const MySelect = ({ onChange = () => {}, value, children, className = "", sizing = "sm" }) => {
   const onSelectChange = (e) => {
     onChange(e.target.value, e);
   }
