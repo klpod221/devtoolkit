@@ -336,7 +336,7 @@ const toolList = [
         description: "Convert color codes to different formats.",
         icon: AiOutlineBgColors,
         path: "/color",
-        status: false,
+        status: true,
       },
       {
         name: "Color Picker",

@@ -55,6 +55,10 @@
   .h-without-nav {
     height: calc(100vh - 60px);
   }
+
+  input[type="color"]::-webkit-color-swatch-wrapper {
+    @apply p-0;
+  }
 }
 
 @keyframes emoji-404 {

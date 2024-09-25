@@ -2,7 +2,7 @@ import React from "react";
 
 import MyCopyButton from "./MyCopyButton";
 
-const ObjectOutput = ({ object }) => {
+const ObjectOutput = ({ object, keyType = "capitalize" }) => {
   return (
     <>
       {object && (typeof object === "object") && (
@@ -12,9 +12,9 @@ const ObjectOutput = ({ object }) => {
               key={key}
               className="flex flex-col  p-4 border-b border-gray-300/50 dark:border-dark-secondary/50 last:border-b-0"
             >
-              <span className="font-semibold capitalize">{key}:</span>
+              <span className={`font-semibold ${keyType}`}>{key}</span>
               <span
-                className="text-sm flex items-center break-all whitespace-pre-wrap"
+                className="text-sm flex items-center break-all whitespace-pre-wrap justify-between"
               >
                 {value}
                 {value && <MyCopyButton value={value} className="ml-2" />}

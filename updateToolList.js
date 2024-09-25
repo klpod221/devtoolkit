@@ -131,7 +131,7 @@ siteMap += `\n</urlset>`;
 fs.writeFileSync("public/sitemap.xml", siteMap);
 
 let text = `<div align="center">
-    <h1>--// Developer Toolkit //</h1>
+    <h1>--// Developer Toolkit //--</h1>
     <img src="https://img.shields.io/github/last-commit/klpod221/devtoolkit?style=for-the-badge&color=ffb4a2&labelColor=201a19">
     <img src="https://img.shields.io/github/stars/klpod221/devtoolkit?style=for-the-badge&color=e6c419&labelColor=1d1b16">
     <img src="https://img.shields.io/github/repo-size/klpod221/devtoolkit?style=for-the-badge&color=a8c7ff&labelColor=1a1b1f">

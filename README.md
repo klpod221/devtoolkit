@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>--// Developer Toolkit //</h1>
+    <h1>--// Developer Toolkit //--</h1>
     <img src="https://img.shields.io/github/last-commit/klpod221/devtoolkit?style=for-the-badge&color=ffb4a2&labelColor=201a19">
     <img src="https://img.shields.io/github/stars/klpod221/devtoolkit?style=for-the-badge&color=e6c419&labelColor=1d1b16">
     <img src="https://img.shields.io/github/repo-size/klpod221/devtoolkit?style=for-the-badge&color=a8c7ff&labelColor=1a1b1f">
@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (24/47)
+## Tools List (25/47)
 
 ### Text Editor
 
@@ -81,7 +81,7 @@ And if you have any suggestions, please let me know by creating an issue.
 
 | Status                    | Name                                                                         | Description                                           |
 | ------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------- |
-| <ul><li> - [ ] </li></ul> | [Color Converter](https://devtools.klpod221.site/utility/color)              | Convert color codes to different formats.             |
+| <ul><li> - [x] </li></ul> | [Color Converter](https://devtools.klpod221.site/utility/color)              | Convert color codes to different formats.             |
 | <ul><li> - [ ] </li></ul> | [Color Picker](https://devtools.klpod221.site/utility/picker)                | Pick colors from the color picker or upload an image. |
 | <ul><li> - [ ] </li></ul> | [Number Base Converter](https://devtools.klpod221.site/utility/number)       | Convert number bases.                                 |
 | <ul><li> - [ ] </li></ul> | [Unit Converter](https://devtools.klpod221.site/utility/unit)                | Convert units.                                        |

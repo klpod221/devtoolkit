@@ -1,44 +1,74 @@
 import React from "react";
-import NextLink from "next/link";
 
+import Color from "color";
+
+import TwoColumn from "@components/TwoColumn";
+import MyInput from "@components/MyInput";
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
-
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import MyColorPicker from "@components/MyColorPicker";
+import ObjectOutput from "@components/ObjectOutput";
 
 const ColorConverter = () => {
+  const [color, setColor] = React.useState("#00000020");
+  const [output, setOutput] = React.useState({
+    hex: "#000000",
+    rgb: "rgb(0, 0, 0)",
+    hsl: "hsl(0, 0%, 0%)",
+    hsv: "hsv(0, 0%, 0%)",
+    hwb: "hwb(0, 0%, 100%)",
+    cmyk: "cmyk(0%, 0%, 0%, 100%)",
+  });
+
+  React.useEffect(() => {
+    try {
+      const colorObject = Color(color);
+
+      const hsv = colorObject.hsv();
+      const cmyk = colorObject.cmyk();
+
+      setOutput({
+        hex: colorObject.alpha() === 1 ? colorObject.hex() : colorObject.hexa(),
+        rgb: colorObject.rgb().string(),
+        hsl: colorObject.hsl().string(),
+        hsv: `hsv(${Math.round(hsv.color[0])}, ${
+          Math.round(hsv.color[1] * 10) / 10
+        }%, ${Math.round(hsv.color[2] * 10) / 10}%${
+          hsv.valpha < 1 ? `, ${hsv.valpha}` : ""
+        })`,
+        hwb: colorObject.hwb().string(),
+        cmyk: `cmyk(${Math.round(cmyk.color[0])}%, ${
+          Math.round(cmyk.color[1] * 10) / 10
+        }%, ${Math.round(cmyk.color[2] * 10) / 10}%, ${
+          Math.round(cmyk.color[3] * 10) / 10
+        }%${cmyk.valpha < 1 ? `, ${cmyk.valpha}` : ""})`,
+      });
+    } catch (error) {
+      setOutput({
+        hex: "Invalid color",
+        rgb: "Invalid color",
+        hsl: "Invalid color",
+        hsv: "Invalid color",
+        hwb: "Invalid color",
+        cmyk: "Invalid color",
+      });
+    }
+  }, [color]);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header title="Input" helper="Enter a color code" />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <div className="flex items-center mt-4">
+          <MyColorPicker value={color} onChange={setColor} />
+        </div>
+      </TwoColumn.Left>
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="Converted color code" />
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
-
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+        <ObjectOutput keyType="uppercase" object={output} />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 
