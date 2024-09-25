@@ -284,6 +284,13 @@ const toolList = [
         status: false,
       },
       {
+        name: "Text to Speech",
+        description: "Convert text to speech.",
+        icon: HiSpeakerphone,
+        path: "/speech",
+        status: false,
+      },
+      {
         name: "Backslash Converter",
         description: "Escape or unescape backslashes.",
         icon: AiOutlinePercentage,
@@ -296,13 +303,6 @@ const toolList = [
         icon: AiOutlineSortAscending,
         path: "/sort-random",
         status: true,
-      },
-      {
-        name: "Text to Speech",
-        description: "Convert text to speech.",
-        icon: HiSpeakerphone,
-        path: "/speech",
-        status: false,
       },
       {
         name: "Morse Code Converter",

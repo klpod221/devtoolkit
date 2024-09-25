@@ -70,9 +70,9 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Hex To Unicode](https://devtools.klpod221.site/text/hex-to-unicode)      | Convert hex to unicode.                                  |
 | <ul><li> - [x] </li></ul> | [Text Case Converter](https://devtools.klpod221.site/text/case)           | Convert text to upper, lower, capitalize, camelCase etc. |
 | <ul><li> - [ ] </li></ul> | [Text to Image](https://devtools.klpod221.site/text/to-image)             | Convert text to image.                                   |
+| <ul><li> - [ ] </li></ul> | [Text to Speech](https://devtools.klpod221.site/text/speech)              | Convert text to speech.                                  |
 | <ul><li> - [x] </li></ul> | [Backslash Converter](https://devtools.klpod221.site/text/backslash)      | Escape or unescape backslashes.                          |
 | <ul><li> - [x] </li></ul> | [List Sorter/Randomizer](https://devtools.klpod221.site/text/sort-random) | Sort or randomize lists.                                 |
-| <ul><li> - [ ] </li></ul> | [Text to Speech](https://devtools.klpod221.site/text/speech)              | Convert text to speech.                                  |
 | <ul><li> - [ ] </li></ul> | [Morse Code Converter](https://devtools.klpod221.site/text/morse)         | Convert text to Morse code and vice versa.               |
 | <ul><li> - [ ] </li></ul> | [QR Code Generator](https://devtools.klpod221.site/text/qr-code)          | Convert text to QR code and vice versa.                  |
 
