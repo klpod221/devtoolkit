@@ -8,9 +8,9 @@ import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
 import MyInput from "@components/MyInput";
 import MyCodeEditor from "@components/MyCodeEditor";
+import MyCheckbox from "@components/MyCheckbox";
 
 import { FaArrowRight } from "react-icons/fa";
-import MyCheckbox from "@components/MyCheckbox";
 
 const RandomString = () => {
   const [quantity, setQuantity] = React.useState(5);

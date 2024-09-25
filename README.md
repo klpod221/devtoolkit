@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (19/45)
+## Tools List (21/46)
 
 ### Text Editor
 
@@ -66,7 +66,8 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Word Counter](https://devtools.klpod221.site/text/counter)          | Count words, characters and distribution.           |
 | <ul><li> - [x] </li></ul> | [Lorem Ipsum](https://devtools.klpod221.site/text/lorem-ipsum)       | Generate placeholder text.                          |
 | <ul><li> - [x] </li></ul> | [Random String](https://devtools.klpod221.site/text/random)          | Generate random strings for passwords etc.          |
-| <ul><li> - [ ] </li></ul> | [Hex Converter](https://devtools.klpod221.site/text/hex)             | Convert hex to unicode and vice versa.              |
+| <ul><li> - [x] </li></ul> | [Unicode To Hex](https://devtools.klpod221.site/text/unicode-to-hex) | Convert unicode to hex.                             |
+| <ul><li> - [x] </li></ul> | [Hex To Unicode](https://devtools.klpod221.site/text/hex-to-unicode) | Convert hex to unicode.                             |
 | <ul><li> - [ ] </li></ul> | [Text Case Converter](https://devtools.klpod221.site/text/case)      | Convert text to upper, lower, title, sentence case. |
 | <ul><li> - [ ] </li></ul> | [Text to Image](https://devtools.klpod221.site/text/to-image)        | Convert text to image.                              |
 | <ul><li> - [ ] </li></ul> | [Backslash Converter](https://devtools.klpod221.site/text/backslash) | Escape or unescape backslashes.                     |

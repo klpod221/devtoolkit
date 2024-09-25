@@ -70,7 +70,8 @@ const toolList = [
       },
       {
         name: "JPEG/WEBP Compressor",
-        description: "Reduce the size of your images for JPEG and WEBP formats.",
+        description:
+          "Reduce the size of your images for JPEG and WEBP formats.",
         icon: AiOutlineFileImage,
         path: "/compressor",
         status: true,
@@ -255,11 +256,18 @@ const toolList = [
         status: true,
       },
       {
-        name: "Hex Converter",
-        description: "Convert hex to unicode and vice versa.",
+        name: "Unicode To Hex",
+        description: "Convert unicode to hex.",
         icon: AiOutlineRetweet,
-        path: "/hex",
-        status: false,
+        path: "/unicode-to-hex",
+        status: true,
+      },
+      {
+        name: "Hex To Unicode",
+        description: "Convert hex to unicode.",
+        icon: AiOutlineRetweet,
+        path: "/hex-to-unicode",
+        status: true,
       },
       {
         name: "Text Case Converter",

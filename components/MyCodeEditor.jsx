@@ -20,7 +20,7 @@ const MyCodeEditor = ({
   ...props
 }) => {
   const [isFullScreen, setIsFullScreen] = React.useState(false);
-  const [wordWrap, setWordWrap] = React.useState("off");
+  const [wordWrap, setWordWrap] = React.useState("on");
   const [diffSideBySide, setDiffSideBySide] = React.useState(false);
 
   const { theme } = React.useContext(ThemeContext);
