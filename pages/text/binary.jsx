@@ -6,7 +6,7 @@ import MyButton from "@components/MyButton";
 
 import { AiFillHome, AiFillGithub } from "react-icons/ai";
 
-const MorseCodeTranslator = () => {
+const BinaryTranslator = () => {
   return (
     <MyCard className="w-full max-w-5xl">
       <h5 className="text-2xl font-bold tracking-tight">
@@ -42,5 +42,5 @@ const MorseCodeTranslator = () => {
   );
 };
 
-MorseCodeTranslator.title = "Morse Code Translator";
-export default MorseCodeTranslator;
+BinaryTranslator.title = "Binary Translator";
+export default BinaryTranslator;

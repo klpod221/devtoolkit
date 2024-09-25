@@ -10,6 +10,7 @@ import {
   AiOutlineQrcode,
   AiOutlineBgColors,
   AiOutlineCloudUpload,
+  AiOutlineFieldBinary,
 } from "react-icons/ai";
 import { BsRegex } from "react-icons/bs";
 import { RiImageEditLine, RiMailSendLine } from "react-icons/ri";
@@ -18,7 +19,6 @@ import {
   GiPerspectiveDiceSixFacesRandom,
 } from "react-icons/gi";
 import { HiSpeakerphone } from "react-icons/hi";
-import { TbNumber10Small } from "react-icons/tb";
 import { LiaWeightSolid } from "react-icons/lia";
 import { MdCurrencyExchange, MdOutlinePassword } from "react-icons/md";
 import {
@@ -305,10 +305,17 @@ const toolList = [
         status: true,
       },
       {
-        name: "Morse Code Converter",
-        description: "Convert text to Morse code and vice versa.",
+        name: "Morse Code Translator",
+        description: "Translate text to morse code and vice versa.",
         icon: AiOutlineFieldString,
         path: "/morse",
+        status: false,
+      },
+      {
+        name: "Binary Translator",
+        description: "Translate text to binary and vice versa.",
+        icon: AiOutlineFieldBinary,
+        path: "/binary",
         status: false,
       },
       {
@@ -341,7 +348,7 @@ const toolList = [
       {
         name: "Number Base Converter",
         description: "Convert number bases.",
-        icon: TbNumber10Small,
+        icon: AiOutlineFieldBinary,
         path: "/number",
         status: false,
       },
