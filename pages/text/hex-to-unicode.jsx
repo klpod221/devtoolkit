@@ -22,7 +22,6 @@ const HexToUnicode = () => {
 
         <MyCodeEditor
           language="plaintext"
-          placeholder="Enter the hex string"
           value={input}
           onChange={setInput}
         />
@@ -34,7 +33,6 @@ const HexToUnicode = () => {
 
         <MyCodeEditor
           language="plaintext"
-          placeholder="Unicode string"
           value={output}
           options={{ minimap: { enabled: false }, readOnly: true }}
         />

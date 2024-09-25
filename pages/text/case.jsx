@@ -1,44 +1,81 @@
 import React from "react";
-import NextLink from "next/link";
 
+import convertTextCase from "@utils/convertTextCase";
+
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
+import MyCodeEditor from "@components/MyCodeEditor";
+import MyCopyButton from "@components/MyCopyButton";
+import MySelect from "@components/MySelect";
 
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+const caseOptions = [
+  {
+    label: "lowercase",
+    value: "lowercase",
+  },
+  {
+    label: "UPPERCASE",
+    value: "uppercase",
+  },
+  {
+    label: "Capitalize",
+    value: "capitalize",
+  },
+  {
+    label: "camelCase",
+    value: "camelCase",
+  },
+  {
+    label: "PascalCase",
+    value: "pascalCase",
+  },
+  {
+    label: "snake_case",
+    value: "snake_case",
+  },
+  {
+    label: "kebab-case",
+    value: "kebab-case",
+  },
+];
 
 const TextCaseConverter = () => {
+  const [input, setInput] = React.useState("");
+  const [output, setOutput] = React.useState("");
+
+  const [caseType, setCaseType] = React.useState("lowercase");
+
+  React.useEffect(() => {
+    setOutput(convertTextCase(input, caseType));
+  }, [input, caseType]);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header title="Input" helper="Enter the text to convert" />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <MyCodeEditor language="plaintext" value={input} onChange={setInput} />
+      </TwoColumn.Left>
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="Converted text">
+          <MySelect value={caseType} onChange={setCaseType}>
+            {caseOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                <span>{option.label}</span>
+              </option>
+            ))}
+          </MySelect>
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+          <MyCopyButton value={output} type="button" />
+        </MyCard.Header>
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+        <MyCodeEditor
+          language="plaintext"
+          value={output}
+          options={{ minimap: { enabled: false }, readOnly: true }}
+        />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 

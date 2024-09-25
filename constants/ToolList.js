@@ -271,10 +271,10 @@ const toolList = [
       },
       {
         name: "Text Case Converter",
-        description: "Convert text to upper, lower, title, sentence case.",
+        description: "Convert text to upper, lower, capitalize, camelCase etc.",
         icon: AiOutlineRetweet,
         path: "/case",
-        status: false,
+        status: true,
       },
       {
         name: "Text to Image",

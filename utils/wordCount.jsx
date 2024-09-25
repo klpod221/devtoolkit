@@ -1,72 +1,12 @@
-const PUNCTUATIONS = [
-  ",",
-  "，",
-  ".",
-  "。",
-  ":",
-  "：",
-  ";",
-  "；",
-  "[",
-  "]",
-  "【",
-  "]",
-  "】",
-  "{",
-  "｛",
-  "}",
-  "｝",
-  "(",
-  "（",
-  ")",
-  "）",
-  "<",
-  "《",
-  ">",
-  "》",
-  "$",
-  "￥",
-  "!",
-  "！",
-  "?",
-  "？",
-  "~",
-  "～",
-  "'",
-  "’",
-  '"',
-  "“",
-  "”",
-  "*",
-  "/",
-  "\\",
-  "&",
-  "%",
-  "@",
-  "#",
-  "^",
-  "、",
-  "、",
-  "、",
-  "、",
-];
+import textSimplifier from "./textSimplifier";
 
 const EMPTY_RESULT = {};
 
 const wordCount = (text) => {
   if (text.trim() === "") return EMPTY_RESULT;
 
-  // Replace punctuations to empty spaces
-  PUNCTUATIONS.forEach(function (punctuation) {
-    const punctuationReg = new RegExp("\\" + punctuation, "g");
-    text = text.replace(punctuationReg, " ");
-  });
-
-  // Remove all kind of symbols
-  text = text.replace(/[\uFF00-\uFFEF\u2000-\u206F]/g, "");
-
-  // Format white space character
-  text = text.replace(/\s+/, " ");
+  // Simplify text
+  text = textSimplifier(text);
 
   // Split text by white space (For European languages)
   let words = text.split(" ");
