@@ -1,44 +1,76 @@
 import React from "react";
-import NextLink from "next/link";
+import { toast } from "react-toastify";
 
+import { escape, unescape } from "@utils/backslashConvert";
+
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
+import MyCodeEditor from "@components/MyCodeEditor";
 
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import { FaArrowRight } from "react-icons/fa";
+import MyRadio from "@components/MyRadio";
 
 const BackslashConverter = () => {
+  const [input, setInput] = React.useState("");
+  const [output, setOutput] = React.useState("");
+  const [isEscape, setIsEscape] = React.useState(true);
+
+  const convert = () => {
+    try {
+      setOutput(isEscape ? escape(input) : unescape(input));
+      toast.success("Converted successfully!");
+    } catch (error) {
+      toast.error(error.message || "Failed to convert!");
+      console.error(error);
+    }
+  };
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header title="Input" helper="Enter your text here">
+          <div className="flex items-center">
+            <MyRadio
+              label="Escape"
+              name="isEscape"
+              value="escape"
+              checked={isEscape}
+              onChange={() => setIsEscape(true)}
+            />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+            <MyRadio
+              label="Unescape"
+              name="isEscape"
+              value="unescape"
+              checked={!isEscape}
+              onChange={() => setIsEscape(false)}
+              className="ml-4"
+            />
+          </div>
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+          <MyButton onClick={convert}>
+            Convert
+            <FaArrowRight className="ml-2" />
+          </MyButton>
+        </MyCard.Header>
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+        <MyCodeEditor
+          language="text"
+          value={input}
+          onChange={(value) => setInput(value)}
+        />
+      </TwoColumn.Left>
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="Here is your output" />
+
+        <MyCodeEditor
+          language="text"
+          value={output}
+          options={{ minimap: { enabled: false }, readOnly: true }}
+        />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 

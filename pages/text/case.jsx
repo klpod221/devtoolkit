@@ -54,7 +54,7 @@ const TextCaseConverter = () => {
       <TwoColumn.Left>
         <MyCard.Header title="Input" helper="Enter the text to convert" />
 
-        <MyCodeEditor language="plaintext" value={input} onChange={setInput} />
+        <MyCodeEditor language="text" value={input} onChange={setInput} />
       </TwoColumn.Left>
       <TwoColumn.Right>
         <MyCard.Header title="Output" helper="Converted text">
@@ -70,7 +70,7 @@ const TextCaseConverter = () => {
         </MyCard.Header>
 
         <MyCodeEditor
-          language="plaintext"
+          language="text"
           value={output}
           options={{ minimap: { enabled: false }, readOnly: true }}
         />

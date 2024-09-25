@@ -288,7 +288,7 @@ const toolList = [
         description: "Escape or unescape backslashes.",
         icon: AiOutlinePercentage,
         path: "/backslash",
-        status: false,
+        status: true,
       },
       {
         name: "List Sorter/Randomizer",

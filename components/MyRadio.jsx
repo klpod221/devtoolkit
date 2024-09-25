@@ -17,7 +17,7 @@ const MyRadio = ({ label, id, ...props }) => {
         id={radioId}
         {...props}
       />
-      <label className="ml-1" htmlFor={radioId}>
+      <label className="ml-1 mt-0.5" htmlFor={radioId}>
         {label}
       </label>
     </div>

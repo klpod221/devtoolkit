@@ -83,7 +83,7 @@ const LoremIpsum = () => {
         </MyCard.Header>
 
         <MyCodeEditor
-          language="plaintext"
+          language="text"
           value={output}
           options={{ minimap: { enabled: false }, readOnly: true }}
         />

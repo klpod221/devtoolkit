@@ -55,7 +55,7 @@ const WordCounter = () => {
           </MyButton>
         </MyCard.Header>
 
-        <MyCodeEditor language="plaintext" value={text} onChange={setText} />
+        <MyCodeEditor language="text" value={text} onChange={setText} />
       </TwoColumn.Left>
       <TwoColumn.Right>
         <MyCard.Header

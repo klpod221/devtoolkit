@@ -331,7 +331,7 @@ const RegexTester = () => {
           fullScreen={false}
           value={string}
           onChange={onStringChange}
-          language="plaintext"
+          language="text"
           editorRef={editorRef}
           options={{
             minimap: { enabled: false },

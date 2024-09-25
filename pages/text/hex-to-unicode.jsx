@@ -21,7 +21,7 @@ const HexToUnicode = () => {
         <MyCard.Header title="Input" helper="Enter the hex string" />
 
         <MyCodeEditor
-          language="plaintext"
+          language="text"
           value={input}
           onChange={setInput}
         />
@@ -32,7 +32,7 @@ const HexToUnicode = () => {
         </MyCard.Header>
 
         <MyCodeEditor
-          language="plaintext"
+          language="text"
           value={output}
           options={{ minimap: { enabled: false }, readOnly: true }}
         />

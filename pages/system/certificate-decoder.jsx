@@ -57,7 +57,7 @@ const DigitalCertificateDecoder = () => {
         </MyCard.Header>
 
         <MyCodeEditor
-          language="plaintext"
+          language="text"
           value={input}
           onChange={setInput}
           options={{ minimap: { enabled: false } }}

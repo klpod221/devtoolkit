@@ -33,7 +33,7 @@ const Base64EncoderDecoder = () => {
         <div className="text-base">Output</div>
 
         <div className="h-24">
-          <CodeOutput language="plaintext" output={output} />
+          <CodeOutput language="text" output={output} />
         </div>
       </div>
     </MyCard>

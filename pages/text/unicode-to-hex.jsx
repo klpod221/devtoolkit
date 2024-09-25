@@ -20,7 +20,7 @@ const UnicodeToHex = () => {
       <TwoColumn.Left>
         <MyCard.Header title="Input" helper="Enter the string" />
 
-        <MyCodeEditor language="plaintext" value={input} onChange={setInput} />
+        <MyCodeEditor language="text" value={input} onChange={setInput} />
       </TwoColumn.Left>
       <TwoColumn.Right>
         <MyCard.Header title="Output" helper="Hexadecimal representation">
@@ -28,7 +28,7 @@ const UnicodeToHex = () => {
         </MyCard.Header>
 
         <MyCodeEditor
-          language="plaintext"
+          language="text"
           value={output}
           options={{ minimap: { enabled: false }, readOnly: true }}
         />
