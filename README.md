@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (25/47)
+## Tools List (26/47)
 
 ### Text Editor
 
@@ -75,7 +75,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [List Sorter/Randomizer](https://devtools.klpod221.site/text/sort-random) | Sort or randomize lists.                                 |
 | <ul><li> - [ ] </li></ul> | [Morse Code Translator](https://devtools.klpod221.site/text/morse)        | Translate text to morse code and vice versa.             |
 | <ul><li> - [ ] </li></ul> | [Binary Translator](https://devtools.klpod221.site/text/binary)           | Translate text to binary and vice versa.                 |
-| <ul><li> - [ ] </li></ul> | [QR Code Generator](https://devtools.klpod221.site/text/qr-code)          | Convert text to QR code and vice versa.                  |
+| <ul><li> - [x] </li></ul> | [QR Code Generator](https://devtools.klpod221.site/text/qr-code)          | Convert text to QR code and vice versa.                  |
 
 ### Utility Tools
 

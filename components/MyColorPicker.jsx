@@ -4,7 +4,14 @@ import { ChromePicker } from "react-color";
 
 import MyInput from "./MyInput";
 
-const MyColorPicker = ({ value, onChange }) => {
+const MyColorPicker = ({
+  value,
+  onChange,
+  showInput = true,
+  label,
+  labelStyle,
+  ...props
+}) => {
   const [displayColorPicker, setDisplayColorPicker] = React.useState(false);
   const [color, setColor] = React.useState();
 
@@ -44,20 +51,30 @@ const MyColorPicker = ({ value, onChange }) => {
 
   return (
     <div>
-      <div className="flex items-center">
-        <div
-          className="w-10 h-10 p-1 rounded-lg border disabled:cursor-not-allowed disabled:opacity-50 border-gray-200 bg-gray-50 cursor-pointer dark:border-dark-secondary dark:bg-dark dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text"
-          onClick={handleClick}
-        >
-          <div
-            className="w-full h-full rounded-md"
-            style={{
-              backgroundColor: color ? color.string() : "transparent",
-            }}
-          />
-        </div>
+      <div className="flex flex-col">
+        {label && (
+          <label htmlFor={props.id} className={`text-base ${labelStyle}`}>
+            <span dangerouslySetInnerHTML={{ __html: label }} />
+          </label>
+        )}
 
-        <MyInput onChange={handleChange} className="ml-2" value={value} />
+        <div className="flex items-center">
+          <div
+            className="w-10 h-10 p-1 rounded-lg border disabled:cursor-not-allowed disabled:opacity-50 border-gray-200 bg-gray-50 cursor-pointer dark:border-dark-secondary dark:bg-dark dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text"
+            onClick={handleClick}
+          >
+            <div
+              className="w-full h-full rounded-md"
+              style={{
+                backgroundColor: color ? color.string() : "transparent",
+              }}
+            />
+          </div>
+
+          {showInput && (
+            <MyInput onChange={handleChange} className="ml-2" value={value} />
+          )}
+        </div>
       </div>
       {displayColorPicker ? (
         <div className="absolute z-10">

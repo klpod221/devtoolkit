@@ -1,44 +1,131 @@
 import React from "react";
-import NextLink from "next/link";
+import QRCode from "qrcode";
 
+import debounce from "@utils/debounce";
+
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
+import MyCodeEditor from "@components/MyCodeEditor";
+import MyImage from "@components/MyImage";
+import MyInput from "@components/MyInput";
+import MySelect from "@components/MySelect";
+import MyColorPicker from "@components/MyColorPicker";
 
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+const errorCorrectionLevels = ["L", "M", "Q", "H"];
 
 const QRCodeGenerator = () => {
+  const [input, setInput] = React.useState("https://devtools.klpod221.site/");
+  const [qrCode, setQRCode] = React.useState(null);
+  const [options, setOptions] = React.useState({
+    width: 500,
+    margin: 1,
+    errorCorrectionLevel: "H",
+    type: "image/png",
+    quality: 1,
+    color: {
+      dark: "#000000",
+      light: "#ffffff",
+    },
+  });
+
+  React.useEffect(() => {
+    const generateQRCode = async () => {
+      try {
+        const url = await QRCode.toDataURL(input, options);
+        setQRCode(url);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    generateQRCode();
+  }, [input, options]);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header
+          title="Input"
+          helper="Enter the text to generate QR code"
+        />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <MyCodeEditor language="text" value={input} onChange={setInput} />
+      </TwoColumn.Left>
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="QR Code" />
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+        <div className="flex items-center flex-wrap gap-4">
+          <MyInput
+            label="Width"
+            type="number"
+            value={options.width}
+            onChange={(value) => setOptions({ ...options, width: value })}
+            max={1000}
+            min={1}
+          />
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
+          <MyInput
+            label="Margin"
+            type="number"
+            value={options.margin}
+            onChange={(value) => setOptions({ ...options, margin: value })}
+            max={100}
+            min={0}
+          />
+
+          <MySelect
+            label="Correction Level"
+            value={options.errorCorrectionLevel}
+            sizing="md"
+            onChange={(value) =>
+              setOptions({ ...options, errorCorrectionLevel: value })
+            }
           >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+            {errorCorrectionLevels.map((level) => (
+              <option key={level} value={level}>
+                {level}
+              </option>
+            ))}
+          </MySelect>
+
+          <MyInput
+            label="Quality"
+            type="number"
+            value={options.quality}
+            onChange={(value) => setOptions({ ...options, quality: value })}
+            max={1}
+            min={0}
+            step={0.1}
+          />
+        </div>
+
+        <div className="flex flex-wrap items-center gap-4">
+          <MyColorPicker
+            label="QR Color"
+            value={options.color.dark}
+            onChange={(value) =>
+              setOptions({
+                ...options,
+                color: { ...options.color, dark: value },
+              })
+            }
+          />
+
+          <MyColorPicker
+            label="Background Color"
+            value={options.color.light}
+            onChange={(value) =>
+              setOptions({
+                ...options,
+                color: { ...options.color, light: value },
+              })
+            }
+          />
+        </div>
+
+        {qrCode && <MyImage src={qrCode} alt="QR Code" />}
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 

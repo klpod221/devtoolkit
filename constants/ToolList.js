@@ -323,7 +323,7 @@ const toolList = [
         description: "Convert text to QR code and vice versa.",
         icon: AiOutlineQrcode,
         path: "/qr-code",
-        status: false,
+        status: true,
       },
     ],
   },

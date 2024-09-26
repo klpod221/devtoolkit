@@ -46,12 +46,6 @@ const MyImage = ({
           width={500}
           height={500}
           className={`object-cover w-full h-full rounded-lg border-2 border-gray-200 dark:border-dark-secondary`}
-          onError={(e) => {
-            e.target.src = "/images/placeholder.png";
-            e.target.srcset = "/images/placeholder.png";
-            setCanPreview(false);
-            setCanDownload(false);
-          }}
         />
 
         <div className="absolute top-1 right-1 hidden justify-center items-center group-hover:flex animate-fade-in space-x-1">

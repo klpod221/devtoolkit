@@ -1,7 +1,10 @@
 import { TextInput } from "flowbite-react";
 
 const MyInput = ({
+  type = "text",
   value,
+  min,
+  max,
   onChange = () => {},
   label,
   labelStyle,
@@ -59,6 +62,16 @@ const MyInput = ({
   };
 
   const onInputChange = (e) => {
+    if (type === "number") {
+      if (min && e.target.value < min) {
+        onChange(min, e);
+        return;
+      } else if (max && e.target.value > max) {
+        onChange(max, e);
+        return;
+      }
+    }
+
     onChange(e.target.value, e);
   };
 
@@ -75,7 +88,10 @@ const MyInput = ({
 
       <TextInput
         theme={theme}
+        type={type}
         value={value}
+        min={min}
+        max={max}
         onChange={onInputChange}
         {...props}
       />
