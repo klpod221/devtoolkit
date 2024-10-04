@@ -385,7 +385,7 @@ const toolList = [
         description: "Generate UUIDs.",
         icon: FaIdCardAlt,
         path: "/uuid",
-        status: false,
+        status: true,
       },
       {
         name: "Password Generator",

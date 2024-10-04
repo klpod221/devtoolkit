@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (26/47)
+## Tools List (27/47)
 
 ### Text Editor
 
@@ -88,7 +88,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [ ] </li></ul> | [Time Converter](https://devtools.klpod221.site/utility/time)                | Convert time zones and formats.                       |
 | <ul><li> - [ ] </li></ul> | [Currency Converter](https://devtools.klpod221.site/utility/currency)        | Convert currencies.                                   |
 | <ul><li> - [ ] </li></ul> | [Hash Generator](https://devtools.klpod221.site/utility/hash)                | Generate hashes.                                      |
-| <ul><li> - [ ] </li></ul> | [UUID Generator](https://devtools.klpod221.site/utility/uuid)                | Generate UUIDs.                                       |
+| <ul><li> - [x] </li></ul> | [UUID Generator](https://devtools.klpod221.site/utility/uuid)                | Generate UUIDs.                                       |
 | <ul><li> - [ ] </li></ul> | [Password Generator](https://devtools.klpod221.site/utility/password)        | Generate passwords.                                   |
 | <ul><li> - [ ] </li></ul> | [Unix Timestamp Converter](https://devtools.klpod221.site/utility/timestamp) | Convert unix timestamps.                              |
 

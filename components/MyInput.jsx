@@ -1,4 +1,6 @@
-import { TextInput } from "flowbite-react";
+import { TextInput, Tooltip } from "flowbite-react";
+
+import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 const MyInput = ({
   type = "text",
@@ -8,6 +10,7 @@ const MyInput = ({
   onChange = () => {},
   label,
   labelStyle,
+  helper,
   ...props
 }) => {
   const theme = {
@@ -77,14 +80,19 @@ const MyInput = ({
 
   return (
     <div className="flex flex-col">
-      {label && (
-        <label
-          htmlFor={props.id}
-          className={`text-base ${labelStyle}`}
-        >
-          <span dangerouslySetInnerHTML={{ __html: label }} />
-        </label>
-      )}
+      <div className="flex items-center">
+        {label && (
+          <label htmlFor={props.id} className={`text-base ${labelStyle}`}>
+            <span dangerouslySetInnerHTML={{ __html: label }} />
+          </label>
+        )}
+
+        {helper && (
+          <Tooltip content={helper}>
+            <AiOutlineQuestionCircle className="text-gray-400 dark:text-dark-text-secondary ml-1" />
+          </Tooltip>
+        )}
+      </div>
 
       <TextInput
         theme={theme}
