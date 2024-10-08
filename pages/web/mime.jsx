@@ -6,7 +6,7 @@ import MyButton from "@components/MyButton";
 
 import { AiFillHome, AiFillGithub } from "react-icons/ai";
 
-const DigitalCertificateGenerator = () => {
+const MIMETypes = () => {
   return (
     <MyCard className="w-full max-w-5xl">
       <h5 className="text-2xl font-bold tracking-tight">
@@ -42,5 +42,5 @@ const DigitalCertificateGenerator = () => {
   );
 };
 
-DigitalCertificateGenerator.title = "Digital Certificate Generator";
-export default DigitalCertificateGenerator;
+MIMETypes.title = "MIME Types";
+export default MIMETypes;

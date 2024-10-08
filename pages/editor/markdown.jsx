@@ -6,6 +6,8 @@ import CodeOutput from "@components/CodeOutput";
 import MyCodeEditor from "@/components/MyCodeEditor";
 import MyCard from "@components/MyCard";
 
+// TODO: Add copy as HTML button
+// TODO: Add download as HTML or PDF file button
 const MarkdownEditor = () => {
   const [code, setCode] = React.useState("");
   const [output, setOutput] = React.useState();

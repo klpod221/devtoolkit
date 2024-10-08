@@ -7,7 +7,7 @@ import MySelect from "@components/MySelect";
 
 const sortOptions = ["Ascending", "Descending", "Reverse", "Random"];
 
-const ListSorterRandomizer = () => {
+const ListConverter = () => {
   const [input, setInput] = React.useState("");
   const [output, setOutput] = React.useState("");
 
@@ -69,5 +69,5 @@ const ListSorterRandomizer = () => {
   );
 };
 
-ListSorterRandomizer.title = "List Sorter/Randomizer";
-export default ListSorterRandomizer;
+ListConverter.title = "List Sorter/Randomizer";
+export default ListConverter;

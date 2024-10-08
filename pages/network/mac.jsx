@@ -6,7 +6,7 @@ import MyButton from "@components/MyButton";
 
 import { AiFillHome, AiFillGithub } from "react-icons/ai";
 
-const UnixTimestampConverter = () => {
+const MACAddressGenerator = () => {
   return (
     <MyCard className="w-full max-w-5xl">
       <h5 className="text-2xl font-bold tracking-tight">
@@ -42,5 +42,5 @@ const UnixTimestampConverter = () => {
   );
 };
 
-UnixTimestampConverter.title = "Unix Timestamp Converter";
-export default UnixTimestampConverter;
+MACAddressGenerator.title = "MAC Address Generator";
+export default MACAddressGenerator;

@@ -6,7 +6,7 @@ import MyButton from "@components/MyButton";
 
 import { AiFillHome, AiFillGithub } from "react-icons/ai";
 
-const IPAddressConverter = () => {
+const HTMLWYSIWYGEditor = () => {
   return (
     <MyCard className="w-full max-w-5xl">
       <h5 className="text-2xl font-bold tracking-tight">
@@ -42,5 +42,5 @@ const IPAddressConverter = () => {
   );
 };
 
-IPAddressConverter.title = "IP Address Converter";
-export default IPAddressConverter;
+HTMLWYSIWYGEditor.title = "HTML WYSIWYG Editor";
+export default HTMLWYSIWYGEditor;

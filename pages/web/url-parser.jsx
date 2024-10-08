@@ -9,6 +9,8 @@ import MyInput from "@components/MyInput";
 
 import { FaArrowRight } from "react-icons/fa";
 
+// TODO: Need to handle more cases: username:password@hostname:port/path?query#hash
+// TODO: Params should be shown as key-value pairs
 const UrlParser = () => {
   const [url, setUrl] = React.useState("");
   const [parsedUrl, setParsedUrl] = React.useState({});

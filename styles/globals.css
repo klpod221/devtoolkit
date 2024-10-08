@@ -59,6 +59,10 @@
   input[type="color"]::-webkit-color-swatch-wrapper {
     @apply p-0;
   }
+
+  .datepicker {
+    @apply z-50;
+  }
 }
 
 @keyframes emoji-404 {

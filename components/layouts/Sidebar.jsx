@@ -19,7 +19,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
   React.useEffect(() => {
     const search = keyword.toLowerCase();
 
-    const filteredToolkit = toolList.map((section) => {
+    let filteredToolkit = toolList.map((section) => {
       const tools = section.tools.filter(
         (tool) =>
           tool.name.toLowerCase().includes(search) ||
@@ -31,6 +31,9 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
         tools,
       };
     });
+
+    // remove empty sections
+    filteredToolkit = filteredToolkit.filter((section) => section.tools.length);
 
     setToolkit(filteredToolkit);
   }, [keyword]);
@@ -69,7 +72,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-dark">
           {/* Search tool */}
-          <div>
+          <div className="sticky top-0 z-50 bg-white dark:bg-dark">
             <MyInput
               type="search"
               placeholder="Search tools..."
@@ -79,7 +82,13 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
             />
           </div>
 
-          {/* foreach toolkit */}
+          {/* show error message if no tools found */}
+          {toolkit.length === 0 && (
+            <div className="text-center text-gray-500 dark:text-gray-400 mt-4">
+              No tools found!
+            </div>
+          )}
+
           {toolkit.map((section, index) => (
             <ul key={index} className="pt-4 space-y-2">
               <li>

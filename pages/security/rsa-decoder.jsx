@@ -10,7 +10,7 @@ import MyCodeEditor from "@components/MyCodeEditor";
 
 import { FaArrowRight } from "react-icons/fa";
 
-const DigitalCertificateDecoder = () => {
+const RSADecoder = () => {
   const [input, setInput] = React.useState("");
   const [output, setOutput] = React.useState({});
 
@@ -99,5 +99,5 @@ const DigitalCertificateDecoder = () => {
   );
 };
 
-DigitalCertificateDecoder.title = "Digital Certificate Decoder";
-export default DigitalCertificateDecoder;
+RSADecoder.title = "Digital Certificate Decoder";
+export default RSADecoder;

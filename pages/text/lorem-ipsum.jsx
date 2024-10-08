@@ -16,6 +16,7 @@ import MyCopyButton from "@components/MyCopyButton";
 
 const typeOptions = ["words", "sentences", "paragraphs"];
 
+// TODO: Add more options like Sentences per paragraph, Words per sentence etc.
 const LoremIpsum = () => {
   const [length, setLength] = React.useState(5);
   const [type, setType] = React.useState("words");

@@ -10,6 +10,7 @@ import MyCodeEditor from "@components/MyCodeEditor";
 
 import { FaArrowRight } from "react-icons/fa";
 
+// TODO: Add calculation for reading time, bytes etc.
 const WordCounter = () => {
   const [text, setText] = React.useState("");
   const [analysis, setAnalysis] = React.useState({
@@ -20,7 +21,7 @@ const WordCounter = () => {
     distribution: [],
   });
 
-  const countWords = () => {
+  const countWords = React.useCallback(() => {
     try {
       if (!text) {
         toast.error("Please enter some text.");
@@ -43,7 +44,11 @@ const WordCounter = () => {
       toast.error(error.message || "An error occurred.");
       console.error(error);
     }
-  };
+  }, [text]);
+
+  React.useEffect(() => {
+    if (text) countWords();
+  }, [text, countWords]);
 
   return (
     <TwoColumn>

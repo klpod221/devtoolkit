@@ -6,7 +6,7 @@ import MyButton from "@components/MyButton";
 
 import { AiFillHome, AiFillGithub } from "react-icons/ai";
 
-const HashGenerator = () => {
+const RSAKeyGenerator = () => {
   return (
     <MyCard className="w-full max-w-5xl">
       <h5 className="text-2xl font-bold tracking-tight">
@@ -42,5 +42,5 @@ const HashGenerator = () => {
   );
 };
 
-HashGenerator.title = "Hash Generator";
-export default HashGenerator;
+RSAKeyGenerator.title = "RSA Key Generator";
+export default RSAKeyGenerator;
