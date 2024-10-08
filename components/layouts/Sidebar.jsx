@@ -84,7 +84,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
 
           {/* show error message if no tools found */}
           {toolkit.length === 0 && (
-            <div className="text-center text-gray-500 dark:text-gray-400 mt-4">
+            <div className="text-center mt-4">
               No tools found!
             </div>
           )}
