@@ -39,6 +39,14 @@
     animation: emoji-404 2.5s infinite;
   }
 
+  .animate-zoom-in {
+    animation: zoom-in 0.4s;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s;
+  }
+
   button span {
     white-space: nowrap;
   }
@@ -63,42 +71,97 @@
   .datepicker {
     @apply z-50;
   }
-}
 
-@keyframes emoji-404 {
-  33% {
-    top: 0px;
+  .text-editor .tiptap {
+    @apply bg-white rounded dark:bg-dark h-full focus:outline-none p-2;
   }
-  66% {
-    top: 20px;
-  }
-  100% {
-    top: 0px;
-  }
-}
 
-.animate-zoom-in {
-  animation: zoom-in 0.4s;
-}
-
-@keyframes zoom-in {
-  from {
-    transform: scale(0);
+  .text-editor .tiptap :first-child {
+    @apply mt-0;
   }
-  to {
-    transform: scale(1);
+  .text-editor .tiptap ul {
+    @apply list-disc;
   }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.3s;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
+  .text-editor .tiptap ol {
+    @apply list-decimal;
   }
-  to {
-    opacity: 1;
+  .text-editor .tiptap ul,
+  .text-editor .tiptap ol {
+    @apply pl-4 ml-4;
+  }
+  .text-editor .tiptap ul li p,
+  .text-editor .tiptap ol li p {
+    @apply mt-1 mb-1;
+  }
+  .text-editor .tiptap h1,
+  .text-editor .tiptap h2,
+  .text-editor .tiptap h3,
+  .text-editor .tiptap h4,
+  .text-editor .tiptap h5,
+  .text-editor .tiptap h6 {
+    @apply mt-10 text-pretty;
+  }
+  .text-editor .tiptap h1,
+  .text-editor .tiptap h2 {
+    @apply mt-14 mb-6;
+  }
+  .text-editor .tiptap h1 {
+    @apply text-2xl;
+  }
+  .text-editor .tiptap h2 {
+    @apply text-xl;
+  }
+  .text-editor .tiptap h3 {
+    @apply text-lg;
+  }
+  .text-editor .tiptap h4,
+  .text-editor .tiptap h5,
+  .text-editor .tiptap h6 {
+    @apply text-base;
+  }
+  .text-editor .tiptap code {
+    @apply bg-gray-200 dark:bg-dark-secondary rounded text-sm px-1 py-0.5;
+  }
+  .text-editor .tiptap pre {
+    @apply bg-gray-200 dark:bg-dark-secondary rounded text-sm px-1 py-0.5;
+  }
+  .text-editor .tiptap pre code {
+    @apply bg-transparent text-sm;
+  }
+  .text-editor .tiptap blockquote {
+    @apply border-l-4 border-gray-300 dark:border-dark-secondary pl-2;
+  }
+  .text-editor .tiptap hr {
+    @apply border-t-2 border-gray-300 dark:border-dark-secondary my-4;
+  }
+
+  @keyframes emoji-404 {
+    33% {
+      top: 0px;
+    }
+    66% {
+      top: 20px;
+    }
+    100% {
+      top: 0px;
+    }
+  }
+
+  @keyframes zoom-in {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 }

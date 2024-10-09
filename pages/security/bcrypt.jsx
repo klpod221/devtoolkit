@@ -78,19 +78,6 @@ const BcryptHashGenerator = () => {
           title="Encrypt"
           helper="Encrypt some text. The result shown will be a Bcrypt encrypted hash."
         >
-          <MySelect
-            label="Salt Rounds"
-            value={salt}
-            onChange={setSalt}
-            className="min-w-[65px]"
-          >
-            {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
-              <option key={num} value={num}>
-                {num}
-              </option>
-            ))}
-          </MySelect>
-
           <MyButton onClick={textToHash}>
             <AiOutlineLock className="w-5 h-5 mr-2" />
             Encrypt
@@ -104,6 +91,20 @@ const BcryptHashGenerator = () => {
           onChange={setInput}
           placeholder="Enter text to encrypt"
         />
+
+        <MySelect
+          label="Salt Rounds"
+          value={salt}
+          onChange={setSalt}
+          className="min-w-[65px]"
+          sizing="md"
+        >
+          {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+            <option key={num} value={num}>
+              {num}
+            </option>
+          ))}
+        </MySelect>
 
         <MyTextarea
           id="output"

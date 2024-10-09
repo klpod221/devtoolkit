@@ -180,7 +180,7 @@ const MyCodeEditor = ({
             language={language}
             beforeMount={handleEditorWillMount}
             onMount={handleEditorDidMount}
-            className="w-full h-full border border-gray-200 dark:border-dark-secondary code-editor"
+            className="w-full h-full rounded border border-gray-200 dark:border-dark-secondary code-editor"
             theme={theme === "dark" ? "vs-dark" : "vs-light"}
             options={{
               scrollbar: {
@@ -199,7 +199,7 @@ const MyCodeEditor = ({
             language={language}
             beforeMount={handleEditorWillMount}
             onMount={handleEditorDidMount}
-            className="w-full h-full border border-gray-200 dark:border-dark-secondary code-editor"
+            className="w-full h-full rounded border border-gray-200 dark:border-dark-secondary code-editor"
             theme={theme === "dark" ? "vs-dark" : "vs-light"}
             options={{
               scrollbar: {

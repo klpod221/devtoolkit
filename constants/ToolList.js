@@ -114,7 +114,7 @@ const toolList = [
         description: "Write, edit your text and get the HTML output.",
         icon: PiFileHtmlFill,
         path: "/wysiwyg",
-        status: false,
+        status: true,
       },
     ],
   },

@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (27/91)
+## Tools List (28/91)
 
 ### Text Editor
 
@@ -21,7 +21,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | ------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | <ul><li> - [x] </li></ul> | [Code Editor & Compiler](https://devtools.klpod221.site/editor/code) | Write code in different languages (HTML, JS, CSS, Python, Java, C, C++, PHP, etc.) and compile it. |
 | <ul><li> - [x] </li></ul> | [Markdown Editor](https://devtools.klpod221.site/editor/markdown)    | Write markdown and preview it.                                                                     |
-| <ul><li> - [ ] </li></ul> | [HTML WYSIWYG Editor](https://devtools.klpod221.site/editor/wysiwyg) | Write, edit your text and get the HTML output.                                                     |
+| <ul><li> - [x] </li></ul> | [HTML WYSIWYG Editor](https://devtools.klpod221.site/editor/wysiwyg) | Write, edit your text and get the HTML output.                                                     |
 
 ### Images/Videos Tools
 
