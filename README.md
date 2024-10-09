@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (28/91)
+## Tools List (29/91)
 
 ### Text Editor
 
@@ -32,7 +32,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Resizer](https://devtools.klpod221.site/images-videos/resizer)                           | Resize your images.                                       |
 | <ul><li> - [x] </li></ul> | [Base64 Image Converter](https://devtools.klpod221.site/images-videos/base64-image)       | Encode or decode base64 images.                           |
 | <ul><li> - [x] </li></ul> | [QR Code Generator](https://devtools.klpod221.site/images-videos/qr-code)                 | Convert text to QR code and vice versa.                   |
-| <ul><li> - [ ] </li></ul> | [SVG Placeholder Generator](https://devtools.klpod221.site/images-videos/svg-placeholder) | Generate SVG placeholders.                                |
+| <ul><li> - [x] </li></ul> | [SVG Placeholder Generator](https://devtools.klpod221.site/images-videos/svg-placeholder) | Generate SVG placeholders.                                |
 | <ul><li> - [ ] </li></ul> | [Camera Recorder](https://devtools.klpod221.site/images-videos/camera)                    | Record video from your camera.                            |
 
 ### Converter Tools
