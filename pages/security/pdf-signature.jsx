@@ -6,7 +6,7 @@ import MyButton from "@components/MyButton";
 
 import { AiFillHome, AiFillGithub } from "react-icons/ai";
 
-const CronExpressionParser = () => {
+const PDFSignatureChecker = () => {
   return (
     <MyCard className="w-full max-w-5xl">
       <h5 className="text-2xl font-bold tracking-tight">
@@ -42,5 +42,5 @@ const CronExpressionParser = () => {
   );
 };
 
-CronExpressionParser.title = "Cron Expression Parser";
-export default CronExpressionParser;
+PDFSignatureChecker.title = "PDF signature checker";
+export default PDFSignatureChecker;

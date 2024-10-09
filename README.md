@@ -110,6 +110,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [RSA Key Decoder](https://devtools.klpod221.site/security/rsa-decoder)                 | Decode RSA keys.                          |
 | <ul><li> - [ ] </li></ul> | [Password Strength Checker](https://devtools.klpod221.site/security/password-strength) | Check your password strength.             |
 | <ul><li> - [ ] </li></ul> | [Password Generator](https://devtools.klpod221.site/security/password)                 | Generate passwords.                       |
+| <ul><li> - [ ] </li></ul> | [PDF signature checker](https://devtools.klpod221.site/security/pdf-signature)         | Check PDF signatures.                     |
 
 ### System Tools
 
@@ -123,7 +124,6 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [ ] </li></ul> | [IMAP/POP3/SMTP Tester](https://devtools.klpod221.site/system/mail)               | Test IMAP, POP3, SMTP servers.                 |
 | <ul><li> - [ ] </li></ul> | [Random port generator](https://devtools.klpod221.site/system/port)               | Generate random ports.                         |
 | <ul><li> - [ ] </li></ul> | [Cron Expression Generator](https://devtools.klpod221.site/system/cron-generator) | Generate cron expressions.                     |
-| <ul><li> - [ ] </li></ul> | [Cron Expression Parser](https://devtools.klpod221.site/system/cron-parser)       | Parse cron expressions.                        |
 
 ### Network Tools
 
