@@ -6,6 +6,7 @@ import { Popover } from "flowbite-react";
 
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { IoChevronDown } from "react-icons/io5";
 
 import toolList from "@/constants/ToolList";
 
@@ -16,8 +17,17 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
   const [keyword, setKeyword] = React.useState("");
   const [toolkit, setToolkit] = React.useState(toolList);
 
+  const [collapsed, setCollapsed] = React.useState([]);
+
   React.useEffect(() => {
-    const search = keyword.toLowerCase();
+    const search = keyword.toLowerCase().trim();
+
+    if (!search) {
+      setToolkit(toolList);
+      return;
+    }
+
+    setCollapsed([]);
 
     let filteredToolkit = toolList.map((section) => {
       const tools = section.tools.filter(
@@ -37,6 +47,15 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
 
     setToolkit(filteredToolkit);
   }, [keyword]);
+
+  // toggle collapse
+  const handleCollapse = (index) => {
+    if (collapsed.includes(index)) {
+      setCollapsed(collapsed.filter((item) => item !== index));
+    } else {
+      setCollapsed([...collapsed, index]);
+    }
+  };
 
   // scroll to selected item
   React.useEffect(() => {
@@ -70,7 +89,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
         }`}
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-dark">
+        <div className="h-full px-3 pb-10 overflow-y-auto bg-white dark:bg-dark">
           {/* Search tool */}
           <div className="sticky top-0 z-50 bg-white dark:bg-dark">
             <MyInput
@@ -84,49 +103,62 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
 
           {/* show error message if no tools found */}
           {toolkit.length === 0 && (
-            <div className="text-center mt-4">
-              No tools found!
-            </div>
+            <div className="text-center mt-4">No tools found!</div>
           )}
 
           {toolkit.map((section, index) => (
-            <ul key={index} className="pt-4 space-y-2">
+            <ul key={index} className="pt-4">
               <li>
-                <div className="text-gray-400 text-sm font-medium uppercase w-full border-b border-gray-200 pb-1 dark:border-dark-secondary dark:text-dark-text-secondary">
+                <div
+                  className="text-gray-400 text-sm font-medium uppercase w-full border-gray-200 pb-1 dark:border-dark-secondary dark:text-dark-text-secondary cursor-pointer"
+                  onClick={() => handleCollapse(index)}
+                >
+                  <IoChevronDown
+                    className={`w-4 h-4 inline-block mr-1 -ml-[7px] transition-transform ${
+                      collapsed.includes(index) ? "-rotate-90" : "rotate-0"
+                    }`}
+                  />
                   {section.title}
                 </div>
               </li>
-              {section.tools.map((tool, index) => (
-                <li key={index} className="text-sm">
-                  <Popover
-                    content={popoverContent(tool.description)}
-                    placement="right"
-                    trigger="hover"
-                  >
-                    <NextLink
-                      href={section.path + tool.path}
-                      className={`flex items-center p-2 rounded-lg  hover:bg-gray-200 dark:hover:bg-dark-secondary group
+              <ul
+                className={`pl-1 border-l space-y-1 overflow-hidden transition-all delay-150 duration-300 ${
+                  collapsed.includes(index) ? "h-0" : ""
+                }`}
+                id={section.path.replace("/", "")}
+              >
+                {section.tools.map((tool, index) => (
+                  <li key={index} className="text-sm">
+                    <Popover
+                      content={popoverContent(tool.description)}
+                      placement="right"
+                      trigger="hover"
+                    >
+                      <NextLink
+                        href={section.path + tool.path}
+                        className={`flex items-center p-2 rounded-lg  hover:bg-gray-200 dark:hover:bg-dark-secondary group
                       ${
                         currentPath === section.path + tool.path
                           ? "sidebar-selected bg-gray-200 dark:bg-dark-secondary"
                           : ""
                       }`}
-                    >
-                      <tool.icon
-                        className={`w-5 h-5 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-dark-text ${
-                          currentPath === section.path + tool.path
-                            ? "text-gray-900 dark:text-dark-text"
-                            : "text-gray-500 dark:text-dark-text-secondary"
-                        }`}
-                      />
-                      <span className="ms-3 ml-1">{tool.name}</span>
-                      {tool.status && (
-                        <FaRegCheckCircle className="w-4 h-4 ms-auto text-green-500" />
-                      )}
-                    </NextLink>
-                  </Popover>
-                </li>
-              ))}
+                      >
+                        <tool.icon
+                          className={`w-5 h-5 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-dark-text ${
+                            currentPath === section.path + tool.path
+                              ? "text-gray-900 dark:text-dark-text"
+                              : "text-gray-500 dark:text-dark-text-secondary"
+                          }`}
+                        />
+                        <span className="ms-3 mx-1">{tool.name}</span>
+                        {tool.status && (
+                          <FaRegCheckCircle className="w-4 h-4 ms-auto text-green-500" />
+                        )}
+                      </NextLink>
+                    </Popover>
+                  </li>
+                ))}
+              </ul>
             </ul>
           ))}
         </div>
