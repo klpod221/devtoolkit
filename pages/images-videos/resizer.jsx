@@ -7,7 +7,7 @@ import MyButton from "@components/MyButton";
 import MyFileInput from "@components/MyFileInput";
 import MyImage from "@components/MyImage";
 import MyInput from "@components/MyInput";
-import MyCheckbox from "@components/MyCheckbox";
+import MySwitch from "@components/MySwitch";
 
 import { FaArrowRight } from "react-icons/fa";
 
@@ -133,10 +133,10 @@ const ImageResizer = () => {
           />
         </div>
 
-        <MyCheckbox
+        <MySwitch
           label="Keep aspect ratio"
           checked={keepAspectRatio}
-          onChange={(e) => setKeepAspectRatio(e.target.checked)}
+          onChange={setKeepAspectRatio}
         />
       </TwoColumn.Left>
       <TwoColumn.Right>

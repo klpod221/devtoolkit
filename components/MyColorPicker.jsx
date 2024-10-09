@@ -12,6 +12,8 @@ const MyColorPicker = ({
   labelStyle,
   ...props
 }) => {
+  const colorInput = React.useRef();
+
   const [displayColorPicker, setDisplayColorPicker] = React.useState(false);
   const [color, setColor] = React.useState();
 
@@ -23,31 +25,47 @@ const MyColorPicker = ({
     setDisplayColorPicker(false);
   };
 
+  const onInputChange = (value) => {
+    if (value) {
+      handleChange(value);
+    }
+  }
+
   const handleChange = React.useMemo(
-    () => (colorPicker) => {
-      let color = Color("#000000");
+    () => (colorPicker, isUpdateInput = false) => {
+      try {
+        let color = Color("#000000");
 
-      if (typeof colorPicker === "string") {
-        if (colorPicker.length > 7 && colorPicker[0] === "#") {
-          color = Color(colorPicker.slice(0, 7)).alpha(
-            parseInt(colorPicker.slice(7), 16) / 255
-          );
+        if (typeof colorPicker === "string") {
+          if (colorPicker.length > 7 && colorPicker[0] === "#") {
+            color = Color(colorPicker.slice(0, 7)).alpha(
+              parseInt(colorPicker.slice(7), 16) / 255,
+            );
+          } else {
+            color = Color(colorPicker);
+          }
         } else {
-          color = Color(colorPicker);
+          color = Color(colorPicker.hex).alpha(colorPicker.rgb.a);
         }
-      } else {
-        color = Color(colorPicker.hex).alpha(colorPicker.rgb.a);
-      }
 
-      setColor(color);
-      onChange(color.alpha() === 1 ? color.hex() : color.hexa());
+        if (isUpdateInput) {
+          colorInput.current.value = color.alpha() === 1 ? color.hex() : color.hexa();
+        }
+
+        setColor(color);
+        onChange(color.alpha() === 1 ? color.hex() : color.hexa());
+      } catch (e) {
+      }
     },
-    [onChange]
+    [onChange],
   );
 
   React.useEffect(() => {
-    handleChange(value);
-  }, [value, handleChange]);
+    if (value) {
+      handleChange(value, true);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
@@ -72,7 +90,12 @@ const MyColorPicker = ({
           </div>
 
           {showInput && (
-            <MyInput onChange={handleChange} className="ml-2" value={value} />
+            <input
+              ref={colorInput}
+              type="text"
+              onChange={(e) => onInputChange(e.target.value)}
+              className="block ml-2 border disabled:cursor-not-allowed disabled:opacity-50 border-gray-200 bg-gray-50 focus:border-cyan-500 focus:ring-cyan-500 dark:border-dark-secondary dark:bg-dark dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text p-2.5 text-sm rounded-lg"
+            />
           )}
         </div>
       </div>
@@ -81,12 +104,12 @@ const MyColorPicker = ({
           <div className="fixed inset-0" onClick={handleClose} />
           <ChromePicker
             color={{
-              r: color.red(),
-              g: color.green(),
-              b: color.blue(),
-              a: color.alpha(),
+              r: color ? color.red() : 0,
+              g: color ? color.green() : 0,
+              b: color ? color.blue() : 0,
+              a: color ? color.alpha() : 1,
             }}
-            onChange={handleChange}
+            onChange={(color) => handleChange(color, true)}
           />
         </div>
       ) : null}

@@ -163,7 +163,7 @@ const toolList = [
         description: "Generate SVG placeholders.",
         icon: AiOutlineFileImage,
         path: "/svg-placeholder",
-        status: false,
+        status: true,
       },
       {
         name: "Camera Recorder",
