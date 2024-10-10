@@ -59,45 +59,14 @@ const CameraRecorder = () => {
     getDevices();
   }, []);
 
-  const onChangeCamera = async (value) => {
-    try {
-      setSelectedDevice((prev) => ({
-        ...prev,
-        camera: value,
-      }));
+  React.useEffect(() => {
+    const stream = navigator.mediaDevices.getUserMedia({
+      video: selectedDevice.camera ? { deviceId: selectedDevice.camera } : true,
+      audio: selectedDevice.microphone ? { deviceId: selectedDevice.microphone } : true,
+    });
 
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          deviceId: value,
-        },
-        audio: true,
-      });
-
-      videoRef.current.srcObject = stream;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const onChangeMicrophone = async (value) => {
-    try {
-      setSelectedDevice((prev) => ({
-        ...prev,
-        microphone: value,
-      }));
-
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: {
-          deviceId: value,
-        },
-      });
-
-      videoRef.current.srcObject = stream;
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    videoRef.current.srcObject = stream;
+  }, [selectedDevice]);
 
   const toggleCamera = () => {
     if (cameraState === "camera_start") {
@@ -188,7 +157,9 @@ const CameraRecorder = () => {
           <MySelect
             label="Select Camera"
             value={selectedDevice.camera}
-            onChange={onChangeCamera}
+            onChange={(value) =>
+              setSelectedDevice({ ...selectedDevice, camera: value })
+            }
             sizing="md"
           >
             {devices.camera.map((device) => (
@@ -201,7 +172,9 @@ const CameraRecorder = () => {
           <MySelect
             label="Select Microphone"
             value={selectedDevice.microphone}
-            onChange={onChangeMicrophone}
+            onChange={(value) =>
+              setSelectedDevice({ ...selectedDevice, microphone: value })
+            }
             sizing="md"
           >
             {devices.microphone.map((device) => (
