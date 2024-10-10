@@ -170,7 +170,7 @@ const toolList = [
         description: "Record video from your camera.",
         icon: AiFillCamera,
         path: "/camera",
-        status: false,
+        status: true,
       },
     ],
   },

@@ -134,7 +134,7 @@ const MyCodeEditor = ({
         </div>
       )}
 
-      <div className="relative w-full h-full group">
+      <div className="relative w-full h-full group min-h-96">
         <div className="absolute top-2 right-2 z-10 flex space-x-2 w-fit">
           {type === "diff" && (
             <div
