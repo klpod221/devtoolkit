@@ -12,8 +12,8 @@ const CameraRecorder = () => {
     microphone: [],
   });
   const [selectedDevice, setSelectedDevice] = React.useState({
-    camera: "",
-    microphone: "",
+    camera: true,
+    microphone: true,
   });
   const [recordedChunks, setRecordedChunks] = React.useState([]);
 
@@ -60,12 +60,35 @@ const CameraRecorder = () => {
   }, []);
 
   React.useEffect(() => {
-    const stream = navigator.mediaDevices.getUserMedia({
-      video: selectedDevice.camera ? { deviceId: selectedDevice.camera } : true,
-      audio: selectedDevice.microphone ? { deviceId: selectedDevice.microphone } : true,
-    });
+    const setStream = async (device) => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia(device);
+        videoRef.current.srcObject = stream;
+        setCameraState("camera_start");
+      } catch (error) {
+        console.error(error);
+        setCameraState("error");
+      }
+    }
 
-    videoRef.current.srcObject = stream;
+    const device = {
+      video: true,
+      audio: true,
+    };
+
+    if (selectedDevice.camera) {
+      device.video = {
+        deviceId: selectedDevice.camera,
+      };
+    }
+
+    if (selectedDevice.microphone) {
+      device.audio = {
+        deviceId: selectedDevice.microphone,
+      };
+    }
+
+    setStream(device);
   }, [selectedDevice]);
 
   const toggleCamera = () => {
