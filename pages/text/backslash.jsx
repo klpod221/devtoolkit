@@ -11,7 +11,7 @@ import MyCodeEditor from "@components/MyCodeEditor";
 import { FaArrowRight } from "react-icons/fa";
 import MyRadio from "@components/MyRadio";
 
-const BackslashConverter = () => {
+const BackslashEscaper = () => {
   const [input, setInput] = React.useState("");
   const [output, setOutput] = React.useState("");
   const [isEscape, setIsEscape] = React.useState(true);
@@ -74,5 +74,5 @@ const BackslashConverter = () => {
   );
 };
 
-BackslashConverter.title = "Backslash Converter";
-export default BackslashConverter;
+BackslashEscaper.title = "Backslash Escaper";
+export default BackslashEscaper;

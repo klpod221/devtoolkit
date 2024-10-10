@@ -450,7 +450,7 @@ const toolList = [
         status: false,
       },
       {
-        name: "Backslash Converter",
+        name: "Backslash Escaper",
         description: "Escape or unescape backslashes.",
         icon: AiOutlinePercentage,
         path: "/backslash",

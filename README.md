@@ -86,7 +86,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Random String](https://devtools.klpod221.site/text/random)          | Generate random strings for passwords etc.   |
 | <ul><li> - [ ] </li></ul> | [Text to Image](https://devtools.klpod221.site/text/to-image)        | Convert text to image.                       |
 | <ul><li> - [ ] </li></ul> | [Text to Speech](https://devtools.klpod221.site/text/speech)         | Convert text to speech.                      |
-| <ul><li> - [x] </li></ul> | [Backslash Converter](https://devtools.klpod221.site/text/backslash) | Escape or unescape backslashes.              |
+| <ul><li> - [x] </li></ul> | [Backslash Escaper](https://devtools.klpod221.site/text/backslash) | Escape or unescape backslashes.              |
 | <ul><li> - [ ] </li></ul> | [Morse Code Translator](https://devtools.klpod221.site/text/morse)   | Translate text to morse code and vice versa. |
 | <ul><li> - [ ] </li></ul> | [Binary Translator](https://devtools.klpod221.site/text/binary)      | Translate text to binary and vice versa.     |
 | <ul><li> - [ ] </li></ul> | [Emoji picker](https://devtools.klpod221.site/text/emoji)            | Pick emojis.                                 |
