@@ -1,5 +1,4 @@
 import React from "react";
-import { toast } from "react-toastify";
 
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";

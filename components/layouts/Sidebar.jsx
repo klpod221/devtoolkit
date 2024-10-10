@@ -33,7 +33,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
       const tools = section.tools.filter(
         (tool) =>
           tool.name.toLowerCase().includes(search) ||
-          tool.description.toLowerCase().includes(search)
+          tool.description.toLowerCase().includes(search),
       );
 
       return {
@@ -89,7 +89,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
         }`}
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 pb-10 overflow-y-auto bg-white dark:bg-dark">
+        <div className="h-full px-3 overflow-y-auto bg-white dark:bg-dark">
           {/* Search tool */}
           <div className="sticky top-0 z-50 bg-white dark:bg-dark">
             <MyInput
@@ -161,6 +161,14 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
               </ul>
             </ul>
           ))}
+
+          {/* Footer */}
+          <div className="w-full py-10 text-center text-sm text-gray-400 dark:text-dark-text-secondary">
+            <p>
+              Make with ❤️ by <a href="https://klpod221.site" className="text-blue-500 dark:text-blue-400 hover:underline">klpod221</a>
+            </p>
+            <p>© 2024 All rights reserved</p>
+          </div>
         </div>
       </aside>
     </>
