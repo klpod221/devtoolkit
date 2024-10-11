@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (30/91)
+## Tools List (31/91)
 
 ### Text Editor
 
@@ -63,7 +63,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)               | Upload and share files.        |
 | <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)              | Encode or decode url strings.  |
 | <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                | Parse url strings.             |
-| <ul><li> - [ ] </li></ul> | [Device Information](https://devtools.klpod221.site/web/device)            | Show Your Device Information.  |
+| <ul><li> - [x] </li></ul> | [Device Information](https://devtools.klpod221.site/web/device)            | Show Your Device Information.  |
 | <ul><li> - [ ] </li></ul> | [Basic Auth Generator](https://devtools.klpod221.site/web/basic-auth)      | Generate basic auth headers.   |
 | <ul><li> - [ ] </li></ul> | [Open Graph Meta Generator](https://devtools.klpod221.site/web/open-graph) | Generate open graph meta tags. |
 | <ul><li> - [ ] </li></ul> | [OTP Code Generator](https://devtools.klpod221.site/web/otp)               | Generate OTP codes.            |
@@ -86,7 +86,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Random String](https://devtools.klpod221.site/text/random)          | Generate random strings for passwords etc.   |
 | <ul><li> - [ ] </li></ul> | [Text to Image](https://devtools.klpod221.site/text/to-image)        | Convert text to image.                       |
 | <ul><li> - [ ] </li></ul> | [Text to Speech](https://devtools.klpod221.site/text/speech)         | Convert text to speech.                      |
-| <ul><li> - [x] </li></ul> | [Backslash Escaper](https://devtools.klpod221.site/text/backslash) | Escape or unescape backslashes.              |
+| <ul><li> - [x] </li></ul> | [Backslash Escaper](https://devtools.klpod221.site/text/backslash)   | Escape or unescape backslashes.              |
 | <ul><li> - [ ] </li></ul> | [Morse Code Translator](https://devtools.klpod221.site/text/morse)   | Translate text to morse code and vice versa. |
 | <ul><li> - [ ] </li></ul> | [Binary Translator](https://devtools.klpod221.site/text/binary)      | Translate text to binary and vice versa.     |
 | <ul><li> - [ ] </li></ul> | [Emoji picker](https://devtools.klpod221.site/text/emoji)            | Pick emojis.                                 |

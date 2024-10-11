@@ -322,7 +322,7 @@ const toolList = [
         description: "Show Your Device Information.",
         icon: MdMonitor,
         path: "/device",
-        status: false,
+        status: true,
       },
       {
         name: "Basic Auth Generator",
