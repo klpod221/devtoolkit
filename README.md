@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (33/92)
+## Tools List (33/95)
 
 ### Text Editor
 
@@ -112,6 +112,14 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [ ] </li></ul> | [Password Strength Checker](https://devtools.klpod221.site/security/password-strength) | Check your password strength.             |
 | <ul><li> - [ ] </li></ul> | [Password Generator](https://devtools.klpod221.site/security/password)                 | Generate passwords.                       |
 | <ul><li> - [ ] </li></ul> | [PDF signature checker](https://devtools.klpod221.site/security/pdf-signature)         | Check PDF signatures.                     |
+
+### Develop Tools
+
+| Status                    | Name                                                                            | Description                          |
+| ------------------------- | ------------------------------------------------------------------------------- | ------------------------------------ |
+| <ul><li> - [ ] </li></ul> | [API Tester](https://devtools.klpod221.site/develop/api)                        | Test APIs.                           |
+| <ul><li> - [ ] </li></ul> | [Editor Config Generator](https://devtools.klpod221.site/develop/editor-config) | Generate editor configuration files. |
+| <ul><li> - [ ] </li></ul> | [Gitignore Generator](https://devtools.klpod221.site/develop/gitignore)         | Generate .gitignore files.           |
 
 ### System Tools
 

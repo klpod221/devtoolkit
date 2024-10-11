@@ -605,6 +605,33 @@ const toolList = [
     ],
   },
   {
+    title: "Develop Tools",
+    path: "/develop",
+    tools: [
+      {
+        name: "API Tester",
+        description: "Test APIs.",
+        icon: AiOutlineCloudUpload,
+        path: "/api",
+        status: false,
+      },
+      {
+        name: "Editor Config Generator",
+        description: "Generate editor configuration files.",
+        icon: AiOutlineCode,
+        path: "/editor-config",
+        status: false,
+      },
+      {
+        name: "Gitignore Generator",
+        description: "Generate .gitignore files.",
+        icon: AiOutlineDiff,
+        path: "/gitignore",
+        status: false,
+      }
+    ]
+  },
+  {
     title: "System Tools",
     path: "/system",
     tools: [
