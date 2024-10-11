@@ -1,44 +1,115 @@
 import React from "react";
-import NextLink from "next/link";
+import { toast } from "react-toastify";
 
+import jwtParser from "@utils/jwtParser";
+
+import MyCodeEditor from "@components/MyCodeEditor";
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
 
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import { FaArrowRight } from "react-icons/fa";
 
 const JWTParser = () => {
+  const [input, setInput] = React.useState(
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  );
+  const [output, setOutput] = React.useState(null);
+
+  const parseJWT = () => {
+    try {
+      const parsed = jwtParser(input);
+      console.log(parsed);
+      setOutput(parsed);
+      toast.success("JWT token parsed successfully.");
+    } catch (error) {
+      toast.error(error.message || "Failed to parse JWT token.");
+      console.error(error);
+    }
+  };
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header title="Input" helper="Paste your JWT token here.">
+          <MyButton onClick={parseJWT}>
+            Parse <FaArrowRight className="ml-2" />
+          </MyButton>
+        </MyCard.Header>
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <MyCodeEditor language="text" value={input} onChange={setInput} />
+      </TwoColumn.Left>
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="Decoded JWT token." />
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+        {output?.header && (
+          <table className="table-auto w-full">
+            <thead>
+              <tr>
+                <th
+                  colSpan="2"
+                  className="border px-4 py-2 border-gray-20 dark:border-dark-secondary text-center"
+                >
+                  Header
+                </th>
+              </tr>
+            </thead>
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+            <tbody>
+              {output.header.map((claim, index) => (
+                <tr key={index}>
+                  <td className="border px-4 py-2 border-gray-20 dark:border-dark-secondary">
+                    {claim.claim}
+                    <span className="text-xs text-gray-500 dark:text-dark-text-secondary ml-1">
+                      {claim.claimDescriptions &&
+                        `(${claim.claimDescriptions})`}
+                    </span>
+                  </td>
+                  <td className="border px-4 py-2 border-gray-20 dark:border-dark-secondary">
+                    {claim.value}
+                    <span className="text-xs text-gray-500 dark:text-dark-text-secondary ml-1">
+                      {claim.friendlyValue && `(${claim.friendlyValue})`}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+
+        {output?.payload && (
+          <table className="table-auto w-full mt-4">
+            <thead>
+              <tr>
+                <th colSpan="2" className="border px-4 py-2 border-gray-20 dark:border-dark-secondary text-center">
+                  Payload
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {output.payload.map((claim, index) => (
+                <tr key={index}>
+                  <td className="border px-4 py-2 border-gray-20 dark:border-dark-secondary">
+                    {claim.claim}
+                    <span className="text-xs text-gray-500 dark:text-dark-text-secondary ml-1">
+                      {claim.claimDescriptions &&
+                        `(${claim.claimDescriptions})`}
+                    </span>
+                  </td>
+                  <td className="border px-4 py-2 border-gray-20 dark:border-dark-secondary">
+                    {claim.value}
+                    <span className="text-xs text-gray-500 dark:text-dark-text-secondary ml-1">
+                      {claim.friendlyValue && `(${claim.friendlyValue})`}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 

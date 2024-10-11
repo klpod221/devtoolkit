@@ -354,9 +354,16 @@ const toolList = [
       },
       {
         name: "JWT Parser",
-        description: "Parse JWT tokens.",
+        description: "Parse JSON Web Tokens.",
         icon: MdKey,
         path: "/jwt",
+        status: true,
+      },
+      {
+        name: "JWT Generator",
+        description: "Generate JSON Web Tokens.",
+        icon: TbCertificate,
+        path: "/jwt-generator",
         status: false,
       },
       {
