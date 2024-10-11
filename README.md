@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (31/91)
+## Tools List (32/91)
 
 ### Text Editor
 
@@ -64,7 +64,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)              | Encode or decode url strings.  |
 | <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                | Parse url strings.             |
 | <ul><li> - [x] </li></ul> | [Device Information](https://devtools.klpod221.site/web/device)            | Show Your Device Information.  |
-| <ul><li> - [ ] </li></ul> | [Basic Auth Generator](https://devtools.klpod221.site/web/basic-auth)      | Generate basic auth headers.   |
+| <ul><li> - [x] </li></ul> | [Basic Auth Generator](https://devtools.klpod221.site/web/basic-auth)      | Generate basic auth headers.   |
 | <ul><li> - [ ] </li></ul> | [Open Graph Meta Generator](https://devtools.klpod221.site/web/open-graph) | Generate open graph meta tags. |
 | <ul><li> - [ ] </li></ul> | [OTP Code Generator](https://devtools.klpod221.site/web/otp)               | Generate OTP codes.            |
 | <ul><li> - [ ] </li></ul> | [MIME Types](https://devtools.klpod221.site/web/mime)                      | Get MIME types.                |

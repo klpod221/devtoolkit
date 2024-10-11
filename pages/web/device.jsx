@@ -1,6 +1,8 @@
 import React from "react";
 import { Tooltip } from "flowbite-react";
 
+import objectKeyToHumanReadable from "@utils/objectKeyToHumanReadable";
+
 import MyCard from "@components/MyCard";
 
 const DeviceInformation = () => {
@@ -51,20 +53,13 @@ const DeviceInformation = () => {
     });
   }, []);
 
-  const keyToHumanReadable = (key) => {
-    return key
-      .split(/(?=[A-Z])/)
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
-
   return (
     <div className="flex items-start flex-wrap gap-2">
       {Object.keys(device).map((key) => {
         return (
           <MyCard key={key}>
-            <MyCard.Header title={keyToHumanReadable(key)} />
-
+            <MyCard.Header title={objectKeyToHumanReadable(key)} />
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
               {Object.keys(device[key]).map((subKey) => {
                 return (
@@ -73,7 +68,7 @@ const DeviceInformation = () => {
                     className="p-3 bg-gray-100 dark:bg-dark-secondary rounded-lg w-56 max-w-full"
                   >
                     <p className="text-sm text-gray-500 dark:text-dark-secondary">
-                      {keyToHumanReadable(subKey)}
+                      {objectKeyToHumanReadable(subKey)}
                     </p>
                     <Tooltip
                       content={device[key][subKey]}

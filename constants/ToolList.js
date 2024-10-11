@@ -329,7 +329,7 @@ const toolList = [
         description: "Generate basic auth headers.",
         icon: RiLockPasswordFill,
         path: "/basic-auth",
-        status: false,
+        status: true,
       },
       {
         name: "Open Graph Meta Generator",
