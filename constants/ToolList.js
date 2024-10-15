@@ -83,6 +83,8 @@ import {
   TbMath,
   TbHourglass,
   TbPercentage,
+  TbLanguage,
+  TbCalculator,
 } from "react-icons/tb";
 import { SiNginx } from "react-icons/si";
 import { CgColorPicker } from "react-icons/cg";
@@ -408,6 +410,13 @@ const toolList = [
     path: "/text",
     tools: [
       {
+        name: "Translator",
+        description: "Translate text to different languages.",
+        icon: TbLanguage,
+        path: "/translator",
+        status: false,
+      },
+      {
         name: "Regex Tester",
         description: "Test your regular expressions.",
         icon: BsRegex,
@@ -628,8 +637,8 @@ const toolList = [
         icon: AiOutlineDiff,
         path: "/gitignore",
         status: false,
-      }
-    ]
+      },
+    ],
   },
   {
     title: "System Tools",
@@ -767,8 +776,15 @@ const toolList = [
     path: "/math",
     tools: [
       {
+        name: "Simple Calculator",
+        description: "Simple calculator for basic math operations.",
+        icon: TbCalculator,
+        path: "/calculator",
+        status: false,
+      },
+      {
         name: "Math Evaluator",
-        description: "Evaluate math expressions.",
+        description: "Evaluate math expressions (e.g. 2+2*2).",
         icon: TbMath,
         path: "/evaluator",
         status: false,

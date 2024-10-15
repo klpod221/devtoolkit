@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (33/95)
+## Tools List (33/97)
 
 ### Text Editor
 
@@ -80,6 +80,7 @@ And if you have any suggestions, please let me know by creating an issue.
 
 | Status                    | Name                                                                 | Description                                  |
 | ------------------------- | -------------------------------------------------------------------- | -------------------------------------------- |
+| <ul><li> - [ ] </li></ul> | [Translator](https://devtools.klpod221.site/text/translator)         | Translate text to different languages.       |
 | <ul><li> - [x] </li></ul> | [Regex Tester](https://devtools.klpod221.site/text/regex)            | Test your regular expressions.               |
 | <ul><li> - [x] </li></ul> | [Text Diff](https://devtools.klpod221.site/text/diff)                | Compare two texts.                           |
 | <ul><li> - [x] </li></ul> | [Word Counter](https://devtools.klpod221.site/text/counter)          | Count words, characters and distribution.    |
@@ -150,11 +151,12 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Math Tools
 
-| Status                    | Name                                                                    | Description                |
-| ------------------------- | ----------------------------------------------------------------------- | -------------------------- |
-| <ul><li> - [ ] </li></ul> | [Math Evaluator](https://devtools.klpod221.site/math/evaluator)         | Evaluate math expressions. |
-| <ul><li> - [ ] </li></ul> | [ETA Calculator](https://devtools.klpod221.site/math/eta)               | Calculate ETA.             |
-| <ul><li> - [ ] </li></ul> | [Percentage Calculator](https://devtools.klpod221.site/math/percentage) | Calculate percentages.     |
+| Status                    | Name                                                                    | Description                                  |
+| ------------------------- | ----------------------------------------------------------------------- | -------------------------------------------- |
+| <ul><li> - [ ] </li></ul> | [Simple Calculator](https://devtools.klpod221.site/math/calculator)     | Simple calculator for basic math operations. |
+| <ul><li> - [ ] </li></ul> | [Math Evaluator](https://devtools.klpod221.site/math/evaluator)         | Evaluate math expressions (e.g. 2+2\*2).     |
+| <ul><li> - [ ] </li></ul> | [ETA Calculator](https://devtools.klpod221.site/math/eta)               | Calculate ETA.                               |
+| <ul><li> - [ ] </li></ul> | [Percentage Calculator](https://devtools.klpod221.site/math/percentage) | Calculate percentages.                       |
 
 ### Measurement Tools
 

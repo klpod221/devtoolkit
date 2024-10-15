@@ -33,7 +33,7 @@ const BcryptHashGenerator = () => {
         return;
       }
 
-      const saltRounds = bcrypt.genSaltSync(salt);
+      const saltRounds = bcrypt.genSaltSync(Number(salt));
 
       const hashed = await toast.promise(bcrypt.hash(input, saltRounds), {
         pending: "Encrypting...",
