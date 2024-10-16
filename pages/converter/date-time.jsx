@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
@@ -6,22 +7,48 @@ import MyButton from "@components/MyButton";
 import MyDatepicker from "@components/MyDatepicker";
 
 import { FaArrowRight } from "react-icons/fa";
+import ObjectOutput from "@components/ObjectOutput";
 
 const DateTimeConverter = () => {
   const [timestamp, setTimestamp] = React.useState(Date.now());
+  const [output, setOutput] = React.useState({
+    utc: "",
+    local: "",
+    dayOfYear: "",
+    weekOfYear: "",
+    dayOfWeek: "",
+    dayOfMonth: "",
+    month: "",
+    year: "",
+    hour: "",
+    minute: "",
+    second: "",
+    millisecond: "",
+  });
+
+  React.useEffect(() => {
+    const date = moment(timestamp, "x");
+    setOutput({
+      utc: date.utc().format(),
+      local: date.local().format(),
+      dayOfYear: date.dayOfYear(),
+      weekOfYear: date.week(),
+      dayOfWeek: date.day(),
+      dayOfMonth: date.date(),
+      month: date.month() + 1,
+      year: date.year(),
+      hour: date.hours(),
+      minute: date.minutes(),
+      second: date.seconds(),
+      millisecond: date.milliseconds(),
+    });
+  }, [timestamp]);
 
   return (
     <TwoColumn>
       <TwoColumn.Left>
         <MyCard.Header title="Input" helper="Enter the Unix Timestamp">
-          <MyButton onClick={() => setTimestamp(Date.now())}>
-            Now
-          </MyButton>
-
-          <MyButton>
-            Convert
-            <FaArrowRight className="ml-2" />
-          </MyButton>
+          <MyButton onClick={() => setTimestamp(Date.now())}>Now</MyButton>
         </MyCard.Header>
 
         <MyDatepicker
@@ -32,7 +59,13 @@ const DateTimeConverter = () => {
           format="x"
         />
       </TwoColumn.Left>
-      <TwoColumn.Right></TwoColumn.Right>
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="Converted Date and Time" />
+
+        <div className="overflow-y-auto">
+          <ObjectOutput object={output} />
+        </div>
+      </TwoColumn.Right>
     </TwoColumn>
   );
 };
