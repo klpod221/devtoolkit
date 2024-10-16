@@ -1,44 +1,86 @@
 import React from "react";
-import NextLink from "next/link";
 
+import numberBaseConverter from "@utils/numberBaseConverter";
+
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
-
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import MyInput from "@components/MyInput";
+import MyRangeSlider from "@components/MyRangeSlider";
+import ObjectOutput from "@components/ObjectOutput";
 
 const NumberBaseConverter = () => {
+  const [number, setNumber] = React.useState(10);
+  const [base, setBase] = React.useState(10);
+
+  const [customOutputBase, setCustomOutputBase] = React.useState(42);
+
+  const [error, setError] = React.useState(null);
+  const [output, setOutput] = React.useState(null);
+  const [customOutput, setCustomOutput] = React.useState(null);
+
+  React.useEffect(() => {
+    try {
+      setError(null);
+      setOutput({
+        "base 2 (binary)": numberBaseConverter(number, base, 2),
+        "base 8 (octal)": numberBaseConverter(number, base, 8),
+        "base 10 (decimal)": numberBaseConverter(number, base, 10),
+        "base 16 (hex)": numberBaseConverter(number, base, 16),
+        "base 64": numberBaseConverter(number, base, 64),
+      });
+      setCustomOutput({
+        [`base ${customOutputBase}`]: numberBaseConverter(
+          number,
+          base,
+          customOutputBase,
+        ),
+      });
+    } catch (error) {
+      setError(error.message);
+      setOutput(null);
+    }
+  }, [number, base, customOutputBase]);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header title="Input" helper="Enter the number to convert" />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <MyRangeSlider
+          label="Base"
+          min={2}
+          max={64}
+          step={1}
+          value={base}
+          onChange={setBase}
+        />
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+        <MyInput
+          label="Number"
+          placeholder="Enter the number to convert"
+          value={number}
+          onChange={setNumber}
+        />
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+        {error && <div className="text-red-500 text-sm">{error}</div>}
+      </TwoColumn.Left>
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="Converted number" />
+
+        <ObjectOutput object={output} />
+
+        <MyRangeSlider
+          label="Custom Output Base"
+          min={2}
+          max={64}
+          step={1}
+          value={customOutputBase}
+          onChange={setCustomOutputBase}
+        />
+
+        <ObjectOutput object={customOutput} />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 

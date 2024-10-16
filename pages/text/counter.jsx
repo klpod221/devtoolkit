@@ -10,7 +10,6 @@ import MyCodeEditor from "@components/MyCodeEditor";
 
 import { FaArrowRight } from "react-icons/fa";
 
-// TODO: Add calculation for reading time, bytes etc.
 const WordCounter = () => {
   const [text, setText] = React.useState("");
   const [analysis, setAnalysis] = React.useState({
@@ -18,6 +17,8 @@ const WordCounter = () => {
     characters: 0,
     spaces: 0,
     lines: 0,
+    bytes: 0,
+    readingTime: 0,
     distribution: [],
   });
 
@@ -31,6 +32,7 @@ const WordCounter = () => {
       const characters = text.length;
       const spaces = text.split(" ").length - 1;
       const lines = text.split("\n").length;
+      const bytes = new TextEncoder().encode(text).length;
 
       const wordCounter = wordCount(text);
       const words = Object.values(wordCounter).reduce((a, b) => a + b, 0);
@@ -39,7 +41,10 @@ const WordCounter = () => {
         .map(([word, count]) => ({ word, count }))
         .sort((a, b) => b.count - a.count);
 
-      setAnalysis({ words, characters, spaces, lines, distribution });
+      // if reading time is < 1 minute, show in seconds
+      const readingTime = words < 200 ? Math.ceil(words / 5) + " sec" : Math.ceil(words / 200) + " min";
+
+      setAnalysis({ words, characters, spaces, lines, bytes, readingTime, distribution });
     } catch (error) {
       toast.error(error.message || "An error occurred.");
       console.error(error);
@@ -51,7 +56,7 @@ const WordCounter = () => {
   }, [text, countWords]);
 
   return (
-    <TwoColumn>
+    <TwoColumn leftWidth={65}>
       <TwoColumn.Left>
         <MyCard.Header title="Input" helper="Enter your text below.">
           <MyButton onClick={() => countWords()}>
@@ -95,6 +100,20 @@ const WordCounter = () => {
               Lines
             </div>
             <div className="text-3xl">{analysis.lines}</div>
+          </div>
+
+          <div className="w-32 h-32 border border-gray-300 dark:border-gray-700 rounded-lg flex flex-col items-center justify-center">
+            <div className="text-gray-400 dark:text-dark-text-secondary">
+              Bytes
+            </div>
+            <div className="text-3xl">{analysis.bytes}</div>
+          </div>
+
+          <div className="w-32 h-32 border border-gray-300 dark:border-gray-700 rounded-lg flex flex-col items-center justify-center">
+            <div className="text-gray-400 dark:text-dark-text-secondary">
+              Reading Time
+            </div>
+            <div className="text-3xl">{analysis.readingTime}</div>
           </div>
         </div>
 

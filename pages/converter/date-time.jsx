@@ -2,12 +2,11 @@ import React from "react";
 import moment from "moment";
 
 import TwoColumn from "@components/TwoColumn";
+import ObjectOutput from "@components/ObjectOutput";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
 import MyDatepicker from "@components/MyDatepicker";
 
-import { FaArrowRight } from "react-icons/fa";
-import ObjectOutput from "@components/ObjectOutput";
 
 const DateTimeConverter = () => {
   const [timestamp, setTimestamp] = React.useState(Date.now());

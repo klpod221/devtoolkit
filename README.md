@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (33/97)
+## Tools List (34/97)
 
 ### Text Editor
 
@@ -40,7 +40,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | Status                    | Name                                                                            | Description                                              |
 | ------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | <ul><li> - [x] </li></ul> | [Date-Time Converter](https://devtools.klpod221.site/converter/date-time)       | Convert date and time formats.                           |
-| <ul><li> - [ ] </li></ul> | [Number Base Converter](https://devtools.klpod221.site/converter/number)        | Convert number bases.                                    |
+| <ul><li> - [x] </li></ul> | [Number Base Converter](https://devtools.klpod221.site/converter/number)        | Convert number bases (binary, octal, decimal, hex etc.). |
 | <ul><li> - [ ] </li></ul> | [Roman Numeral Converter](https://devtools.klpod221.site/converter/roman)       | Convert roman numerals.                                  |
 | <ul><li> - [x] </li></ul> | [Base64 Converter](https://devtools.klpod221.site/converter/base64)             | Encode or decode base64 strings.                         |
 | <ul><li> - [x] </li></ul> | [Color Converter](https://devtools.klpod221.site/converter/color)               | Convert color codes to different formats.                |

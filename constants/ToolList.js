@@ -189,10 +189,10 @@ const toolList = [
       },
       {
         name: "Number Base Converter",
-        description: "Convert number bases.",
+        description: "Convert number bases (binary, octal, decimal, hex etc.).",
         icon: AiOutlineFieldBinary,
         path: "/number",
-        status: false,
+        status: true,
       },
       {
         name: "Roman Numeral Converter",
