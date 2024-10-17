@@ -146,7 +146,7 @@ const BcryptHashGenerator = () => {
         {isShowResult && (
           <div
             className={`text-lg font-semibold flex items-center ${
-              isMatched ? "text-green-500" : "text-red-500"
+              isMatched ? "text-green-500" : "text-red-500 dark:text-red-400"
             }`}
           >
             {isMatched ? (

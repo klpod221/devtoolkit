@@ -60,9 +60,12 @@ const NumberBaseConverter = () => {
           placeholder="Enter the number to convert"
           value={number}
           onChange={setNumber}
+          helperText={
+            <span className="text-red-500 dark:text-red-400 -mt-2">
+              {error}
+            </span>
+          }
         />
-
-        {error && <div className="text-red-500 text-sm">{error}</div>}
       </TwoColumn.Left>
       <TwoColumn.Right>
         <MyCard.Header title="Output" helper="Converted number" />

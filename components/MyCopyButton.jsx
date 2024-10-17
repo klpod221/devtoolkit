@@ -5,6 +5,15 @@ import copyToClipboard from "@utils/copyToClipboard";
 import { AiOutlineCopy, AiFillCopy } from "react-icons/ai";
 import MyButton from "./MyButton";
 
+/**
+ * MyCopyButton component
+ * 
+ * @param {Object} props
+ * @param {string} props.value - Value to copy
+ * @param {string} props.type - "button" | "absolute"
+ * @param {string} props.className
+ * @returns {JSX.Element}
+ */
 const MyCopyButton = ({ value, type, className }) => {
   const [classes, setClasses] = React.useState();
 

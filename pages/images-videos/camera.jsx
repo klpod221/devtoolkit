@@ -156,7 +156,7 @@ const CameraRecorder = () => {
 
       {cameraState === "error" && (
         <div className="flex flex-col items-center justify-center">
-          <p className="mb-1 text-red-500">
+          <p className="mb-1 text-red-500 dark:text-red-400">
             Failed to grant permission or your device does not support!
           </p>
           <MyButton onClick={() => grantPermission()}>Try Again</MyButton>

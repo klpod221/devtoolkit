@@ -196,10 +196,10 @@ const toolList = [
       },
       {
         name: "Roman Numeral Converter",
-        description: "Convert roman numerals.",
+        description: "Convert roman numerals to numbers and vice versa.",
         icon: TbLetterX,
         path: "/roman",
-        status: false,
+        status: true,
       },
       {
         name: "Base64 Converter",

@@ -91,7 +91,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
       >
         <div className="h-full px-3 overflow-y-auto bg-white dark:bg-dark">
           {/* Search tool */}
-          <div className="sticky top-0 z-50 bg-white dark:bg-dark">
+          <div className="sticky top-0 z-50 bg-white dark:bg-dark pb-2">
             <MyInput
               type="search"
               placeholder="Search tools..."
