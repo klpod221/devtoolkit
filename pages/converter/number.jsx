@@ -38,6 +38,7 @@ const NumberBaseConverter = () => {
     } catch (error) {
       setError(error.message);
       setOutput(null);
+      setCustomOutput(null);
     }
   }, [number, base, customOutputBase]);
 
