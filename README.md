@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (36/98)
+## Tools List (37/98)
 
 ### Text Editor
 
@@ -46,7 +46,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Color Converter](https://devtools.klpod221.site/converter/color)               | Convert color codes to different formats.                |
 | <ul><li> - [x] </li></ul> | [Text Case Converter](https://devtools.klpod221.site/converter/text-case)       | Convert text to upper, lower, capitalize, camelCase etc. |
 | <ul><li> - [x] </li></ul> | [NATO Alphabet Converter](https://devtools.klpod221.site/converter/nato)        | Convert text to NATO alphabet.                           |
-| <ul><li> - [ ] </li></ul> | [ASCII Binary Converter](https://devtools.klpod221.site/converter/ascii-binary) | Convert text to ASCII binary.                            |
+| <ul><li> - [x] </li></ul> | [ASCII Binary Converter](https://devtools.klpod221.site/converter/ascii-binary) | Convert text to ASCII binary and vice versa.             |
 | <ul><li> - [ ] </li></ul> | [Unicode Converter](https://devtools.klpod221.site/converter/unicode)           | Convert text to unicode and vice versa.                  |
 | <ul><li> - [x] </li></ul> | [List Converter](https://devtools.klpod221.site/converter/list)                 | Convert lists to different formats.                      |
 | <ul><li> - [x] </li></ul> | [Data Type Converter](https://devtools.klpod221.site/converter/data-type)       | Convert between JSON, XML, YAML, TOML, CSV etc.          |

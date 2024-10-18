@@ -232,10 +232,10 @@ const toolList = [
       },
       {
         name: "ASCII Binary Converter",
-        description: "Convert text to ASCII binary.",
+        description: "Convert text to ASCII binary and vice versa.",
         icon: TbBinary,
         path: "/ascii-binary",
-        status: false,
+        status: true,
       },
       {
         name: "Unicode Converter",

@@ -1,44 +1,82 @@
 import React from "react";
-import NextLink from "next/link";
+
+import { textToBinary, binaryToText } from "@utils/asciiBinaryConverter";
 
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
-
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import TwoColumn from "@components/TwoColumn";
+import MyTextarea from "@components/MyTextarea";
 
 const ASCIIBinaryConverter = () => {
+  const [text, setText] = React.useState("Hello, World!");
+  const [textToBinaryOutput, setTextToBinaryOutput] = React.useState(
+    "01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100 00100001",
+  );
+
+  const [binary, setBinary] = React.useState(
+    "01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100 00100001",
+  );
+  const [binaryToTextOutput, setBinaryToTextOutput] =
+    React.useState("Hello, World!");
+
+  React.useEffect(() => {
+    try {
+      setTextToBinaryOutput(textToBinary(text));
+    } catch (error) {
+      setTextToBinaryOutput("");
+      console.log(error);
+    }
+  }, [text]);
+
+  React.useEffect(() => {
+    try {
+      setBinaryToTextOutput(binaryToText(binary));
+    } catch (error) {
+      setBinaryToTextOutput("");
+      console.log(error);
+    }
+  }, [binary]);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header title="Text to ASCII binary" />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <MyTextarea
+          label="Enter text to convert to ASCII binary"
+          placeholder="Hello, World!"
+          rows={5}
+          value={text}
+          onChange={setText}
+        />
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+        <MyTextarea
+          label="ASCII binary"
+          placeholder="01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100 00100001"
+          rows={5}
+          value={textToBinaryOutput}
+          readOnly
+        />
+      </TwoColumn.Left>
+      <TwoColumn.Right>
+        <MyCard.Header title="ASCII binary to text" />
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+        <MyTextarea
+          label="Enter ASCII binary to convert to text"
+          placeholder="01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100 00100001"
+          rows={5}
+          value={binary}
+          onChange={setBinary}
+        />
+
+        <MyTextarea
+          label="Text"
+          placeholder="Hello, World!"
+          rows={5}
+          value={binaryToTextOutput}
+          readOnly
+        />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 
