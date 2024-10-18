@@ -27,6 +27,7 @@ import {
 import {
   GiDigitalTrace,
   GiPerspectiveDiceSixFacesRandom,
+  GiPencilBrush,
 } from "react-icons/gi";
 import { HiSpeakerphone } from "react-icons/hi";
 import { HiBars3BottomLeft, HiBars2 } from "react-icons/hi2";
@@ -227,7 +228,7 @@ const toolList = [
         description: "Convert text to NATO alphabet.",
         icon: TbSpeakerphone,
         path: "/nato",
-        status: false,
+        status: true,
       },
       {
         name: "ASCII Binary Converter",
@@ -512,6 +513,13 @@ const toolList = [
         description: "Convert text to ASCII art.",
         icon: TbCpu,
         path: "/ascii-art",
+        status: false,
+      },
+      {
+        name: "Art Text Generator",
+        description: "Generate art text.",
+        icon: GiPencilBrush,
+        path: "/art-text",
         status: false,
       },
     ],
