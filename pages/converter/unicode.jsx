@@ -1,44 +1,70 @@
 import React from "react";
-import NextLink from "next/link";
 
+import { unicodeToText, textToUnicode } from "@utils/unicodeTextConverter";
+
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
-
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import MyInput from "@components/MyInput";
+import MyTextarea from "@components/MyTextarea";
 
 const UnicodeConverter = () => {
+  const [text, setText] = React.useState("");
+  const [textToUnicodeOutput, setTextToUnicodeOutput] = React.useState("");
+
+  const [unicode, setUnicode] = React.useState("");
+  const [unicodeToTextOutput, setUnicodeToTextOutput] = React.useState("");
+
+  React.useEffect(() => {
+    setTextToUnicodeOutput(textToUnicode(text));
+  }, [text]);
+
+  React.useEffect(() => {
+    setUnicodeToTextOutput(unicodeToText(unicode));
+  }, [unicode]);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header
+          title="Text to Unicode"
+          helper="Convert text to Unicode"
+        />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <MyInput
+          value={text}
+          onChange={setText}
+          placeholder="Enter text"
+          label="Text to convert"
+          helper="Enter text to convert to Unicode"
+        />
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+        <MyTextarea
+          value={textToUnicodeOutput}
+          placeholder="Unicode output"
+          label="Unicode output"
+        />
+      </TwoColumn.Left>
+      <TwoColumn.Right>
+        <MyCard.Header
+          title="Unicode to Text"
+          helper="Convert Unicode to text"
+        />
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+        <MyInput
+          value={unicode}
+          onChange={setUnicode}
+          placeholder="Enter Unicode"
+          label="Unicode to convert"
+          helper="Enter Unicode to convert to text"
+        />
+
+        <MyTextarea
+          value={unicodeToTextOutput}
+          placeholder="Text output"
+          label="Text output"
+        />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 

@@ -242,7 +242,7 @@ const toolList = [
         description: "Convert text to unicode and vice versa.",
         icon: AiOutlineRetweet,
         path: "/unicode",
-        status: false,
+        status: true,
       },
       {
         name: "List Converter",
