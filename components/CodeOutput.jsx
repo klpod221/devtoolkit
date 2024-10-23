@@ -3,7 +3,7 @@ import React from "react";
 import MyCopyButton from "./MyCopyButton";
 
 const CodeOutput = ({
-  language,
+  language = "text",
   output = false,
   error = false,
   canCopy = true,
@@ -20,7 +20,7 @@ const CodeOutput = ({
           id="iframe-output"
         />
       ) : (
-        <pre className="p-2">
+        <pre className="p-2 whitespace-pre-wrap">
           <code>{output}</code>
         </pre>
       )}

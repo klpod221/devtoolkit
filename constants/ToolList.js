@@ -86,11 +86,12 @@ import {
   TbPercentage,
   TbLanguage,
   TbCalculator,
+  TbMathPi,
+  TbBrandMatrix,
 } from "react-icons/tb";
 import { SiNginx } from "react-icons/si";
-import { CgColorPicker } from "react-icons/cg";
+import { CgColorPicker, CgPassword } from "react-icons/cg";
 import { PiFileHtmlFill } from "react-icons/pi";
-import { CgPassword } from "react-icons/cg";
 
 const toolList = [
   {
@@ -809,6 +810,20 @@ const toolList = [
         description: "Calculate percentages.",
         icon: TbPercentage,
         path: "/percentage",
+        status: false,
+      },
+      {
+        name: "PI Calculator",
+        description: "Calculate PI.",
+        icon: TbMathPi,
+        path: "/pi",
+        status: true,
+      },
+      {
+        name: "Matrix Calculator",
+        description: "Calculate matrices.",
+        icon: TbBrandMatrix,
+        path: "/matrix",
         status: false,
       },
     ],

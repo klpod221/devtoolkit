@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (38/98)
+## Tools List (39/100)
 
 ### Text Editor
 
@@ -158,6 +158,8 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [ ] </li></ul> | [Math Evaluator](https://devtools.klpod221.site/math/evaluator)         | Evaluate math expressions (e.g. 2+2\*2).     |
 | <ul><li> - [ ] </li></ul> | [ETA Calculator](https://devtools.klpod221.site/math/eta)               | Calculate ETA.                               |
 | <ul><li> - [ ] </li></ul> | [Percentage Calculator](https://devtools.klpod221.site/math/percentage) | Calculate percentages.                       |
+| <ul><li> - [x] </li></ul> | [PI Calculator](https://devtools.klpod221.site/math/pi)                 | Calculate PI.                                |
+| <ul><li> - [ ] </li></ul> | [Matrix Calculator](https://devtools.klpod221.site/math/matrix)         | Calculate matrices.                          |
 
 ### Measurement Tools
 
