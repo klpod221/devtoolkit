@@ -93,7 +93,7 @@ import { SiNginx } from "react-icons/si";
 import { CgColorPicker, CgPassword } from "react-icons/cg";
 import { PiFileHtmlFill } from "react-icons/pi";
 
-const toolList = [
+const TOOL_LIST = [
   {
     title: "Text Editor",
     path: "/editor",
@@ -264,7 +264,7 @@ const toolList = [
         description: "Convert units of length, weight, temperature etc.",
         icon: LiaWeightSolid,
         path: "/unit",
-        status: false,
+        status: true,
       },
       {
         name: "Time Converter",
@@ -634,8 +634,8 @@ const toolList = [
         status: false,
       },
       {
-        name: "Editor Config Generator",
-        description: "Generate editor configuration files.",
+        name: "Editorconfig Generator",
+        description: "Generate .editorconfig files.",
         icon: AiOutlineCode,
         path: "/editor-config",
         status: false,
@@ -870,4 +870,4 @@ const toolList = [
   },
 ];
 
-export default toolList;
+export default TOOL_LIST;

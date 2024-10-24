@@ -6,7 +6,7 @@ import MyButton from "@components/MyButton";
 
 import { AiFillHome, AiFillGithub } from "react-icons/ai";
 
-const EditorConfigGenerator = () => {
+const EditorconfigGenerator = () => {
   return (
     <MyCard className="w-full max-w-5xl">
       <h5 className="text-2xl font-bold tracking-tight">
@@ -42,5 +42,5 @@ const EditorConfigGenerator = () => {
   );
 };
 
-EditorConfigGenerator.title = "Editor Config Generator";
-export default EditorConfigGenerator;
+EditorconfigGenerator.title = "Editorconfig Generator";
+export default EditorconfigGenerator;

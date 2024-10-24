@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Spinner } from "flowbite-react";
 
-import supportLanguages from "@constants/ProgramingLanguages";
+import supportLanguages from "@constants/programing_languages";
 
 import TwoColumn from "@components/TwoColumn";
 import CodeOutput from "@components/CodeOutput";

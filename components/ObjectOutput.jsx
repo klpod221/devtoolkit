@@ -8,7 +8,7 @@ const ObjectOutput = ({ object, keyType = "capitalize" }) => {
   return (
     <>
       {object && typeof object === "object" && (
-        <div className="flex flex-col border border-gray-300 dark:border-dark-secondary  rounded-md">
+        <div className="flex flex-col border border-gray-300 dark:border-dark-secondary mt-1 rounded-md">
           {Object.entries(object).map(([key, value]) => (
             <div
               key={key}

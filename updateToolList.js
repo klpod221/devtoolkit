@@ -1,4 +1,4 @@
-import toolList from "./constants/ToolList.js";
+import TOOL_LIST from "./constants/tool_list.js";
 import fs from "fs";
 import { exec } from "child_process";
 
@@ -26,14 +26,14 @@ let siteMap = `<?xml version="1.0" encoding="UTF-8" ?>
     <priority>1.0</priority>
   </url>`;
 
-let toolListText = "";
+let TOOL_LISTText = "";
 let numberOfTools = 0;
 let countCompleted = 0;
 
-toolList.forEach((category) => {
-  toolListText += `### ${category.title}\n`;
-  toolListText += `| Status | Name | Description |\n`;
-  toolListText += `| --- | --- | --- |\n`;
+TOOL_LIST.forEach((category) => {
+  TOOL_LISTText += `### ${category.title}\n`;
+  TOOL_LISTText += `| Status | Name | Description |\n`;
+  TOOL_LISTText += `| --- | --- | --- |\n`;
 
   const folderPath = "./pages/" + category.path.replace("/", "");
 
@@ -42,7 +42,7 @@ toolList.forEach((category) => {
   }
 
   category.tools.forEach((tool) => {
-    toolListText += `| <ul><li> - [${tool.status ? "x" : " "}] </li></ul> | [${
+    TOOL_LISTText += `| <ul><li> - [${tool.status ? "x" : " "}] </li></ul> | [${
       tool.name
     }](https://devtools.klpod221.site${category.path}${tool.path}) | ${
       tool.description
@@ -149,7 +149,7 @@ And if you have any suggestions, please let me know by creating an issue.
 
 `;
 
-text += toolListText;
+text += TOOL_LISTText;
 
 text +=
   "\nAll tools are open-source and available on [GitHub](https://github.com/klpod221/devtoolkit).\n\n";

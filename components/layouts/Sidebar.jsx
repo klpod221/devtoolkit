@@ -8,14 +8,14 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { IoChevronDown } from "react-icons/io5";
 
-import toolList from "@/constants/ToolList";
+import TOOL_LIST from "@constants/tool_list";
 
 const MySidebar = ({ isOpen, setIsOpen }) => {
   const router = useRouter();
   const currentPath = router.pathname;
 
   const [keyword, setKeyword] = React.useState("");
-  const [toolkit, setToolkit] = React.useState(toolList);
+  const [toolkit, setToolkit] = React.useState(TOOL_LIST);
 
   const [collapsed, setCollapsed] = React.useState([]);
 
@@ -23,13 +23,13 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
     const search = keyword.toLowerCase().trim();
 
     if (!search) {
-      setToolkit(toolList);
+      setToolkit(TOOL_LIST);
       return;
     }
 
     setCollapsed([]);
 
-    let filteredToolkit = toolList.map((section) => {
+    let filteredToolkit = TOOL_LIST.map((section) => {
       const tools = section.tools.filter(
         (tool) =>
           tool.name.toLowerCase().includes(search) ||

@@ -1,4 +1,4 @@
-const cheatsheet = [
+const REGEX_CHEATSHEET = [
   {
     title: "Character classes",
     items: [
@@ -102,4 +102,4 @@ const cheatsheet = [
   },
 ];
 
-export default cheatsheet;
+export default REGEX_CHEATSHEET;

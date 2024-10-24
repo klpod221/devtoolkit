@@ -1,5 +1,8 @@
 import React from "react";
-import MyTab from "./MyTab";
+
+const Tab = (props) => {
+  return <div>{props.children}</div>;
+};
 
 const MyTabs = (props) => {
   const [activeTab, setActiveTab] = React.useState(0);
@@ -8,35 +11,43 @@ const MyTabs = (props) => {
   React.Children.forEach(props.children, (child) => {
     if (!React.isValidElement(child)) return;
 
-    if (child.type === MyTab) {
+    if (child.type === Tab) {
       tabs.push(child);
     }
   });
 
   return (
     <div className="w-full">
-      <div className="flex space-x-1 overflow-x-auto">
+      <ul className="flex space-x-1 overflow-x-auto">
         {tabs.map((tab, index) => (
-          <div
+          <li
             key={index}
-            className={`cursor-pointer px-4 py-2 hover:bg-white dark:hover:bg-dark dark:hover:text-dark-text rounded-t-lg transition-all duration-300 border border-gray-200 dark:border-dark border-b-0
+            className={`cursor-pointer px-4 py-2 hover:bg-white dark:hover:bg-dark dark:hover:text-dark-text rounded-t-lg transition-all duration-300 border border-gray-200 dark:border-dark whitespace-nowrap
             ${
               activeTab === index
-                ? "bg-white dark:bg-dark "
-                : "bg-gray-100 dark:bg-dark-secondary "
+                ? "bg-white dark:bg-dark border-none"
+                : "bg-gray-100 dark:bg-dark-secondary"
             }`}
             onClick={() => setActiveTab(index)}
           >
             {tab.props.title}
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
 
-      <div className="border border-gray-200 dark:border-dark rounded-b-lg bg-white dark:bg-dark p-4">
-        {tabs[activeTab] && tabs[activeTab].props.children}
-      </div>
+      {tabs.map((tab, index) => (
+        <div
+          key={index}
+          className={`rounded-b-lg bg-white dark:bg-dark p-4 ${
+            activeTab === index ? "block" : "hidden"
+          }`}
+        >
+          {tab.props.children}
+        </div>
+      ))}
     </div>
   );
 };
 
+MyTabs.Tab = Tab;
 export default MyTabs;

@@ -1,7 +1,7 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-import RegexCheatsheet from "@constants/RegexCheatsheet";
+import REGEX_CHEATSHEET from "@constants/regex_cheatsheet";
 
 import findTextPosition from "@utils/findTextPosition";
 import copyToClipboard from "@utils/copyToClipboard";
@@ -367,7 +367,7 @@ const RegexTester = () => {
         />
 
         <div className="flex flex-col space-y-2 overflow-y-auto">
-          {RegexCheatsheet.map((item, index) => (
+          {REGEX_CHEATSHEET.map((item, index) => (
             <>
               <div className="font-semibold " key={index}>
                 {item.title}
