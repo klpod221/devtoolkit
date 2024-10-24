@@ -123,7 +123,7 @@ const BcryptHashGenerator = () => {
         >
           <MyButton onClick={hashChecker}>
             <AiOutlineUnlock className="w-5 h-5 mr-2" />
-            Decrypt
+            Check
           </MyButton>
         </MyCard.Header>
 

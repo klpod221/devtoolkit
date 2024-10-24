@@ -2,6 +2,7 @@ import React from "react";
 import { Editor, DiffEditor } from "@monaco-editor/react";
 import { ThemeContext } from "@/providers/ThemeProvider";
 import { emmetHTML, emmetCSS, emmetJSX } from "emmet-monaco-es";
+import { Spinner } from "flowbite-react";
 
 import { IoExpandOutline, IoContractOutline } from "react-icons/io5";
 import { MdOutlineWrapText, MdFormatAlignLeft } from "react-icons/md";
@@ -113,6 +114,7 @@ const MyCodeEditor = ({
                   readOnly: true,
                   ...options,
                 }}
+                loading={<Spinner className="m-auto w-6 h-6" />}
                 {...props}
               />
             ) : (
@@ -127,6 +129,7 @@ const MyCodeEditor = ({
                   wordWrap: wordWrap,
                   ...options,
                 }}
+                loading={<Spinner className="m-auto w-6 h-6" />}
                 {...props}
               />
             )}
@@ -192,6 +195,7 @@ const MyCodeEditor = ({
               readOnly: true,
               ...options,
             }}
+            loading={<Spinner className="m-auto w-6 h-6" />}
             {...props}
           />
         ) : (
@@ -209,6 +213,7 @@ const MyCodeEditor = ({
               wordWrap: wordWrap,
               ...options,
             }}
+            loading={<Spinner className="m-auto w-6 h-6" />}
             {...props}
           />
         )}

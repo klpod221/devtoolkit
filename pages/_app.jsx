@@ -8,6 +8,7 @@ import Head from "next/head";
 
 import Layout from "@/components/layouts/Layout";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
@@ -27,6 +28,7 @@ const MyApp = ({ Component, pageProps }) => {
       <ThemeProvider>
         <Layout title={Component.title}>
           <Component {...pageProps} />
+          <Analytics />
         </Layout>
       </ThemeProvider>
     </>
