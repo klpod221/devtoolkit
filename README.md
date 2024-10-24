@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (40/100)
+## Tools List (41/100)
 
 ### Text Editor
 
@@ -37,24 +37,24 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Converter Tools
 
-| Status                    | Name                                                                            | Description                                              |
-| ------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| <ul><li> - [x] </li></ul> | [Date-Time Converter](https://devtools.klpod221.site/converter/date-time)       | Convert date and time formats.                           |
-| <ul><li> - [x] </li></ul> | [Number Base Converter](https://devtools.klpod221.site/converter/number)        | Convert number bases (binary, octal, decimal, hex etc.). |
-| <ul><li> - [x] </li></ul> | [Roman Numeral Converter](https://devtools.klpod221.site/converter/roman)       | Convert roman numerals to numbers and vice versa.        |
-| <ul><li> - [x] </li></ul> | [Base64 Converter](https://devtools.klpod221.site/converter/base64)             | Encode or decode base64 strings.                         |
-| <ul><li> - [x] </li></ul> | [Color Converter](https://devtools.klpod221.site/converter/color)               | Convert color codes to different formats.                |
-| <ul><li> - [x] </li></ul> | [Text Case Converter](https://devtools.klpod221.site/converter/text-case)       | Convert text to upper, lower, capitalize, camelCase etc. |
-| <ul><li> - [x] </li></ul> | [NATO Alphabet Converter](https://devtools.klpod221.site/converter/nato)        | Convert text to NATO alphabet.                           |
-| <ul><li> - [x] </li></ul> | [ASCII Binary Converter](https://devtools.klpod221.site/converter/ascii-binary) | Convert text to ASCII binary and vice versa.             |
-| <ul><li> - [x] </li></ul> | [Unicode Converter](https://devtools.klpod221.site/converter/unicode)           | Convert text to unicode and vice versa.                  |
-| <ul><li> - [x] </li></ul> | [List Converter](https://devtools.klpod221.site/converter/list)                 | Convert lists to different formats.                      |
-| <ul><li> - [x] </li></ul> | [Data Type Converter](https://devtools.klpod221.site/converter/data-type)       | Convert between JSON, XML, YAML, TOML, CSV etc.          |
-| <ul><li> - [x] </li></ul> | [Unit Converter](https://devtools.klpod221.site/converter/unit)                 | Convert units of length, weight, temperature etc.        |
-| <ul><li> - [ ] </li></ul> | [Time Converter](https://devtools.klpod221.site/converter/time)                 | Convert time zones and formats.                          |
-| <ul><li> - [ ] </li></ul> | [Currency Converter](https://devtools.klpod221.site/converter/currency)         | Convert currencies with live rates.                      |
-| <ul><li> - [x] </li></ul> | [Unicode To Hex](https://devtools.klpod221.site/converter/unicode-to-hex)       | Convert unicode to hex.                                  |
-| <ul><li> - [x] </li></ul> | [Hex To Unicode](https://devtools.klpod221.site/converter/hex-to-unicode)       | Convert hex to unicode.                                  |
+| Status                    | Name                                                                                | Description                                              |
+| ------------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| <ul><li> - [x] </li></ul> | [Number Base Converter](https://devtools.klpod221.site/converter/number)            | Convert number bases (binary, octal, decimal, hex etc.). |
+| <ul><li> - [x] </li></ul> | [Roman Numeral Converter](https://devtools.klpod221.site/converter/roman)           | Convert roman numerals to numbers and vice versa.        |
+| <ul><li> - [x] </li></ul> | [Base64 Converter](https://devtools.klpod221.site/converter/base64)                 | Encode or decode base64 strings.                         |
+| <ul><li> - [x] </li></ul> | [Color Converter](https://devtools.klpod221.site/converter/color)                   | Convert color codes to different formats.                |
+| <ul><li> - [x] </li></ul> | [Text Case Converter](https://devtools.klpod221.site/converter/text-case)           | Convert text to upper, lower, capitalize, camelCase etc. |
+| <ul><li> - [x] </li></ul> | [NATO Alphabet Converter](https://devtools.klpod221.site/converter/nato)            | Convert text to NATO alphabet.                           |
+| <ul><li> - [x] </li></ul> | [ASCII Binary Converter](https://devtools.klpod221.site/converter/ascii-binary)     | Convert text to ASCII binary and vice versa.             |
+| <ul><li> - [x] </li></ul> | [Unicode Converter](https://devtools.klpod221.site/converter/unicode)               | Convert text to unicode and vice versa.                  |
+| <ul><li> - [x] </li></ul> | [List Converter](https://devtools.klpod221.site/converter/list)                     | Convert lists to different formats.                      |
+| <ul><li> - [x] </li></ul> | [Data Type Converter](https://devtools.klpod221.site/converter/data-type)           | Convert between JSON, XML, YAML, TOML, CSV etc.          |
+| <ul><li> - [x] </li></ul> | [Unit Converter](https://devtools.klpod221.site/converter/unit)                     | Convert units of length, weight, temperature etc.        |
+| <ul><li> - [x] </li></ul> | [Date Time Converter](https://devtools.klpod221.site/converter/date-time)           | Convert time zones and formats.                          |
+| <ul><li> - [x] </li></ul> | [Unix Timestamp Converter](https://devtools.klpod221.site/converter/unix-timestamp) | Convert unix timestamps to human readable dates.         |
+| <ul><li> - [ ] </li></ul> | [Currency Converter](https://devtools.klpod221.site/converter/currency)             | Convert currencies with live rates.                      |
+| <ul><li> - [x] </li></ul> | [Unicode To Hex](https://devtools.klpod221.site/converter/unicode-to-hex)           | Convert unicode to hex.                                  |
+| <ul><li> - [x] </li></ul> | [Hex To Unicode](https://devtools.klpod221.site/converter/hex-to-unicode)           | Convert hex to unicode.                                  |
 
 ### Web Tools
 

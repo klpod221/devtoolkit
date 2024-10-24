@@ -183,13 +183,6 @@ const TOOL_LIST = [
     path: "/converter",
     tools: [
       {
-        name: "Date-Time Converter",
-        description: "Convert date and time formats.",
-        icon: TbCalendarTime,
-        path: "/date-time",
-        status: true,
-      },
-      {
         name: "Number Base Converter",
         description: "Convert number bases (binary, octal, decimal, hex etc.).",
         icon: AiOutlineFieldBinary,
@@ -267,11 +260,18 @@ const TOOL_LIST = [
         status: true,
       },
       {
-        name: "Time Converter",
+        name: "Date Time Converter",
         description: "Convert time zones and formats.",
         icon: FaRegClock,
-        path: "/time",
-        status: false,
+        path: "/date-time",
+        status: true,
+      },
+      {
+        name: "Unix Timestamp Converter",
+        description: "Convert unix timestamps to human readable dates.",
+        icon: TbCalendarTime,
+        path: "/unix-timestamp",
+        status: true,
       },
       {
         name: "Currency Converter",

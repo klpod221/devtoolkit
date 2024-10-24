@@ -73,7 +73,7 @@ const handler = async (req, res) => {
     case "POST":
       return post(req, res);
     default:
-      return res.status(405).end();
+      return res.status(405).json({ error: "Method Not Allowed" });
   }
 };
 

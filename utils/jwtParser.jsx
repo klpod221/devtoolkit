@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment from "moment-timezone";
 import { jwtDecode } from "jwt-decode";
 import _ from "lodash";
 
