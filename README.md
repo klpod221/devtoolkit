@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (41/100)
+## Tools List (42/100)
 
 ### Text Editor
 
@@ -52,7 +52,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Unit Converter](https://devtools.klpod221.site/converter/unit)                     | Convert units of length, weight, temperature etc.        |
 | <ul><li> - [x] </li></ul> | [Date Time Converter](https://devtools.klpod221.site/converter/date-time)           | Convert time zones and formats.                          |
 | <ul><li> - [x] </li></ul> | [Unix Timestamp Converter](https://devtools.klpod221.site/converter/unix-timestamp) | Convert unix timestamps to human readable dates.         |
-| <ul><li> - [ ] </li></ul> | [Currency Converter](https://devtools.klpod221.site/converter/currency)             | Convert currencies with live rates.                      |
+| <ul><li> - [x] </li></ul> | [Currency Converter](https://devtools.klpod221.site/converter/currency)             | Convert currencies with live rates.                      |
 | <ul><li> - [x] </li></ul> | [Unicode To Hex](https://devtools.klpod221.site/converter/unicode-to-hex)           | Convert unicode to hex.                                  |
 | <ul><li> - [x] </li></ul> | [Hex To Unicode](https://devtools.klpod221.site/converter/hex-to-unicode)           | Convert hex to unicode.                                  |
 

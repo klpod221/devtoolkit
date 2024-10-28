@@ -278,7 +278,7 @@ const TOOL_LIST = [
         description: "Convert currencies with live rates.",
         icon: MdCurrencyExchange,
         path: "/currency",
-        status: false,
+        status: true,
       },
       {
         name: "Unicode To Hex",

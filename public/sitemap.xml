@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://devtools.klpod221.site/converter/currency</loc>
-    <lastmod>2024-10-24T09:16:07.717Z</lastmod>
+    <lastmod>2024-10-25T10:50:28.523Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
@@ -162,17 +162,17 @@
   </url>
   <url>
     <loc>https://devtools.klpod221.site/web/open-graph</loc>
-    <lastmod>2024-10-24T09:16:07.721Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.089Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/web/otp</loc>
-    <lastmod>2024-10-24T09:16:07.724Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.096Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/web/mime</loc>
-    <lastmod>2024-10-24T09:16:07.724Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.096Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
@@ -182,37 +182,37 @@
   </url>
   <url>
     <loc>https://devtools.klpod221.site/web/jwt-generator</loc>
-    <lastmod>2024-10-24T09:16:07.727Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.096Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/web/keycode</loc>
-    <lastmod>2024-10-24T09:16:07.731Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.099Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/web/slugify</loc>
-    <lastmod>2024-10-24T09:16:07.731Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.099Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/web/user-agent</loc>
-    <lastmod>2024-10-24T09:16:07.734Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.103Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/web/http-status</loc>
-    <lastmod>2024-10-24T09:16:07.737Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.106Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/web/outlook</loc>
-    <lastmod>2024-10-24T09:16:07.741Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.106Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/text/translator</loc>
-    <lastmod>2024-10-24T09:16:07.761Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.109Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
@@ -242,12 +242,12 @@
   </url>
   <url>
     <loc>https://devtools.klpod221.site/text/to-image</loc>
-    <lastmod>2024-10-24T09:16:07.764Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.116Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/text/speech</loc>
-    <lastmod>2024-10-24T09:16:07.771Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.123Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
@@ -257,52 +257,52 @@
   </url>
   <url>
     <loc>https://devtools.klpod221.site/text/morse</loc>
-    <lastmod>2024-10-24T09:16:07.791Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.133Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/text/binary</loc>
-    <lastmod>2024-10-24T09:16:07.791Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.142Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/text/emoji</loc>
-    <lastmod>2024-10-24T09:16:07.797Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.146Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/text/obfuscator</loc>
-    <lastmod>2024-10-24T09:16:07.801Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.156Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/text/numeronym</loc>
-    <lastmod>2024-10-24T09:16:07.811Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.159Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/text/ascii-art</loc>
-    <lastmod>2024-10-24T09:16:07.817Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.172Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/text/art-text</loc>
-    <lastmod>2024-10-24T09:16:07.824Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.182Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/security/token</loc>
-    <lastmod>2024-10-24T09:16:07.834Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.192Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/security/hash</loc>
-    <lastmod>2024-10-24T09:16:07.841Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.199Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/security/bcrypt</loc>
-    <lastmod>2024-10-17T03:07:44.453Z</lastmod>
+    <lastmod>2024-10-24T09:22:57.308Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
@@ -312,27 +312,27 @@
   </url>
   <url>
     <loc>https://devtools.klpod221.site/security/ulid</loc>
-    <lastmod>2024-10-24T09:16:07.857Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.206Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/security/encryption</loc>
-    <lastmod>2024-10-24T09:16:07.861Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.216Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/security/bip39</loc>
-    <lastmod>2024-10-24T09:16:07.864Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.226Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/security/hmac</loc>
-    <lastmod>2024-10-24T09:16:07.874Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.236Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/security/rsa</loc>
-    <lastmod>2024-10-24T09:16:07.887Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.242Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
@@ -342,137 +342,137 @@
   </url>
   <url>
     <loc>https://devtools.klpod221.site/security/password-strength</loc>
-    <lastmod>2024-10-24T09:16:07.911Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.246Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/security/password</loc>
-    <lastmod>2024-10-24T09:16:07.921Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.272Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/security/pdf-signature</loc>
-    <lastmod>2024-10-24T09:16:07.937Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.282Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/develop/api</loc>
-    <lastmod>2024-10-24T09:16:07.964Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.309Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/develop/editor-config</loc>
-    <lastmod>2024-10-24T09:16:07.987Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.312Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/develop/gitignore</loc>
-    <lastmod>2024-10-24T09:16:08.027Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.332Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/system/nginx</loc>
-    <lastmod>2024-10-24T09:16:08.041Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.396Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/system/docker</loc>
-    <lastmod>2024-10-24T09:16:08.061Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.406Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/system/docker-run</loc>
-    <lastmod>2024-10-24T09:16:08.071Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.442Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/system/ubuntu</loc>
-    <lastmod>2024-10-24T09:16:08.101Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.459Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/system/chmod</loc>
-    <lastmod>2024-10-24T09:16:08.107Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.486Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/system/mail</loc>
-    <lastmod>2024-10-24T09:16:08.117Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.542Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/system/port</loc>
-    <lastmod>2024-10-24T09:16:08.121Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.579Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/system/cron-generator</loc>
-    <lastmod>2024-10-24T09:16:08.127Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.579Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/network/ip</loc>
-    <lastmod>2024-10-24T09:16:08.147Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.589Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/network/dns</loc>
-    <lastmod>2024-10-24T09:16:08.164Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.619Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/network/ping</loc>
-    <lastmod>2024-10-24T09:16:08.241Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.646Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/network/port-scanner</loc>
-    <lastmod>2024-10-24T09:16:08.277Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.689Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/network/subnet</loc>
-    <lastmod>2024-10-24T09:16:08.514Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.719Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/network/ipv4</loc>
-    <lastmod>2024-10-24T09:16:08.517Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.736Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/network/range</loc>
-    <lastmod>2024-10-24T09:16:08.520Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.762Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/network/mac</loc>
-    <lastmod>2024-10-24T09:16:08.577Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.806Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/network/ula</loc>
-    <lastmod>2024-10-24T09:16:08.880Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.846Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/math/calculator</loc>
-    <lastmod>2024-10-24T09:16:09.417Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.859Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/math/evaluator</loc>
-    <lastmod>2024-10-24T09:16:09.417Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.869Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/math/eta</loc>
-    <lastmod>2024-10-24T09:16:09.420Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.876Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/math/percentage</loc>
-    <lastmod>2024-10-24T09:16:09.420Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.882Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
@@ -482,27 +482,27 @@
   </url>
   <url>
     <loc>https://devtools.klpod221.site/math/matrix</loc>
-    <lastmod>2024-10-24T09:16:09.430Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.889Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/measurement/chronometer</loc>
-    <lastmod>2024-10-24T09:16:09.607Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.899Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/measurement/speed</loc>
-    <lastmod>2024-10-24T09:16:09.610Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.962Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/measurement/benchmark</loc>
-    <lastmod>2024-10-24T09:16:10.274Z</lastmod>
+    <lastmod>2024-10-28T10:57:22.996Z</lastmod>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtools.klpod221.site/utility/picker</loc>
-    <lastmod>2024-10-24T09:16:10.284Z</lastmod>
+    <lastmod>2024-10-28T10:57:23.006Z</lastmod>
     <priority>1</priority>
   </url>
 </urlset>
