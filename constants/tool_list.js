@@ -340,7 +340,7 @@ const TOOL_LIST = [
         description: "Generate open graph meta tags.",
         icon: FaTags,
         path: "/open-graph",
-        status: false,
+        status: true,
       },
       {
         name: "OTP Code Generator",
