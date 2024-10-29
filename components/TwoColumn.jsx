@@ -52,12 +52,12 @@ const TwoColumn = (props) => {
   };
 
   React.useEffect(() => {
-    if (window.innerWidth < 640) {
+    if (window.innerWidth < 960) {
       setWidth(100);
     }
 
     const handleResize = () => {
-      if (window.innerWidth < 640) {
+      if (window.innerWidth < 960) {
         setWidth(100);
       }
     };
@@ -70,8 +70,8 @@ const TwoColumn = (props) => {
   }, []);
 
   return (
-    <div className="flex sm:flex-row flex-col h-full">
-      <MyCard style={{ width: `${width}%` }} className="mb-4 sm:mb-0">
+    <div className="flex lg:flex-row flex-col h-full">
+      <MyCard style={{ width: `${width}%` }} className="mb-4 sm:mb-0 max-h-screen">
         {!!LeftContent && LeftContent}
       </MyCard>
 
@@ -87,7 +87,7 @@ const TwoColumn = (props) => {
         />
       </div>
 
-      <MyCard style={{ width: `${width === 100 ? 100 : 100 - width}%` }}>
+      <MyCard style={{ width: `${width === 100 ? 100 : 100 - width}%` }} className="max-h-screen">
         {!!RightContent && RightContent}
       </MyCard>
     </div>

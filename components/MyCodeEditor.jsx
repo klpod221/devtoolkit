@@ -15,7 +15,6 @@ const MyCodeEditor = ({
   fullScreen = true,
   options = {},
   editorRef = null,
-  copy = false,
   className,
   type = "editor",
   ...props
@@ -170,12 +169,10 @@ const MyCodeEditor = ({
             </div>
           )}
 
-          {copy && (
-            <MyCopyButton
-              text={props.value}
-              className="cursor-pointer p-2 bg-white dark:bg-dark rounded-full shadow-md hidden group-hover:block transition-all duration-300 w-fit h-fit"
-            />
-          )}
+          <MyCopyButton
+            text={props.value}
+            className="cursor-pointer p-2 bg-white dark:bg-dark rounded-full shadow-md hidden group-hover:block transition-all duration-300 w-fit h-fit"
+          />
         </div>
 
         {type === "diff" ? (

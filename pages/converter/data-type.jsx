@@ -63,7 +63,6 @@ const JSONConverter = () => {
           language={convertTo}
           value={output[convertTo]}
           options={{ readOnly: true }}
-          copy={true}
         />
       </TwoColumn.Right>
     </TwoColumn>

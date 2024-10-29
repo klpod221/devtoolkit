@@ -48,7 +48,6 @@ const HTMLWYSIWYGEditor = () => {
 
         <MyCodeEditor
           value={output}
-          copy={true}
           options={{
             readOnly: true,
             minimap: {
