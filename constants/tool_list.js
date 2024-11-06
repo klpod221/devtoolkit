@@ -344,10 +344,10 @@ const TOOL_LIST = [
       },
       {
         name: "OTP Code Generator",
-        description: "Generate OTP codes.",
+        description: "Generate and validate time-based OTP (one-time password) for multi-factor authentication.",
         icon: MdSmartphone,
         path: "/otp",
-        status: false,
+        status: true,
       },
       {
         name: "MIME Types",

@@ -22,7 +22,7 @@ const OTPCodeGenerator = () => {
       <div className="flex items-center space-x-2 mt-4">
         <MyButton>
           <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
+            <AiFillHome className="w-5 h-5" /> 
             <span>Go back home</span>
           </NextLink>
         </MyButton>

@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (43/100)
+## Tools List (44/100)
 
 ### Text Editor
 
@@ -58,23 +58,23 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Web Tools
 
-| Status                    | Name                                                                       | Description                    |
-| ------------------------- | -------------------------------------------------------------------------- | ------------------------------ |
-| <ul><li> - [x] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)               | Upload and share files.        |
-| <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)              | Encode or decode url strings.  |
-| <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                | Parse url strings.             |
-| <ul><li> - [x] </li></ul> | [Device Information](https://devtools.klpod221.site/web/device)            | Show Your Device Information.  |
-| <ul><li> - [x] </li></ul> | [Basic Auth Generator](https://devtools.klpod221.site/web/basic-auth)      | Generate basic auth headers.   |
-| <ul><li> - [x] </li></ul> | [Open Graph Meta Generator](https://devtools.klpod221.site/web/open-graph) | Generate open graph meta tags. |
-| <ul><li> - [ ] </li></ul> | [OTP Code Generator](https://devtools.klpod221.site/web/otp)               | Generate OTP codes.            |
-| <ul><li> - [ ] </li></ul> | [MIME Types](https://devtools.klpod221.site/web/mime)                      | Get MIME types.                |
-| <ul><li> - [x] </li></ul> | [JWT Parser](https://devtools.klpod221.site/web/jwt)                       | Parse JSON Web Tokens.         |
-| <ul><li> - [ ] </li></ul> | [JWT Generator](https://devtools.klpod221.site/web/jwt-generator)          | Generate JSON Web Tokens.      |
-| <ul><li> - [ ] </li></ul> | [Keycode Info](https://devtools.klpod221.site/web/keycode)                 | Get keycode information.       |
-| <ul><li> - [ ] </li></ul> | [Slugify String](https://devtools.klpod221.site/web/slugify)               | Slugify your strings.          |
-| <ul><li> - [ ] </li></ul> | [User Agent Parser](https://devtools.klpod221.site/web/user-agent)         | Parse user agent strings.      |
-| <ul><li> - [ ] </li></ul> | [HTTP status code](https://devtools.klpod221.site/web/http-status)         | Get HTTP status codes.         |
-| <ul><li> - [ ] </li></ul> | [Outlook Safe Link Decoder](https://devtools.klpod221.site/web/outlook)    | Decode outlook safe links.     |
+| Status                    | Name                                                                       | Description                                                                               |
+| ------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| <ul><li> - [x] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)               | Upload and share files.                                                                   |
+| <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)              | Encode or decode url strings.                                                             |
+| <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                | Parse url strings.                                                                        |
+| <ul><li> - [x] </li></ul> | [Device Information](https://devtools.klpod221.site/web/device)            | Show Your Device Information.                                                             |
+| <ul><li> - [x] </li></ul> | [Basic Auth Generator](https://devtools.klpod221.site/web/basic-auth)      | Generate basic auth headers.                                                              |
+| <ul><li> - [x] </li></ul> | [Open Graph Meta Generator](https://devtools.klpod221.site/web/open-graph) | Generate open graph meta tags.                                                            |
+| <ul><li> - [x] </li></ul> | [OTP Code Generator](https://devtools.klpod221.site/web/otp)               | Generate and validate time-based OTP (one-time password) for multi-factor authentication. |
+| <ul><li> - [ ] </li></ul> | [MIME Types](https://devtools.klpod221.site/web/mime)                      | Get MIME types.                                                                           |
+| <ul><li> - [x] </li></ul> | [JWT Parser](https://devtools.klpod221.site/web/jwt)                       | Parse JSON Web Tokens.                                                                    |
+| <ul><li> - [ ] </li></ul> | [JWT Generator](https://devtools.klpod221.site/web/jwt-generator)          | Generate JSON Web Tokens.                                                                 |
+| <ul><li> - [ ] </li></ul> | [Keycode Info](https://devtools.klpod221.site/web/keycode)                 | Get keycode information.                                                                  |
+| <ul><li> - [ ] </li></ul> | [Slugify String](https://devtools.klpod221.site/web/slugify)               | Slugify your strings.                                                                     |
+| <ul><li> - [ ] </li></ul> | [User Agent Parser](https://devtools.klpod221.site/web/user-agent)         | Parse user agent strings.                                                                 |
+| <ul><li> - [ ] </li></ul> | [HTTP status code](https://devtools.klpod221.site/web/http-status)         | Get HTTP status codes.                                                                    |
+| <ul><li> - [ ] </li></ul> | [Outlook Safe Link Decoder](https://devtools.klpod221.site/web/outlook)    | Decode outlook safe links.                                                                |
 
 ### Text Tools
 

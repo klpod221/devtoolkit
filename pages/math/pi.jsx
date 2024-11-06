@@ -34,7 +34,7 @@ const PICalculator = () => {
   }
 
   return (
-    <TwoColumn leftWidth="60">
+    <TwoColumn leftWidth="40">
       <TwoColumn.Left>
         <MyCard.Header
           title="Input"
