@@ -59,10 +59,9 @@ const MyInput = ({
         </div>
       )}
 
-      <div className="relative w-full border border-gray-200 bg-gray-50 dark:border-dark-secondary dark:bg-dark dark:placeholder-dark-text-secondary rounded-lg flex justify-between items-center focus-within:border-gray-400 dark:focus-within:border-gray-600"
-      >
+      <div className="relative w-full border border-gray-200 bg-gray-50 dark:border-dark-secondary dark:bg-dark dark:placeholder-dark-text-secondary rounded-lg flex justify-between items-center focus-within:border-gray-400">
         {Icon && (
-          <div className="flex items-center justify-center w-10">
+          <div className="flex items-center justify-center pl-2 pr-1">
             <Icon className="text-gray-400 dark:text-dark-text-secondary w-6 h-6" />
           </div>
         )}
@@ -71,7 +70,7 @@ const MyInput = ({
           type={type}
           value={value}
           onChange={onInputChange}
-          className="block w-full disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-gray-900 dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text px-0 py-2.5 text-sm outline-none focus:ring-0 dark:text-dark-text border-none"
+          className={`block w-full disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-gray-900 dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text py-2.5 text-sm outline-none focus:ring-0 dark:text-dark-text border-none ${Icon ? "pl-0" : "pl-2.5"} pr-1`}
           {...props}
         />
 

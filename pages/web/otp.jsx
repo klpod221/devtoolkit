@@ -10,8 +10,6 @@ const OTPCodeGenerator = () => {
     <MyCard className="w-full max-w-5xl">
       <MyInput
         helper="Enter the length of the OTP code you want to generate"
-        type="search"
-        value="123456"
         icon={AiOutlineSearch}
         action={
           <>
