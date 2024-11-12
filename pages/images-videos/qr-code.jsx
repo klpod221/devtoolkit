@@ -1,5 +1,7 @@
 import React from "react";
-import QRCode from "qrcode";
+import _ from "lodash";
+
+import qrCodeGenerator from "@utils/qrCodeGenerator";
 
 import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
@@ -26,18 +28,22 @@ const QRCodeGenerator = () => {
     },
   });
 
-  React.useEffect(() => {
-    const generateQRCode = async () => {
-      try {
-        const url = await QRCode.toDataURL(input, options);
-        setQRCode(url);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const generateQRCode = React.useMemo(
+    () =>
+      _.debounce(async (input, options) => {
+        try {
+          const url = await qrCodeGenerator(input, options);
+          setQRCode(url);
+        } catch (error) {
+          console.error(error);
+        }
+      }, 500),
+    [],
+  );
 
-    generateQRCode();
-  }, [input, options]);
+  React.useEffect(() => {
+    generateQRCode(input, options);
+  }, [input, options, generateQRCode]);
 
   return (
     <TwoColumn>
@@ -110,7 +116,7 @@ const QRCodeGenerator = () => {
             />
           </div>
 
-          <div className="flex flex-col gap-2 w-full mt-2">
+          <div className="flex flex-col justify-center items-center gap-2 w-full mt-2">
             {qrCode && <MyImage src={qrCode} alt="QR Code" />}
           </div>
         </div>

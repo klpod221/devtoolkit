@@ -63,7 +63,7 @@ const MyCodeEditor = ({
     <>
       {isFullScreen && (
         <div className="fixed inset-0 z-50 bg-gray-900 bg-opacity-80 flex justify-center items-center">
-          <div className="w-full h-full p-4 bg-white dark:bg-dark rounded-lg shadow-lg relative">
+          <div className="w-screen h-screen p-4 bg-white dark:bg-dark rounded-lg shadow-lg relative">
             <div className="absolute top-6 right-6 z-10 flex space-x-2 w-fit">
               {type === "diff" && (
                 <div
