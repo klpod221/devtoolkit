@@ -1,5 +1,6 @@
 import React from "react";
-import bcrypt from "bcryptjs";
+
+import bcryptGenerator from "@utils/bcryptGenerator";
 
 import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
@@ -33,9 +34,7 @@ const BcryptHashGenerator = () => {
         return;
       }
 
-      const saltRounds = bcrypt.genSaltSync(Number(salt));
-
-      const hashed = await toast.promise(bcrypt.hash(input, saltRounds), {
+      const hashed = await toast.promise(bcryptGenerator(input, salt), {
         pending: "Encrypting...",
         success: "Encrypted successfully",
         error: "Error encrypting",
