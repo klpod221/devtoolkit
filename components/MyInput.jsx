@@ -26,6 +26,7 @@ const MyInput = ({
   labelStyle,
   helper,
   action,
+  className,
   icon: Icon,
   ...props
 }) => {
@@ -70,7 +71,7 @@ const MyInput = ({
           type={type}
           value={value}
           onChange={onInputChange}
-          className={`block w-full disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-gray-900 dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text py-2.5 text-sm outline-none focus:ring-0 dark:text-dark-text border-none ${Icon ? "pl-0" : "pl-2.5"} pr-1`}
+          className={`block w-full disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-gray-900 dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text py-2.5 text-sm outline-none focus:ring-0 dark:text-dark-text border-none ${Icon ? "pl-0" : "pl-2.5"} pr-1 ${className}`}
           {...props}
         />
 
