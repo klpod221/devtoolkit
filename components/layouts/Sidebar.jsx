@@ -5,7 +5,7 @@ import MyInput from "@/components/MyInput";
 import { Popover } from "flowbite-react";
 
 import { AiOutlineSearch } from "react-icons/ai";
-import { FaRegCheckCircle } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { IoChevronDown } from "react-icons/io5";
 
 import TOOL_LIST from "@constants/tool_list";
@@ -14,11 +14,61 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
   const router = useRouter();
   const currentPath = router.pathname;
 
+  const [favoriteTools, setFavoriteTools] = React.useState([]);
+
   const [keyword, setKeyword] = React.useState("");
   const [toolkit, setToolkit] = React.useState(TOOL_LIST);
 
   const [collapsed, setCollapsed] = React.useState([]);
 
+  // get favorite tools from local storage
+  const getFavoriteTools = () => {
+    let localFavoriteTools = localStorage.getItem("favoriteTools");
+    localFavoriteTools = JSON.parse(localFavoriteTools);
+
+    const selectedTools = [];
+    TOOL_LIST.forEach((section) => {
+      const tools = section.tools.filter((tool) =>
+        localFavoriteTools.includes(section.path + tool.path),
+      );
+
+      if (tools.length) {
+        const selected = [];
+        tools.forEach((tool) => {
+          selected.push({
+            ...tool,
+            path: section.path + tool.path,
+          });
+        });
+
+        selectedTools.push(...selected);
+      }
+    });
+
+    setFavoriteTools(selectedTools);
+  };
+
+  React.useEffect(() => {
+    getFavoriteTools();
+  }, []);
+
+  // toggle favorite tool by path
+  const toggleFavorite = (path) => {
+    let localFavoriteTools = localStorage.getItem("favoriteTools");
+    localFavoriteTools = JSON.parse(localFavoriteTools);
+
+    if (localFavoriteTools.includes(path)) {
+      localFavoriteTools = localFavoriteTools.filter((item) => item !== path);
+    } else {
+      localFavoriteTools.push(path);
+    }
+
+    localStorage.setItem("favoriteTools", JSON.stringify(localFavoriteTools));
+
+    getFavoriteTools();
+  };
+
+  // filter toolkit by keyword
   React.useEffect(() => {
     const search = keyword.toLowerCase().trim();
 
@@ -44,11 +94,10 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
 
     // remove empty sections
     filteredToolkit = filteredToolkit.filter((section) => section.tools.length);
-
     setToolkit(filteredToolkit);
   }, [keyword]);
 
-  // toggle collapse
+  // handle section collapse
   const handleCollapse = (index) => {
     if (collapsed.includes(index)) {
       setCollapsed(collapsed.filter((item) => item !== index));
@@ -57,7 +106,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
     }
   };
 
-  // scroll to selected item
+  // scroll to selected tool
   React.useEffect(() => {
     const selected = document.querySelector(".sidebar-selected");
     if (selected) {
@@ -106,6 +155,75 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
             <div className="text-center mt-4">No tools found!</div>
           )}
 
+          {/* Favorite tools */}
+          {favoriteTools && favoriteTools.length > 0 && (
+            <ul className="pt-4">
+              <li>
+                <div
+                  className="text-gray-400 text-sm font-medium uppercase w-full border-gray-200 pb-1 dark:border-dark-secondary dark:text-dark-text-secondary cursor-pointer"
+                  onClick={() => handleCollapse("favorite")}
+                >
+                  <IoChevronDown
+                    className={`w-4 h-4 inline-block mr-1 -ml-[7px] transition-transform ${
+                      collapsed.includes("favorite") ? "-rotate-90" : "rotate-0"
+                    }`}
+                  />
+                  Favorite Tools
+                </div>
+              </li>
+              <ul
+                className={`pl-1 border-l space-y-1 overflow-hidden transition-all delay-150 duration-300 ${
+                  collapsed.includes("favorite") ? "h-0" : ""
+                }`}
+                id="favorite"
+              >
+                {favoriteTools.map((tool, index) => (
+                  <li key={index} className="text-sm">
+                    <Popover
+                      content={popoverContent(tool.description)}
+                      placement="right"
+                      trigger="hover"
+                    >
+                      <NextLink
+                        href={tool.path}
+                        className={`flex items-center p-2 rounded-lg  hover:bg-gray-200 dark:hover:bg-dark-secondary group
+                      ${
+                        currentPath === tool.path
+                          ? "sidebar-selected bg-gray-200 dark:bg-dark-secondary"
+                          : ""
+                      }`}
+                      >
+                        <tool.icon
+                          className={`w-5 h-5 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-dark-text ${
+                            currentPath === tool.path
+                              ? "text-gray-900 dark:text-dark-text"
+                              : "text-gray-500 dark:text-dark-text-secondary"
+                          }`}
+                        />
+                        <div
+                          className={`ms-3 mx-1 flex space-x-1 items-center ${!tool.status && "text-gray-400"}`}
+                        >
+                          {tool.name}
+                        </div>
+
+                        <div
+                          className="ml-auto text-gray-400 dark:text-dark-text-secondary"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            toggleFavorite(tool.path);
+                          }}
+                        >
+                          <FaHeart className="text-red-500 dark:text-red-400" />
+                        </div>
+                      </NextLink>
+                    </Popover>
+                  </li>
+                ))}
+              </ul>
+            </ul>
+          )}
+
           {toolkit.map((section, index) => (
             <ul key={index} className="pt-4">
               <li>
@@ -150,10 +268,28 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                               : "text-gray-500 dark:text-dark-text-secondary"
                           }`}
                         />
-                        <span className="ms-3 mx-1">{tool.name}</span>
-                        {tool.status && (
-                          <FaRegCheckCircle className="w-4 h-4 ms-auto text-green-500" />
-                        )}
+                        <div
+                          className={`ms-3 mx-1 flex space-x-1 items-center ${!tool.status && "text-gray-400"}`}
+                        >
+                          {tool.name}
+                        </div>
+
+                        <div
+                          className="ml-auto text-gray-400 dark:text-dark-text-secondary"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            toggleFavorite(section.path + tool.path);
+                          }}
+                        >
+                          {favoriteTools.some(
+                            (item) => item.path === section.path + tool.path,
+                          ) ? (
+                            <FaHeart className="text-red-500 dark:text-red-400" />
+                          ) : (
+                            <FaRegHeart />
+                          )}
+                        </div>
                       </NextLink>
                     </Popover>
                   </li>
@@ -165,7 +301,13 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
           {/* Footer */}
           <div className="w-full py-10 text-center text-sm text-gray-400 dark:text-dark-text-secondary">
             <p>
-              Make with ❤️ by <a href="https://klpod221.site" className="text-blue-500 dark:text-blue-400 hover:underline">klpod221</a>
+              Make with ❤️ by{" "}
+              <a
+                href="https://klpod221.site"
+                className="text-blue-500 dark:text-blue-400 hover:underline"
+              >
+                klpod221
+              </a>
             </p>
             <p>© 2024 All rights reserved</p>
           </div>
