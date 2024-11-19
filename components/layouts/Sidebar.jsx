@@ -26,6 +26,11 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
     let localFavoriteTools = localStorage.getItem("favoriteTools");
     localFavoriteTools = JSON.parse(localFavoriteTools);
 
+    if (!localFavoriteTools) {
+      localFavoriteTools = [];
+      localStorage.setItem("favoriteTools", JSON.stringify(localFavoriteTools));
+    }
+
     const selectedTools = [];
     TOOL_LIST.forEach((section) => {
       const tools = section.tools.filter((tool) =>
