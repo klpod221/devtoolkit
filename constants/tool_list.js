@@ -181,7 +181,7 @@ const TOOL_LIST = [
         description: "Generate images with AI.",
         icon: AiOutlineRetweet,
         path: "/ai-image",
-        status: true,
+        status: false,
       }
     ],
   },
