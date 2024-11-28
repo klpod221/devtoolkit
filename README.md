@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (44/100)
+## Tools List (45/102)
 
 ### Text Editor
 
@@ -34,6 +34,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [QR Code Generator](https://devtools.klpod221.site/images-videos/qr-code)                 | Convert text to QR code and vice versa.                   |
 | <ul><li> - [x] </li></ul> | [SVG Placeholder Generator](https://devtools.klpod221.site/images-videos/svg-placeholder) | Generate SVG placeholders.                                |
 | <ul><li> - [x] </li></ul> | [Camera Recorder](https://devtools.klpod221.site/images-videos/camera)                    | Record video from your camera.                            |
+| <ul><li> - [x] </li></ul> | [AI Image Generator](https://devtools.klpod221.site/images-videos/ai-image)               | Generate images with AI.                                  |
 
 ### Converter Tools
 
@@ -96,6 +97,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [ ] </li></ul> | [Numeronym Generator](https://devtools.klpod221.site/text/numeronym) | Generate numeronyms.                         |
 | <ul><li> - [ ] </li></ul> | [Text to ASCII Art](https://devtools.klpod221.site/text/ascii-art)   | Convert text to ASCII art.                   |
 | <ul><li> - [ ] </li></ul> | [Art Text Generator](https://devtools.klpod221.site/text/art-text)   | Generate art text.                           |
+| <ul><li> - [ ] </li></ul> | [AI Chatbot](https://devtools.klpod221.site/text/chatbot)            | Chat with AI.                                |
 
 ### Security Tools
 

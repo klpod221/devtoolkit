@@ -52,6 +52,11 @@ TOOL_LIST.forEach((category) => {
     const fileName = tool.path.replace("/", "");
     const filePath = folderPath + "/" + fileName + ".jsx";
 
+    // Check if the file exists
+    if (!fs.existsSync(filePath)) {
+      fs.writeFileSync(filePath, "");
+    }
+
     if (!tool.status) {
       let componentName = tool.name
         .split(" ")

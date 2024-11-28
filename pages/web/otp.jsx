@@ -3,20 +3,23 @@ import React from "react";
 import MyCard from "@components/MyCard";
 import MyInput from "@components/MyInput";
 
-import { AiOutlineSearch } from "react-icons/ai";
-
 const OTPCodeGenerator = () => {
   return (
     <MyCard className="w-full max-w-5xl">
-      <MyInput
-        helper="Enter the length of the OTP code you want to generate"
-        icon={AiOutlineSearch}
-        action={
-          <>
-            <button className="btn">Generate</button>
-          </>
-        }
-      />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <MyInput
+            label="Secret"
+            placeholder="Enter Secret"
+          />
+        </div>
+        <div>
+          <MyInput
+            label="Secret in hexadecimal"
+            readOnly
+          />
+        </div>
+      </div>
     </MyCard>
   );
 };

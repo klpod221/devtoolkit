@@ -170,7 +170,7 @@ const MyCodeEditor = ({
           )}
 
           <MyCopyButton
-            text={props.value}
+            value={props.value}
             className="cursor-pointer p-2 bg-white dark:bg-dark rounded-full shadow-md hidden group-hover:block transition-all duration-300 w-fit h-fit"
           />
         </div>

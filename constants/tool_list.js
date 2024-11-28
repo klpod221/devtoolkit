@@ -176,6 +176,13 @@ const TOOL_LIST = [
         path: "/camera",
         status: true,
       },
+      {
+        name: "AI Image Generator",
+        description: "Generate images with AI.",
+        icon: AiOutlineRetweet,
+        path: "/ai-image",
+        status: true,
+      }
     ],
   },
   {
@@ -523,6 +530,13 @@ const TOOL_LIST = [
         path: "/art-text",
         status: false,
       },
+      {
+        name: "AI Chatbot",
+        description: "Chat with AI.",
+        icon: AiOutlineRetweet,
+        path: "/chatbot",
+        status: false,
+      }
     ],
   },
   {
