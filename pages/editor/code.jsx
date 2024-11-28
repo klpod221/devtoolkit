@@ -126,7 +126,7 @@ const CodeEditor = () => {
 
           <CodeOutput
             language={language}
-            error={output?.exception}
+            error={output?.exception || output?.stderr}
             output={output?.stdout}
           />
         </div>

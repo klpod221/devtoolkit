@@ -49,7 +49,12 @@ const post = async (req, res) => {
 
     const { data } = await axios.post(
       "https://onecompiler.com/api/code/exec",
-      formData
+      formData,
+      {
+        headers: {
+          Authorization: 'Bearer ' + process.env.ONE_COMPILER_API_KEY,
+        },
+      },
     );
 
     delete data.job;

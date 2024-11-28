@@ -148,10 +148,11 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
           <div className="sticky top-0 z-50 bg-white dark:bg-dark pb-2">
             <MyInput
               type="search"
-              placeholder="Search tools..."
+              placeholder="Press Alt + / to search"
               icon={AiOutlineSearch}
               value={keyword}
               onChange={setKeyword}
+              id="search-input"
             />
           </div>
 

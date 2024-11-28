@@ -1,5 +1,5 @@
 import React from "react";
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ToastContainer } from "react-toastify";
 import { ThemeContext } from "@/providers/ThemeProvider";
 
@@ -18,9 +18,18 @@ const Layout = ({ children, title }) => {
       }
     };
 
+    // when press 'alt + /', focus on the search input
+    const handleKeyDown = (e) => {
+      if (e.altKey && e.key === "/") {
+        document.getElementById("search-input").focus();
+      }
+    };
+
     window.addEventListener("resize", handleResize);
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
