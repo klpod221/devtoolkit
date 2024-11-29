@@ -2,8 +2,6 @@ import React from "react";
 import Color from "color";
 import { ChromePicker } from "react-color";
 
-import MyInput from "./MyInput";
-
 const MyColorPicker = ({
   value,
   onChange,

@@ -2,6 +2,7 @@ import React from "react";
 
 import MyCard from "@components/MyCard";
 import MyInput from "@components/MyInput";
+import MyButton from "@components/MyButton";
 
 const OTPCodeGenerator = () => {
   return (
@@ -12,6 +13,25 @@ const OTPCodeGenerator = () => {
             label="Secret"
             placeholder="Enter Secret"
           />
+
+          <div className="flex">
+            <MyInput
+              label="Previous"
+              readOnly
+            />
+            <MyInput
+              label="Current"
+              readOnly
+            />
+            <MyInput
+              label="Next"
+              readOnly
+            />
+          </div>
+
+          <MyButton>
+            Generate OTP
+          </MyButton>
         </div>
         <div>
           <MyInput

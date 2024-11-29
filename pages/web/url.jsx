@@ -1,6 +1,5 @@
 import React from "react";
 import { toast } from "react-toastify";
-import { Label } from "flowbite-react";
 
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
@@ -64,11 +63,9 @@ const UrlEncoderDecoder = () => {
       </MyCard.Header>
 
       <div className="flex flex-col">
-        <Label
-          htmlFor="url"
-          value="Url Input"
-          className="text-base font-semibold"
-        />
+        <label htmlFor="url" className="text-base">
+          Url Input
+        </label>
 
         <MyInput
           id="url"
@@ -79,11 +76,9 @@ const UrlEncoderDecoder = () => {
       </div>
 
       <div className="flex flex-col">
-        <Label
-          htmlFor="output"
-          value="Output"
-          className="text-base font-semibold"
-        />
+        <label htmlFor="output" className="text-base">
+          Output
+        </label>
 
         <MyTextarea
           id="output"

@@ -1,6 +1,5 @@
 import React from "react";
 import { RangeSlider } from "flowbite-react";
-import MyInput from "./MyInput";
 
 const MyRangeSlider = ({
   value,

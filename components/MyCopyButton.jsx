@@ -7,21 +7,19 @@ import MyButton from "./MyButton";
 
 /**
  * MyCopyButton component
- * 
+ *
  * @param {Object} props
  * @param {string} props.value - Value to copy
- * @param {string} props.type - "button" | "absolute"
+ * @param {string} props.type - "normal" | "absolute"
  * @param {string} props.className
  * @returns {JSX.Element}
  */
-const MyCopyButton = ({ value, type, className }) => {
-  const [classes, setClasses] = React.useState();
-
-  React.useEffect(() => {
-    if (type === "absolute") {
-      setClasses("absolute top-1 right-1");
-    }
-  }, [type, className]);
+const MyCopyButton = ({ value, type = "normal", className }) => {
+  const types = {
+    normal:
+      "p-1 bg-gray-200 dark:bg-dark-secondary rounded-full hover:opacity-80 transition-all duration-300 ease-in-out",
+    absolute: "absolute top-1 right-1",
+  };
 
   return (
     <>
@@ -32,7 +30,7 @@ const MyCopyButton = ({ value, type, className }) => {
         </MyButton>
       ) : (
         <button
-          className={`p-1 bg-gray-200 dark:bg-dark-secondary rounded-md  hover:opacity-80 transition-all duration-300 ease-in-out ${classes} ${className}`}
+          className={`p-1 bg-gray-200 dark:bg-dark-secondary rounded-full hover:opacity-80 transition-all duration-300 ease-in-out ${types[type]} ${className}`}
           onClick={() => copyToClipboard(value)}
         >
           <AiOutlineCopy />

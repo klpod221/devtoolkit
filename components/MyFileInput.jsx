@@ -1,5 +1,4 @@
 import React from "react";
-import { FileInput, Label } from "flowbite-react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
 const MyFileInput = ({
@@ -69,7 +68,7 @@ const MyFileInput = ({
       setMessage("You can upload an image (jpg, png, svg, etc.)");
     } else {
       setMessage(
-        `You can upload your file here (${multiple ? "multiple" : "single"})`
+        `You can upload your file here (${multiple ? "multiple" : "single"})`,
       );
     }
   }, [placeholder, type, multiple]);
@@ -87,7 +86,7 @@ const MyFileInput = ({
   }, [isDragging, size]);
 
   return (
-    <Label
+    <label
       htmlFor={`dropzone-file-${id}`}
       className={`flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 hover:border-gray-500 hover:bg-gray-100 dark:border-dark-secondary dark:bg-dark dark:hover:border-dark-text-secondary dark:hover:bg-dark-secondary relative transition-all duration-300 ease-in-out dropzone-file ${
         size === "small" ? "w-28 h-28" : "w-full"
@@ -110,14 +109,15 @@ const MyFileInput = ({
           <p className="text-xs text-gray-500 dark:text-gray-400">{message}</p>
         )}
       </div>
-      <FileInput
+      <input
+        type="file"
         id={`dropzone-file-${id}`}
         multiple={multiple}
         accept={`${type === "image" ? "image/*" : accept}`}
         onChange={onFileChange}
-        className="w-full h-full absolute top-0 left-0 opacity-0"
+        className="w-full h-full absolute top-0 left-0 opacity-0 cursor-pointer"
       />
-    </Label>
+    </label>
   );
 };
 

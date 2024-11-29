@@ -1,5 +1,4 @@
 import React from "react";
-import { Card } from "flowbite-react";
 
 const Header = ({ children, title, helper }) => {
   return (
@@ -20,30 +19,14 @@ const Header = ({ children, title, helper }) => {
   );
 };
 
-const MyCard = ({ children, ...props }) => {
-  const theme = {
-    root: {
-      base: "flex rounded-lg border border-gray-200 bg-white dark:border-dark-secondary dark:bg-dark",
-      children: "flex h-full flex-col p-6 space-y-4",
-      horizontal: {
-        off: "flex-col",
-        on: "flex-col md:max-w-xl md:flex-row",
-      },
-      href: "hover:bg-gray-100 dark:hover:bg-gray-700",
-    },
-    img: {
-      base: "",
-      horizontal: {
-        off: "rounded-t-lg",
-        on: "h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg",
-      },
-    },
-  };
-
+const MyCard = ({ children, className, ...props }) => {
   return (
-    <Card theme={theme} {...props}>
-      {children}
-    </Card>
+    <div
+      className={`flex rounded-lg border border-gray-200 bg-white dark:border-dark-secondary dark:bg-dark flex-col mb-4 sm:mb-0 w-full max-h-screen ${className}`}
+      {...props}
+    >
+      <div className="flex h-full flex-col p-6 space-y-4">{children}</div>
+    </div>
   );
 };
 
