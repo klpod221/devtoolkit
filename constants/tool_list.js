@@ -11,6 +11,7 @@ import {
   AiOutlineCloudUpload,
   AiOutlineFieldBinary,
   AiFillCamera,
+  AiOutlineBarcode,
 } from "react-icons/ai";
 import {
   BsRegex,
@@ -32,6 +33,7 @@ import {
 import { HiSpeakerphone } from "react-icons/hi";
 import { HiBars3BottomLeft, HiBars2 } from "react-icons/hi2";
 import { LiaWeightSolid } from "react-icons/lia";
+import { BiBarcodeReader } from "react-icons/bi";
 import {
   MdCurrencyExchange,
   MdMonitor,
@@ -44,6 +46,7 @@ import {
   MdNetworkCheck,
   MdPhonelink,
   MdSpeed,
+  MdOutlineQrCodeScanner,
 } from "react-icons/md";
 import {
   FaLock,
@@ -156,13 +159,6 @@ const TOOL_LIST = [
         status: true,
       },
       {
-        name: "QR Code Generator",
-        description: "Convert text to QR code and vice versa.",
-        icon: AiOutlineQrcode,
-        path: "/qr-code",
-        status: true,
-      },
-      {
         name: "SVG Placeholder Generator",
         description: "Generate SVG placeholders.",
         icon: AiOutlineFileImage,
@@ -182,7 +178,7 @@ const TOOL_LIST = [
         icon: AiOutlineRetweet,
         path: "/ai-image",
         status: false,
-      }
+      },
     ],
   },
   {
@@ -351,7 +347,8 @@ const TOOL_LIST = [
       },
       {
         name: "OTP Code Generator",
-        description: "Generate and validate time-based OTP (one-time password) for multi-factor authentication.",
+        description:
+          "Generate and validate time-based OTP (one-time password) for multi-factor authentication.",
         icon: MdSmartphone,
         path: "/otp",
         status: true,
@@ -536,7 +533,7 @@ const TOOL_LIST = [
         icon: AiOutlineRetweet,
         path: "/chatbot",
         status: false,
-      }
+      },
     ],
   },
   {
@@ -878,6 +875,34 @@ const TOOL_LIST = [
         description: "Pick colors from the color picker or upload an image.",
         icon: CgColorPicker,
         path: "/picker",
+        status: false,
+      },
+      {
+        name: "QR Code Generator",
+        description: "Convert text to QR code and vice versa.",
+        icon: AiOutlineQrcode,
+        path: "/qr-code",
+        status: true,
+      },
+      {
+        name: "QR Code Scanner",
+        description: "Scan QR codes.",
+        icon: MdOutlineQrCodeScanner,
+        path: "/qr-scanner",
+        status: false,
+      },
+      {
+        name: "Barcode Generator",
+        description: "Generate barcodes.",
+        icon: AiOutlineBarcode,
+        path: "/barcode",
+        status: false,
+      },
+      {
+        name: "Barcode Scanner",
+        description: "Scan barcodes.",
+        icon: BiBarcodeReader,
+        path: "/barcode-scanner",
         status: false,
       },
     ],

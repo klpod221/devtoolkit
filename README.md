@@ -7,13 +7,15 @@
 
 ## About
 
-This is a open-source project that I created to help developers with some tools that I use in my day-to-day life. I hope you enjoy it!
+This is a open-source project that I created to help developers or anyone who needs some tools for their daily tasks. The project is a collection of tools that can be used for different purposes like ai chatbot, translator, text editing, image editing, converting, generating, etc. However, the main goal of this project is to provide a single place where you can find all the tools you need.
 
-If you want to contribute, feel free to fork this repository and make a pull request with your changes.
+The project is still in development and I'm adding new tools whenever I have time.
 
-And if you have any suggestions, please let me know by creating an issue.
+If you want to contribute, feel free to fork this repository and make a pull request with your changes. And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (44/102)
+Hope you find this project useful!
+
+## Tools List (44/105)
 
 ### Text Editor
 
@@ -31,7 +33,6 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [JPEG/WEBP Compressor](https://devtools.klpod221.site/images-videos/compressor)           | Reduce the size of your images for JPEG and WEBP formats. |
 | <ul><li> - [x] </li></ul> | [Resizer](https://devtools.klpod221.site/images-videos/resizer)                           | Resize your images.                                       |
 | <ul><li> - [x] </li></ul> | [Base64 Image Converter](https://devtools.klpod221.site/images-videos/base64-image)       | Encode or decode base64 images.                           |
-| <ul><li> - [x] </li></ul> | [QR Code Generator](https://devtools.klpod221.site/images-videos/qr-code)                 | Convert text to QR code and vice versa.                   |
 | <ul><li> - [x] </li></ul> | [SVG Placeholder Generator](https://devtools.klpod221.site/images-videos/svg-placeholder) | Generate SVG placeholders.                                |
 | <ul><li> - [x] </li></ul> | [Camera Recorder](https://devtools.klpod221.site/images-videos/camera)                    | Record video from your camera.                            |
 | <ul><li> - [ ] </li></ul> | [AI Image Generator](https://devtools.klpod221.site/images-videos/ai-image)               | Generate images with AI.                                  |
@@ -173,9 +174,13 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Utility Tools
 
-| Status                    | Name                                                          | Description                                           |
-| ------------------------- | ------------------------------------------------------------- | ----------------------------------------------------- |
-| <ul><li> - [ ] </li></ul> | [Color Picker](https://devtools.klpod221.site/utility/picker) | Pick colors from the color picker or upload an image. |
+| Status                    | Name                                                                      | Description                                           |
+| ------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------- |
+| <ul><li> - [ ] </li></ul> | [Color Picker](https://devtools.klpod221.site/utility/picker)             | Pick colors from the color picker or upload an image. |
+| <ul><li> - [x] </li></ul> | [QR Code Generator](https://devtools.klpod221.site/utility/qr-code)       | Convert text to QR code and vice versa.               |
+| <ul><li> - [ ] </li></ul> | [Barcode Generator](https://devtools.klpod221.site/utility/barcode)       | Generate barcodes.                                    |
+| <ul><li> - [ ] </li></ul> | [QR Code Scanner](https://devtools.klpod221.site/utility/qr-scanner)      | Scan QR codes.                                        |
+| <ul><li> - [ ] </li></ul> | [Barcode Scanner](https://devtools.klpod221.site/utility/barcode-scanner) | Scan barcodes.                                        |
 
 All tools are open-source and available on [GitHub](https://github.com/klpod221/devtoolkit).
 
