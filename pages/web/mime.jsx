@@ -18,13 +18,13 @@ const MIMETypes = () => {
 
   React.useEffect(() => {
     if (selectedType) {
-      setOutputType(extensions[selectedType]);
+      setOutputType(extensions[selectedType] || []);
     }
   }, [selectedType]);
 
   React.useEffect(() => {
     if (selectedExtension) {
-      setOutputExtension(types[selectedExtension]);
+      setOutputExtension(types[selectedExtension] || "");
     }
   }, [selectedExtension]);
 
