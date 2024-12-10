@@ -346,14 +346,6 @@ const TOOL_LIST = [
         status: true,
       },
       {
-        name: "OTP Code Generator",
-        description:
-          "Generate and validate time-based OTP (one-time password) for multi-factor authentication.",
-        icon: MdSmartphone,
-        path: "/otp",
-        status: true,
-      },
-      {
         name: "MIME Types",
         description: "Get MIME types.",
         icon: TbWorld,

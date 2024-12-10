@@ -1,9 +1,7 @@
 import React from "react";
-
 import Color from "color";
 
 import TwoColumn from "@components/TwoColumn";
-import MyInput from "@components/MyInput";
 import MyCard from "@components/MyCard";
 import MyColorPicker from "@components/MyColorPicker";
 import ObjectOutput from "@components/ObjectOutput";

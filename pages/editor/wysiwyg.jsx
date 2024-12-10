@@ -8,7 +8,7 @@ import MyCard from "@components/MyCard";
 import MyCodeEditor from "@components/MyCodeEditor";
 
 const HTMLWYSIWYGEditor = () => {
-  const [content, setContent] = React.useState("<h2 style='color: red;'>Hello World</h2>");
+  const [content, setContent] = React.useState("<h2>Hello World</h2>");
   const [output, setOutput] = React.useState("");
 
   React.useEffect(() => {

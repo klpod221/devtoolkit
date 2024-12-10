@@ -20,6 +20,7 @@
     "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
     "color": "^4.2.3",
+    "crypto-js": "^4.2.0",
     "emmet-monaco-es": "^5.4.0",
     "flowbite-react": "^0.10.1",
     "image-resize-compress": "^1.1.0",

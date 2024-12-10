@@ -7,15 +7,13 @@
 
 ## About
 
-This is a open-source project that I created to help developers or anyone who needs some tools for their daily tasks. The project is a collection of tools that can be used for different purposes like ai chatbot, translator, text editing, image editing, converting, generating, etc. However, the main goal of this project is to provide a single place where you can find all the tools you need.
+This is a open-source project that I created to help developers with some tools that I use in my day-to-day life. I hope you enjoy it!
 
-The project is still in development and I'm adding new tools whenever I have time.
+If you want to contribute, feel free to fork this repository and make a pull request with your changes.
 
-If you want to contribute, feel free to fork this repository and make a pull request with your changes. And if you have any suggestions, please let me know by creating an issue.
+And if you have any suggestions, please let me know by creating an issue.
 
-Hope you find this project useful!
-
-## Tools List (44/105)
+## Tools List (43/104)
 
 ### Text Editor
 
@@ -60,23 +58,22 @@ Hope you find this project useful!
 
 ### Web Tools
 
-| Status                    | Name                                                                       | Description                                                                               |
-| ------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| <ul><li> - [x] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)               | Upload and share files.                                                                   |
-| <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)              | Encode or decode url strings.                                                             |
-| <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                | Parse url strings.                                                                        |
-| <ul><li> - [x] </li></ul> | [Device Information](https://devtools.klpod221.site/web/device)            | Show Your Device Information.                                                             |
-| <ul><li> - [x] </li></ul> | [Basic Auth Generator](https://devtools.klpod221.site/web/basic-auth)      | Generate basic auth headers.                                                              |
-| <ul><li> - [x] </li></ul> | [Open Graph Meta Generator](https://devtools.klpod221.site/web/open-graph) | Generate open graph meta tags.                                                            |
-| <ul><li> - [x] </li></ul> | [OTP Code Generator](https://devtools.klpod221.site/web/otp)               | Generate and validate time-based OTP (one-time password) for multi-factor authentication. |
-| <ul><li> - [ ] </li></ul> | [MIME Types](https://devtools.klpod221.site/web/mime)                      | Get MIME types.                                                                           |
-| <ul><li> - [x] </li></ul> | [JWT Parser](https://devtools.klpod221.site/web/jwt)                       | Parse JSON Web Tokens.                                                                    |
-| <ul><li> - [ ] </li></ul> | [JWT Generator](https://devtools.klpod221.site/web/jwt-generator)          | Generate JSON Web Tokens.                                                                 |
-| <ul><li> - [ ] </li></ul> | [Keycode Info](https://devtools.klpod221.site/web/keycode)                 | Get keycode information.                                                                  |
-| <ul><li> - [ ] </li></ul> | [Slugify String](https://devtools.klpod221.site/web/slugify)               | Slugify your strings.                                                                     |
-| <ul><li> - [ ] </li></ul> | [User Agent Parser](https://devtools.klpod221.site/web/user-agent)         | Parse user agent strings.                                                                 |
-| <ul><li> - [ ] </li></ul> | [HTTP status code](https://devtools.klpod221.site/web/http-status)         | Get HTTP status codes.                                                                    |
-| <ul><li> - [ ] </li></ul> | [Outlook Safe Link Decoder](https://devtools.klpod221.site/web/outlook)    | Decode outlook safe links.                                                                |
+| Status                    | Name                                                                       | Description                    |
+| ------------------------- | -------------------------------------------------------------------------- | ------------------------------ |
+| <ul><li> - [x] </li></ul> | [File Uploader](https://devtools.klpod221.site/web/uploader)               | Upload and share files.        |
+| <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.site/web/url)              | Encode or decode url strings.  |
+| <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.site/web/url-parser)                | Parse url strings.             |
+| <ul><li> - [x] </li></ul> | [Device Information](https://devtools.klpod221.site/web/device)            | Show Your Device Information.  |
+| <ul><li> - [x] </li></ul> | [Basic Auth Generator](https://devtools.klpod221.site/web/basic-auth)      | Generate basic auth headers.   |
+| <ul><li> - [x] </li></ul> | [Open Graph Meta Generator](https://devtools.klpod221.site/web/open-graph) | Generate open graph meta tags. |
+| <ul><li> - [ ] </li></ul> | [MIME Types](https://devtools.klpod221.site/web/mime)                      | Get MIME types.                |
+| <ul><li> - [x] </li></ul> | [JWT Parser](https://devtools.klpod221.site/web/jwt)                       | Parse JSON Web Tokens.         |
+| <ul><li> - [ ] </li></ul> | [JWT Generator](https://devtools.klpod221.site/web/jwt-generator)          | Generate JSON Web Tokens.      |
+| <ul><li> - [ ] </li></ul> | [Keycode Info](https://devtools.klpod221.site/web/keycode)                 | Get keycode information.       |
+| <ul><li> - [ ] </li></ul> | [Slugify String](https://devtools.klpod221.site/web/slugify)               | Slugify your strings.          |
+| <ul><li> - [ ] </li></ul> | [User Agent Parser](https://devtools.klpod221.site/web/user-agent)         | Parse user agent strings.      |
+| <ul><li> - [ ] </li></ul> | [HTTP status code](https://devtools.klpod221.site/web/http-status)         | Get HTTP status codes.         |
+| <ul><li> - [ ] </li></ul> | [Outlook Safe Link Decoder](https://devtools.klpod221.site/web/outlook)    | Decode outlook safe links.     |
 
 ### Text Tools
 
@@ -178,8 +175,8 @@ Hope you find this project useful!
 | ------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------- |
 | <ul><li> - [ ] </li></ul> | [Color Picker](https://devtools.klpod221.site/utility/picker)             | Pick colors from the color picker or upload an image. |
 | <ul><li> - [x] </li></ul> | [QR Code Generator](https://devtools.klpod221.site/utility/qr-code)       | Convert text to QR code and vice versa.               |
-| <ul><li> - [ ] </li></ul> | [Barcode Generator](https://devtools.klpod221.site/utility/barcode)       | Generate barcodes.                                    |
 | <ul><li> - [ ] </li></ul> | [QR Code Scanner](https://devtools.klpod221.site/utility/qr-scanner)      | Scan QR codes.                                        |
+| <ul><li> - [ ] </li></ul> | [Barcode Generator](https://devtools.klpod221.site/utility/barcode)       | Generate barcodes.                                    |
 | <ul><li> - [ ] </li></ul> | [Barcode Scanner](https://devtools.klpod221.site/utility/barcode-scanner) | Scan barcodes.                                        |
 
 All tools are open-source and available on [GitHub](https://github.com/klpod221/devtoolkit).

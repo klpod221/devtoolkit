@@ -59,7 +59,7 @@ const MyInput = ({
         </div>
       )}
 
-      <div className="relative w-full border border-gray-200 bg-gray-50 dark:border-dark-secondary dark:bg-dark dark:placeholder-dark-text-secondary rounded-lg flex justify-between items-center focus-within:border-gray-400">
+      <div className="relative w-full border border-gray-200 bg-gray-50 dark:bg-dark-secondary dark:border-gray-600 dark:placeholder-dark-text-secondary rounded-lg flex justify-between items-center focus-within:border-gray-400">
         {Icon && (
           <div className="flex items-center justify-center pl-2 pr-1">
             <Icon className="text-gray-400 dark:text-dark-text-secondary w-6 h-6" />

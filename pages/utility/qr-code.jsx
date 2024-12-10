@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import _ from "lodash";
 
 import qrCodeGenerator from "@utils/qrCodeGenerator";
