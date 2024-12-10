@@ -31,6 +31,7 @@
     "lodash": "^4.17.21",
     "lorem-ipsum": "^2.0.8",
     "markdown-it": "^14.1.0",
+    "mime-types": "^2.1.35",
     "moment-timezone": "^0.5.46",
     "next": "14.2.12",
     "prettier": "^3.3.3",

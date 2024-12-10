@@ -350,7 +350,7 @@ const TOOL_LIST = [
         description: "Get MIME types.",
         icon: TbWorld,
         path: "/mime",
-        status: false,
+        status: true,
       },
       {
         name: "JWT Parser",

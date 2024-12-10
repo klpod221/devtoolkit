@@ -52,8 +52,7 @@
   }
 
   kbd {
-    @apply px-1 py-0.5 bg-gray-200 rounded h-fit dark:bg-dark-secondary;
-    font-family: "Fira Code", "Courier New", monospace;
+    @apply px-1 py-0.5 bg-gray-200 rounded h-fit dark:bg-dark-secondary font-mono text-sm;
   }
 
   .regex-match {
