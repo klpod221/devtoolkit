@@ -394,13 +394,6 @@ const TOOL_LIST = [
         path: "/http-status",
         status: true,
       },
-      {
-        name: "Outlook Safe Link Decoder",
-        description: "Decode outlook safe links.",
-        icon: TbMailbox,
-        path: "/outlook",
-        status: false,
-      },
     ],
   },
   {
