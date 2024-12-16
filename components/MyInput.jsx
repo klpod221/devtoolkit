@@ -24,7 +24,7 @@ const MyInput = ({
   label,
   labelStyle,
   helper,
-  action,
+  additional,
   className,
   icon: Icon,
   ...props
@@ -81,7 +81,7 @@ const MyInput = ({
             </Tooltip>
           )}
 
-          {action}
+          {additional}
         </div>
       </div>
     </div>

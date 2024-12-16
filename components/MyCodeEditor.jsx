@@ -40,8 +40,7 @@ const MyCodeEditor = ({
 
   const handleEditorDidMount = (editor, monaco) => {
     if (editorRef) {
-      editorRef.current = editor;
-      editorRef.monaco = monaco;
+      editorRef.current = monaco.editor;
     }
   };
 
