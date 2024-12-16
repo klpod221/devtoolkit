@@ -8,7 +8,6 @@ import MyTextarea from "@components/MyTextarea";
 
 import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 
-// TODO: Allow encode/decode string
 const UrlEncoderDecoder = () => {
   const [input, setInput] = React.useState("");
   const [output, setOutput] = React.useState("");

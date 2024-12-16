@@ -6,7 +6,6 @@ import CodeOutput from "@components/CodeOutput";
 import MyCodeEditor from "@/components/MyCodeEditor";
 import MyCard from "@components/MyCard";
 
-// TODO: Add copy as HTML button
 // TODO: Add download as HTML or PDF file button
 const MarkdownEditor = () => {
   const [code, setCode] = React.useState("");
@@ -25,13 +24,14 @@ const MarkdownEditor = () => {
           helper="Write your markdown here"
         />
 
+        {/* TODO: Replace with a rich text markdown editor */}
         <MyCodeEditor language={"markdown"} value={code} onChange={setCode} />
       </TwoColumn.Left>
 
       <TwoColumn.Right>
         <MyCard.Header title="Preview" />
 
-        <CodeOutput language={"html"} output={output} canCopy={false} />
+        <CodeOutput language={"html"} output={output} />
       </TwoColumn.Right>
     </TwoColumn>
   );
