@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import { Spinner, theme } from "flowbite-react";
 
-import supportLanguages from "@constants/programming_languages";
-import codeSamples from "@constants/code_samples";
+import SUPPORT_LANGUAGES from "@constants/programming_languages";
+import CODE_SAMPLES from "@constants/code_samples";
 
 import TwoColumn from "@components/TwoColumn";
 import CodeOutput from "@components/CodeOutput";
@@ -51,7 +51,7 @@ const CodeEditor = () => {
   };
 
   React.useEffect(() => {
-    const selectedLang = supportLanguages.find(
+    const selectedLang = SUPPORT_LANGUAGES.find(
       (lang) => lang.slug === selectedLanguage,
     );
 
@@ -60,7 +60,7 @@ const CodeEditor = () => {
       setThemeLanguage(selectedLang.theme || selectedLang.slug);
       setHelperMessage(selectedLang.helper || "");
 
-      const codeSample = codeSamples[selectedLang.slug];
+      const codeSample = CODE_SAMPLES[selectedLang.slug];
       setCode(codeSample || "");
     }
 
@@ -75,7 +75,7 @@ const CodeEditor = () => {
           helper={helperMessage || "You can write your code here"}
         >
           <MySelect value={selectedLanguage} onChange={setSelectedLanguage}>
-            {supportLanguages.map((lang, index) => (
+            {SUPPORT_LANGUAGES.map((lang, index) => (
               <option key={index} value={lang.slug}>
                 {lang.name}
               </option>

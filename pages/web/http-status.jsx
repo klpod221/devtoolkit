@@ -1,42 +1,75 @@
 import React from "react";
-import NextLink from "next/link";
+
+import HTTP_STATUS_CODES from "@constants/http_status_codes";
 
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
+import MyInput from "@components/MyInput";
 
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 
 const HTTPStatusCode = () => {
+  const [keyword, setKeyword] = React.useState("");
+  const [codes, setCodes] = React.useState(HTTP_STATUS_CODES);
+
+  React.useEffect(() => {
+    if (keyword) {
+      const filteredCodes = HTTP_STATUS_CODES.map((section) => {
+        const codes = section.codes.filter((code) => {
+          return (
+            code.code.toString().includes(keyword) ||
+            code.message.toLowerCase().includes(keyword.toLowerCase()) ||
+            code.description.toLowerCase().includes(keyword.toLowerCase())
+          );
+        });
+
+        return {
+          title: section.title,
+          codes,
+        };
+      });
+
+      setCodes(filteredCodes);
+    } else {
+      setCodes(HTTP_STATUS_CODES);
+    }
+  }, [keyword]);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <MyCard className="w-full max-h-[90vh] overflow-hidden">
+      <MyInput
+        type="search"
+        placeholder="Search HTTP status code"
+        icon={AiOutlineSearch}
+        value={keyword}
+        onChange={setKeyword}
+        id="search-input"
+      />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
-
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
-
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
+      <div className="overflow-y-auto">
+        {codes.map((codeSections) => {
+          return (
+            <div key={codeSections.title}>
+              <h2 className="text-xl font-bold mt-2">{codeSections.title}</h2>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {codeSections.codes.map((code) => {
+                  return (
+                    <div
+                      key={code.code}
+                      className="p-4 border border-gray-200 rounded-md"
+                    >
+                      <div className="text-lg font-bold">
+                        {code.code} - {code.message}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        {code.description}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </MyCard>
   );

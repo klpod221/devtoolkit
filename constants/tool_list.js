@@ -392,7 +392,7 @@ const TOOL_LIST = [
         description: "Get HTTP status codes.",
         icon: MdHttp,
         path: "/http-status",
-        status: false,
+        status: true,
       },
       {
         name: "Outlook Safe Link Decoder",
