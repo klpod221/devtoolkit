@@ -378,7 +378,7 @@ const TOOL_LIST = [
         description: "Slugify your strings.",
         icon: MdAbc,
         path: "/slugify",
-        status: false,
+        status: true,
       },
       {
         name: "User Agent Parser",
