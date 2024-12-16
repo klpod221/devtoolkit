@@ -364,7 +364,7 @@ const TOOL_LIST = [
         description: "Generate JSON Web Tokens.",
         icon: TbCertificate,
         path: "/jwt-generator",
-        status: false,
+        status: true,
       },
       {
         name: "Keycode Info",

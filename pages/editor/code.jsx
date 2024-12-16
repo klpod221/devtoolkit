@@ -1,8 +1,9 @@
 import React from "react";
 import axios from "axios";
-import { Spinner } from "flowbite-react";
+import { Spinner, theme } from "flowbite-react";
 
 import supportLanguages from "@constants/programming_languages";
+import codeSamples from "@constants/code_samples";
 
 import TwoColumn from "@components/TwoColumn";
 import CodeOutput from "@components/CodeOutput";
@@ -15,10 +16,9 @@ import MySelect from "@components/MySelect";
 import { BsPlayFill } from "react-icons/bs";
 
 const CodeEditor = () => {
-  const [selectedLanguage, setSelectedLanguage] = React.useState(
-    supportLanguages[0].slug,
-  );
+  const [selectedLanguage, setSelectedLanguage] = React.useState("html");
   const [language, setLanguage] = React.useState();
+  const [themeLanguage, setThemeLanguage] = React.useState();
   const [code, setCode] = React.useState("");
   const [stdin, setStdin] = React.useState("");
   const [loading, setLoading] = React.useState(false);
@@ -34,6 +34,7 @@ const CodeEditor = () => {
       const formData = {
         code,
         language,
+        theme: themeLanguage,
         stdin,
       };
 
@@ -55,8 +56,12 @@ const CodeEditor = () => {
     );
 
     if (selectedLang) {
-      setLanguage(selectedLang.theme || selectedLang.slug);
+      setLanguage(selectedLang.slug);
+      setThemeLanguage(selectedLang.theme || selectedLang.slug);
       setHelperMessage(selectedLang.helper || "");
+
+      const codeSample = codeSamples[selectedLang.slug];
+      setCode(codeSample || "");
     }
 
     setOutput(null);
@@ -69,22 +74,15 @@ const CodeEditor = () => {
           title="Code Input"
           helper={helperMessage || "You can write your code here"}
         >
-          <MySelect
-            value={selectedLanguage}
-            onChange={setSelectedLanguage}
-          >
-            {supportLanguages.map((lang) => (
-              <option key={lang.slug} value={lang.slug}>
+          <MySelect value={selectedLanguage} onChange={setSelectedLanguage}>
+            {supportLanguages.map((lang, index) => (
+              <option key={index} value={lang.slug}>
                 {lang.name}
               </option>
             ))}
           </MySelect>
 
-          <MyButton
-            className="py-0"
-            onClick={handleRunCode}
-            disabled={loading}
-          >
+          <MyButton className="py-0" onClick={handleRunCode} disabled={loading}>
             Run Code
             {loading ? (
               <Spinner size="sm" className="ml-1" />
@@ -94,12 +92,16 @@ const CodeEditor = () => {
           </MyButton>
         </MyCard.Header>
 
-        <MyCodeEditor language={language} value={code} onChange={setCode} />
+        <MyCodeEditor
+          language={themeLanguage}
+          value={code}
+          onChange={setCode}
+        />
       </TwoColumn.Left>
 
       <TwoColumn.Right>
         <div className="flex h-full flex-col">
-          {language !== "html" && (
+          {language !== "html" && themeLanguage !== "html" && (
             <MyTextarea
               id="stdin"
               label="INPUT"
@@ -125,7 +127,7 @@ const CodeEditor = () => {
           </div>
 
           <CodeOutput
-            language={language}
+            language={themeLanguage}
             error={output?.exception || output?.stderr}
             output={output?.stdout}
           />

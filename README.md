@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (44/104)
+## Tools List (45/104)
 
 ### Text Editor
 
@@ -68,7 +68,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Open Graph Meta Generator](https://devtools.klpod221.site/web/open-graph) | Generate open graph meta tags. |
 | <ul><li> - [x] </li></ul> | [MIME Types](https://devtools.klpod221.site/web/mime)                      | Get MIME types.                |
 | <ul><li> - [x] </li></ul> | [JWT Parser](https://devtools.klpod221.site/web/jwt)                       | Parse JSON Web Tokens.         |
-| <ul><li> - [ ] </li></ul> | [JWT Generator](https://devtools.klpod221.site/web/jwt-generator)          | Generate JSON Web Tokens.      |
+| <ul><li> - [x] </li></ul> | [JWT Generator](https://devtools.klpod221.site/web/jwt-generator)          | Generate JSON Web Tokens.      |
 | <ul><li> - [ ] </li></ul> | [Keycode Info](https://devtools.klpod221.site/web/keycode)                 | Get keycode information.       |
 | <ul><li> - [ ] </li></ul> | [Slugify String](https://devtools.klpod221.site/web/slugify)               | Slugify your strings.          |
 | <ul><li> - [ ] </li></ul> | [User Agent Parser](https://devtools.klpod221.site/web/user-agent)         | Parse user agent strings.      |

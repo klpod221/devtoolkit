@@ -2,7 +2,7 @@ import axios from "axios";
 import PROGRAMMING_LANGUAGES from "@constants/programming_languages";
 
 const post = async (req, res) => {
-  const { code, language, stdin } = req.body;
+  const { code, language, theme, stdin } = req.body;
 
   const selectedLanguage = PROGRAMMING_LANGUAGES.find(
     (lang) => lang.slug === language,
@@ -19,7 +19,7 @@ const post = async (req, res) => {
   try {
     let formData;
 
-    if (language == "html") {
+    if (language === "html" || theme === "html") {
       const randomCode = Math.random().toString(36).substring(2, 11);
 
       formData = {
@@ -61,7 +61,7 @@ const post = async (req, res) => {
 
     delete data.job;
 
-    if (language == "html" && data.stdout) {
+    if ((language === "html" || theme === "html") && data.stdout) {
       const url = `https://app.onecompiler.com/${data.stdout}`;
 
       const { data: htmlData } = await axios.get(url);

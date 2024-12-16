@@ -9,6 +9,7 @@ const MyTextarea = ({
   label,
   labelStyle,
   rows = 4,
+  className,
   ...props
 }) => {
   const onTextChange = (e) => {
@@ -18,10 +19,7 @@ const MyTextarea = ({
   return (
     <div className="flex flex-col">
       {label && (
-        <label
-          htmlFor={props.id}
-          className={`text-base  ${labelStyle}`}
-        >
+        <label htmlFor={props.id} className={`text-base  ${labelStyle}`}>
           {label}
         </label>
       )}
@@ -36,7 +34,7 @@ const MyTextarea = ({
         )}
 
         <textarea
-          class="block w-full rounded-lg border text-sm disabled:cursor-not-allowed disabled:opacity-50 border-gray-200 bg-gray-50 focus:border-cyan-500 focus:ring-cyan-500 dark:border-dark-secondary dark:bg-dark dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text"
+          className={`block w-full border text-sm disabled:cursor-not-allowed disabled:opacity-50 border-gray-200 bg-gray-50 focus:border-cyan-500 focus:ring-cyan-500 dark:border-dark-secondary dark:bg-dark dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text ${className}`}
           rows={rows}
           value={value}
           onChange={onTextChange}
