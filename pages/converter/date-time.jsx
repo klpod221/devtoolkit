@@ -106,7 +106,7 @@ const DateTimeConverter = () => {
         />
 
         <div className="overflow-y-auto h-full max-h-[1000px]">
-          <ObjectOutput object={result} />
+          <ObjectOutput data={result} />
         </div>
       </TwoColumn.Right>
     </TwoColumn>

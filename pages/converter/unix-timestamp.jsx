@@ -61,7 +61,7 @@ const UnixTimestampConverter = () => {
         <MyCard.Header title="Output" helper="Converted Date and Time" />
 
         <div className="overflow-y-auto">
-          <ObjectOutput object={output} />
+          <ObjectOutput data={output} />
         </div>
       </TwoColumn.Right>
     </TwoColumn>

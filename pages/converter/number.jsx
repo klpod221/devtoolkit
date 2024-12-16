@@ -71,7 +71,7 @@ const NumberBaseConverter = () => {
       <TwoColumn.Right>
         <MyCard.Header title="Output" helper="Converted number" />
 
-        <ObjectOutput object={output} />
+        <ObjectOutput data={output} />
 
         <MyRangeSlider
           label="Custom Output Base"
@@ -82,7 +82,7 @@ const NumberBaseConverter = () => {
           onChange={setCustomOutputBase}
         />
 
-        <ObjectOutput object={customOutput} />
+        <ObjectOutput data={customOutput} />
       </TwoColumn.Right>
     </TwoColumn>
   );

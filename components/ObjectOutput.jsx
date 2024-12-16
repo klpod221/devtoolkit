@@ -4,12 +4,12 @@ import objectKeyToHumanReadable from "@utils/objectKeyToHumanReadable";
 
 import MyCopyButton from "./MyCopyButton";
 
-const ObjectOutput = ({ object, beautifyKey = true }) => {
+const ObjectOutput = ({ data, beautifyKey = true }) => {
   return (
     <>
-      {object && typeof object === "object" && (
+      {data && typeof data === "object" && (
         <div className="flex flex-col border border-gray-300 dark:border-dark-secondary mt-1 rounded-md">
-          {Object.entries(object).map(([key, value]) => (
+          {Object.entries(data).map(([key, value]) => (
             <div
               key={key}
               className="flex flex-col px-3 pt-5 pb-3 border-b border-gray-300/50 dark:border-dark-secondary/50 last:border-b-0"

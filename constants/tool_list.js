@@ -371,7 +371,7 @@ const TOOL_LIST = [
         description: "Get keycode information.",
         icon: TbKeyboard,
         path: "/keycode",
-        status: false,
+        status: true,
       },
       {
         name: "Slugify String",

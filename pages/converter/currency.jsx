@@ -151,7 +151,7 @@ const CurrencyConverter = () => {
         />
 
         <div className="overflow-y-auto h-full max-h-[1000px]">
-          <ObjectOutput object={output} beautifyKey={false} />
+          <ObjectOutput data={output} beautifyKey={false} />
         </div>
       </TwoColumn.Right>
     </TwoColumn>

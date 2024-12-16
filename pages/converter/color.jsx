@@ -64,7 +64,7 @@ const ColorConverter = () => {
       <TwoColumn.Right>
         <MyCard.Header title="Output" helper="Converted color code" />
 
-        <ObjectOutput keyType="uppercase" object={output} />
+        <ObjectOutput keyType="uppercase" data={output} />
       </TwoColumn.Right>
     </TwoColumn>
   );

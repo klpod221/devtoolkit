@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (47/103)
+## Tools List (48/103)
 
 ### Text Editor
 
@@ -69,7 +69,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [MIME Types](https://devtools.klpod221.site/web/mime)                      | Get MIME types.                |
 | <ul><li> - [x] </li></ul> | [JWT Parser](https://devtools.klpod221.site/web/jwt)                       | Parse JSON Web Tokens.         |
 | <ul><li> - [x] </li></ul> | [JWT Generator](https://devtools.klpod221.site/web/jwt-generator)          | Generate JSON Web Tokens.      |
-| <ul><li> - [ ] </li></ul> | [Keycode Info](https://devtools.klpod221.site/web/keycode)                 | Get keycode information.       |
+| <ul><li> - [x] </li></ul> | [Keycode Info](https://devtools.klpod221.site/web/keycode)                 | Get keycode information.       |
 | <ul><li> - [x] </li></ul> | [Slugify String](https://devtools.klpod221.site/web/slugify)               | Slugify your strings.          |
 | <ul><li> - [ ] </li></ul> | [User Agent Parser](https://devtools.klpod221.site/web/user-agent)         | Parse user agent strings.      |
 | <ul><li> - [x] </li></ul> | [HTTP status code](https://devtools.klpod221.site/web/http-status)         | Get HTTP status codes.         |

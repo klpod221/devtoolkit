@@ -60,7 +60,7 @@ const UrlParser = () => {
       <TwoColumn.Right>
         <MyCard.Header title="Output" helper="Parsed URL will be shown here" />
 
-        <ObjectOutput object={parsedUrl} />
+        <ObjectOutput data={parsedUrl} />
       </TwoColumn.Right>
     </TwoColumn>
   );

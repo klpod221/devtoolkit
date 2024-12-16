@@ -71,7 +71,7 @@ const RSADecoder = () => {
             <>
               <div className="font-semibold ">General</div>
               <div className="pt-1 pb-4">
-                <ObjectOutput object={output.general} />
+                <ObjectOutput data={output.general} />
               </div>
             </>
           )}
@@ -80,7 +80,7 @@ const RSADecoder = () => {
             <>
               <div className="font-semibold ">Subject</div>
               <div className="pt-1 pb-4">
-                <ObjectOutput object={output.subject} />
+                <ObjectOutput data={output.subject} />
               </div>
             </>
           )}
@@ -89,7 +89,7 @@ const RSADecoder = () => {
             <>
               <div className="font-semibold ">Issuer</div>
               <div className="pt-1 pb-4">
-                <ObjectOutput object={output.issuer} />
+                <ObjectOutput data={output.issuer} />
               </div>
             </>
           )}

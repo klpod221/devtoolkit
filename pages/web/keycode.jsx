@@ -1,44 +1,73 @@
 import React from "react";
-import NextLink from "next/link";
 
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
-
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import TwoColumn from "@components/TwoColumn";
+import ObjectOutput from "@components/ObjectOutput";
 
 const KeycodeInfo = () => {
+  const [keycode, setKeycode] = React.useState(null);
+  const [output, setOutput] = React.useState({
+    key: "",
+    keycode: "",
+    code: "",
+    location: "",
+    modifiers: "",
+  });
+
+  const handleKeyDown = (e) => {
+    e.preventDefault();
+
+    const modifierKeys = {
+      ShiftKey: e.shiftKey,
+      CtrlKey: e.ctrlKey,
+      AltKey: e.altKey,
+      MetaKey: e.metaKey,
+    };
+
+    setKeycode(e.key);
+    setOutput({
+      key: e.key,
+      keycode: e.keyCode,
+      code: e.code,
+      location: e.location,
+      modifiers: Object.keys(modifierKeys)
+        .filter((key) => modifierKeys[key])
+        .map((key) => key.replace("Key", ""))
+        .join(" + "),
+    });
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header
+          title="Input"
+          helper="Find the javascript keycode, code, location and modifiers of any pressed key."
+        />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <div className="rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 dark:border-dark-secondary dark:bg-dark w-full p-4">
+          <div className="text-center">
+            <p className="text-2xl font-bold">{keycode}</p>
+            <p className="text-sm text-gray-500">
+              Press the key on your keyboard you want to get info about this
+              key.
+            </p>
+          </div>
+        </div>
+      </TwoColumn.Left>
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="Output will be shown here." />
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
-
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+        <ObjectOutput data={output} />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 
