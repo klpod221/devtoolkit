@@ -600,7 +600,7 @@ const TOOL_LIST = [
         description: "Check your password strength.",
         icon: FaHashtag,
         path: "/password-strength",
-        status: false,
+        status: true,
       },
       {
         name: "Password Generator",
