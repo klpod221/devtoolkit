@@ -385,7 +385,7 @@ const TOOL_LIST = [
         description: "Parse user agent strings.",
         icon: BsWindowSidebar,
         path: "/user-agent",
-        status: false,
+        status: true,
       },
       {
         name: "HTTP status code",

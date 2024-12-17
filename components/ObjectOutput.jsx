@@ -21,7 +21,7 @@ const ObjectOutput = ({ data, beautifyKey = true }) => {
               </span>
               <span className="flex items-center pt-1 break-all whitespace-pre-wrap justify-between">
                 {value}
-                {value && <MyCopyButton value={value} className="ml-2" />}
+                {value.toString().trim() && <MyCopyButton value={value} className="ml-2" />}
               </span>
             </div>
           ))}

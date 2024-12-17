@@ -1,5 +1,6 @@
 import React from "react";
 import Color from "color";
+import _ from "lodash";
 import { ChromePicker } from "react-color";
 
 const MyColorPicker = ({
@@ -27,34 +28,35 @@ const MyColorPicker = ({
     if (value) {
       handleChange(value);
     }
-  }
+  };
 
   const handleChange = React.useMemo(
-    () => (colorPicker, isUpdateInput = false) => {
-      try {
-        let color = Color("#000000");
+    () =>
+      _.debounce((colorPicker, isUpdateInput = false) => {
+        try {
+          let color = Color("#000000");
 
-        if (typeof colorPicker === "string") {
-          if (colorPicker.length > 7 && colorPicker[0] === "#") {
-            color = Color(colorPicker.slice(0, 7)).alpha(
-              parseInt(colorPicker.slice(7), 16) / 255,
-            );
+          if (typeof colorPicker === "string") {
+            if (colorPicker.length > 7 && colorPicker[0] === "#") {
+              color = Color(colorPicker.slice(0, 7)).alpha(
+                parseInt(colorPicker.slice(7), 16) / 255,
+              );
+            } else {
+              color = Color(colorPicker);
+            }
           } else {
-            color = Color(colorPicker);
+            color = Color(colorPicker.hex).alpha(colorPicker.rgb.a);
           }
-        } else {
-          color = Color(colorPicker.hex).alpha(colorPicker.rgb.a);
-        }
 
-        if (isUpdateInput) {
-          colorInput.current.value = color.alpha() === 1 ? color.hex() : color.hexa();
-        }
+          if (isUpdateInput) {
+            colorInput.current.value =
+              color.alpha() === 1 ? color.hex() : color.hexa();
+          }
 
-        setColor(color);
-        onChange(color.alpha() === 1 ? color.hex() : color.hexa());
-      } catch (e) {
-      }
-    },
+          setColor(color);
+          onChange(color.alpha() === 1 ? color.hex() : color.hexa());
+        } catch (e) {}
+      }, 10),
     [onChange],
   );
 
@@ -62,7 +64,7 @@ const MyColorPicker = ({
     if (value) {
       handleChange(value, true);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
