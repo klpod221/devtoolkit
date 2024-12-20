@@ -482,7 +482,7 @@ const TOOL_LIST = [
         description: "Pick emojis.",
         icon: TbMoodSmile,
         path: "/emoji",
-        status: false,
+        status: true,
       },
       {
         name: "String Obfuscator",

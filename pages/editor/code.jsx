@@ -23,9 +23,6 @@ const CodeEditor = () => {
   const [stdin, setStdin] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [output, setOutput] = React.useState();
-  const [helperMessage, setHelperMessage] = React.useState(
-    "You can write your code here",
-  );
 
   const handleRunCode = async () => {
     try {
@@ -58,7 +55,6 @@ const CodeEditor = () => {
     if (selectedLang) {
       setLanguage(selectedLang.slug);
       setThemeLanguage(selectedLang.theme || selectedLang.slug);
-      setHelperMessage(selectedLang.helper || "");
 
       const codeSample = CODE_SAMPLES[selectedLang.slug];
       setCode(codeSample || "");
@@ -67,12 +63,28 @@ const CodeEditor = () => {
     setOutput(null);
   }, [selectedLanguage]);
 
+  // Run code when pressing Alt + Enter
+  React.useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.altKey && event.key === "Enter") {
+        handleRunCode();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [code, stdin]);
+
   return (
     <TwoColumn leftWidth={70}>
       <TwoColumn.Left>
         <MyCard.Header
           title="Code Input"
-          helper={helperMessage || "You can write your code here"}
+          helper="You can write your code here and run it with Alt + Enter"
         >
           <MySelect value={selectedLanguage} onChange={setSelectedLanguage}>
             {SUPPORT_LANGUAGES.map((lang, index) => (

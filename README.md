@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (50/103)
+## Tools List (51/103)
 
 ### Text Editor
 
@@ -89,7 +89,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Backslash Escaper](https://devtools.klpod221.site/text/backslash)   | Escape or unescape backslashes.              |
 | <ul><li> - [ ] </li></ul> | [Morse Code Translator](https://devtools.klpod221.site/text/morse)   | Translate text to morse code and vice versa. |
 | <ul><li> - [ ] </li></ul> | [Binary Translator](https://devtools.klpod221.site/text/binary)      | Translate text to binary and vice versa.     |
-| <ul><li> - [ ] </li></ul> | [Emoji picker](https://devtools.klpod221.site/text/emoji)            | Pick emojis.                                 |
+| <ul><li> - [x] </li></ul> | [Emoji picker](https://devtools.klpod221.site/text/emoji)            | Pick emojis.                                 |
 | <ul><li> - [ ] </li></ul> | [String Obfuscator](https://devtools.klpod221.site/text/obfuscator)  | Obfuscate your strings.                      |
 | <ul><li> - [ ] </li></ul> | [Numeronym Generator](https://devtools.klpod221.site/text/numeronym) | Generate numeronyms.                         |
 | <ul><li> - [ ] </li></ul> | [Text to ASCII Art](https://devtools.klpod221.site/text/ascii-art)   | Convert text to ASCII art.                   |

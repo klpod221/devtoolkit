@@ -32,6 +32,7 @@ const MySelect = ({
         }`}
         value={value}
         onChange={onSelectChange}
+        aria-label={label}
         {...props}
       >
         {children}

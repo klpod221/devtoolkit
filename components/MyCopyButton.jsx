@@ -31,6 +31,7 @@ const MyCopyButton = ({ value, type = "normal", className }) => {
       ) : (
         <button
           className={`p-1 bg-gray-200 dark:bg-dark-secondary rounded-full hover:opacity-80 transition-all duration-300 ease-in-out ${types[type]} ${className}`}
+          aria-label="Copy"
           onClick={() => copyToClipboard(value)}
         >
           <AiOutlineCopy />

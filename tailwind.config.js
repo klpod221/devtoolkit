@@ -10,12 +10,6 @@ module.exports = {
   ],
   darkMode: ["selector", '[data-theme="dark"]'],
   theme: {
-    screens: {
-      sm: "640px",
-      md: "768px",
-      lg: "960px",
-      xl: "1200px",
-    },
     colors: {
       dark: "#222831",
       "dark-secondary": "#393e46",

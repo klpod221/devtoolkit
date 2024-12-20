@@ -71,7 +71,15 @@ const post = async (req, res) => {
 
     return res.status(200).json(data);
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    const errors = [];
+
+    if (error.response) {
+      errors.push(new Error(`HTTP Error: ${error.response.status}`));
+    } else {
+      errors.push(new Error(`Network Error: ${error.message}`));
+    }
+
+    return res.status(500).json({ errors });
   }
 };
 
