@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 import { toast } from "react-toastify";
 
 import { emojiGroups, searchEmojiGroups } from "@utils/emojiPicker";
