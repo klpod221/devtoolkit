@@ -13,16 +13,16 @@ const MyDrawer = ({ title, titleIcon, children, isOpen, onClose, position = "rig
           off: "left-0 right-0 top-0 w-full -translate-y-full",
         },
         right: {
-          on: "right-0 top-[61px] h-without-nav w-96 transform-none",
-          off: "right-0 top-[61px] h-without-nav w-96 translate-x-full",
+          on: "right-0 top-[45px] h-without-nav w-96 transform-none",
+          off: "right-0 top-[45px] h-without-nav w-96 translate-x-full",
         },
         bottom: {
           on: "bottom-0 left-0 right-0 w-full transform-none",
           off: "bottom-0 left-0 right-0 w-full translate-y-full",
         },
         left: {
-          on: "left-0 top-[61px] h-without-nav w-96 transform-none",
-          off: "left-0 top-[61px] h-without-nav w-96 -translate-x-full",
+          on: "left-0 top-[45px] h-without-nav w-96 transform-none",
+          off: "left-0 top-[45px] h-without-nav w-96 -translate-x-full",
         },
       },
     },

@@ -25,7 +25,7 @@ const MyCard = ({ children, className, ...props }) => {
       className={`flex rounded-lg border border-gray-200 bg-white dark:border-dark-secondary dark:bg-dark flex-col mb-4 sm:mb-0 w-full max-h-screen ${className}`}
       {...props}
     >
-      <div className="flex h-full flex-col p-6 space-y-4">{children}</div>
+      <div className="flex h-full flex-col p-6 space-y-4 overflow-y-auto">{children}</div>
     </div>
   );
 };

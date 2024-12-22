@@ -37,7 +37,6 @@ import { BiBarcodeReader } from "react-icons/bi";
 import {
   MdCurrencyExchange,
   MdMonitor,
-  MdSmartphone,
   MdKey,
   MdAbc,
   MdHttp,
@@ -70,7 +69,6 @@ import {
   TbBrackets,
   TbWorld,
   TbKeyboard,
-  TbMailbox,
   TbMoodSmile,
   TbEyeOff,
   TbCpu,
@@ -468,7 +466,7 @@ const TOOL_LIST = [
         description: "Translate text to morse code and vice versa.",
         icon: AiOutlineFieldString,
         path: "/morse",
-        status: false,
+        status: true,
       },
       {
         name: "Binary Translator",
