@@ -480,7 +480,7 @@ const TOOL_LIST = [
         description: "Obfuscate your strings.",
         icon: TbEyeOff,
         path: "/obfuscator",
-        status: false,
+        status: true,
       },
       {
         name: "Numeronym Generator",

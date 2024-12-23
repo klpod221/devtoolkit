@@ -1,43 +1,73 @@
 import React from "react";
-import NextLink from "next/link";
+import _ from "lodash";
 
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
-
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import MyTextarea from "@components/MyTextarea";
+import MyInput from "@components/MyInput";
+import MySwitch from "@components/MySwitch";
 
 const StringObfuscator = () => {
+  const [input, setInput] = React.useState("Lorem ipsum dolor sit amet");
+  const [settings, setSettings] = React.useState({
+    first: 4,
+    last: 4,
+    space: true,
+  });
+
+  const [output, setOutput] = React.useState("");
+
+  const handleTransform = React.useMemo(
+    () =>
+      _.debounce(() => {
+        const first = input.slice(0, settings.first);
+        const last = input.slice(-settings.last);
+
+        const middle = settings.space
+          ? input.slice(settings.first, -settings.last).replace(/\S/g, "*")
+          : "*".repeat(input.length - settings.first - settings.last);
+
+        setOutput(`${first}${middle}${last}`);
+      }, 300),
+    [input, settings],
+  );
+
+  React.useEffect(() => {
+    handleTransform();
+  }, [input, settings, handleTransform]);
+
   return (
     <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+      <MyTextarea label="Input" value={input} onChange={setInput} />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <MyInput
+          label="Keep first"
+          type="number"
+          min="0"
+          value={settings.first}
+          onChange={(value) =>
+            setSettings((prev) => ({ ...prev, first: value }))
+          }
+        />
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
-
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
+        <MyInput
+          label="Keep last"
+          type="number"
+          min="0"
+          value={settings.last}
+          onChange={(value) =>
+            setSettings((prev) => ({ ...prev, last: value }))
+          }
+        />
       </div>
+
+      <MySwitch
+        label="Keep space"
+        checked={settings.space}
+        onChange={(value) => setSettings((prev) => ({ ...prev, space: value }))}
+      />
+
+      <MyTextarea label="Output" value={output} readOnly />
     </MyCard>
   );
 };
