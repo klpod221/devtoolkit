@@ -226,13 +226,6 @@ const TOOL_LIST = [
         status: true,
       },
       {
-        name: "ASCII Binary Converter",
-        description: "Convert text to ASCII binary and vice versa.",
-        icon: TbBinary,
-        path: "/ascii-binary",
-        status: true,
-      },
-      {
         name: "Unicode Converter",
         description: "Convert text to unicode and vice versa.",
         icon: AiOutlineRetweet,
@@ -473,7 +466,7 @@ const TOOL_LIST = [
         description: "Translate text to binary and vice versa.",
         icon: AiOutlineFieldBinary,
         path: "/binary",
-        status: false,
+        status: true,
       },
       {
         name: "Emoji picker",
@@ -605,6 +598,13 @@ const TOOL_LIST = [
         description: "Generate passwords.",
         icon: CgPassword,
         path: "/password",
+        status: false,
+      },
+      {
+        name: "Password Hash Generator",
+        description: "Generate password hashes.",
+        icon: RiLockPasswordFill,
+        path: "/password-hash",
         status: false,
       },
       {

@@ -1,43 +1,80 @@
 import React from "react";
-import NextLink from "next/link";
+import _ from "lodash";
+
+import binaryTranslator from "@utils/binaryTranslator";
 
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
+import MySelect from "@components/MySelect";
+import MyTextarea from "@components/MyTextarea";
 
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+const options = [
+  { value: "text", label: "Text" },
+  { value: "binary", label: "Binary" },
+  { value: "octal", label: "Octal" },
+  { value: "decimal", label: "Decimal" },
+  { value: "hex", label: "Hex" },
+];
 
 const BinaryTranslator = () => {
+  const [input, setInput] = React.useState("klpod221");
+  const [output, setOutput] = React.useState("");
+  const [error, setError] = React.useState("");
+
+  const [from, setFrom] = React.useState("text");
+  const [to, setTo] = React.useState("binary");
+
+  const handleTranslate = React.useMemo(
+    () =>
+      _.debounce(() => {
+        try {
+          setOutput(binaryTranslator(from, to, input));
+          setError("");
+        } catch (error) {
+          setOutput("");
+          setError(error.message);
+        }
+      }, 300),
+    [from, to, input],
+  );
+
+  React.useEffect(() => {
+    handleTranslate();
+  }, [from, to, input, handleTranslate]);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <MyCard className="w-full max-w-4xl">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <MySelect
+          sizing="md"
+          label="From"
+          value={from}
+          onChange={setFrom}
+          className="flex-1"
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </MySelect>
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
-
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
-
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
+        <MySelect sizing="md" label="To" value={to} onChange={setTo}>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </MySelect>
       </div>
+
+      <MyTextarea
+        label="Input"
+        value={input}
+        onChange={setInput}
+        error={error}
+      />
+
+      <MyTextarea label="Output" value={output} readOnly />
     </MyCard>
   );
 };

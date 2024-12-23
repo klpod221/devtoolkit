@@ -45,7 +45,6 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Color Converter](https://devtools.klpod221.site/converter/color)                   | Convert color codes to different formats.                |
 | <ul><li> - [x] </li></ul> | [Text Case Converter](https://devtools.klpod221.site/converter/text-case)           | Convert text to upper, lower, capitalize, camelCase etc. |
 | <ul><li> - [x] </li></ul> | [NATO Alphabet Converter](https://devtools.klpod221.site/converter/nato)            | Convert text to NATO alphabet.                           |
-| <ul><li> - [x] </li></ul> | [ASCII Binary Converter](https://devtools.klpod221.site/converter/ascii-binary)     | Convert text to ASCII binary and vice versa.             |
 | <ul><li> - [x] </li></ul> | [Unicode Converter](https://devtools.klpod221.site/converter/unicode)               | Convert text to unicode and vice versa.                  |
 | <ul><li> - [x] </li></ul> | [List Converter](https://devtools.klpod221.site/converter/list)                     | Convert lists to different formats.                      |
 | <ul><li> - [x] </li></ul> | [Data Type Converter](https://devtools.klpod221.site/converter/data-type)           | Convert between JSON, XML, YAML, TOML, CSV etc.          |
@@ -88,7 +87,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [ ] </li></ul> | [Text to Speech](https://devtools.klpod221.site/text/speech)         | Convert text to speech.                      |
 | <ul><li> - [x] </li></ul> | [Backslash Escaper](https://devtools.klpod221.site/text/backslash)   | Escape or unescape backslashes.              |
 | <ul><li> - [x] </li></ul> | [Morse Code Translator](https://devtools.klpod221.site/text/morse)   | Translate text to morse code and vice versa. |
-| <ul><li> - [ ] </li></ul> | [Binary Translator](https://devtools.klpod221.site/text/binary)      | Translate text to binary and vice versa.     |
+| <ul><li> - [x] </li></ul> | [Binary Translator](https://devtools.klpod221.site/text/binary)      | Translate text to binary and vice versa.     |
 | <ul><li> - [x] </li></ul> | [Emoji picker](https://devtools.klpod221.site/text/emoji)            | Pick emojis.                                 |
 | <ul><li> - [ ] </li></ul> | [String Obfuscator](https://devtools.klpod221.site/text/obfuscator)  | Obfuscate your strings.                      |
 | <ul><li> - [ ] </li></ul> | [Numeronym Generator](https://devtools.klpod221.site/text/numeronym) | Generate numeronyms.                         |
@@ -112,6 +111,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [RSA Key Decoder](https://devtools.klpod221.site/security/rsa-decoder)                 | Decode RSA keys.                          |
 | <ul><li> - [x] </li></ul> | [Password Strength Checker](https://devtools.klpod221.site/security/password-strength) | Check your password strength.             |
 | <ul><li> - [ ] </li></ul> | [Password Generator](https://devtools.klpod221.site/security/password)                 | Generate passwords.                       |
+| <ul><li> - [ ] </li></ul> | [Password Hash Generator](https://devtools.klpod221.site/security/password-hash)       | Generate password hashes.                 |
 | <ul><li> - [ ] </li></ul> | [PDF signature checker](https://devtools.klpod221.site/security/pdf-signature)         | Check PDF signatures.                     |
 
 ### Develop Tools
