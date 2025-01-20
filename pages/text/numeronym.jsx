@@ -1,43 +1,50 @@
 import React from "react";
-import NextLink from "next/link";
 
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
-
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import MyInput from "@components/MyInput";
+import MyCopyButton from "@components/MyCopyButton";
 
 const NumeronymGenerator = () => {
+  const [input, setInput] = React.useState("internationalization");
+  const [output, setOutput] = React.useState("");
+
+  React.useEffect(() => {
+    if (!input) {
+      setOutput("");
+      return;
+    }
+
+    const firstChar = input[0];
+    const lastChar = input[input.length - 1];
+    const middle = input.length - 2;
+
+    setOutput(`${firstChar}${middle}${lastChar}`);
+  }, [input]);
+
   return (
     <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
-
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
+      <p>
+        A <strong>numeronym</strong> is a word where a number is used to
+        represent some of the letters in the word. For example, the word{" "}
+        <strong>internationalization</strong> can be represented as{" "}
+        <strong>i18n</strong>.
       </p>
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+      <MyInput
+        label="Input"
+        placeholder="Enter a string"
+        value={input}
+        onChange={setInput}
+      />
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
+      <MyInput
+        label="Output"
+        placeholder="Numeronym"
+        value={output}
+        onChange={setOutput}
+        readOnly
+        additional={<MyCopyButton value={output} />}
+      />
     </MyCard>
   );
 };

@@ -487,7 +487,7 @@ const TOOL_LIST = [
         description: "Generate numeronyms.",
         icon: MdNumbers,
         path: "/numeronym",
-        status: false,
+        status: true,
       },
       {
         name: "Text to ASCII Art",
