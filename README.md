@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (53/103)
+## Tools List (54/103)
 
 ### Text Editor
 
@@ -124,16 +124,16 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### System Tools
 
-| Status                    | Name                                                                              | Description                                    |
-| ------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------- |
-| <ul><li> - [ ] </li></ul> | [Nginx Config Generator](https://devtools.klpod221.site/system/nginx)             | Generate Nginx configuration files.            |
-| <ul><li> - [ ] </li></ul> | [Dockerize helper](https://devtools.klpod221.site/system/docker)                  | Generate Dockerfile and docker-compose files.  |
-| <ul><li> - [ ] </li></ul> | [Docker Run To Compose](https://devtools.klpod221.site/system/docker-run)         | Convert docker run commands to docker-compose. |
-| <ul><li> - [ ] </li></ul> | [Ubuntu Server Configurator](https://devtools.klpod221.site/system/ubuntu)        | Generate Ubuntu server configuration.          |
-| <ul><li> - [ ] </li></ul> | [Chmod Calculator](https://devtools.klpod221.site/system/chmod)                   | Calculate chmod values.                        |
-| <ul><li> - [ ] </li></ul> | [IMAP/POP3/SMTP Tester](https://devtools.klpod221.site/system/mail)               | Test IMAP, POP3, SMTP servers.                 |
-| <ul><li> - [ ] </li></ul> | [Random port generator](https://devtools.klpod221.site/system/port)               | Generate random ports.                         |
-| <ul><li> - [ ] </li></ul> | [Cron Expression Generator](https://devtools.klpod221.site/system/cron-generator) | Generate cron expressions.                     |
+| Status                    | Name                                                                       | Description                                    |
+| ------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------- |
+| <ul><li> - [ ] </li></ul> | [Nginx Config Generator](https://devtools.klpod221.site/system/nginx)      | Generate Nginx configuration files.            |
+| <ul><li> - [ ] </li></ul> | [Dockerize helper](https://devtools.klpod221.site/system/docker)           | Generate Dockerfile and docker-compose files.  |
+| <ul><li> - [ ] </li></ul> | [Docker Run To Compose](https://devtools.klpod221.site/system/docker-run)  | Convert docker run commands to docker-compose. |
+| <ul><li> - [ ] </li></ul> | [Ubuntu Server Configurator](https://devtools.klpod221.site/system/ubuntu) | Generate Ubuntu server configuration.          |
+| <ul><li> - [ ] </li></ul> | [Chmod Calculator](https://devtools.klpod221.site/system/chmod)            | Calculate chmod values.                        |
+| <ul><li> - [ ] </li></ul> | [IMAP/POP3/SMTP Tester](https://devtools.klpod221.site/system/mail)        | Test IMAP, POP3, SMTP servers.                 |
+| <ul><li> - [ ] </li></ul> | [Random port generator](https://devtools.klpod221.site/system/port)        | Generate random ports.                         |
+| <ul><li> - [x] </li></ul> | [Crontab Generator](https://devtools.klpod221.site/system/cron-generator)  | Generate cron expressions.                     |
 
 ### Network Tools
 

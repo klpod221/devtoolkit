@@ -697,11 +697,11 @@ const TOOL_LIST = [
         status: false,
       },
       {
-        name: "Cron Expression Generator",
+        name: "Crontab Generator",
         description: "Generate cron expressions.",
         icon: TbAlarm,
         path: "/cron-generator",
-        status: false,
+        status: true,
       },
     ],
   },
