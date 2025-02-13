@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (55/103)
+## Tools List (56/103)
 
 ### Text Editor
 
@@ -91,7 +91,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Emoji picker](https://devtools.klpod221.site/text/emoji)            | Pick emojis.                                 |
 | <ul><li> - [x] </li></ul> | [String Obfuscator](https://devtools.klpod221.site/text/obfuscator)  | Obfuscate your strings.                      |
 | <ul><li> - [x] </li></ul> | [Numeronym Generator](https://devtools.klpod221.site/text/numeronym) | Generate numeronyms.                         |
-| <ul><li> - [ ] </li></ul> | [Text to ASCII Art](https://devtools.klpod221.site/text/ascii-art)   | Convert text to ASCII art.                   |
+| <ul><li> - [x] </li></ul> | [Text to ASCII Art](https://devtools.klpod221.site/text/ascii-art)   | Convert text to ASCII art.                   |
 | <ul><li> - [ ] </li></ul> | [Art Text Generator](https://devtools.klpod221.site/text/art-text)   | Generate art text.                           |
 | <ul><li> - [ ] </li></ul> | [AI Chatbot](https://devtools.klpod221.site/text/chatbot)            | Chat with AI.                                |
 

@@ -494,7 +494,7 @@ const TOOL_LIST = [
         description: "Convert text to ASCII art.",
         icon: TbCpu,
         path: "/ascii-art",
-        status: false,
+        status: true,
       },
       {
         name: "Art Text Generator",

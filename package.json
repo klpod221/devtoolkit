@@ -26,6 +26,7 @@
     "crypto-js": "^4.2.0",
     "emmet-monaco-es": "^5.4.0",
     "emojilib": "^4.0.1",
+    "figlet": "^1.8.0",
     "flowbite-react": "^0.10.1",
     "image-resize-compress": "^1.1.0",
     "js-beautify": "^1.15.1",
