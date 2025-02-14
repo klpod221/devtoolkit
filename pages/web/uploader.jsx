@@ -41,10 +41,10 @@ const Uploader = () => {
     return size > 1000 * 1000 * 1000
       ? `${(size / (1000 * 1000 * 1000)).toFixed(2)} GB`
       : size > 1000 * 1000
-      ? `${(size / (1000 * 1000)).toFixed(2)} MB`
-      : size > 1000
-      ? `${(size / 1000).toFixed(2)} KB`
-      : `${size} bytes`;
+        ? `${(size / (1000 * 1000)).toFixed(2)} MB`
+        : size > 1000
+          ? `${(size / 1000).toFixed(2)} KB`
+          : `${size} bytes`;
   };
 
   const getRemainingTime = (file) => {
@@ -73,7 +73,7 @@ const Uploader = () => {
       toast.error(
         `File size of ${file.name} exceeds the limit (${
           uploadType === "temp" ? "15GB" : "5GB"
-        })`
+        })`,
       );
       return;
     }
@@ -82,10 +82,7 @@ const Uploader = () => {
     queue.startTime = new Date().getTime();
     setQueueList([...queueList]);
 
-    const uploadUrl =
-      uploadType === "temp"
-        ? "https://up1.fileditch.com/temp/upload.php"
-        : "https://up1.fileditch.com/upload.php";
+    const uploadUrl = "https://up1.fileditch.com/upload.php";
 
     const xhr = new XMLHttpRequest();
 
@@ -247,7 +244,10 @@ const Uploader = () => {
 
         <ul className="flex flex-col w-full space-y-4 overflow-y-auto">
           {queueList.map((queue, index) => (
-            <li key={index} className="flex items-center space-x-2 justify-between">
+            <li
+              key={index}
+              className="flex items-center space-x-2 justify-between"
+            >
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
                   {queue.file.type.includes("image") ? (
@@ -272,7 +272,33 @@ const Uploader = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex space-x-2">
+              <div className="flex space-x-2 items-center">
+                {queue.status === "uploading" && (
+                  <>
+                    {queue.progress !== undefined && (
+                      <div className="text-xs text-gray-500 dark:text-dark-text-secondary">
+                        {queue.progress.toFixed(2)}%
+                      </div>
+                    )}
+
+                    {queue.uploadSpeed !== undefined && (
+                      <div className="text-xs text-gray-500 dark:text-dark-text-secondary">
+                        {queue.uploadSpeed > 1000 * 1000
+                          ? `${(queue.uploadSpeed / (1000 * 1000)).toFixed(
+                              2,
+                            )} MB/s`
+                          : `${(queue.uploadSpeed / 1000).toFixed(2)} KB/s`}
+                      </div>
+                    )}
+
+                    {queue.remainingTime !== undefined && (
+                      <div className="text-xs text-gray-500 dark:text-dark-text-secondary">
+                        {queue.remainingTime}
+                      </div>
+                    )}
+                  </>
+                )}
+
                 <MyButton
                   size={"xs"}
                   color="red"
@@ -284,48 +310,26 @@ const Uploader = () => {
                   <MdDelete className="h-5 w-5" />
                 </MyButton>
 
-                <MyButton
-                  size={"xs"}
-                  className="py-0"
-                  onClick={() => uploadFile(queue)}
-                >
-                  <AiOutlineCloudUpload className="h-5 w-5" />
-                </MyButton>
-              </div>
-
-              {queue.status === "uploading" && (
-                <div className="flex items-center space-x-2">
-                  {queue.progress !== undefined && (
-                    <div className="text-xs text-gray-500 dark:text-dark-text-secondary">
-                      {queue.progress.toFixed(2)}%
-                    </div>
-                  )}
-
-                  {queue.uploadSpeed !== undefined && (
-                    <div className="text-xs text-gray-500 dark:text-dark-text-secondary">
-                      {queue.uploadSpeed > 1000 * 1000
-                        ? `${(queue.uploadSpeed / (1000 * 1000)).toFixed(
-                            2
-                          )} MB/s`
-                        : `${(queue.uploadSpeed / 1000).toFixed(2)} KB/s`}
-                    </div>
-                  )}
-
-                  {queue.remainingTime !== undefined && (
-                    <div className="text-xs text-gray-500 dark:text-dark-text-secondary">
-                      {queue.remainingTime}
-                    </div>
-                  )}
-
+                {queue.status === "uploading" ? (
+                  <div className="flex items-center space-x-2">
+                    <MyButton
+                      size={"xs"}
+                      className="py-0"
+                      onClick={closeUpload(queue)}
+                    >
+                      <AiOutlineCloseCircle className="h-5 w-5" />
+                    </MyButton>
+                  </div>
+                ) : (
                   <MyButton
                     size={"xs"}
                     className="py-0"
-                    onClick={closeUpload(queue)}
+                    onClick={() => uploadFile(queue)}
                   >
-                    <AiOutlineCloseCircle className="h-5 w-5" />
+                    <AiOutlineCloudUpload className="h-5 w-5" />
                   </MyButton>
-                </div>
-              )}
+                )}
+              </div>
             </li>
           ))}
         </ul>
@@ -388,7 +392,7 @@ const Uploader = () => {
                     className="py-0"
                     onClick={() =>
                       setUploadedFiles(
-                        uploadedFiles.filter((_, i) => i !== index)
+                        uploadedFiles.filter((_, i) => i !== index),
                       )
                     }
                   >
