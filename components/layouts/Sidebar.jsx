@@ -200,11 +200,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                       }`}
                       >
                         <tool.icon
-                          className={`w-5 h-5 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-dark-text ${
-                            currentPath === tool.path
-                              ? "text-gray-900 dark:text-dark-text"
-                              : "text-gray-500 dark:text-dark-text-secondary"
-                          }`}
+                          className={`w-5 h-5 transition duration-75 text-blue-500`}
                         />
                         <div
                           className={`ms-3 mx-1 flex space-x-1 items-center ${!tool.status && "text-gray-400"}`}
@@ -268,11 +264,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                       }`}
                       >
                         <tool.icon
-                          className={`w-5 h-5 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-dark-text ${
-                            currentPath === section.path + tool.path
-                              ? "text-gray-900 dark:text-dark-text"
-                              : "text-gray-500 dark:text-dark-text-secondary"
-                          }`}
+                          className={`w-5 h-5 transition duration-75 text-blue-500`}
                         />
                         <div
                           className={`ms-3 mx-1 flex space-x-1 items-center ${!tool.status && "text-gray-400"}`}
@@ -293,7 +285,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                           ) ? (
                             <FaHeart className="text-red-500 dark:text-red-400" />
                           ) : (
-                            <FaRegHeart />
+                            <FaRegHeart className="text-red-500 dark:text-red-400" />
                           )}
                         </div>
                       </NextLink>

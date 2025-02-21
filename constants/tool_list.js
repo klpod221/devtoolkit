@@ -62,7 +62,6 @@ import { FaLink } from "react-icons/fa6";
 import {
   TbLetterCaseToggle,
   TbSpeakerphone,
-  TbBinary,
   TbLetterX,
   TbList,
   TbCalendarTime,
@@ -521,7 +520,7 @@ const TOOL_LIST = [
         description: "Generate tokens for authentication.",
         icon: TbArrowsShuffle,
         path: "/token",
-        status: false,
+        status: true,
       },
       {
         name: "Hash Text",
@@ -858,6 +857,20 @@ const TOOL_LIST = [
         description: "Pick colors from the color picker or upload an image.",
         icon: CgColorPicker,
         path: "/picker",
+        status: false,
+      },
+      {
+        name: "Color Palette Generator",
+        description: "Generate color palettes.",
+        icon: CgColorPicker,
+        path: "/palette",
+        status: false,
+      },
+      {
+        name: "Data text formatter",
+        description: "Format your data (JSON, XML, CSV, etc.).",
+        icon: AiOutlineDiff,
+        path: "/formatter",
         status: false,
       },
       {

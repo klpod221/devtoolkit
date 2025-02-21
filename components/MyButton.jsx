@@ -2,7 +2,7 @@ const MyButton = ({
   children,
   size = "sm",
   disabled = false,
-  color = "info",
+  color = "default",
   className,
   ...props
 }) => {
@@ -15,6 +15,8 @@ const MyButton = ({
   };
 
   const colors = {
+    default:
+      "border border-gray-200 bg-gray-50 text-text enabled:hover:bg-gray-200 dark:bg-transparent dark:border-dark-secondary dark:focus:bg-dark-secondary dark:enabled:hover:bg-dark-secondary",
     dark: "border border-transparent bg-gray-800 text-dark-text focus:ring-4 focus:ring-gray-300 enabled:hover:bg-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-gray-800 dark:enabled:hover:bg-gray-700",
     failure:
       "border border-transparent bg-red-700 text-dark-text focus:ring-4 focus:ring-red-300 enabled:hover:bg-red-800 dark:bg-red-600 dark:focus:ring-red-900 dark:enabled:hover:bg-red-700",
