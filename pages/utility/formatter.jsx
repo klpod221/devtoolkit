@@ -6,7 +6,7 @@ import MyButton from "@components/MyButton";
 
 import { AiFillHome, AiFillGithub } from "react-icons/ai";
 
-const AIChatbot = () => {
+const DataTextFormatter = () => {
   return (
     <MyCard className="w-full max-w-5xl">
       <h5 className="text-2xl font-bold tracking-tight">
@@ -42,5 +42,5 @@ const AIChatbot = () => {
   );
 };
 
-AIChatbot.title = "AI Chatbot";
-export default AIChatbot;
+DataTextFormatter.title = "Data text formatter";
+export default DataTextFormatter;

@@ -8,6 +8,7 @@ import Head from "next/head";
 
 import Layout from "@/components/layouts/Layout";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { FavoriteToolProvider } from "@/providers/FavoriteToolProvider";
 import { Analytics } from "@vercel/analytics/react";
 
 const MyApp = ({ Component, pageProps }) => {
@@ -26,10 +27,12 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
 
       <ThemeProvider>
-        <Layout title={Component.title}>
-          <Component {...pageProps} />
-          <Analytics />
-        </Layout>
+        <FavoriteToolProvider>
+          <Layout title={Component.title}>
+            <Component {...pageProps} />
+            <Analytics />
+          </Layout>
+        </FavoriteToolProvider>
       </ThemeProvider>
     </>
   );

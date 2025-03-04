@@ -14,7 +14,7 @@ import MyRangeSlider from "@components/MyRangeSlider";
 const errorCorrectionLevels = ["L", "M", "Q", "H"];
 
 const QRCodeGenerator = () => {
-  const [input, setInput] = React.useState("https://devtools.klpod221.site/");
+  const [input, setInput] = React.useState("https://devtools.klpod221.com/");
   const [qrCode, setQRCode] = React.useState(null);
   const [options, setOptions] = React.useState({
     width: 500,

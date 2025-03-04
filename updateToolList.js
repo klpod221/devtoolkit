@@ -21,7 +21,7 @@ const format = (path) => {
 let siteMap = `<?xml version="1.0" encoding="UTF-8" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://devtools.klpod221.site/</loc>
+    <loc>https://devtools.klpod221.com/</loc>
     <lastmod>2024-09-20T06:47:18+01:00</lastmod>
     <priority>1.0</priority>
   </url>`;
@@ -44,7 +44,7 @@ TOOL_LIST.forEach((category) => {
   category.tools.forEach((tool) => {
     TOOL_LISTText += `| <ul><li> - [${tool.status ? "x" : " "}] </li></ul> | [${
       tool.name
-    }](https://devtools.klpod221.site${category.path}${tool.path}) | ${
+    }](https://devtools.klpod221.com${category.path}${tool.path}) | ${
       tool.description
     } |\n`;
 
@@ -122,7 +122,7 @@ TOOL_LIST.forEach((category) => {
 
     siteMap += `
   <url>
-    <loc>https://devtools.klpod221.site${category.path}${tool.path}</loc>
+    <loc>https://devtools.klpod221.com${category.path}${tool.path}</loc>
     <lastmod>${lastModified}</lastmod>
     <priority>1.0</priority>
   </url>`;
@@ -161,7 +161,7 @@ text +=
 
 text += `## How to use
 
-You can access the tools by clicking on the links above or by accessing the [website](https://devtools.klpod221.site).
+You can access the tools by clicking on the links above or by accessing the [website](https://devtools.klpod221.com).
 
 Or you can clone this repository and run the project locally. Project uses [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) and [Flowbite React UI](https://flowbite-react.com/). To run the project locally or for development, follow the steps below:
 

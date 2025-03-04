@@ -6,7 +6,7 @@ import MyButton from "@components/MyButton";
 
 import { AiFillHome, AiFillGithub } from "react-icons/ai";
 
-const AIImageGenerator = () => {
+const ColorPaletteGenerator = () => {
   return (
     <MyCard className="w-full max-w-5xl">
       <h5 className="text-2xl font-bold tracking-tight">
@@ -42,5 +42,5 @@ const AIImageGenerator = () => {
   );
 };
 
-AIImageGenerator.title = "AI Image Generator";
-export default AIImageGenerator;
+ColorPaletteGenerator.title = "Color Palette Generator";
+export default ColorPaletteGenerator;

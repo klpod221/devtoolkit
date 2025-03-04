@@ -1,14 +1,15 @@
 import React from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
-import MyInput from "@/components/MyInput";
 import { Popover } from "flowbite-react";
+
+import TOOL_LIST from "@constants/tool_list";
+
+import MyInput from "@/components/MyInput";
 
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { IoChevronDown } from "react-icons/io5";
-
-import TOOL_LIST from "@constants/tool_list";
 
 const MySidebar = ({ isOpen, setIsOpen }) => {
   const router = useRouter();
@@ -209,14 +210,14 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                         </div>
 
                         <div
-                          className="ml-auto text-gray-400 dark:text-dark-text-secondary"
+                          className="ml-auto text-red-500 dark:text-red-400"
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
                             toggleFavorite(tool.path);
                           }}
                         >
-                          <FaHeart className="text-red-500 dark:text-red-400" />
+                          <FaHeart />
                         </div>
                       </NextLink>
                     </Popover>
@@ -273,7 +274,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                         </div>
 
                         <div
-                          className="ml-auto text-gray-400 dark:text-dark-text-secondary"
+                          className="ml-auto text-red-500 dark:text-red-400"
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
@@ -283,9 +284,9 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                           {favoriteTools.some(
                             (item) => item.path === section.path + tool.path,
                           ) ? (
-                            <FaHeart className="text-red-500 dark:text-red-400" />
+                            <FaHeart />
                           ) : (
-                            <FaRegHeart className="text-red-500 dark:text-red-400" />
+                            <FaRegHeart />
                           )}
                         </div>
                       </NextLink>
@@ -297,11 +298,11 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
           ))}
 
           {/* Footer */}
-          <div className="w-full py-10 text-center text-sm text-gray-400 dark:text-dark-text-secondary">
+          <div className="w-full py-10 text-center text-sm">
             <p>
               Make with ❤️ by{" "}
               <a
-                href="https://klpod221.site"
+                href="https://klpod221.com"
                 className="text-blue-500 dark:text-blue-400 hover:underline"
               >
                 klpod221
