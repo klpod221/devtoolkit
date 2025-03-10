@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 
 import bcryptGenerator from "@utils/bcryptGenerator";
 
@@ -27,25 +28,33 @@ const BcryptHashGenerator = () => {
   const [isMatched, setIsMatched] = React.useState(false);
   const [isShowResult, setIsShowResult] = React.useState(false);
 
-  const textToHash = async () => {
-    try {
-      if (!input.trim()) {
-        toast.error("Please enter some text to encrypt");
-        return;
-      }
+  const textToHash = React.useMemo(
+    () =>
+      _.debounce(async (input, salt) => {
+        try {
+          if (!input.trim()) {
+            setOutput("");
+            return;
+          }
 
-      const hashed = await toast.promise(bcryptGenerator(input, salt), {
-        pending: "Encrypting...",
-        success: "Encrypted successfully",
-        error: "Error encrypting",
-      });
+          const hashed = await bcryptGenerator(input, salt);
 
-      setOutput(hashed);
-    } catch (error) {
-      toast.error(error.message || "Error encrypting");
-      console.error(error);
-    }
-  };
+          setOutput(hashed);
+        } catch (error) {
+          toast.error(error.message || "Error encrypting");
+          console.error(error);
+        }
+      }, 100),
+    [],
+  );
+
+  React.useEffect(() => {
+    const hashText = async () => {
+      await textToHash(input, salt);
+    };
+
+    hashText();
+  }, [input, salt, textToHash]);
 
   const hashChecker = async () => {
     try {
