@@ -6,9 +6,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Head from "next/head";
 
+import Provider from "@providers";
+
 import Layout from "@/components/layouts/Layout";
-import { ThemeProvider } from "@/providers/ThemeProvider";
-import { FavoriteToolProvider } from "@/providers/FavoriteToolProvider";
 import { Analytics } from "@vercel/analytics/react";
 
 const MyApp = ({ Component, pageProps }) => {
@@ -26,14 +26,12 @@ const MyApp = ({ Component, pageProps }) => {
         />
       </Head>
 
-      <ThemeProvider>
-        <FavoriteToolProvider>
-          <Layout title={Component.title}>
-            <Component {...pageProps} />
-            <Analytics />
-          </Layout>
-        </FavoriteToolProvider>
-      </ThemeProvider>
+      <Provider>
+        <Layout title={Component.title}>
+          <Component {...pageProps} />
+          <Analytics />
+        </Layout>
+      </Provider>
     </>
   );
 };

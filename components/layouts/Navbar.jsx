@@ -4,6 +4,7 @@ import NextImage from "next/image";
 import { DarkThemeToggle } from "flowbite-react";
 import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
 import { HiBars3BottomLeft } from "react-icons/hi2";
+
 import { ThemeContext } from "@/providers/ThemeProvider";
 
 const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {

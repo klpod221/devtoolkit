@@ -3,6 +3,8 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { Popover } from "flowbite-react";
 
+import { FavoriteToolContext } from "@/providers/FavoriteToolProvider";
+
 import TOOL_LIST from "@constants/tool_list";
 
 import MyInput from "@/components/MyInput";
@@ -15,64 +17,12 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
   const router = useRouter();
   const currentPath = router.pathname;
 
-  const [favoriteTools, setFavoriteTools] = React.useState([]);
+  const { favoriteTools, toggleFavorite } = React.useContext(FavoriteToolContext);
 
   const [keyword, setKeyword] = React.useState("");
   const [toolkit, setToolkit] = React.useState(TOOL_LIST);
 
   const [collapsed, setCollapsed] = React.useState([]);
-
-  // get favorite tools from local storage
-  const getFavoriteTools = () => {
-    let localFavoriteTools = localStorage.getItem("favoriteTools");
-    localFavoriteTools = JSON.parse(localFavoriteTools);
-
-    if (!localFavoriteTools) {
-      localFavoriteTools = [];
-      localStorage.setItem("favoriteTools", JSON.stringify(localFavoriteTools));
-    }
-
-    const selectedTools = [];
-    TOOL_LIST.forEach((section) => {
-      const tools = section.tools.filter((tool) =>
-        localFavoriteTools.includes(section.path + tool.path),
-      );
-
-      if (tools.length) {
-        const selected = [];
-        tools.forEach((tool) => {
-          selected.push({
-            ...tool,
-            path: section.path + tool.path,
-          });
-        });
-
-        selectedTools.push(...selected);
-      }
-    });
-
-    setFavoriteTools(selectedTools);
-  };
-
-  React.useEffect(() => {
-    getFavoriteTools();
-  }, []);
-
-  // toggle favorite tool by path
-  const toggleFavorite = (path) => {
-    let localFavoriteTools = localStorage.getItem("favoriteTools");
-    localFavoriteTools = JSON.parse(localFavoriteTools);
-
-    if (localFavoriteTools.includes(path)) {
-      localFavoriteTools = localFavoriteTools.filter((item) => item !== path);
-    } else {
-      localFavoriteTools.push(path);
-    }
-
-    localStorage.setItem("favoriteTools", JSON.stringify(localFavoriteTools));
-
-    getFavoriteTools();
-  };
 
   // filter toolkit by keyword
   React.useEffect(() => {

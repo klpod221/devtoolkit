@@ -1,6 +1,8 @@
 import React from "react";
 import NextLink from "next/link";
 
+import { FavoriteToolContext } from "@/providers/FavoriteToolProvider";
+
 import TOOL_LIST from "@constants/tool_list";
 
 import MyCard from "@components/MyCard";
@@ -8,58 +10,8 @@ import MyCard from "@components/MyCard";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 const Home = () => {
-  const [favoriteTools, setFavoriteTools] = React.useState([]);
-
-  // get favorite tools from local storage
-  const getFavoriteTools = () => {
-    let localFavoriteTools = localStorage.getItem("favoriteTools");
-    localFavoriteTools = JSON.parse(localFavoriteTools);
-
-    if (!localFavoriteTools) {
-      localFavoriteTools = [];
-      localStorage.setItem("favoriteTools", JSON.stringify(localFavoriteTools));
-    }
-
-    const selectedTools = [];
-    TOOL_LIST.forEach((section) => {
-      const tools = section.tools.filter((tool) =>
-        localFavoriteTools.includes(section.path + tool.path),
-      );
-
-      if (tools.length) {
-        const selected = [];
-        tools.forEach((tool) => {
-          selected.push({
-            ...tool,
-            path: section.path + tool.path,
-          });
-        });
-
-        selectedTools.push(...selected);
-      }
-    });
-
-    setFavoriteTools(selectedTools);
-  };
-
-  React.useEffect(() => {
-    getFavoriteTools();
-  }, []);
-
-  const toggleFavorite = (path) => {
-    let localFavoriteTools = localStorage.getItem("favoriteTools");
-    localFavoriteTools = JSON.parse(localFavoriteTools);
-
-    if (localFavoriteTools.includes(path)) {
-      localFavoriteTools = localFavoriteTools.filter((item) => item !== path);
-    } else {
-      localFavoriteTools.push(path);
-    }
-
-    localStorage.setItem("favoriteTools", JSON.stringify(localFavoriteTools));
-
-    getFavoriteTools();
-  };
+  const { favoriteTools, toggleFavorite } =
+    React.useContext(FavoriteToolContext);
 
   return (
     <MyCard className="!max-h-[90vh]">
@@ -102,9 +54,9 @@ const Home = () => {
           <h3 className="text-xl tracking-tight">Favorite Tools</h3>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {favoriteTools.map((tool) => (
+            {favoriteTools.map((tool, index) => (
               <div
-                key={tool.id}
+                key={index}
                 className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-full h-full"
               >
                 <div className="flex items-center justify-between">
@@ -156,7 +108,9 @@ const Home = () => {
                         toggleFavorite(section.path + tool.path);
                       }}
                     >
-                      {favoriteTools.some((item) => item.path === section.path + tool.path) ? (
+                      {favoriteTools.some(
+                        (item) => item.path === section.path + tool.path,
+                      ) ? (
                         <FaHeart />
                       ) : (
                         <FaRegHeart />
