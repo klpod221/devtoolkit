@@ -485,7 +485,7 @@ const TOOL_LIST = [
         description: "Hash your text with different algorithms.",
         icon: TbEyeOff,
         path: "/hash",
-        status: false,
+        status: true,
       },
       {
         name: "Bcrypt Hash Generator",

@@ -13,20 +13,20 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (57/104)
+## Tools List (58/104)
 
 ### Text Editor
 
-| Status                    | Name                                                                 | Description                                                                                        |
-| ------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Status                    | Name                                                                | Description                                                                                        |
+| ------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | <ul><li> - [x] </li></ul> | [Code Editor & Compiler](https://devtools.klpod221.com/editor/code) | Write code in different languages (HTML, JS, CSS, Python, Java, C, C++, PHP, etc.) and compile it. |
 | <ul><li> - [x] </li></ul> | [Markdown Editor](https://devtools.klpod221.com/editor/markdown)    | Write markdown and preview it.                                                                     |
 | <ul><li> - [x] </li></ul> | [HTML WYSIWYG Editor](https://devtools.klpod221.com/editor/wysiwyg) | Write, edit your text and get the HTML output.                                                     |
 
 ### Images/Videos Tools
 
-| Status                    | Name                                                                                      | Description                                               |
-| ------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Status                    | Name                                                                                     | Description                                               |
+| ------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------- |
 | <ul><li> - [x] </li></ul> | [Format Converter](https://devtools.klpod221.com/images-videos/converter)                | Convert your images to different formats.                 |
 | <ul><li> - [x] </li></ul> | [JPEG/WEBP Compressor](https://devtools.klpod221.com/images-videos/compressor)           | Reduce the size of your images for JPEG and WEBP formats. |
 | <ul><li> - [x] </li></ul> | [Resizer](https://devtools.klpod221.com/images-videos/resizer)                           | Resize your images.                                       |
@@ -36,8 +36,8 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Converter Tools
 
-| Status                    | Name                                                                                | Description                                              |
-| ------------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Status                    | Name                                                                               | Description                                              |
+| ------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | <ul><li> - [x] </li></ul> | [Number Base Converter](https://devtools.klpod221.com/converter/number)            | Convert number bases (binary, octal, decimal, hex etc.). |
 | <ul><li> - [x] </li></ul> | [Roman Numeral Converter](https://devtools.klpod221.com/converter/roman)           | Convert roman numerals to numbers and vice versa.        |
 | <ul><li> - [x] </li></ul> | [Base64 Converter](https://devtools.klpod221.com/converter/base64)                 | Encode or decode base64 strings.                         |
@@ -56,8 +56,8 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Web Tools
 
-| Status                    | Name                                                                       | Description                    |
-| ------------------------- | -------------------------------------------------------------------------- | ------------------------------ |
+| Status                    | Name                                                                      | Description                    |
+| ------------------------- | ------------------------------------------------------------------------- | ------------------------------ |
 | <ul><li> - [x] </li></ul> | [File Uploader](https://devtools.klpod221.com/web/uploader)               | Upload and share files.        |
 | <ul><li> - [x] </li></ul> | [Url Encoder/Decoder](https://devtools.klpod221.com/web/url)              | Encode or decode url strings.  |
 | <ul><li> - [x] </li></ul> | [Url Parser](https://devtools.klpod221.com/web/url-parser)                | Parse url strings.             |
@@ -74,8 +74,8 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Text Tools
 
-| Status                    | Name                                                                 | Description                                  |
-| ------------------------- | -------------------------------------------------------------------- | -------------------------------------------- |
+| Status                    | Name                                                                | Description                                  |
+| ------------------------- | ------------------------------------------------------------------- | -------------------------------------------- |
 | <ul><li> - [x] </li></ul> | [Regex Tester](https://devtools.klpod221.com/text/regex)            | Test your regular expressions.               |
 | <ul><li> - [x] </li></ul> | [Text Diff](https://devtools.klpod221.com/text/diff)                | Compare two texts.                           |
 | <ul><li> - [x] </li></ul> | [Word Counter](https://devtools.klpod221.com/text/counter)          | Count words, characters and distribution.    |
@@ -91,10 +91,10 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Security Tools
 
-| Status                    | Name                                                                                   | Description                               |
-| ------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------- |
+| Status                    | Name                                                                                  | Description                               |
+| ------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------- |
 | <ul><li> - [x] </li></ul> | [Token Generator](https://devtools.klpod221.com/security/token)                       | Generate tokens for authentication.       |
-| <ul><li> - [ ] </li></ul> | [Hash Text](https://devtools.klpod221.com/security/hash)                              | Hash your text with different algorithms. |
+| <ul><li> - [x] </li></ul> | [Hash Text](https://devtools.klpod221.com/security/hash)                              | Hash your text with different algorithms. |
 | <ul><li> - [x] </li></ul> | [Bcrypt Hash Generator](https://devtools.klpod221.com/security/bcrypt)                | Bcrypt hash generator and verifier.       |
 | <ul><li> - [x] </li></ul> | [UUID Generator](https://devtools.klpod221.com/security/uuid)                         | Generate UUIDs.                           |
 | <ul><li> - [ ] </li></ul> | [ULID Generator](https://devtools.klpod221.com/security/ulid)                         | Generate ULIDs.                           |
@@ -110,16 +110,16 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Develop Tools
 
-| Status                    | Name                                                                           | Description                   |
-| ------------------------- | ------------------------------------------------------------------------------ | ----------------------------- |
+| Status                    | Name                                                                          | Description                   |
+| ------------------------- | ----------------------------------------------------------------------------- | ----------------------------- |
 | <ul><li> - [ ] </li></ul> | [API Tester](https://devtools.klpod221.com/develop/api)                       | Test APIs.                    |
 | <ul><li> - [ ] </li></ul> | [Editorconfig Generator](https://devtools.klpod221.com/develop/editor-config) | Generate .editorconfig files. |
 | <ul><li> - [ ] </li></ul> | [Gitignore Generator](https://devtools.klpod221.com/develop/gitignore)        | Generate .gitignore files.    |
 
 ### System Tools
 
-| Status                    | Name                                                                       | Description                                    |
-| ------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------- |
+| Status                    | Name                                                                      | Description                                    |
+| ------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------- |
 | <ul><li> - [ ] </li></ul> | [Nginx Config Generator](https://devtools.klpod221.com/system/nginx)      | Generate Nginx configuration files.            |
 | <ul><li> - [ ] </li></ul> | [Dockerize helper](https://devtools.klpod221.com/system/docker)           | Generate Dockerfile and docker-compose files.  |
 | <ul><li> - [ ] </li></ul> | [Docker Run To Compose](https://devtools.klpod221.com/system/docker-run)  | Convert docker run commands to docker-compose. |
@@ -131,8 +131,8 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Network Tools
 
-| Status                    | Name                                                                    | Description                         |
-| ------------------------- | ----------------------------------------------------------------------- | ----------------------------------- |
+| Status                    | Name                                                                   | Description                         |
+| ------------------------- | ---------------------------------------------------------------------- | ----------------------------------- |
 | <ul><li> - [ ] </li></ul> | [IP Address Info](https://devtools.klpod221.com/network/ip)            | Get information about IP addresses. |
 | <ul><li> - [ ] </li></ul> | [DNS Lookup](https://devtools.klpod221.com/network/dns)                | Lookup DNS records.                 |
 | <ul><li> - [ ] </li></ul> | [Ping Test](https://devtools.klpod221.com/network/ping)                | Test your ping.                     |
@@ -145,8 +145,8 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Math Tools
 
-| Status                    | Name                                                                    | Description                                  |
-| ------------------------- | ----------------------------------------------------------------------- | -------------------------------------------- |
+| Status                    | Name                                                                   | Description                                  |
+| ------------------------- | ---------------------------------------------------------------------- | -------------------------------------------- |
 | <ul><li> - [ ] </li></ul> | [Simple Calculator](https://devtools.klpod221.com/math/calculator)     | Simple calculator for basic math operations. |
 | <ul><li> - [ ] </li></ul> | [Math Evaluator](https://devtools.klpod221.com/math/evaluator)         | Evaluate math expressions (e.g. 2+2\*2).     |
 | <ul><li> - [ ] </li></ul> | [ETA Calculator](https://devtools.klpod221.com/math/eta)               | Calculate ETA.                               |
@@ -156,16 +156,16 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Measurement Tools
 
-| Status                    | Name                                                                      | Description              |
-| ------------------------- | ------------------------------------------------------------------------- | ------------------------ |
+| Status                    | Name                                                                     | Description              |
+| ------------------------- | ------------------------------------------------------------------------ | ------------------------ |
 | <ul><li> - [ ] </li></ul> | [Chronometer](https://devtools.klpod221.com/measurement/chronometer)     | Measure time.            |
 | <ul><li> - [ ] </li></ul> | [Network Speed Test](https://devtools.klpod221.com/measurement/speed)    | Test your network speed. |
 | <ul><li> - [ ] </li></ul> | [Benchmark Builder](https://devtools.klpod221.com/measurement/benchmark) | Build benchmarks.        |
 
 ### AI Tools
 
-| Status                    | Name                                                          | Description                                     |
-| ------------------------- | ------------------------------------------------------------- | ----------------------------------------------- |
+| Status                    | Name                                                         | Description                                     |
+| ------------------------- | ------------------------------------------------------------ | ----------------------------------------------- |
 | <ul><li> - [ ] </li></ul> | [Image Generator](https://devtools.klpod221.com/ai/ai-image) | Generate images with AI.                        |
 | <ul><li> - [ ] </li></ul> | [Translator](https://devtools.klpod221.com/ai/translator)    | Translate text to different languages using AI. |
 | <ul><li> - [ ] </li></ul> | [Chatbot](https://devtools.klpod221.com/ai/chatbot)          | Chat with AI.                                   |
@@ -174,8 +174,8 @@ And if you have any suggestions, please let me know by creating an issue.
 
 ### Utility Tools
 
-| Status                    | Name                                                                      | Description                                           |
-| ------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------- |
+| Status                    | Name                                                                     | Description                                           |
+| ------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------- |
 | <ul><li> - [ ] </li></ul> | [Color Picker](https://devtools.klpod221.com/utility/picker)             | Pick colors from the color picker or upload an image. |
 | <ul><li> - [ ] </li></ul> | [Color Palette Generator](https://devtools.klpod221.com/utility/palette) | Generate color palettes.                              |
 | <ul><li> - [ ] </li></ul> | [Data text formatter](https://devtools.klpod221.com/utility/formatter)   | Format your data (JSON, XML, CSV, etc.).              |

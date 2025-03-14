@@ -17,9 +17,11 @@ const Home = () => {
     <MyCard className="!max-h-[90vh]">
       <h5 className="text-2xl font-bold tracking-tight">Hello Developer! 👋</h5>
       <p className="text-xl text-gray-700 dark:text-gray-400">
-        Welcome to DevToolkit, a collection of tools for developers. It contain
-        tools for Image Compression, JSON to JS Object, Base64 Encoder/Decoder,
-        JWT, Bcrypt, and more.
+        Welcome to DevTools, a collection of tools for developers. It contain
+        tools for code, security, web development, and more. You can use these tools to
+        improve your productivity and make your life easier. DevTools is a
+        free and open-source project, and it is constantly being updated with
+        new features and tools.
       </p>
 
       <p className="text-xl text-gray-700 dark:text-gray-400">
@@ -92,7 +94,7 @@ const Home = () => {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {section.tools.map((tool) => (
               <NextLink
-                key={tool.id}
+                key={tool.path}
                 href={`${section.path + tool.path}`}
                 passHref
               >
