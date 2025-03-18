@@ -8,8 +8,8 @@ import convertImageFormat from "@utils/convertImageFormat";
 import TwoColumn from "@components/TwoColumn";
 import MyButton from "@/components/MyButton";
 import MyCard from "@components/MyCard";
-import MyImage from "@components/MyImage";
 import MyFileInput from "@components/MyFileInput";
+import MyImageViewer from "@components/MyImageViewer";
 
 import { FaArrowRight } from "react-icons/fa";
 import { AiOutlineDownload } from "react-icons/ai";
@@ -120,20 +120,9 @@ const FormatConverter = () => {
             ))}
           </Button.Group>
 
-          <div className="flex flex-wrap mt-4 gap-2 overflow-y-auto">
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className="relative group overflow-hidden rounded-lg w-32 h-32"
-              >
-                <MyImage
-                  src={URL.createObjectURL(image)}
-                  alt="image"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            ))}
-          </div>
+          <MyImageViewer
+            images={images.map((image) => URL.createObjectURL(image))}
+          />
         </TwoColumn.Left>
         <TwoColumn.Right>
           <MyCard.Header
@@ -153,18 +142,7 @@ const FormatConverter = () => {
           </MyCard.Header>
 
           <div className="flex flex-wrap gap-2 overflow-y-auto">
-            {returnImages.map((image, index) => (
-              <div
-                key={index}
-                className="relative group overflow-hidden rounded-lg w-32 h-32"
-              >
-                <MyImage
-                  src={image}
-                  alt="image"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            ))}
+            <MyImageViewer images={returnImages} />
           </div>
         </TwoColumn.Right>
       </TwoColumn>

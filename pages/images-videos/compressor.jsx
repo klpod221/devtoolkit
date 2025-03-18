@@ -9,10 +9,10 @@ import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
 import MyRangeSlider from "@components/MyRangeSlider";
 import MyFileInput from "@components/MyFileInput";
-import MyImage from "@components/MyImage";
 
 import { FaArrowRight } from "react-icons/fa";
 import { AiOutlineDownload } from "react-icons/ai";
+import MyImageViewer from "@components/MyImageViewer";
 
 const ImageCompressor = () => {
   const [level, setLevel] = React.useState(7);
@@ -112,21 +112,21 @@ const ImageCompressor = () => {
           label={"Compression Level"}
         />
 
-        <MyFileInput onChange={onFileChange} multiple={true} placeholder="You can upload multiple images (jpg, jpeg, webp)" accept=".jpg,.jpeg,.webp" />
+        <MyFileInput
+          onChange={onFileChange}
+          multiple={true}
+          placeholder="You can upload multiple images (jpg, jpeg, webp)"
+          accept=".jpg,.jpeg,.webp"
+        />
 
         <div className="flex flex-wrap mt-4 gap-2 overflow-y-auto">
-          {images.map((item, index) => (
-            <div
-              key={index}
-              className="relative group overflow-hidden rounded-lg w-32 h-32"
-            >
-              <MyImage
-                src={URL.createObjectURL(item.image)}
-                alt="image"
-                className="object-cover w-full h-full"
+          {images.length > 0 && (
+            <div className="relative group overflow-hidden rounded-lg w-32 h-32">
+              <MyImageViewer
+                images={images.map((item) => URL.createObjectURL(item.image))}
               />
             </div>
-          ))}
+          )}
         </div>
       </TwoColumn.Left>
       <TwoColumn.Right>
@@ -147,16 +147,16 @@ const ImageCompressor = () => {
           {returnImages.map((item, index) => (
             <div key={index} className="flex flex-col items-center">
               <div className="relative group overflow-hidden rounded-lg w-32 h-32">
-                <MyImage
-                  src={URL.createObjectURL(item.image)}
-                  alt="image"
-                  className="object-cover w-full h-full"
-                />
+                <MyImageViewer src={URL.createObjectURL(item.image)} />
               </div>
 
               <div className="text-center text-xs">
                 New size: {Math.round(item.compressedSize / 1000)} KB <br />
-                Saved: {Math.round((1 - item.compressedSize / item.originalSize) * 100)}%
+                Saved:{" "}
+                {Math.round(
+                  (1 - item.compressedSize / item.originalSize) * 100,
+                )}
+                %
               </div>
             </div>
           ))}

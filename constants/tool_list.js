@@ -120,6 +120,13 @@ const TOOL_LIST = [
         path: "/wysiwyg",
         status: true,
       },
+      {
+        name: "PlantUML Editor",
+        description: "Write PlantUML code and get the diagram.",
+        icon: GiPencilBrush,
+        path: "/plantuml",
+        status: true,
+      }
     ],
   },
   {

@@ -5,11 +5,11 @@ import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
 import MyFileInput from "@components/MyFileInput";
-import MyImage from "@components/MyImage";
 import MyInput from "@components/MyInput";
 import MySwitch from "@components/MySwitch";
 
 import { FaArrowRight } from "react-icons/fa";
+import MyImageViewer from "@components/MyImageViewer";
 
 const ImageResizer = () => {
   const [image, setImage] = React.useState(null);
@@ -101,17 +101,12 @@ const ImageResizer = () => {
           type="image"
           multiple={false}
           onChange={setImage}
-          size="small"
         />
 
         <div className="flex flex-wrap mb-4 space-x-2">
           {image && (
             <div className="relative group overflow-hidden rounded-lg w-32 h-32">
-              <MyImage
-                src={URL.createObjectURL(image)}
-                alt="image"
-                className="object-cover w-full h-full"
-              />
+              <MyImageViewer src={URL.createObjectURL(image)} />
             </div>
           )}
         </div>
@@ -150,13 +145,11 @@ const ImageResizer = () => {
 
         <div className="flex flex-wrap mb-4 space-x-2">
           {outputImage && (
-            <div className="relative group overflow-hidden rounded-lg w-32 h-32">
-              <MyImage
-                src={URL.createObjectURL(outputImage)}
-                alt="image"
-                className="object-cover w-full h-full"
-              />
-            </div>
+            <MyImageViewer
+              src={URL.createObjectURL(outputImage)}
+              alt="image"
+              className="object-cover w-full h-full"
+            />
           )}
         </div>
       </TwoColumn.Right>

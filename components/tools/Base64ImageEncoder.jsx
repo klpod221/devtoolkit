@@ -3,11 +3,11 @@ import { toast } from "react-toastify";
 
 import imageToBase64 from "@utils/imageToBase64";
 
-import MyImage from "@components/MyImage";
 import MyFileInput from "@components/MyFileInput";
 import MyButton from "@components/MyButton";
 import MyTextarea from "@components/MyTextarea";
 import MySelect from "@components/MySelect";
+import MyImageViewer from "@components/MyImageViewer";
 
 const Base64ImageEncoder = () => {
   const [image, setImage] = React.useState(null);
@@ -45,11 +45,7 @@ const Base64ImageEncoder = () => {
       <div className="flex flex-wrap mb-4 space-x-2">
         {image && (
           <div className="relative group overflow-hidden rounded-lg w-32 h-32">
-            <MyImage
-              src={URL.createObjectURL(image)}
-              alt="image"
-              className="object-cover w-full h-full"
-            />
+            <MyImageViewer src={URL.createObjectURL(image)} />
           </div>
         )}
       </div>
@@ -62,11 +58,7 @@ const Base64ImageEncoder = () => {
 
       <div className="flex items-center mb-2">
         <span>Output</span>
-        <MySelect
-          value={outputType}
-          onChange={setOutputType}
-          className="ml-2"
-        >
+        <MySelect value={outputType} onChange={setOutputType} className="ml-2">
           <option value="base64">Base64</option>
           <option value="dataUrl">Data URL</option>
           <option value="imgTag">Image Tag</option>

@@ -1,8 +1,8 @@
 import React from "react";
 
-import MyImage from "@components/MyImage";
 import MyButton from "@components/MyButton";
 import MyTextarea from "@components/MyTextarea";
+import MyImageViewer from "@components/MyImageViewer";
 
 const Base64ImageDecoder = () => {
   const [input, setInput] = React.useState("");
@@ -35,7 +35,7 @@ const Base64ImageDecoder = () => {
           <div
             className="relative group overflow-hidden rounded-lg w-32 h-32"
           >
-            <MyImage
+            <MyImageViewer
               src={output}
               alt="image"
               className="object-cover w-full h-full"

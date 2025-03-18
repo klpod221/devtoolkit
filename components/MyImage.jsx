@@ -14,6 +14,7 @@ const MyImage = ({
   alt,
   data,
   className,
+  imageClass,
   preview = true,
   download = true,
 }) => {
@@ -45,7 +46,12 @@ const MyImage = ({
           alt={alt}
           width={500}
           height={500}
-          className={`object-cover w-full h-full rounded-lg border-2 border-gray-200 dark:border-dark-secondary`}
+          className={`object-cover w-full h-full rounded-lg border-2 border-gray-200 dark:border-dark-secondary transition-transform duration-300 ease-in-out group-hover:scale-105 cursor-pointer ${imageClass}`}
+          onClick={() => {
+            if (canPreview) {
+              setIsShowPreview(!isShowPreview);
+            }
+          }}
         />
 
         <div className="absolute top-1 right-1 hidden justify-center items-center group-hover:flex animate-fade-in space-x-1">
