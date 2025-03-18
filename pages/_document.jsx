@@ -23,11 +23,23 @@ const MyDocument = () => {
           content="Collection of tools for developers. Web development tools, Image tools, Text tools, Password tools, Number tools, Time tools, Color tools, and more."
         />
 
-        <meta property="og:title" content="klpod221 | Portfolio" />
-        <meta property="og:description" content="klpod221 portfolio" />
+        <meta property="og:title" content="DevTools by klpod221" />
+        <meta
+          property="og:description"
+          content="Collection of tools for developers. Web development tools, Image tools, Text tools, Password tools, Number tools, Time tools, Color tools, and more."
+        />
         <meta property="og:image" content="/favicon.png" />
         <meta property="og:url" content="https://klpod221.github.io/" />
+        <meta property="og:site_name" content="DevTools by klpod221" />
         <meta property="og:card" content="summary" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:image" content="/favicon.png" />
+        <meta name="twitter:title" content="DevTools by klpod221" />
+        <meta
+          name="twitter:description"
+          content="Collection of tools for developers. Web development tools, Image tools, Text tools, Password tools, Number tools, Time tools, Color tools, and more."
+        />
 
         <link rel="icon" href="/favicon.ico" />
 

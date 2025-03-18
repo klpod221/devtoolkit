@@ -17,8 +17,8 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <title>
           {Component.title
-            ? Component.title + " | DevToolkit by klpod221"
-            : "DevToolkit by klpod221"}
+            ? Component.title + " | DevTools by klpod221"
+            : "DevTools by klpod221"}
         </title>
         <meta
           name="description"
