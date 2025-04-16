@@ -7,7 +7,7 @@ import { HiBars3BottomLeft } from "react-icons/hi2";
 
 import { ThemeContext } from "@/providers/ThemeProvider";
 
-const MyNavbar = ({ isOpen, setIsOpen, title = "DevTools" }) => {
+const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
   const { theme, setTheme } = React.useContext(ThemeContext);
 
   const toggleSidebar = () => {
@@ -44,7 +44,7 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevTools" }) => {
                   height: "auto"
                 }} />
               <span className="self-center text-lg font-semibold sm:text-xl whitespace-nowrap ">
-                DevTools
+                DevToolkit
               </span>
             </NextLink>
           </div>
