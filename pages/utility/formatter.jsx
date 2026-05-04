@@ -4,39 +4,41 @@ import MyCard from "@components/MyCard";
 import MySelect from "@components/MySelect";
 import MyCodeEditor from "@components/MyCodeEditor";
 import MyButton from "@components/MyButton";
-import { toast } from "react-toastify";
+import CodeOutput from "@components/CodeOutput";
+import { FaTrash } from "react-icons/fa";
 import beautify from 'js-beautify';
-import { FaTrash, FaCopy } from "react-icons/fa";
-import { copyToClipboard } from "@utils/copyToClipboard";
 
 const DataTextFormatter = () => {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [error, setError] = useState("");
   const [format, setFormat] = useState("json");
 
   const formatData = (val, currentFormat) => {
     if (!val.trim()) {
       setOutput("");
+      setError("");
       return;
     }
 
     try {
+      let result = "";
       if (currentFormat === "json") {
         const parsed = JSON.parse(val);
-        setOutput(JSON.stringify(parsed, null, 2));
-      } else if (currentFormat === "xml") {
-        setOutput(beautify.html(val, { indent_size: 2, wrap_line_length: 0 }));
+        result = JSON.stringify(parsed, null, 2);
+      } else if (currentFormat === "xml" || currentFormat === "html") {
+        result = beautify.html(val, { indent_size: 2, wrap_line_length: 0 });
       } else if (currentFormat === "css") {
-        setOutput(beautify.css(val, { indent_size: 2 }));
-      } else if (currentFormat === "html") {
-        setOutput(beautify.html(val, { indent_size: 2 }));
+        result = beautify.css(val, { indent_size: 2 });
       } else if (currentFormat === "javascript") {
-        setOutput(beautify.js(val, { indent_size: 2 }));
+        result = beautify.js(val, { indent_size: 2 });
       } else {
-        setOutput(val);
+        result = val;
       }
+      setOutput(result);
+      setError("");
     } catch (err) {
-      // Silently fail during typing, or show indicator if needed
+      setError(err.message);
       setOutput("");
     }
   };
@@ -44,42 +46,20 @@ const DataTextFormatter = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       formatData(input, format);
-    }, 200);
+    }, 300);
     return () => clearTimeout(timer);
   }, [input, format]);
-
-  const handleCopy = () => {
-    if (!output) return;
-    copyToClipboard(output);
-    toast.success("Copied to clipboard");
-  };
 
   const handleClear = () => {
     setInput("");
     setOutput("");
+    setError("");
   };
 
   return (
-    <TwoColumn>
+    <TwoColumn leftWidth={70}>
       <TwoColumn.Left>
         <MyCard.Header title="Input" helper="Paste your raw data here">
-          <MyButton color="gray" onClick={handleClear} sizing="sm">
-            <FaTrash className="mr-2" /> Clear
-          </MyButton>
-        </MyCard.Header>
-
-        <div className="h-[600px] mt-4">
-          <MyCodeEditor
-            value={input}
-            onChange={setInput}
-            language={format}
-            className="h-full"
-          />
-        </div>
-      </TwoColumn.Left>
-
-      <TwoColumn.Right>
-        <MyCard.Header title="Formatted" helper="Resulting beautiful data">
           <MySelect
             value={format}
             onChange={(val) => setFormat(val)}
@@ -92,17 +72,35 @@ const DataTextFormatter = () => {
             <option value="css">CSS</option>
             <option value="javascript">JS</option>
           </MySelect>
-          <MyButton onClick={handleCopy} disabled={!output} sizing="sm">
-            <FaCopy className="mr-2" /> Copy
+          
+          <MyButton color="gray" onClick={handleClear} sizing="sm">
+            <FaTrash className="mr-2" /> Clear
           </MyButton>
         </MyCard.Header>
-        
+
         <div className="h-[600px] mt-4">
           <MyCodeEditor
-            value={output}
-            readOnly={true}
-            language={format}
+            value={input}
+            onChange={setInput}
+            language={format === "javascript" ? "javascript" : format}
             className="h-full"
+          />
+        </div>
+      </TwoColumn.Left>
+
+      <TwoColumn.Right>
+        <div className="flex h-full flex-col">
+          <div className="flex mb-1 justify-between items-center">
+            <span className="text-base font-semibold">OUTPUT</span>
+            {output && !error && (
+               <span className="text-xs text-green-500 font-medium italic">Formatted Successfully</span>
+            )}
+          </div>
+
+          <CodeOutput
+            language={format}
+            output={output}
+            error={error}
           />
         </div>
       </TwoColumn.Right>
