@@ -79,6 +79,11 @@ const getCharsetLength = (password) => {
   return length;
 };
 
+/**
+ * Analyzes the strength of a given password based on entropy.
+ * @param {string} password - The password string to analyze.
+ * @returns {{entropy: number, charsetLength: number, passwordLength: number, crackDuration: string, secondsToCrack: number, score: number}} Strength metrics of the password.
+ */
 const passwordStrengthAnalyser = (password) => {
   const charsetLength = getCharsetLength(password);
   const passwordLength = password.length;

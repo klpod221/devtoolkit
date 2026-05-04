@@ -9,6 +9,7 @@ import Head from "next/head";
 import Provider from "@providers";
 
 import Layout from "@/components/layouts/Layout";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import { Analytics } from "@vercel/analytics/react";
 
 const MyApp = ({ Component, pageProps }) => {
@@ -28,7 +29,9 @@ const MyApp = ({ Component, pageProps }) => {
 
       <Provider>
         <Layout title={Component.title}>
-          <Component {...pageProps} />
+          <ErrorBoundary>
+            <Component {...pageProps} />
+          </ErrorBoundary>
           <Analytics />
         </Layout>
       </Provider>

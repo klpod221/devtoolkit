@@ -1,8 +1,44 @@
 import axios from "axios";
 import PROGRAMMING_LANGUAGES from "@constants/programming_languages";
 
+// --- Rate Limiter Setup ---
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+const MAX_REQUESTS_PER_WINDOW = 10;
+
+const rateLimit = (ip) => {
+  const now = Date.now();
+  const windowStart = now - RATE_LIMIT_WINDOW_MS;
+
+  const record = rateLimitMap.get(ip) || [];
+  const requestsInWindow = record.filter((timestamp) => timestamp > windowStart);
+  
+  if (requestsInWindow.length >= MAX_REQUESTS_PER_WINDOW) {
+    return false; // Rate limited
+  }
+
+  requestsInWindow.push(now);
+  rateLimitMap.set(ip, requestsInWindow);
+  return true;
+};
+// -------------------------
+
 const post = async (req, res) => {
+  // 1. Rate Limiting Check
+  const ip = req.headers["x-forwarded-for"] || req.connection?.remoteAddress || "unknown";
+  if (!rateLimit(ip)) {
+    return res.status(429).json({ error: "Too many requests. Please try again later." });
+  }
+
   const { code, language, theme, stdin } = req.body;
+
+  // 2. Input Validation
+  if (code && code.length > 50000) {
+    return res.status(400).json({ error: "Code payload too large. Maximum 50000 characters allowed." });
+  }
+  if (stdin && stdin.length > 10000) {
+    return res.status(400).json({ error: "Stdin payload too large. Maximum 10000 characters allowed." });
+  }
 
   const selectedLanguage = PROGRAMMING_LANGUAGES.find(
     (lang) => lang.slug === language,

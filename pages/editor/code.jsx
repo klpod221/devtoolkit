@@ -24,15 +24,21 @@ const CodeEditor = () => {
   const [loading, setLoading] = React.useState(false);
   const [output, setOutput] = React.useState();
 
+  const stateRef = React.useRef({ code, stdin, language, themeLanguage });
+
+  React.useEffect(() => {
+    stateRef.current = { code, stdin, language, themeLanguage };
+  }, [code, stdin, language, themeLanguage]);
+
   const handleRunCode = async () => {
     try {
       setLoading(true);
 
       const formData = {
-        code,
-        language,
-        theme: themeLanguage,
-        stdin,
+        code: stateRef.current.code,
+        language: stateRef.current.language,
+        theme: stateRef.current.themeLanguage,
+        stdin: stateRef.current.stdin,
       };
 
       setOutput(null);
@@ -77,7 +83,7 @@ const CodeEditor = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [code, stdin]);
+  }, []);
 
   return (
     <TwoColumn leftWidth={70}>
