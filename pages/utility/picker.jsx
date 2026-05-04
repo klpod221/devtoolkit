@@ -1,46 +1,71 @@
-import React from "react";
-import NextLink from "next/link";
-
+import React, { useState, useMemo } from "react";
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
+import MyColorPicker from "@components/MyColorPicker";
+import ObjectOutput from "@components/ObjectOutput";
+import Color from "color";
 
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+const ColorPickerPage = () => {
+  const [color, setColor] = useState("#3B82F6");
 
-const ColorPicker = () => {
+  const data = useMemo(() => {
+    try {
+      const c = Color(color);
+      return {
+        hex: color.toUpperCase(),
+        rgb: c.rgb().string(),
+        hsl: c.hsl().string(),
+        hsv: c.hsv().string(),
+        cmyk: c.cmyk().round().string(),
+        luminance: c.luminance().toFixed(2),
+        isDark: c.isDark() ? "Yes" : "No",
+      };
+    } catch (e) {
+      return null;
+    }
+  }, [color]);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <div className="flex flex-col items-center">
+      <MyCard className="w-full max-w-2xl">
+        <MyCard.Header 
+          title="Advanced Color Picker" 
+          helper="Select a color and get detailed information and conversions."
+        />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
+        <div className="space-y-8">
+          <div className="flex flex-col items-center py-4">
+            <MyColorPicker
+              label="Color Selector"
+              value={color}
+              onChange={setColor}
+            />
+            
+            <div 
+              className="mt-8 w-full h-32 rounded-2xl shadow-inner border-4 border-white dark:border-dark-secondary"
+              style={{ backgroundColor: color }}
+            />
+          </div>
 
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
+          <div className="grid grid-cols-2 gap-4">
+             <div className="p-4 rounded-lg border dark:border-dark-secondary flex flex-col items-center">
+                <span className="text-xs text-gray-500 mb-2 uppercase tracking-tighter">Foreground Preview</span>
+                <span className="text-3xl font-bold" style={{ color: color }}>AaBbCc</span>
+             </div>
+             <div className="p-4 rounded-lg border dark:border-dark-secondary flex flex-col items-center" style={{ backgroundColor: color }}>
+                <span className="text-xs opacity-70 mb-2 uppercase tracking-tighter" style={{ color: Color(color).isDark() ? 'white' : 'black' }}>Background Preview</span>
+                <span className="text-3xl font-bold" style={{ color: Color(color).isDark() ? 'white' : 'black' }}>AaBbCc</span>
+             </div>
+          </div>
 
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+          <hr className="border-gray-200 dark:border-dark-secondary" />
+
+          <MyCard.Header title="Color Details" />
+          {data && <ObjectOutput data={data} />}
+        </div>
+      </MyCard>
+    </div>
   );
 };
 
-ColorPicker.title = "Color Picker";
-export default ColorPicker;
+ColorPickerPage.title = "Color Picker";
+export default ColorPickerPage;

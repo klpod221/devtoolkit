@@ -644,7 +644,7 @@ const TOOL_LIST = [
         description: "Calculate chmod values.",
         icon: AiOutlinePercentage,
         path: "/chmod",
-        status: false,
+        status: true,
       },
       {
         name: "IMAP/POP3/SMTP Tester",
@@ -658,7 +658,7 @@ const TOOL_LIST = [
         description: "Generate random ports.",
         icon: TbServer,
         path: "/port",
-        status: false,
+        status: true,
       },
       {
         name: "Crontab Generator",
@@ -713,7 +713,7 @@ const TOOL_LIST = [
         description: "Convert IPv4 addresses.",
         icon: TbRouter,
         path: "/ipv4",
-        status: false,
+        status: true,
       },
       {
         name: "IPv4 Range Expander",
@@ -727,7 +727,7 @@ const TOOL_LIST = [
         description: "Generate MAC addresses.",
         icon: MdPhonelink,
         path: "/mac",
-        status: false,
+        status: true,
       },
       {
         name: "IPv6 ULA Generator",
@@ -863,21 +863,21 @@ const TOOL_LIST = [
         description: "Pick colors from the color picker or upload an image.",
         icon: CgColorPicker,
         path: "/picker",
-        status: false,
+        status: true,
       },
       {
         name: "Color Palette Generator",
         description: "Generate color palettes.",
         icon: CgColorPicker,
         path: "/palette",
-        status: false,
+        status: true,
       },
       {
         name: "Data text formatter",
         description: "Format your data (JSON, XML, CSV, etc.).",
         icon: AiOutlineDiff,
         path: "/formatter",
-        status: false,
+        status: true,
       },
       {
         name: "QR Code Generator",
