@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (67/105)
+## Tools List (74/105)
 
 ### Text Editor
 
@@ -125,9 +125,9 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [ ] </li></ul> | [Dockerize helper](https://devtools.klpod221.com/system/docker)           | Generate Dockerfile and docker-compose files.  |
 | <ul><li> - [ ] </li></ul> | [Docker Run To Compose](https://devtools.klpod221.com/system/docker-run)  | Convert docker run commands to docker-compose. |
 | <ul><li> - [ ] </li></ul> | [Ubuntu Server Configurator](https://devtools.klpod221.com/system/ubuntu) | Generate Ubuntu server configuration.          |
-| <ul><li> - [ ] </li></ul> | [Chmod Calculator](https://devtools.klpod221.com/system/chmod)            | Calculate chmod values.                        |
+| <ul><li> - [x] </li></ul> | [Chmod Calculator](https://devtools.klpod221.com/system/chmod)            | Calculate chmod values.                        |
 | <ul><li> - [ ] </li></ul> | [IMAP/POP3/SMTP Tester](https://devtools.klpod221.com/system/mail)        | Test IMAP, POP3, SMTP servers.                 |
-| <ul><li> - [ ] </li></ul> | [Random port generator](https://devtools.klpod221.com/system/port)        | Generate random ports.                         |
+| <ul><li> - [x] </li></ul> | [Random port generator](https://devtools.klpod221.com/system/port)        | Generate random ports.                         |
 | <ul><li> - [x] </li></ul> | [Crontab Generator](https://devtools.klpod221.com/system/cron-generator)  | Generate cron expressions.                     |
 
 ### Network Tools
@@ -139,9 +139,9 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [ ] </li></ul> | [Ping Test](https://devtools.klpod221.com/network/ping)                | Test your ping.                     |
 | <ul><li> - [ ] </li></ul> | [Port Scanner](https://devtools.klpod221.com/network/port-scanner)     | Scan ports.                         |
 | <ul><li> - [ ] </li></ul> | [IPv4 Subnet Calculator](https://devtools.klpod221.com/network/subnet) | Calculate IPv4 subnets.             |
-| <ul><li> - [ ] </li></ul> | [IPv4 Address Converter](https://devtools.klpod221.com/network/ipv4)   | Convert IPv4 addresses.             |
+| <ul><li> - [x] </li></ul> | [IPv4 Address Converter](https://devtools.klpod221.com/network/ipv4)   | Convert IPv4 addresses.             |
 | <ul><li> - [ ] </li></ul> | [IPv4 Range Expander](https://devtools.klpod221.com/network/range)     | Expand IPv4 ranges.                 |
-| <ul><li> - [ ] </li></ul> | [MAC Address Generator](https://devtools.klpod221.com/network/mac)     | Generate MAC addresses.             |
+| <ul><li> - [x] </li></ul> | [MAC Address Generator](https://devtools.klpod221.com/network/mac)     | Generate MAC addresses.             |
 | <ul><li> - [ ] </li></ul> | [IPv6 ULA Generator](https://devtools.klpod221.com/network/ula)        | Generate IPv6 ULAs.                 |
 
 ### Math Tools
@@ -177,9 +177,9 @@ And if you have any suggestions, please let me know by creating an issue.
 
 | Status                    | Name                                                                     | Description                                           |
 | ------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------- |
-| <ul><li> - [ ] </li></ul> | [Color Picker](https://devtools.klpod221.com/utility/picker)             | Pick colors from the color picker or upload an image. |
-| <ul><li> - [ ] </li></ul> | [Color Palette Generator](https://devtools.klpod221.com/utility/palette) | Generate color palettes.                              |
-| <ul><li> - [ ] </li></ul> | [Data text formatter](https://devtools.klpod221.com/utility/formatter)   | Format your data (JSON, XML, CSV, etc.).              |
+| <ul><li> - [x] </li></ul> | [Color Picker](https://devtools.klpod221.com/utility/picker)             | Pick colors from the color picker or upload an image. |
+| <ul><li> - [x] </li></ul> | [Color Palette Generator](https://devtools.klpod221.com/utility/palette) | Generate color palettes.                              |
+| <ul><li> - [x] </li></ul> | [Data text formatter](https://devtools.klpod221.com/utility/formatter)   | Format your data (JSON, XML, CSV, etc.).              |
 | <ul><li> - [x] </li></ul> | [QR Code Generator](https://devtools.klpod221.com/utility/qr-code)       | Convert text to QR code and vice versa.               |
 | <ul><li> - [ ] </li></ul> | [QR Code Scanner](https://devtools.klpod221.com/utility/qr-scanner)      | Scan QR codes.                                        |
 | <ul><li> - [ ] </li></ul> | [Barcode Generator](https://devtools.klpod221.com/utility/barcode)       | Generate barcodes.                                    |
