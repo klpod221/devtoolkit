@@ -3,11 +3,12 @@ import _ from "lodash";
 
 import createToken from "@utils/createToken";
 
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
-import MySwitch from "@components/MySwitch";
+import MyCheckbox from "@components/MyCheckbox";
 import MyButton from "@components/MyButton";
 import MyRangeSlider from "@components/MyRangeSlider";
-import MyTextarea from "@components/MyTextarea";
+import CodeOutput from "@components/CodeOutput";
 
 import { FaSyncAlt } from "react-icons/fa";
 
@@ -41,66 +42,63 @@ const TokenGenerator = () => {
     generateToken();
   }, [generateToken]);
 
+  const set = (key) => (e) =>
+    setOptions((prev) => ({ ...prev, [key]: e.target.checked }));
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <MyCard.Header title="Input Options" />
+    <TwoColumn leftWidth="40">
+      <TwoColumn.Left>
+        <MyCard.Header
+          title="Configuration"
+          helper="Configure the token generation options."
+        >
+          <MyButton onClick={generateToken}>
+            <FaSyncAlt className="mr-2" /> Regenerate
+          </MyButton>
+        </MyCard.Header>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <MySwitch
-          label="Uppercase (A-Z)"
-          checked={options.uppercase}
-          onChange={(value) =>
-            setOptions({ ...options, uppercase: value })
-          }
-        />
-        <MySwitch
-          label="Lowercase (a-z)"
-          checked={options.lowercase}
-          onChange={(value) =>
-            setOptions({ ...options, lowercase: value })
-          }
-        />
-        <MySwitch
-          label="Numbers (0-9)"
-          checked={options.numbers}
-          onChange={(value) =>
-            setOptions({ ...options, numbers: value })
-          }
-        />
-        <MySwitch
-          label="Symbols (.,; etc.)"
-          checked={options.symbols}
-          onChange={(value) =>
-            setOptions({ ...options, symbols: value })
-          }
-        />
-      </div>
+        <div className="mb-4">
+          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            Token Length: {options.length}
+          </label>
+          <MyRangeSlider
+            min={8}
+            max={128}
+            step={1}
+            value={options.length}
+            onChange={(value) => setOptions((prev) => ({ ...prev, length: value }))}
+          />
+        </div>
 
-      <MyRangeSlider
-        label="Token Length"
-        min={8}
-        max={128}
-        step={1}
-        value={options.length}
-        onChange={(value) => setOptions({ ...options, length: value })}
-      />
+        <div className="space-y-3">
+          <MyCheckbox
+            label="Uppercase (A-Z)"
+            checked={options.uppercase}
+            onChange={set("uppercase")}
+          />
+          <MyCheckbox
+            label="Lowercase (a-z)"
+            checked={options.lowercase}
+            onChange={set("lowercase")}
+          />
+          <MyCheckbox
+            label="Numbers (0-9)"
+            checked={options.numbers}
+            onChange={set("numbers")}
+          />
+          <MyCheckbox
+            label="Symbols (.,; etc.)"
+            checked={options.symbols}
+            onChange={set("symbols")}
+          />
+        </div>
+      </TwoColumn.Left>
 
-      <MyCard.Header title="Output" />
-
-      <MyTextarea
-        value={token}
-        readOnly
-        placeholder="Generated token will appear here"
-      />
-
-      <MyButton
-        className="mt-4"
-        onClick={generateToken}
-      >
-        <FaSyncAlt className="mr-2" />
-        Regenerate Token
-      </MyButton>
-    </MyCard>
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="Your generated token." />
+        <CodeOutput output={token} />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 

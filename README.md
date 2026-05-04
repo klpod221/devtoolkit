@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (58/105)
+## Tools List (67/105)
 
 ### Text Editor
 
@@ -22,7 +22,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Code Editor & Compiler](https://devtools.klpod221.com/editor/code) | Write code in different languages (HTML, JS, CSS, Python, Java, C, C++, PHP, etc.) and compile it. |
 | <ul><li> - [x] </li></ul> | [Markdown Editor](https://devtools.klpod221.com/editor/markdown)    | Write markdown and preview it.                                                                     |
 | <ul><li> - [x] </li></ul> | [HTML WYSIWYG Editor](https://devtools.klpod221.com/editor/wysiwyg) | Write, edit your text and get the HTML output.                                                     |
-| <ul><li> - [ ] </li></ul> | [PlantUML Editor](https://devtools.klpod221.com/editor/plantuml)    | Write PlantUML code and get the diagram.                                                           |
+| <ul><li> - [x] </li></ul> | [PlantUML Editor](https://devtools.klpod221.com/editor/plantuml)    | Write PlantUML code and get the diagram.                                                           |
 
 ### Images/Videos Tools
 
@@ -98,14 +98,14 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Hash Text](https://devtools.klpod221.com/security/hash)                              | Hash your text with different algorithms. |
 | <ul><li> - [x] </li></ul> | [Bcrypt Hash Generator](https://devtools.klpod221.com/security/bcrypt)                | Bcrypt hash generator and verifier.       |
 | <ul><li> - [x] </li></ul> | [UUID Generator](https://devtools.klpod221.com/security/uuid)                         | Generate UUIDs.                           |
-| <ul><li> - [ ] </li></ul> | [ULID Generator](https://devtools.klpod221.com/security/ulid)                         | Generate ULIDs.                           |
+| <ul><li> - [x] </li></ul> | [ULID Generator](https://devtools.klpod221.com/security/ulid)                         | Generate ULIDs.                           |
 | <ul><li> - [ ] </li></ul> | [Encrypt/Decrypt Text](https://devtools.klpod221.com/security/encryption)             | Encrypt and decrypt text.                 |
 | <ul><li> - [ ] </li></ul> | [BIP39 Passphrase Generator](https://devtools.klpod221.com/security/bip39)            | Generate BIP39 passphrases.               |
 | <ul><li> - [ ] </li></ul> | [HMAC Generator](https://devtools.klpod221.com/security/hmac)                         | Generate HMACs.                           |
 | <ul><li> - [ ] </li></ul> | [RSA Key Generator](https://devtools.klpod221.com/security/rsa)                       | Generate RSA key pairs.                   |
 | <ul><li> - [x] </li></ul> | [RSA Key Decoder](https://devtools.klpod221.com/security/rsa-decoder)                 | Decode RSA keys.                          |
 | <ul><li> - [x] </li></ul> | [Password Strength Checker](https://devtools.klpod221.com/security/password-strength) | Check your password strength.             |
-| <ul><li> - [ ] </li></ul> | [Password Generator](https://devtools.klpod221.com/security/password)                 | Generate passwords.                       |
+| <ul><li> - [x] </li></ul> | [Password Generator](https://devtools.klpod221.com/security/password)                 | Generate passwords.                       |
 | <ul><li> - [ ] </li></ul> | [Password Hash Generator](https://devtools.klpod221.com/security/password-hash)       | Generate password hashes.                 |
 | <ul><li> - [ ] </li></ul> | [PDF signature checker](https://devtools.klpod221.com/security/pdf-signature)         | Check PDF signatures.                     |
 
@@ -114,7 +114,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | Status                    | Name                                                                          | Description                   |
 | ------------------------- | ----------------------------------------------------------------------------- | ----------------------------- |
 | <ul><li> - [ ] </li></ul> | [API Tester](https://devtools.klpod221.com/develop/api)                       | Test APIs.                    |
-| <ul><li> - [ ] </li></ul> | [Editorconfig Generator](https://devtools.klpod221.com/develop/editor-config) | Generate .editorconfig files. |
+| <ul><li> - [x] </li></ul> | [Editorconfig Generator](https://devtools.klpod221.com/develop/editor-config) | Generate .editorconfig files. |
 | <ul><li> - [ ] </li></ul> | [Gitignore Generator](https://devtools.klpod221.com/develop/gitignore)        | Generate .gitignore files.    |
 
 ### System Tools
@@ -148,10 +148,10 @@ And if you have any suggestions, please let me know by creating an issue.
 
 | Status                    | Name                                                                   | Description                                  |
 | ------------------------- | ---------------------------------------------------------------------- | -------------------------------------------- |
-| <ul><li> - [ ] </li></ul> | [Simple Calculator](https://devtools.klpod221.com/math/calculator)     | Simple calculator for basic math operations. |
-| <ul><li> - [ ] </li></ul> | [Math Evaluator](https://devtools.klpod221.com/math/evaluator)         | Evaluate math expressions (e.g. 2+2\*2).     |
-| <ul><li> - [ ] </li></ul> | [ETA Calculator](https://devtools.klpod221.com/math/eta)               | Calculate ETA.                               |
-| <ul><li> - [ ] </li></ul> | [Percentage Calculator](https://devtools.klpod221.com/math/percentage) | Calculate percentages.                       |
+| <ul><li> - [x] </li></ul> | [Simple Calculator](https://devtools.klpod221.com/math/calculator)     | Simple calculator for basic math operations. |
+| <ul><li> - [x] </li></ul> | [Math Evaluator](https://devtools.klpod221.com/math/evaluator)         | Evaluate math expressions (e.g. 2+2\*2).     |
+| <ul><li> - [x] </li></ul> | [ETA Calculator](https://devtools.klpod221.com/math/eta)               | Calculate ETA.                               |
+| <ul><li> - [x] </li></ul> | [Percentage Calculator](https://devtools.klpod221.com/math/percentage) | Calculate percentages.                       |
 | <ul><li> - [x] </li></ul> | [PI Calculator](https://devtools.klpod221.com/math/pi)                 | Calculate PI.                                |
 | <ul><li> - [ ] </li></ul> | [Matrix Calculator](https://devtools.klpod221.com/math/matrix)         | Calculate matrices.                          |
 
@@ -159,7 +159,7 @@ And if you have any suggestions, please let me know by creating an issue.
 
 | Status                    | Name                                                                     | Description              |
 | ------------------------- | ------------------------------------------------------------------------ | ------------------------ |
-| <ul><li> - [ ] </li></ul> | [Chronometer](https://devtools.klpod221.com/measurement/chronometer)     | Measure time.            |
+| <ul><li> - [x] </li></ul> | [Chronometer](https://devtools.klpod221.com/measurement/chronometer)     | Measure time.            |
 | <ul><li> - [ ] </li></ul> | [Network Speed Test](https://devtools.klpod221.com/measurement/speed)    | Test your network speed. |
 | <ul><li> - [ ] </li></ul> | [Benchmark Builder](https://devtools.klpod221.com/measurement/benchmark) | Build benchmarks.        |
 

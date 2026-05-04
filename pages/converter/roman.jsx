@@ -53,26 +53,26 @@ const RomanNumeralConverter = () => {
   }, [roman]);
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 items-center">
       <MyCard className="w-full max-w-xl">
         <MyCard.Header
           title="Arabic to Roman"
           helper="Convert Arabic numbers to Roman numerals."
         />
 
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 items-center">
-          <div>
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+          <div className="flex flex-col">
             <MyInput
               placeholder="Enter a number"
               type="number"
               value={arabic}
               onChange={setArabic}
-              helperText={
-                <span className="text-red-500 dark:text-red-400 -mt-2">
-                  {error.arabic}
-                </span>
-              }
             />
+            {error.arabic && (
+              <span className="text-red-500 dark:text-red-400 text-sm mt-1">
+                {error.arabic}
+              </span>
+            )}
           </div>
 
           <div className="flex items-center justify-end space-x-2">
@@ -89,16 +89,18 @@ const RomanNumeralConverter = () => {
         />
 
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 items-center">
-          <MyInput
-            placeholder="Enter a Roman numeral"
-            value={roman}
-            onChange={setRoman}
-            helperText={
-              <span className="text-red-500 dark:text-red-400 -mt-2">
+          <div className="flex flex-col">
+            <MyInput
+              placeholder="Enter a Roman numeral"
+              value={roman}
+              onChange={setRoman}
+            />
+            {error.roman && (
+              <span className="text-red-500 dark:text-red-400 text-sm mt-1">
                 {error.roman}
               </span>
-            }
-          />
+            )}
+          </div>
 
           <div className="flex items-center justify-end space-x-2">
             <span className="font-semibold">{output.arabic || ""}</span>

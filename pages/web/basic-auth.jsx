@@ -16,7 +16,7 @@ const BasicAuthGenerator = () => {
   }, [username, password]);
 
   return (
-    <MyCard className="w-full max-w-5xl">
+    <MyCard className="w-full max-w-4xl mx-auto">
       <MyCard.Header
         title="Basic Auth Generator"
         helper="Generate a basic auth header for your HTTP requests."

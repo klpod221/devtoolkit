@@ -4,7 +4,7 @@ import MyCard from "@components/MyCard";
 import TwoColumn from "@components/TwoColumn";
 import MyInput from "@components/MyInput";
 import MyColorPicker from "@components/MyColorPicker";
-import MySwitch from "@components/MySwitch";
+import MyCheckbox from "@components/MyCheckbox";
 import MyTextarea from "@components/MyTextarea";
 import MyImage from "@components/MyImage";
 
@@ -91,10 +91,10 @@ const SVGPlaceholderGenerator = () => {
             onChange={(value) => setInput({ ...input, fontSize: value })}
           />
 
-          <MySwitch
+          <MyCheckbox
             label="Use exact size"
             checked={input.useExactSize}
-            onChange={(value) => setInput({ ...input, useExactSize: value })}
+            onChange={(e) => setInput({ ...input, useExactSize: e.target.checked })}
           />
         </div>
       </TwoColumn.Left>

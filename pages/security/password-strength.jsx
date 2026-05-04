@@ -38,7 +38,7 @@ const PasswordStrengthChecker = () => {
   }, [password]);
 
   return (
-    <MyCard className="w-full max-w-4xl">
+    <MyCard className="w-full max-w-4xl mx-auto">
       <MyInput
         type={showPassword ? "text" : "password"}
         value={password}

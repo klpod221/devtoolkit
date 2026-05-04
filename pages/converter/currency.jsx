@@ -8,7 +8,7 @@ import ObjectOutput from "@components/ObjectOutput";
 import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyInput from "@components/MyInput";
-import MySwitch from "@components/MySwitch";
+import MyCheckbox from "@components/MyCheckbox";
 
 const CurrencyConverter = () => {
   const [amount, setAmount] = React.useState(1);
@@ -130,10 +130,10 @@ const CurrencyConverter = () => {
           ))}
         </datalist>
 
-        <MySwitch
+        <MyCheckbox
           label="Format Output"
           checked={formatOutput}
-          onChange={setFormatOutput}
+          onChange={(e) => setFormatOutput(e.target.checked)}
         />
       </TwoColumn.Left>
       <TwoColumn.Right>

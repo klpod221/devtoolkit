@@ -1,44 +1,63 @@
-import React from "react";
-import NextLink from "next/link";
-
+import React, { useState, useEffect } from "react";
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
-
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import MyInput from "@components/MyInput";
+import CodeOutput from "@components/CodeOutput";
 
 const MathEvaluator = () => {
+  const [expression, setExpression] = useState("");
+  const [result, setResult] = useState("");
+
+  useEffect(() => {
+    if (!expression.trim()) {
+      setResult("");
+      return;
+    }
+
+    const sanitized = expression.replace(/[^0-9+\-*/().%\s]/g, "");
+    
+    if (sanitized !== expression) {
+        setResult("Error: Invalid characters in expression");
+        return;
+    }
+
+    try {
+      // eslint-disable-next-line no-new-func
+      const calcResult = new Function(`"use strict"; return (${sanitized})`)();
+      
+      if (typeof calcResult === 'number' && !isNaN(calcResult)) {
+        const formattedResult = Math.round(calcResult * 1e10) / 1e10;
+        setResult(String(formattedResult));
+      } else {
+        setResult("Invalid format");
+      }
+    } catch (error) {
+      setResult("Error: Malformed expression");
+    }
+  }, [expression]);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <TwoColumn leftWidth="40">
+      <TwoColumn.Left>
+        <MyCard.Header
+          title="Input"
+          helper="Enter a mathematical expression."
+        />
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
-
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
-
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+        <MyInput
+          label="Expression"
+          type="text"
+          placeholder="e.g. (10 + 5) * 2 / 3"
+          value={expression}
+          onChange={setExpression}
+        />
+      </TwoColumn.Left>
+      
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="Result of the expression." />
+        <CodeOutput output={result || "No result yet"} />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 

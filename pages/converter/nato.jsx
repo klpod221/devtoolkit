@@ -15,7 +15,7 @@ const NATOAlphabetConverter = () => {
   }, [input]);
 
   return (
-    <MyCard className="w-full max-w-xl">
+    <MyCard className="w-full max-w-xl mx-auto">
       <MyCard.Header
         title="Text to NATO alphabet"
         helper="Transform text into the NATO phonetic alphabet for oral transmission."

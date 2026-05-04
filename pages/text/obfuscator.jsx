@@ -4,7 +4,7 @@ import _ from "lodash";
 import MyCard from "@components/MyCard";
 import MyTextarea from "@components/MyTextarea";
 import MyInput from "@components/MyInput";
-import MySwitch from "@components/MySwitch";
+import MyCheckbox from "@components/MyCheckbox";
 
 const StringObfuscator = () => {
   const [input, setInput] = React.useState("Lorem ipsum dolor sit amet");
@@ -61,10 +61,10 @@ const StringObfuscator = () => {
         />
       </div>
 
-      <MySwitch
+      <MyCheckbox
         label="Keep space"
         checked={settings.space}
-        onChange={(value) => setSettings((prev) => ({ ...prev, space: value }))}
+        onChange={(e) => setSettings((prev) => ({ ...prev, space: e.target.checked }))}
       />
 
       <MyTextarea label="Output" value={output} readOnly />

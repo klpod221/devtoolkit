@@ -84,8 +84,8 @@ const CronExpressionGenerator = () => {
   const [cron, setCron] = React.useState("0 12 * * *");
 
   return (
-    <>
-      <MyCard className="w-full max-w-5xl">
+    <div className="flex flex-col gap-2 w-full max-w-4xl mx-auto">
+      <MyCard className="w-full">
         <div className="text-center">
           <p
             className={`text-lg ${isCronValid(cron) ? "text-green-500" : "text-red-500"}`}
@@ -107,7 +107,7 @@ const CronExpressionGenerator = () => {
           />
         </div>
 
-        <div className="text-center text-sm flex justify-center mt-4">
+        <div className="text-center text-sm flex justify-center">
           {cron.trim().split(" ").length === 6 && <span>second</span>}
           <span>minute</span>
           <span className="ml-4">hour</span>
@@ -138,8 +138,8 @@ const CronExpressionGenerator = () => {
         </div>
       </MyCard>
 
-      <MyCard className="w-full max-w-5xl sm:mt-4">
-        <table className="w-full text-sm">
+      <MyCard className="w-full">
+        <table className="text-sm">
           <thead>
             <tr className="text-left uppercase">
               <th className="px-6 py-4 text-sm">Symbol</th>
@@ -163,7 +163,7 @@ const CronExpressionGenerator = () => {
           </tbody>
         </table>
       </MyCard>
-    </>
+    </div>
   );
 };
 

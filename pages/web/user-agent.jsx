@@ -39,7 +39,7 @@ const UserAgentParser = () => {
   }, [userAgent]);
 
   return (
-    <MyCard className="w-full max-w-4xl">
+    <MyCard className="w-full max-w-4xl mx-auto">
       <MyCard.Header
         title="Input"
         helper="Enter your user agent to get information about your browser, engine, OS, device and CPU."

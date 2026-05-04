@@ -15,7 +15,7 @@ const SlugifyString = () => {
   };
 
   return (
-    <MyCard className="w-full max-w-5xl">
+    <MyCard className="w-full max-w-4xl mx-auto">
       <MyCard.Header
         title="Slugify String"
         helper="Convert a string to a slug"

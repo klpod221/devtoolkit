@@ -513,7 +513,7 @@ const TOOL_LIST = [
         description: "Generate ULIDs.",
         icon: TbSortDescendingNumbers,
         path: "/ulid",
-        status: false,
+        status: true,
       },
       {
         name: "Encrypt/Decrypt Text",
@@ -562,7 +562,7 @@ const TOOL_LIST = [
         description: "Generate passwords.",
         icon: CgPassword,
         path: "/password",
-        status: false,
+        status: true,
       },
       {
         name: "Password Hash Generator",
@@ -596,7 +596,7 @@ const TOOL_LIST = [
         description: "Generate .editorconfig files.",
         icon: AiOutlineCode,
         path: "/editor-config",
-        status: false,
+        status: true,
       },
       {
         name: "Gitignore Generator",
@@ -747,28 +747,28 @@ const TOOL_LIST = [
         description: "Simple calculator for basic math operations.",
         icon: TbCalculator,
         path: "/calculator",
-        status: false,
+        status: true,
       },
       {
         name: "Math Evaluator",
         description: "Evaluate math expressions (e.g. 2+2*2).",
         icon: TbMath,
         path: "/evaluator",
-        status: false,
+        status: true,
       },
       {
         name: "ETA Calculator",
         description: "Calculate ETA.",
         icon: TbHourglass,
         path: "/eta",
-        status: false,
+        status: true,
       },
       {
         name: "Percentage Calculator",
         description: "Calculate percentages.",
         icon: TbPercentage,
         path: "/percentage",
-        status: false,
+        status: true,
       },
       {
         name: "PI Calculator",
@@ -795,7 +795,7 @@ const TOOL_LIST = [
         description: "Measure time.",
         icon: BsFillStopwatchFill,
         path: "/chronometer",
-        status: false,
+        status: true,
       },
       {
         name: "Network Speed Test",

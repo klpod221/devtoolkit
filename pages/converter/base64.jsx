@@ -21,7 +21,7 @@ const Base64EncoderDecoder = () => {
   };
 
   return (
-    <MyCard className="w-full max-w-5xl">
+    <MyCard className="w-full max-w-4xl mx-auto">
       <div className="w-full h-full">
         <MyTextarea label="Input" value={input} onChange={setInput} />
 

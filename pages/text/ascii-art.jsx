@@ -2,22 +2,37 @@ import React from "react";
 import _ from "lodash";
 import figlet from "figlet";
 
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyTextarea from "@components/MyTextarea";
 import MySelect from "@components/MySelect";
 import MyInput from "@components/MyInput";
+import MyButton from "@components/MyButton";
 import CodeOutput from "@components/CodeOutput";
 
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import ASCII_FONTS from "@constants/ascii_fonts";
 
 const TextToASCIIArt = () => {
-  const [text, setText] = React.useState("");
+  const [text, setText] = React.useState("klpod221");
   const [asciiArt, setAsciiArt] = React.useState("");
 
   const [options, setOptions] = React.useState({
     font: "Standard",
     width: 80,
   });
+
+  const fontIndex = ASCII_FONTS.indexOf(options.font);
+
+  const prevFont = () => {
+    const idx = fontIndex <= 0 ? ASCII_FONTS.length - 1 : fontIndex - 1;
+    setOptions((prev) => ({ ...prev, font: ASCII_FONTS[idx] }));
+  };
+
+  const nextFont = () => {
+    const idx = fontIndex >= ASCII_FONTS.length - 1 ? 0 : fontIndex + 1;
+    setOptions((prev) => ({ ...prev, font: ASCII_FONTS[idx] }));
+  };
 
   const generateASCIIArt = React.useMemo(
     () =>
@@ -42,9 +57,7 @@ const TextToASCIIArt = () => {
   );
 
   React.useEffect(() => {
-    figlet.defaults({ fontPath: "//unpkg.com/figlet@1.8.0/fonts/" });
-
-    console.log(ASCII_FONTS.length);
+    figlet.defaults({ fontPath: "/figlet-fonts/" });
   }, []);
 
   React.useEffect(() => {
@@ -52,37 +65,67 @@ const TextToASCIIArt = () => {
   }, [text, options, generateASCIIArt]);
 
   return (
-    <MyCard>
-      <MyTextarea label="Your text" value={text} onChange={setText} />
+    <TwoColumn leftWidth="35">
+      <TwoColumn.Left>
+        <MyCard.Header
+          title="Input"
+          helper="Enter text and select a font to generate ASCII art."
+        />
 
-      <hr className="d-block border-t border-gray-200 dark:border-gray-600" />
-
-      <div className="flex space-x-4 mx-auto">
-        <MySelect
-          label="Font"
-          sizing="md"
-          value={options.font}
-          onChange={(value) => setOptions({ ...options, font: value })}
-        >
-          {ASCII_FONTS.map((font) => (
-            <option key={font} value={font}>
-              {font}
-            </option>
-          ))}
-        </MySelect>
+        <MyTextarea
+          label="Your text"
+          value={text}
+          onChange={setText}
+          rows={4}
+          placeholder="Type something..."
+        />
 
         <MyInput
           label="Width"
           type="number"
           value={options.width}
-          onChange={(value) => setOptions({ ...options, width: value })}
+          onChange={(value) => setOptions((prev) => ({ ...prev, width: value }))}
         />
-      </div>
 
-      <hr className="d-block border-t border-gray-200 dark:border-gray-600" />
+        {/* Font Selector with Prev/Next */}
+        <div>
+          <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            Font{" "}
+            <span className="text-gray-400 font-normal">
+              ({fontIndex + 1} / {ASCII_FONTS.length})
+            </span>
+          </label>
 
-      <CodeOutput output={asciiArt} />
-    </MyCard>
+          <div className="flex items-center gap-2">
+            <MyButton color="light" onClick={prevFont} title="Previous font" className="shrink-0 px-2">
+              <FaChevronLeft className="w-3 h-3" />
+            </MyButton>
+
+            <div className="flex-1 min-w-0">
+              <MySelect
+                value={options.font}
+                onChange={(value) => setOptions((prev) => ({ ...prev, font: value }))}
+              >
+                {ASCII_FONTS.map((font) => (
+                  <option key={font} value={font}>
+                    {font}
+                  </option>
+                ))}
+              </MySelect>
+            </div>
+
+            <MyButton color="light" onClick={nextFont} title="Next font" className="shrink-0 px-2">
+              <FaChevronRight className="w-3 h-3" />
+            </MyButton>
+          </div>
+        </div>
+      </TwoColumn.Left>
+
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="Preview of your ASCII art." />
+        <CodeOutput output={asciiArt} />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 

@@ -10,7 +10,7 @@ import MyInput from "@components/MyInput";
 import MyRadio from "@components/MyRadio";
 import MyCodeEditor from "@components/MyCodeEditor";
 import MyCopyButton from "@components/MyCopyButton";
-import MySwitch from "@components/MySwitch";
+import MyCheckbox from "@components/MyCheckbox";
 
 import { FaArrowRight } from "react-icons/fa";
 
@@ -69,10 +69,10 @@ const LoremIpsum = () => {
           ))}
         </div>
 
-        <MySwitch
+        <MyCheckbox
           label="Start with 'Lorem ipsum ...'"
           checked={isStartWithLorem}
-          onChange={setIsStartWithLorem}
+          onChange={(e) => setIsStartWithLorem(e.target.checked)}
         />
       </TwoColumn.Left>
       <TwoColumn.Right>

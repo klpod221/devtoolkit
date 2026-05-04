@@ -22,7 +22,7 @@ const NumeronymGenerator = () => {
   }, [input]);
 
   return (
-    <MyCard className="w-full max-w-5xl">
+    <MyCard className="w-full max-w-4xl mx-auto">
       <p>
         A <strong>numeronym</strong> is a word where a number is used to
         represent some of the letters in the word. For example, the word{" "}
