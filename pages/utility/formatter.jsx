@@ -6,7 +6,7 @@ import MyCodeEditor from "@components/MyCodeEditor";
 import MyButton from "@components/MyButton";
 import CodeOutput from "@components/CodeOutput";
 import { FaTrash } from "react-icons/fa";
-import beautify from 'js-beautify';
+import beautify from "js-beautify";
 
 const DataTextFormatter = () => {
   const [input, setInput] = useState("");
@@ -57,7 +57,7 @@ const DataTextFormatter = () => {
   };
 
   return (
-    <TwoColumn leftWidth={70}>
+    <TwoColumn leftWidth={50}>
       <TwoColumn.Left>
         <MyCard.Header title="Input" helper="Paste your raw data here">
           <MySelect
@@ -72,20 +72,17 @@ const DataTextFormatter = () => {
             <option value="css">CSS</option>
             <option value="javascript">JS</option>
           </MySelect>
-          
+
           <MyButton color="gray" onClick={handleClear} sizing="sm">
             <FaTrash className="mr-2" /> Clear
           </MyButton>
         </MyCard.Header>
 
-        <div className="h-[600px] mt-4">
-          <MyCodeEditor
-            value={input}
-            onChange={setInput}
-            language={format === "javascript" ? "javascript" : format}
-            className="h-full"
-          />
-        </div>
+        <MyCodeEditor
+          value={input}
+          onChange={setInput}
+          language={format === "javascript" ? "javascript" : format}
+        />
       </TwoColumn.Left>
 
       <TwoColumn.Right>
@@ -93,15 +90,13 @@ const DataTextFormatter = () => {
           <div className="flex mb-1 justify-between items-center">
             <span className="text-base font-semibold">OUTPUT</span>
             {output && !error && (
-               <span className="text-xs text-green-500 font-medium italic">Formatted Successfully</span>
+              <span className="text-xs text-green-500 font-medium italic">
+                Formatted Successfully
+              </span>
             )}
           </div>
 
-          <CodeOutput
-            language={format}
-            output={output}
-            error={error}
-          />
+          <CodeOutput language={format} output={output} error={error} />
         </div>
       </TwoColumn.Right>
     </TwoColumn>
