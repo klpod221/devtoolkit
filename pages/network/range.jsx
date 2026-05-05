@@ -4,7 +4,7 @@ import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyInput from "@components/MyInput";
 import MyButton from "@components/MyButton";
-import MyCodeEditor from "@components/MyCodeEditor";
+import CodeOutput from "@components/CodeOutput";
 
 const ipToInt = (ip) => ip.split('.').reduce((acc, octet) => (acc << 8n) + BigInt(octet), 0n);
 const intToIp = (int) => [
@@ -74,7 +74,7 @@ const IPv4RangeExpander = () => {
 
       <TwoColumn.Right>
         <MyCard.Header title="Output" helper={`Generated ${output ? output.split('\n').length : 0} IPs`} />
-        <MyCodeEditor value={output} language="text" options={{ readOnly: true }} height="100%" />
+        <CodeOutput output={output} language="text" />
       </TwoColumn.Right>
     </TwoColumn>
   );

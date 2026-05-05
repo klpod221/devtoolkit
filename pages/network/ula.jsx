@@ -1,44 +1,58 @@
-import React from "react";
-import NextLink from "next/link";
-
+import React, { useState } from "react";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
+import ObjectOutput from "@components/ObjectOutput";
 
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+const generateRandomULA = () => {
+  const hex = "0123456789abcdef";
+  let random40bits = "";
+  for (let i = 0; i < 10; i++) {
+    random40bits += hex[Math.floor(Math.random() * 16)];
+  }
+  const part1 = random40bits.substring(0, 2);
+  const part2 = random40bits.substring(2, 6);
+  const part3 = random40bits.substring(6, 10);
+  
+  const prefix = `fd${part1}:${part2}:${part3}::/48`;
+  const firstSubnet = `fd${part1}:${part2}:${part3}:0000::/64`;
+  return { prefix, firstSubnet };
+};
 
 const IPv6ULAGenerator = () => {
+  const [result, setResult] = useState(null);
+
+  const handleGenerate = () => {
+    setResult(generateRandomULA());
+  };
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
+    <div className="flex flex-col gap-4 items-center w-full">
+      <MyCard className="w-full max-w-4xl mx-auto">
+        <MyCard.Header title="IPv6 ULA Generator" helper="Generate a random Unique Local Address (ULA) /48 prefix" />
+        <div className="mt-4 space-y-4">
+          <p className="text-gray-600 dark:text-gray-400">
+            Unique Local Addresses (ULA) are IPv6 addresses that are usable within a site or group of sites.
+            They are not routable on the global Internet.
+          </p>
+          <MyButton onClick={handleGenerate} className="w-full">
+            Generate Random ULA
+          </MyButton>
+        </div>
+      </MyCard>
 
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
-
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
-
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
-          >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+      {result && (
+        <MyCard className="w-full max-w-4xl mx-auto">
+          <MyCard.Header title="Result" helper="Your random ULA Prefix" />
+          <div className="mt-4">
+            <ObjectOutput data={{
+              "Global ID": result.prefix.split("::")[0].replace("fd", ""),
+              "ULA Prefix (/48)": result.prefix,
+              "First Subnet (/64)": result.firstSubnet
+            }} beautifyKey={false} />
+          </div>
+        </MyCard>
+      )}
+    </div>
   );
 };
 

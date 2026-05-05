@@ -1,44 +1,83 @@
-import React from "react";
-import NextLink from "next/link";
-
+import React, { useState, useEffect } from "react";
+import CryptoJS from "crypto-js";
+import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
-import MyButton from "@components/MyButton";
-
-import { AiFillHome, AiFillGithub } from "react-icons/ai";
+import MyInput from "@components/MyInput";
+import MyTextarea from "@components/MyTextarea";
+import MySelect from "@components/MySelect";
+import CodeOutput from "@components/CodeOutput";
 
 const HMACGenerator = () => {
+  const [message, setMessage] = useState("DEVTOOLKIT");
+  const [secret, setSecret] = useState("secret");
+  const [algorithm, setAlgorithm] = useState("SHA256");
+  const [output, setOutput] = useState("");
+
+  useEffect(() => {
+    try {
+      if (!message || !secret) {
+        setOutput("");
+        return;
+      }
+      let hash;
+      switch (algorithm) {
+        case "MD5":
+          hash = CryptoJS.HmacMD5(message, secret);
+          break;
+        case "SHA1":
+          hash = CryptoJS.HmacSHA1(message, secret);
+          break;
+        case "SHA256":
+          hash = CryptoJS.HmacSHA256(message, secret);
+          break;
+        case "SHA512":
+          hash = CryptoJS.HmacSHA512(message, secret);
+          break;
+        default:
+          hash = CryptoJS.HmacSHA256(message, secret);
+      }
+      setOutput(hash.toString(CryptoJS.enc.Hex));
+    } catch (e) {
+      setOutput("");
+    }
+  }, [message, secret, algorithm]);
+
   return (
-    <MyCard className="w-full max-w-5xl">
-      <h5 className="text-2xl font-bold tracking-tight">
-        This tool is under development 🚧
-      </h5>
-
-      <p className="text-xl text-gray-700 dark:text-gray-400">
-        I{"'"}m currently working on this tool (or not). Please check back later
-        or create a request on our Github repository if you want to see this
-        tool sooner.
-      </p>
-
-      <div className="flex items-center space-x-2 mt-4">
-        <MyButton>
-          <NextLink href="/" className="flex items-center space-x-2">
-            <AiFillHome className="w-5 h-5" />
-            <span>Go back home</span>
-          </NextLink>
-        </MyButton>
-
-        <MyButton color="warning">
-          <NextLink
-            href="https://github.com/klpod221/devtoolkit/issues"
-            target="_blank"
-            className="flex items-center space-x-2"
+    <TwoColumn>
+      <TwoColumn.Left>
+        <MyCard.Header title="HMAC Generator" helper="Generate Hash-based Message Authentication Code" />
+        <div className="space-y-4 mt-4">
+          <MyTextarea
+            label="Message"
+            value={message}
+            onChange={(val) => setMessage(val)}
+            placeholder="Enter the message to hash"
+            rows={4}
+          />
+          <MyInput
+            label="Secret Key"
+            value={secret}
+            onChange={(val) => setSecret(val)}
+            placeholder="Enter the secret key"
+          />
+          <MySelect
+            label="Algorithm"
+            value={algorithm}
+            onChange={(val) => setAlgorithm(val)}
           >
-            <AiFillGithub className="w-5 h-5" />
-            <span>Create a request</span>
-          </NextLink>
-        </MyButton>
-      </div>
-    </MyCard>
+            <option value="MD5">HMAC-MD5</option>
+            <option value="SHA1">HMAC-SHA1</option>
+            <option value="SHA256">HMAC-SHA256</option>
+            <option value="SHA512">HMAC-SHA512</option>
+          </MySelect>
+        </div>
+      </TwoColumn.Left>
+
+      <TwoColumn.Right>
+        <MyCard.Header title="Output" helper="Generated HMAC Hex String" />
+        <CodeOutput output={output} language="text" />
+      </TwoColumn.Right>
+    </TwoColumn>
   );
 };
 
