@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (74/105)
+## Tools List (78/105)
 
 ### Text Editor
 
@@ -115,7 +115,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | ------------------------- | ----------------------------------------------------------------------------- | ----------------------------- |
 | <ul><li> - [ ] </li></ul> | [API Tester](https://devtools.klpod221.com/develop/api)                       | Test APIs.                    |
 | <ul><li> - [x] </li></ul> | [Editorconfig Generator](https://devtools.klpod221.com/develop/editor-config) | Generate .editorconfig files. |
-| <ul><li> - [ ] </li></ul> | [Gitignore Generator](https://devtools.klpod221.com/develop/gitignore)        | Generate .gitignore files.    |
+| <ul><li> - [x] </li></ul> | [Gitignore Generator](https://devtools.klpod221.com/develop/gitignore)        | Generate .gitignore files.    |
 
 ### System Tools
 
@@ -138,9 +138,9 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [ ] </li></ul> | [DNS Lookup](https://devtools.klpod221.com/network/dns)                | Lookup DNS records.                 |
 | <ul><li> - [ ] </li></ul> | [Ping Test](https://devtools.klpod221.com/network/ping)                | Test your ping.                     |
 | <ul><li> - [ ] </li></ul> | [Port Scanner](https://devtools.klpod221.com/network/port-scanner)     | Scan ports.                         |
-| <ul><li> - [ ] </li></ul> | [IPv4 Subnet Calculator](https://devtools.klpod221.com/network/subnet) | Calculate IPv4 subnets.             |
+| <ul><li> - [x] </li></ul> | [IPv4 Subnet Calculator](https://devtools.klpod221.com/network/subnet) | Calculate IPv4 subnets.             |
 | <ul><li> - [x] </li></ul> | [IPv4 Address Converter](https://devtools.klpod221.com/network/ipv4)   | Convert IPv4 addresses.             |
-| <ul><li> - [ ] </li></ul> | [IPv4 Range Expander](https://devtools.klpod221.com/network/range)     | Expand IPv4 ranges.                 |
+| <ul><li> - [x] </li></ul> | [IPv4 Range Expander](https://devtools.klpod221.com/network/range)     | Expand IPv4 ranges.                 |
 | <ul><li> - [x] </li></ul> | [MAC Address Generator](https://devtools.klpod221.com/network/mac)     | Generate MAC addresses.             |
 | <ul><li> - [ ] </li></ul> | [IPv6 ULA Generator](https://devtools.klpod221.com/network/ula)        | Generate IPv6 ULAs.                 |
 
@@ -182,7 +182,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Data text formatter](https://devtools.klpod221.com/utility/formatter)   | Format your data (JSON, XML, CSV, etc.).              |
 | <ul><li> - [x] </li></ul> | [QR Code Generator](https://devtools.klpod221.com/utility/qr-code)       | Convert text to QR code and vice versa.               |
 | <ul><li> - [ ] </li></ul> | [QR Code Scanner](https://devtools.klpod221.com/utility/qr-scanner)      | Scan QR codes.                                        |
-| <ul><li> - [ ] </li></ul> | [Barcode Generator](https://devtools.klpod221.com/utility/barcode)       | Generate barcodes.                                    |
+| <ul><li> - [x] </li></ul> | [Barcode Generator](https://devtools.klpod221.com/utility/barcode)       | Generate barcodes.                                    |
 | <ul><li> - [ ] </li></ul> | [Barcode Scanner](https://devtools.klpod221.com/utility/barcode-scanner) | Scan barcodes.                                        |
 
 All tools are open-source and available on [GitHub](https://github.com/klpod221/devtoolkit).

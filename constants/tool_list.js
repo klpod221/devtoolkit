@@ -603,7 +603,7 @@ const TOOL_LIST = [
         description: "Generate .gitignore files.",
         icon: AiOutlineDiff,
         path: "/gitignore",
-        status: false,
+        status: true,
       },
     ],
   },
@@ -706,7 +706,7 @@ const TOOL_LIST = [
         description: "Calculate IPv4 subnets.",
         icon: TbRouter,
         path: "/subnet",
-        status: false,
+        status: true,
       },
       {
         name: "IPv4 Address Converter",
@@ -720,7 +720,7 @@ const TOOL_LIST = [
         description: "Expand IPv4 ranges.",
         icon: TbBracketsAngle,
         path: "/range",
-        status: false,
+        status: true,
       },
       {
         name: "MAC Address Generator",
@@ -898,7 +898,7 @@ const TOOL_LIST = [
         description: "Generate barcodes.",
         icon: AiOutlineBarcode,
         path: "/barcode",
-        status: false,
+        status: true,
       },
       {
         name: "Barcode Scanner",
