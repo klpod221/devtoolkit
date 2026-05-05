@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (78/105)
+## Tools List (89/105)
 
 ### Text Editor
 
@@ -99,14 +99,14 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Bcrypt Hash Generator](https://devtools.klpod221.com/security/bcrypt)                | Bcrypt hash generator and verifier.       |
 | <ul><li> - [x] </li></ul> | [UUID Generator](https://devtools.klpod221.com/security/uuid)                         | Generate UUIDs.                           |
 | <ul><li> - [x] </li></ul> | [ULID Generator](https://devtools.klpod221.com/security/ulid)                         | Generate ULIDs.                           |
-| <ul><li> - [ ] </li></ul> | [Encrypt/Decrypt Text](https://devtools.klpod221.com/security/encryption)             | Encrypt and decrypt text.                 |
-| <ul><li> - [ ] </li></ul> | [BIP39 Passphrase Generator](https://devtools.klpod221.com/security/bip39)            | Generate BIP39 passphrases.               |
-| <ul><li> - [ ] </li></ul> | [HMAC Generator](https://devtools.klpod221.com/security/hmac)                         | Generate HMACs.                           |
-| <ul><li> - [ ] </li></ul> | [RSA Key Generator](https://devtools.klpod221.com/security/rsa)                       | Generate RSA key pairs.                   |
+| <ul><li> - [x] </li></ul> | [Encrypt/Decrypt Text](https://devtools.klpod221.com/security/encryption)             | Encrypt and decrypt text.                 |
+| <ul><li> - [x] </li></ul> | [BIP39 Passphrase Generator](https://devtools.klpod221.com/security/bip39)            | Generate BIP39 passphrases.               |
+| <ul><li> - [x] </li></ul> | [HMAC Generator](https://devtools.klpod221.com/security/hmac)                         | Generate HMACs.                           |
+| <ul><li> - [x] </li></ul> | [RSA Key Generator](https://devtools.klpod221.com/security/rsa)                       | Generate RSA key pairs.                   |
 | <ul><li> - [x] </li></ul> | [RSA Key Decoder](https://devtools.klpod221.com/security/rsa-decoder)                 | Decode RSA keys.                          |
 | <ul><li> - [x] </li></ul> | [Password Strength Checker](https://devtools.klpod221.com/security/password-strength) | Check your password strength.             |
 | <ul><li> - [x] </li></ul> | [Password Generator](https://devtools.klpod221.com/security/password)                 | Generate passwords.                       |
-| <ul><li> - [ ] </li></ul> | [Password Hash Generator](https://devtools.klpod221.com/security/password-hash)       | Generate password hashes.                 |
+| <ul><li> - [x] </li></ul> | [Password Hash Generator](https://devtools.klpod221.com/security/password-hash)       | Generate password hashes.                 |
 | <ul><li> - [ ] </li></ul> | [PDF signature checker](https://devtools.klpod221.com/security/pdf-signature)         | Check PDF signatures.                     |
 
 ### Develop Tools
@@ -121,10 +121,10 @@ And if you have any suggestions, please let me know by creating an issue.
 
 | Status                    | Name                                                                      | Description                                    |
 | ------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------- |
-| <ul><li> - [ ] </li></ul> | [Nginx Config Generator](https://devtools.klpod221.com/system/nginx)      | Generate Nginx configuration files.            |
-| <ul><li> - [ ] </li></ul> | [Dockerize helper](https://devtools.klpod221.com/system/docker)           | Generate Dockerfile and docker-compose files.  |
-| <ul><li> - [ ] </li></ul> | [Docker Run To Compose](https://devtools.klpod221.com/system/docker-run)  | Convert docker run commands to docker-compose. |
-| <ul><li> - [ ] </li></ul> | [Ubuntu Server Configurator](https://devtools.klpod221.com/system/ubuntu) | Generate Ubuntu server configuration.          |
+| <ul><li> - [x] </li></ul> | [Nginx Config Generator](https://devtools.klpod221.com/system/nginx)      | Generate Nginx configuration files.            |
+| <ul><li> - [x] </li></ul> | [Dockerize helper](https://devtools.klpod221.com/system/docker)           | Generate Dockerfile and docker-compose files.  |
+| <ul><li> - [x] </li></ul> | [Docker Run To Compose](https://devtools.klpod221.com/system/docker-run)  | Convert docker run commands to docker-compose. |
+| <ul><li> - [x] </li></ul> | [Ubuntu Server Configurator](https://devtools.klpod221.com/system/ubuntu) | Generate Ubuntu server configuration.          |
 | <ul><li> - [x] </li></ul> | [Chmod Calculator](https://devtools.klpod221.com/system/chmod)            | Calculate chmod values.                        |
 | <ul><li> - [ ] </li></ul> | [IMAP/POP3/SMTP Tester](https://devtools.klpod221.com/system/mail)        | Test IMAP, POP3, SMTP servers.                 |
 | <ul><li> - [x] </li></ul> | [Random port generator](https://devtools.klpod221.com/system/port)        | Generate random ports.                         |
@@ -142,7 +142,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [IPv4 Address Converter](https://devtools.klpod221.com/network/ipv4)   | Convert IPv4 addresses.             |
 | <ul><li> - [x] </li></ul> | [IPv4 Range Expander](https://devtools.klpod221.com/network/range)     | Expand IPv4 ranges.                 |
 | <ul><li> - [x] </li></ul> | [MAC Address Generator](https://devtools.klpod221.com/network/mac)     | Generate MAC addresses.             |
-| <ul><li> - [ ] </li></ul> | [IPv6 ULA Generator](https://devtools.klpod221.com/network/ula)        | Generate IPv6 ULAs.                 |
+| <ul><li> - [x] </li></ul> | [IPv6 ULA Generator](https://devtools.klpod221.com/network/ula)        | Generate IPv6 ULAs.                 |
 
 ### Math Tools
 
@@ -153,7 +153,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [ETA Calculator](https://devtools.klpod221.com/math/eta)               | Calculate ETA.                               |
 | <ul><li> - [x] </li></ul> | [Percentage Calculator](https://devtools.klpod221.com/math/percentage) | Calculate percentages.                       |
 | <ul><li> - [x] </li></ul> | [PI Calculator](https://devtools.klpod221.com/math/pi)                 | Calculate PI.                                |
-| <ul><li> - [ ] </li></ul> | [Matrix Calculator](https://devtools.klpod221.com/math/matrix)         | Calculate matrices.                          |
+| <ul><li> - [x] </li></ul> | [Matrix Calculator](https://devtools.klpod221.com/math/matrix)         | Calculate matrices.                          |
 
 ### Measurement Tools
 
