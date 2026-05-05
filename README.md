@@ -13,7 +13,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (89/105)
+## Tools List (92/105)
 
 ### Text Editor
 
@@ -113,7 +113,7 @@ And if you have any suggestions, please let me know by creating an issue.
 
 | Status                    | Name                                                                          | Description                   |
 | ------------------------- | ----------------------------------------------------------------------------- | ----------------------------- |
-| <ul><li> - [ ] </li></ul> | [API Tester](https://devtools.klpod221.com/develop/api)                       | Test APIs.                    |
+| <ul><li> - [x] </li></ul> | [API Tester](https://devtools.klpod221.com/develop/api)                       | Test APIs.                    |
 | <ul><li> - [x] </li></ul> | [Editorconfig Generator](https://devtools.klpod221.com/develop/editor-config) | Generate .editorconfig files. |
 | <ul><li> - [x] </li></ul> | [Gitignore Generator](https://devtools.klpod221.com/develop/gitignore)        | Generate .gitignore files.    |
 
@@ -181,9 +181,9 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Color Palette Generator](https://devtools.klpod221.com/utility/palette) | Generate color palettes.                              |
 | <ul><li> - [x] </li></ul> | [Data text formatter](https://devtools.klpod221.com/utility/formatter)   | Format your data (JSON, XML, CSV, etc.).              |
 | <ul><li> - [x] </li></ul> | [QR Code Generator](https://devtools.klpod221.com/utility/qr-code)       | Convert text to QR code and vice versa.               |
-| <ul><li> - [ ] </li></ul> | [QR Code Scanner](https://devtools.klpod221.com/utility/qr-scanner)      | Scan QR codes.                                        |
+| <ul><li> - [x] </li></ul> | [QR Code Scanner](https://devtools.klpod221.com/utility/qr-scanner)      | Scan QR codes.                                        |
 | <ul><li> - [x] </li></ul> | [Barcode Generator](https://devtools.klpod221.com/utility/barcode)       | Generate barcodes.                                    |
-| <ul><li> - [ ] </li></ul> | [Barcode Scanner](https://devtools.klpod221.com/utility/barcode-scanner) | Scan barcodes.                                        |
+| <ul><li> - [x] </li></ul> | [Barcode Scanner](https://devtools.klpod221.com/utility/barcode-scanner) | Scan barcodes.                                        |
 
 All tools are open-source and available on [GitHub](https://github.com/klpod221/devtoolkit).
 

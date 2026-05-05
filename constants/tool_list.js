@@ -589,7 +589,7 @@ const TOOL_LIST = [
         description: "Test APIs.",
         icon: AiOutlineCloudUpload,
         path: "/api",
-        status: false,
+        status: true,
       },
       {
         name: "Editorconfig Generator",
@@ -891,7 +891,7 @@ const TOOL_LIST = [
         description: "Scan QR codes.",
         icon: MdOutlineQrCodeScanner,
         path: "/qr-scanner",
-        status: false,
+        status: true,
       },
       {
         name: "Barcode Generator",
@@ -905,7 +905,7 @@ const TOOL_LIST = [
         description: "Scan barcodes.",
         icon: BiBarcodeReader,
         path: "/barcode-scanner",
-        status: false,
+        status: true,
       },
     ],
   },
