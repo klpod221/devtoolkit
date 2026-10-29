@@ -3,6 +3,7 @@ import NextLink from "next/link";
 import NextImage from "next/image";
 import { DarkThemeToggle } from "flowbite-react";
 import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
+import { SiGithubsponsors, SiBuymeacoffee } from "react-icons/si";
 import { HiBars3BottomLeft } from "react-icons/hi2";
 
 import { ThemeContext } from "@/providers/ThemeProvider";
@@ -53,11 +54,33 @@ const MyNavbar = ({ isOpen, setIsOpen, title = "DevToolkit" }) => {
             {title}
           </h2>
 
-          <div className="flex items-center justify-end flex-1">
+          <div className="flex items-center justify-end flex-1 space-x-1 sm:space-x-2">
+            <a
+              href="https://github.com/sponsors/klpod221"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-pink-600 bg-pink-50 hover:bg-pink-100 rounded-full border border-pink-200 dark:bg-pink-950/40 dark:text-pink-400 dark:border-pink-900 transition-colors"
+              title="Sponsor on GitHub"
+            >
+              <SiGithubsponsors className="w-3.5 h-3.5 text-pink-500" />
+              <span>Sponsor</span>
+            </a>
+
+            <a
+              href="https://www.buymeacoffee.com/klpod221"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-sm font-medium rounded-md hover:bg-gray-100 dark:hover:bg-dark-secondary text-amber-500 hover:text-amber-600 transition-colors"
+              title="Buy Me a Coffee"
+            >
+              <SiBuymeacoffee className="w-5 h-5" />
+            </a>
+
             <NextLink
               href="https://github.com/klpod221/devtoolkit"
               className="px-3 py-2 text-sm font-medium text-gray-900 rounded-md sm:block hover:bg-gray-100 dark:hover:bg-dark-secondary dark:text-dark-text"
               target="_blank"
+              title="GitHub Repository"
             >
               <FaGithub className="w-5 h-5" />
             </NextLink>

@@ -138,9 +138,19 @@ fs.writeFileSync("public/sitemap.xml", siteMap);
 
 let text = `<div align="center">
     <h1>--// Developer Toolkit //--</h1>
-    <img src="https://img.shields.io/github/last-commit/klpod221/devtoolkit?style=for-the-badge&color=ffb4a2&labelColor=201a19">
-    <img src="https://img.shields.io/github/stars/klpod221/devtoolkit?style=for-the-badge&color=e6c419&labelColor=1d1b16">
-    <img src="https://img.shields.io/github/repo-size/klpod221/devtoolkit?style=for-the-badge&color=a8c7ff&labelColor=1a1b1f">
+    <p>
+        <img src="https://img.shields.io/github/last-commit/klpod221/devtoolkit?style=for-the-badge&color=ffb4a2&labelColor=201a19" alt="Last Commit">
+        <img src="https://img.shields.io/github/stars/klpod221/devtoolkit?style=for-the-badge&color=e6c419&labelColor=1d1b16" alt="Stars">
+        <img src="https://img.shields.io/github/repo-size/klpod221/devtoolkit?style=for-the-badge&color=a8c7ff&labelColor=1a1b1f" alt="Repo Size">
+    </p>
+    <p>
+        <a href="https://github.com/sponsors/klpod221" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?style=for-the-badge&logo=github&labelColor=111827" alt="GitHub Sponsors">
+        </a>
+        <a href="https://www.buymeacoffee.com/klpod221" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black&labelColor=111827" alt="Buy Me a Coffee">
+        </a>
+    </p>
 </div>
 
 ## About

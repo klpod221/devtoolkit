@@ -1,8 +1,18 @@
 <div align="center">
     <h1>--// Developer Toolkit //--</h1>
-    <img src="https://img.shields.io/github/last-commit/klpod221/devtoolkit?style=for-the-badge&color=ffb4a2&labelColor=201a19">
-    <img src="https://img.shields.io/github/stars/klpod221/devtoolkit?style=for-the-badge&color=e6c419&labelColor=1d1b16">
-    <img src="https://img.shields.io/github/repo-size/klpod221/devtoolkit?style=for-the-badge&color=a8c7ff&labelColor=1a1b1f">
+    <p>
+        <img src="https://img.shields.io/github/last-commit/klpod221/devtoolkit?style=for-the-badge&color=ffb4a2&labelColor=201a19" alt="Last Commit">
+        <img src="https://img.shields.io/github/stars/klpod221/devtoolkit?style=for-the-badge&color=e6c419&labelColor=1d1b16" alt="Stars">
+        <img src="https://img.shields.io/github/repo-size/klpod221/devtoolkit?style=for-the-badge&color=a8c7ff&labelColor=1a1b1f" alt="Repo Size">
+    </p>
+    <p>
+        <a href="https://github.com/sponsors/klpod221" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?style=for-the-badge&logo=github&labelColor=111827" alt="GitHub Sponsors">
+        </a>
+        <a href="https://www.buymeacoffee.com/klpod221" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black&labelColor=111827" alt="Buy Me a Coffee">
+        </a>
+    </p>
 </div>
 
 ## About
@@ -13,7 +23,7 @@ If you want to contribute, feel free to fork this repository and make a pull req
 
 And if you have any suggestions, please let me know by creating an issue.
 
-## Tools List (92/105)
+## Tools List (105/105)
 
 ### Text Editor
 
@@ -107,7 +117,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Password Strength Checker](https://devtools.klpod221.com/security/password-strength) | Check your password strength.             |
 | <ul><li> - [x] </li></ul> | [Password Generator](https://devtools.klpod221.com/security/password)                 | Generate passwords.                       |
 | <ul><li> - [x] </li></ul> | [Password Hash Generator](https://devtools.klpod221.com/security/password-hash)       | Generate password hashes.                 |
-| <ul><li> - [ ] </li></ul> | [PDF signature checker](https://devtools.klpod221.com/security/pdf-signature)         | Check PDF signatures.                     |
+| <ul><li> - [x] </li></ul> | [PDF signature checker](https://devtools.klpod221.com/security/pdf-signature)         | Check PDF signatures.                     |
 
 ### Develop Tools
 
@@ -126,7 +136,7 @@ And if you have any suggestions, please let me know by creating an issue.
 | <ul><li> - [x] </li></ul> | [Docker Run To Compose](https://devtools.klpod221.com/system/docker-run)  | Convert docker run commands to docker-compose. |
 | <ul><li> - [x] </li></ul> | [Ubuntu Server Configurator](https://devtools.klpod221.com/system/ubuntu) | Generate Ubuntu server configuration.          |
 | <ul><li> - [x] </li></ul> | [Chmod Calculator](https://devtools.klpod221.com/system/chmod)            | Calculate chmod values.                        |
-| <ul><li> - [ ] </li></ul> | [IMAP/POP3/SMTP Tester](https://devtools.klpod221.com/system/mail)        | Test IMAP, POP3, SMTP servers.                 |
+| <ul><li> - [x] </li></ul> | [IMAP/POP3/SMTP Tester](https://devtools.klpod221.com/system/mail)        | Test IMAP, POP3, SMTP servers.                 |
 | <ul><li> - [x] </li></ul> | [Random port generator](https://devtools.klpod221.com/system/port)        | Generate random ports.                         |
 | <ul><li> - [x] </li></ul> | [Crontab Generator](https://devtools.klpod221.com/system/cron-generator)  | Generate cron expressions.                     |
 
@@ -134,10 +144,10 @@ And if you have any suggestions, please let me know by creating an issue.
 
 | Status                    | Name                                                                   | Description                         |
 | ------------------------- | ---------------------------------------------------------------------- | ----------------------------------- |
-| <ul><li> - [ ] </li></ul> | [IP Address Info](https://devtools.klpod221.com/network/ip)            | Get information about IP addresses. |
-| <ul><li> - [ ] </li></ul> | [DNS Lookup](https://devtools.klpod221.com/network/dns)                | Lookup DNS records.                 |
-| <ul><li> - [ ] </li></ul> | [Ping Test](https://devtools.klpod221.com/network/ping)                | Test your ping.                     |
-| <ul><li> - [ ] </li></ul> | [Port Scanner](https://devtools.klpod221.com/network/port-scanner)     | Scan ports.                         |
+| <ul><li> - [x] </li></ul> | [IP Address Info](https://devtools.klpod221.com/network/ip)            | Get information about IP addresses. |
+| <ul><li> - [x] </li></ul> | [DNS Lookup](https://devtools.klpod221.com/network/dns)                | Lookup DNS records.                 |
+| <ul><li> - [x] </li></ul> | [Ping Test](https://devtools.klpod221.com/network/ping)                | Test your ping.                     |
+| <ul><li> - [x] </li></ul> | [Port Scanner](https://devtools.klpod221.com/network/port-scanner)     | Scan ports.                         |
 | <ul><li> - [x] </li></ul> | [IPv4 Subnet Calculator](https://devtools.klpod221.com/network/subnet) | Calculate IPv4 subnets.             |
 | <ul><li> - [x] </li></ul> | [IPv4 Address Converter](https://devtools.klpod221.com/network/ipv4)   | Convert IPv4 addresses.             |
 | <ul><li> - [x] </li></ul> | [IPv4 Range Expander](https://devtools.klpod221.com/network/range)     | Expand IPv4 ranges.                 |
@@ -160,18 +170,18 @@ And if you have any suggestions, please let me know by creating an issue.
 | Status                    | Name                                                                     | Description              |
 | ------------------------- | ------------------------------------------------------------------------ | ------------------------ |
 | <ul><li> - [x] </li></ul> | [Chronometer](https://devtools.klpod221.com/measurement/chronometer)     | Measure time.            |
-| <ul><li> - [ ] </li></ul> | [Network Speed Test](https://devtools.klpod221.com/measurement/speed)    | Test your network speed. |
-| <ul><li> - [ ] </li></ul> | [Benchmark Builder](https://devtools.klpod221.com/measurement/benchmark) | Build benchmarks.        |
+| <ul><li> - [x] </li></ul> | [Network Speed Test](https://devtools.klpod221.com/measurement/speed)    | Test your network speed. |
+| <ul><li> - [x] </li></ul> | [Benchmark Builder](https://devtools.klpod221.com/measurement/benchmark) | Build benchmarks.        |
 
 ### AI Tools
 
 | Status                    | Name                                                         | Description                                     |
 | ------------------------- | ------------------------------------------------------------ | ----------------------------------------------- |
-| <ul><li> - [ ] </li></ul> | [Image Generator](https://devtools.klpod221.com/ai/ai-image) | Generate images with AI.                        |
-| <ul><li> - [ ] </li></ul> | [Translator](https://devtools.klpod221.com/ai/translator)    | Translate text to different languages using AI. |
-| <ul><li> - [ ] </li></ul> | [Chatbot](https://devtools.klpod221.com/ai/chatbot)          | Chat with AI.                                   |
-| <ul><li> - [ ] </li></ul> | [Text to Image](https://devtools.klpod221.com/ai/to-image)   | Convert text to image using AI.                 |
-| <ul><li> - [ ] </li></ul> | [Text to Speech](https://devtools.klpod221.com/ai/speech)    | Convert text to speech using AI.                |
+| <ul><li> - [x] </li></ul> | [Image Generator](https://devtools.klpod221.com/ai/ai-image) | Generate images with AI.                        |
+| <ul><li> - [x] </li></ul> | [Translator](https://devtools.klpod221.com/ai/translator)    | Translate text to different languages using AI. |
+| <ul><li> - [x] </li></ul> | [Chatbot](https://devtools.klpod221.com/ai/chatbot)          | Chat with AI.                                   |
+| <ul><li> - [x] </li></ul> | [Text to Image](https://devtools.klpod221.com/ai/to-image)   | Convert text to image using AI.                 |
+| <ul><li> - [x] </li></ul> | [Text to Speech](https://devtools.klpod221.com/ai/speech)    | Convert text to speech using AI.                |
 
 ### Utility Tools
 

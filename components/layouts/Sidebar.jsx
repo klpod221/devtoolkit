@@ -11,6 +11,7 @@ import MyInput from "@/components/MyInput";
 
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { SiGithubsponsors, SiBuymeacoffee } from "react-icons/si";
 import { IoChevronDown } from "react-icons/io5";
 
 const MySidebar = ({ isOpen, setIsOpen }) => {
@@ -247,8 +248,36 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
             </div>
           ))}
 
+          {/* Sponsor & Support Section */}
+          <div className="mx-2 mt-6 mb-2 p-3 bg-gray-50 dark:bg-dark-secondary/50 rounded-xl border border-gray-200 dark:border-dark-secondary text-center">
+            <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2.5">
+              <FaHeart className="w-3.5 h-3.5 text-red-500" />
+              <span>Support DevToolkit</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <a
+                href="https://github.com/sponsors/klpod221"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-3 py-1.5 text-xs font-medium text-white bg-pink-600 hover:bg-pink-700 rounded-lg transition-colors shadow-sm"
+              >
+                <SiGithubsponsors className="w-3.5 h-3.5" />
+                <span>GitHub Sponsors</span>
+              </a>
+              <a
+                href="https://www.buymeacoffee.com/klpod221"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-3 py-1.5 text-xs font-semibold text-gray-900 bg-amber-400 hover:bg-amber-500 rounded-lg transition-colors shadow-sm"
+              >
+                <SiBuymeacoffee className="w-3.5 h-3.5" />
+                <span>Buy Me a Coffee</span>
+              </a>
+            </div>
+          </div>
+
           {/* Footer */}
-          <div className="w-full py-10 text-center text-sm">
+          <div className="w-full py-6 text-center text-sm">
             <p>
               Make with ❤️ by{" "}
               <a
