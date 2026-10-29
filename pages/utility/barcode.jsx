@@ -21,6 +21,16 @@ const BarcodeGenerator = () => {
   const barcodeRef = useRef(null);
 
   useEffect(() => {
+    if (!value) {
+      setError(false);
+      const canvas = barcodeRef.current;
+      if (canvas) {
+        const ctx = canvas.getContext("2d");
+        ctx?.clearRect(0, 0, canvas.width, canvas.height);
+      }
+      return;
+    }
+
     if (barcodeRef.current && value) {
       try {
         setError(false);

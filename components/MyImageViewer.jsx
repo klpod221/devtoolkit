@@ -13,7 +13,7 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-rotate.css";
 
-const MyImageViewer = ({ images = null, src = null }) => {
+const MyImageViewer = ({ images = null, src = null, className = "", alt = "image" }) => {
   if (!images && !src) {
     return null;
   }
@@ -23,7 +23,7 @@ const MyImageViewer = ({ images = null, src = null }) => {
       {
         src: src,
         thumbnail: src,
-        alt: "image",
+        alt: alt || "image",
       },
     ];
   }
@@ -37,25 +37,26 @@ const MyImageViewer = ({ images = null, src = null }) => {
       return {
         src: image,
         thumbnail: image,
-        alt: "image",
+        alt: alt || "image",
       };
     }
     return {
       src: image.src,
       thumbnail: image.thumbnail || image.src,
-      alt: image.alt || "image",
+      alt: image.alt || alt || "image",
     };
   });
 
   return (
     <LightGallery speed={500} plugins={[lgZoom, lgThumbnail, lgRotate]}>
       {images.map((image, index) => (
-        <a key={index} href={image.src} className="group w-fit h-fit block">
+        <a key={index} href={image.src} className={`group w-fit h-fit block ${className}`}>
           <Image
             src={image.thumbnail || image.src}
             alt={image.alt}
             width={200}
             height={200}
+            unoptimized
             className="w-32 h-32 rounded-md object-cover transition-transform duration-300 ease-in-out group-hover:scale-105 border-2 border-gray-200 dark:border-gray-700"
           />
         </a>

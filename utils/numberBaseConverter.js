@@ -12,8 +12,14 @@ const numberBaseConverter = (value, from, to) => {
     throw new Error("Value is required.");
   }
 
-  let decimal = value
-    .toString()
+  const isNegative = value.startsWith("-");
+  let cleanValue = isNegative ? value.slice(1) : value;
+
+  if (from <= 36) {
+    cleanValue = cleanValue.toLowerCase();
+  }
+
+  let decimal = cleanValue
     .split("")
     .reverse()
     .reduce((acc, digit, index) => {
@@ -25,13 +31,16 @@ const numberBaseConverter = (value, from, to) => {
         BigInt(fromRange.indexOf(digit)) * BigInt(from) ** BigInt(index));
     }, 0n);
 
+  if (decimal === 0n) return "0";
+
   let converted = "";
-  while (decimal > 0) {
+  while (decimal > 0n) {
     converted = toRange[Number(decimal % BigInt(to))] + converted;
-    decimal = (decimal - (decimal % BigInt(to))) / BigInt(to);
+    decimal = decimal / BigInt(to);
   }
 
-  return converted || "0";
+  const res = converted || "0";
+  return isNegative && res !== "0" ? "-" + res : res;
 };
 
 export default numberBaseConverter;

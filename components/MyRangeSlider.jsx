@@ -5,7 +5,7 @@ const MyRangeSlider = ({
   value,
   onChange = () => {},
   label,
-  className,
+  className = "",
   min,
   max,
   ...props
@@ -28,19 +28,21 @@ const MyRangeSlider = ({
   };
 
   const onRangeChange = (e) => {
-    const value = parseInt(e.target.value);
+    if (e.target.value === "") return;
+    const num = Number(e.target.value);
+    if (Number.isNaN(num)) return;
 
-    if (value < min) {
-      onChange(min);
+    if (min !== undefined && num < Number(min)) {
+      onChange(Number(min));
       return;
     }
 
-    if (value > max) {
-      onChange(max);
+    if (max !== undefined && num > Number(max)) {
+      onChange(Number(max));
       return;
     }
 
-    onChange(value);
+    onChange(num);
   };
 
   return (

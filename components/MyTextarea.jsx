@@ -7,9 +7,9 @@ const MyTextarea = ({
   value,
   onChange = () => {},
   label,
-  labelStyle,
+  labelStyle = "",
   rows = 4,
-  className,
+  className = "",
   error = "",
   ...props
 }) => {

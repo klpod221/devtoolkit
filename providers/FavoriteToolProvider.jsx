@@ -8,12 +8,17 @@ const FavoriteToolProvider = ({ children }) => {
   const [favoriteTools, setFavoriteTools] = React.useState([]);
 
   const getFavoriteTools = () => {
-    let localFavoriteTools = localStorage.getItem("favoriteTools");
-    localFavoriteTools = JSON.parse(localFavoriteTools);
-
-    if (!localFavoriteTools) {
+    let localFavoriteTools = [];
+    try {
+      const stored = localStorage.getItem("favoriteTools");
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed)) {
+          localFavoriteTools = parsed;
+        }
+      }
+    } catch {
       localFavoriteTools = [];
-      localStorage.setItem("favoriteTools", JSON.stringify(localFavoriteTools));
     }
 
     const selectedTools = [];
@@ -39,8 +44,18 @@ const FavoriteToolProvider = ({ children }) => {
   };
 
   const toggleFavorite = (path) => {
-    let localFavoriteTools = localStorage.getItem("favoriteTools");
-    localFavoriteTools = JSON.parse(localFavoriteTools);
+    let localFavoriteTools = [];
+    try {
+      const stored = localStorage.getItem("favoriteTools");
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed)) {
+          localFavoriteTools = parsed;
+        }
+      }
+    } catch {
+      localFavoriteTools = [];
+    }
 
     if (localFavoriteTools.includes(path)) {
       localFavoriteTools = localFavoriteTools.filter((item) => item !== path);

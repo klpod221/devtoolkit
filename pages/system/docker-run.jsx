@@ -8,28 +8,79 @@ const parseDockerRun = (cmd) => {
   const trimmed = cmd.trim().replace(/\\\n/g, " ").replace(/\s+/g, " ");
   const args = trimmed.replace(/^docker\s+run\s*/i, "").trim();
 
-  const service = { image: "", ports: [], volumes: [], environment: [], restart: "", name: "", networks: [] };
+  const service = {
+    image: "",
+    ports: [],
+    volumes: [],
+    environment: [],
+    restart: "",
+    name: "",
+    networks: [],
+  };
 
   const tokens = [];
   const regex = /(?:"[^"]*"|'[^']*'|\S)+/g;
   let match;
-  while ((match = regex.exec(args)) !== null) tokens.push(match[0].replace(/^['"]|['"]$/g, ""));
+  while ((match = regex.exec(args)) !== null) {
+    tokens.push(match[0].replace(/^['"]|['"]$/g, ""));
+  }
 
   let i = 0;
   while (i < tokens.length) {
     const t = tokens[i];
     const next = tokens[i + 1];
-    if (t === "-p" || t === "--publish") { service.ports.push(next); i += 2; }
-    else if (t.startsWith("-p")) { service.ports.push(t.slice(2)); i++; }
-    else if (t === "-v" || t === "--volume") { service.volumes.push(next); i += 2; }
-    else if (t.startsWith("-v")) { service.volumes.push(t.slice(2)); i++; }
-    else if (t === "-e" || t === "--env") { service.environment.push(next); i += 2; }
-    else if (t.startsWith("-e")) { service.environment.push(t.slice(2)); i++; }
-    else if (t === "--restart") { service.restart = next; i += 2; }
-    else if (t === "--name") { service.name = next; i += 2; }
-    else if (t === "--network") { service.networks.push(next); i += 2; }
-    else if (!t.startsWith("-") && !service.image) { service.image = t; i++; }
-    else { i++; }
+
+    if ((t === "-p" || t === "--publish") && next !== undefined) {
+      service.ports.push(next);
+      i += 2;
+    } else if (t.startsWith("--publish=")) {
+      service.ports.push(t.split("=").slice(1).join("="));
+      i++;
+    } else if (t.startsWith("-p") && t.length > 2) {
+      service.ports.push(t.slice(2));
+      i++;
+    } else if ((t === "-v" || t === "--volume") && next !== undefined) {
+      service.volumes.push(next);
+      i += 2;
+    } else if (t.startsWith("--volume=")) {
+      service.volumes.push(t.split("=").slice(1).join("="));
+      i++;
+    } else if (t.startsWith("-v") && t.length > 2) {
+      service.volumes.push(t.slice(2));
+      i++;
+    } else if ((t === "-e" || t === "--env") && next !== undefined) {
+      service.environment.push(next);
+      i += 2;
+    } else if (t.startsWith("--env=")) {
+      service.environment.push(t.split("=").slice(1).join("="));
+      i++;
+    } else if (t.startsWith("-e") && t.length > 2) {
+      service.environment.push(t.slice(2));
+      i++;
+    } else if (t === "--restart" && next !== undefined) {
+      service.restart = next;
+      i += 2;
+    } else if (t.startsWith("--restart=")) {
+      service.restart = t.split("=").slice(1).join("=");
+      i++;
+    } else if (t === "--name" && next !== undefined) {
+      service.name = next;
+      i += 2;
+    } else if (t.startsWith("--name=")) {
+      service.name = t.split("=").slice(1).join("=");
+      i++;
+    } else if (t === "--network" && next !== undefined) {
+      service.networks.push(next);
+      i += 2;
+    } else if (t.startsWith("--network=")) {
+      service.networks.push(t.split("=").slice(1).join("="));
+      i++;
+    } else if (!t.startsWith("-") && !service.image) {
+      service.image = t;
+      i++;
+    } else {
+      i++;
+    }
   }
 
   if (!service.image) return "# Could not determine image name.";

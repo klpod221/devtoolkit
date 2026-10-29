@@ -1,22 +1,25 @@
 import { toast } from "react-toastify";
 
-const copyToClipboard = (text) => {
+const copyToClipboard = async (text) => {
   try {
     if (!navigator.clipboard) {
       toast.error("Clipboard API not available");
       return;
     }
 
-    if (typeof text !== "string") {
-      text = text.toString();
-    }
-
-    if (!text) {
+    if (text === null || text === undefined || text === "") {
       toast.error("No text to copy");
       return;
     }
 
-    navigator.clipboard.writeText(text);
+    const str = typeof text === "string" ? text : String(text);
+
+    if (!str.trim()) {
+      toast.error("No text to copy");
+      return;
+    }
+
+    await navigator.clipboard.writeText(str);
     toast.success("Copied to clipboard!");
   } catch (error) {
     toast.error(error.message || "Copy failed");

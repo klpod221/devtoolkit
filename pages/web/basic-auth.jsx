@@ -12,7 +12,21 @@ const BasicAuthGenerator = () => {
   const [basicAuth, setBasicAuth] = React.useState("Authorization: Basic ");
 
   React.useEffect(() => {
-    setBasicAuth(`Authorization: Basic ${btoa(`${username}:${password}`)}`);
+    try {
+      if (!username && !password) {
+        setBasicAuth("Authorization: Basic ");
+        return;
+      }
+      const raw = `${username}:${password}`;
+      const bytes = new TextEncoder().encode(raw);
+      let binary = "";
+      for (let i = 0; i < bytes.length; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      setBasicAuth(`Authorization: Basic ${btoa(binary)}`);
+    } catch {
+      setBasicAuth("Authorization: Basic ");
+    }
   }, [username, password]);
 
   return (

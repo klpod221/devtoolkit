@@ -4,15 +4,24 @@ import PROGRAMMING_LANGUAGES from "@constants/programming_languages";
 // --- Rate Limiter Setup ---
 const rateLimitMap = new Map();
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
-const MAX_REQUESTS_PER_WINDOW = 10;
+const MAX_REQUESTS_PER_WINDOW = 15;
 
 const rateLimit = (ip) => {
   const now = Date.now();
   const windowStart = now - RATE_LIMIT_WINDOW_MS;
 
+  // Periodic cleanup if map grows too large
+  if (rateLimitMap.size > 2000) {
+    for (const [key, timestamps] of rateLimitMap.entries()) {
+      if (!timestamps || timestamps.length === 0 || timestamps[timestamps.length - 1] < windowStart) {
+        rateLimitMap.delete(key);
+      }
+    }
+  }
+
   const record = rateLimitMap.get(ip) || [];
   const requestsInWindow = record.filter((timestamp) => timestamp > windowStart);
-  
+
   if (requestsInWindow.length >= MAX_REQUESTS_PER_WINDOW) {
     return false; // Rate limited
   }
@@ -25,19 +34,21 @@ const rateLimit = (ip) => {
 
 const post = async (req, res) => {
   // 1. Rate Limiting Check
-  const ip = req.headers["x-forwarded-for"] || req.connection?.remoteAddress || "unknown";
+  const rawIp = req.headers["x-forwarded-for"];
+  const ip = typeof rawIp === "string" ? rawIp.split(",")[0].trim() : (req.socket?.remoteAddress || "unknown");
+
   if (!rateLimit(ip)) {
-    return res.status(429).json({ error: "Too many requests. Please try again later." });
+    return res.status(429).json({ error: "Too many requests. Please try again later.", stderr: "Rate limit exceeded (max 15 req/min)." });
   }
 
-  const { code, language, theme, stdin } = req.body;
+  const { code, language, theme, stdin } = req.body || {};
 
   // 2. Input Validation
-  if (code && code.length > 50000) {
-    return res.status(400).json({ error: "Code payload too large. Maximum 50000 characters allowed." });
+  if (code && typeof code === "string" && code.length > 50000) {
+    return res.status(400).json({ error: "Code payload too large. Maximum 50,000 characters allowed." });
   }
-  if (stdin && stdin.length > 10000) {
-    return res.status(400).json({ error: "Stdin payload too large. Maximum 10000 characters allowed." });
+  if (stdin && typeof stdin === "string" && stdin.length > 10000) {
+    return res.status(400).json({ error: "Stdin payload too large. Maximum 10,000 characters allowed." });
   }
 
   const selectedLanguage = PROGRAMMING_LANGUAGES.find(
@@ -80,7 +91,7 @@ const post = async (req, res) => {
               content: code,
             },
           ],
-          stdin,
+          stdin: stdin || "",
         },
       };
     }
@@ -90,32 +101,32 @@ const post = async (req, res) => {
       formData,
       {
         headers: {
-          Authorization: "Bearer " + process.env.ONE_COMPILER_API_KEY,
+          Authorization: "Bearer " + (process.env.ONE_COMPILER_API_KEY || ""),
         },
+        timeout: 20000,
       },
     );
 
-    delete data.job;
+    if (data && typeof data === "object") {
+      delete data.job;
+    }
 
-    if ((language === "html" || theme === "html") && data.stdout) {
-      const url = `https://app.onecompiler.com/${data.stdout}`;
-
-      const { data: htmlData } = await axios.get(url);
-
-      data.stdout = htmlData;
+    if ((language === "html" || theme === "html") && typeof data?.stdout === "string") {
+      const sanitizedSlug = data.stdout.replace(/[^a-zA-Z0-9_\-/]/g, "").replace(/^\/+/, "");
+      if (sanitizedSlug) {
+        const url = `https://app.onecompiler.com/${sanitizedSlug}`;
+        const { data: htmlData } = await axios.get(url, { timeout: 10000 });
+        data.stdout = htmlData;
+      }
     }
 
     return res.status(200).json(data);
   } catch (error) {
-    const errors = [];
+    const errorMsg = error.response
+      ? `Execution API Error: ${error.response.status} ${error.response.statusText || ""}`
+      : `Network Error: ${error.message}`;
 
-    if (error.response) {
-      errors.push(new Error(`HTTP Error: ${error.response.status}`));
-    } else {
-      errors.push(new Error(`Network Error: ${error.message}`));
-    }
-
-    return res.status(500).json({ errors });
+    return res.status(500).json({ error: errorMsg, stderr: errorMsg });
   }
 };
 

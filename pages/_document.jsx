@@ -31,7 +31,7 @@ const MyDocument = () => {
         <meta property="og:image" content="/favicon.png" />
         <meta property="og:url" content="https://klpod221.github.io/" />
         <meta property="og:site_name" content="DevToolkit by klpod221" />
-        <meta property="og:card" content="summary" />
+        <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:image" content="/favicon.png" />

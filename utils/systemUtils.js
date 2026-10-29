@@ -9,11 +9,16 @@ export const generateMacAddress = (isUnicast = true) => {
   for (let i = 0; i < 6; i++) {
     let firstByte = hexDigits[Math.floor(Math.random() * 16)] + hexDigits[Math.floor(Math.random() * 16)];
     
-    // For the first byte, handle unicast/multicast bit if needed
-    if (i === 0 && isUnicast) {
-      // Ensure the least significant bit of the first byte is 0 for unicast
+    // For the first byte, handle unicast/multicast bit
+    if (i === 0) {
       let val = parseInt(firstByte, 16);
-      val = val & 0xFE; 
+      if (isUnicast) {
+        // Unicast (bit 0 = 0) and Locally Administered (bit 1 = 1)
+        val = (val & 0xfe) | 0x02;
+      } else {
+        // Multicast (bit 0 = 1)
+        val = val | 0x01;
+      }
       firstByte = val.toString(16).toUpperCase().padStart(2, '0');
     }
     

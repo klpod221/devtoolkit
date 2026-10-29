@@ -15,33 +15,49 @@ const PasswordGenerator = () => {
   const [includeSymbols, setIncludeSymbols] = useState(true);
   const [password, setPassword] = useState("");
 
+  const getRandomInt = (max) => {
+    if (typeof window !== "undefined" && window.crypto?.getRandomValues) {
+      const arr = new Uint32Array(1);
+      window.crypto.getRandomValues(arr);
+      return arr[0] % max;
+    }
+    return Math.floor(Math.random() * max);
+  };
+
   const generatePassword = () => {
     let charset = "";
-    if (includeUppercase) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    if (includeLowercase) charset += "abcdefghijklmnopqrstuvwxyz";
-    if (includeNumbers) charset += "0123456789";
-    if (includeSymbols) charset += "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+    const uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lowers = "abcdefghijklmnopqrstuvwxyz";
+    const numbers = "0123456789";
+    const symbols = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+
+    if (includeUppercase) charset += uppers;
+    if (includeLowercase) charset += lowers;
+    if (includeNumbers) charset += numbers;
+    if (includeSymbols) charset += symbols;
 
     if (charset === "") {
       setPassword("");
       return;
     }
 
-    let newPassword = "";
-    if (includeUppercase) newPassword += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[Math.floor(Math.random() * 26)];
-    if (includeLowercase) newPassword += "abcdefghijklmnopqrstuvwxyz"[Math.floor(Math.random() * 26)];
-    if (includeNumbers) newPassword += "0123456789"[Math.floor(Math.random() * 10)];
-    if (includeSymbols) newPassword += "!@#$%^&*()_+~`|}{[]:;?><,./-="[Math.floor(Math.random() * 29)];
+    const chars = [];
+    if (includeUppercase) chars.push(uppers[getRandomInt(uppers.length)]);
+    if (includeLowercase) chars.push(lowers[getRandomInt(lowers.length)]);
+    if (includeNumbers) chars.push(numbers[getRandomInt(numbers.length)]);
+    if (includeSymbols) chars.push(symbols[getRandomInt(symbols.length)]);
 
-    for (let i = newPassword.length; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * charset.length);
-      newPassword += charset[randomIndex];
+    while (chars.length < length) {
+      chars.push(charset[getRandomInt(charset.length)]);
     }
-    
-    newPassword = newPassword.split('').sort(() => 0.5 - Math.random()).join('');
-    newPassword = newPassword.substring(0, length);
 
-    setPassword(newPassword);
+    // Fisher-Yates shuffle using CSPRNG
+    for (let i = chars.length - 1; i > 0; i--) {
+      const j = getRandomInt(i + 1);
+      [chars[i], chars[j]] = [chars[j], chars[i]];
+    }
+
+    setPassword(chars.slice(0, length).join(""));
   };
 
   useEffect(() => {

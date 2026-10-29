@@ -17,6 +17,7 @@ const PasswordStrengthChecker = () => {
 
   React.useEffect(() => {
     if (password === "") {
+      setTimeToCrack("");
       setOutput({
         passwordLength: 0,
         entropy: 0,

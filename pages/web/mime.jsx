@@ -11,10 +11,7 @@ const MIMETypes = () => {
   const [selectedExtension, setSelectedExtension] = React.useState("");
   const [outputExtension, setOutputExtension] = React.useState("");
 
-  React.useEffect(() => {
-    console.log("MIME Types", types);
-    console.log("Extensions", extensions);
-  }, []);
+
 
   React.useEffect(() => {
     if (selectedType) {

@@ -9,19 +9,38 @@ const UnitConvertTab = ({ tab }) => {
   const [input, setInput] = React.useState(1);
   const [fromUnit, setFromUnit] = React.useState(units[0].value);
 
-  const [output, setOutput] = React.useState();
-  const [toUnit, setToUnit] = React.useState(units[1].value);
+  const [output, setOutput] = React.useState("");
+  const [toUnit, setToUnit] = React.useState(units[1]?.value || units[0]?.value);
 
   React.useEffect(() => {
     const fromUnitObj = units.find((unit) => unit.value === fromUnit);
     const toUnitObj = units.find((unit) => unit.value === toUnit);
 
+    if (!fromUnitObj || !toUnitObj || input === "" || isNaN(Number(input))) {
+      setOutput("");
+      return;
+    }
+
     let result = 0;
 
     switch (title) {
-      case "Temperature":
-        result = Number(input) * fromUnitObj.ratio + toUnitObj.ratio;
+      case "Temperature": {
+        let c = Number(input);
+        if (fromUnit === "Fahrenheit") {
+          c = (Number(input) - 32) * (5 / 9);
+        } else if (fromUnit === "Kelvin") {
+          c = Number(input) - 273.15;
+        }
+
+        if (toUnit === "Celsius") {
+          result = c;
+        } else if (toUnit === "Fahrenheit") {
+          result = c * (9 / 5) + 32;
+        } else if (toUnit === "Kelvin") {
+          result = c + 273.15;
+        }
         break;
+      }
       default:
         result = (Number(input) * fromUnitObj.ratio) / toUnitObj.ratio;
         break;
@@ -60,7 +79,7 @@ const UnitConvertTab = ({ tab }) => {
         </div>
 
         <div className="space-y-4">
-          <MyInput type="text" label="To Value" value={output} />
+          <MyInput type="text" label="To Value" value={output} readOnly />
 
           <MySelect
             label="To Unit"

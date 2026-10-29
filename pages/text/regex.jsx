@@ -65,11 +65,19 @@ const RegexTester = () => {
   };
 
   const highlightMatches = (flags, pattern, string) => {
-    editorRef.current?.deltaDecorations(decorationIds, []);
+    const editor = editorRef.current;
+    const monacoInstance = editorRef.monaco || (typeof window !== "undefined" && window.monaco);
+
+    if (editor && typeof editor.deltaDecorations === "function") {
+      editor.deltaDecorations(decorationIds, []);
+    }
+
+    if (!pattern || !string || !monacoInstance) {
+      return;
+    }
 
     try {
       const regex = new RegExp(pattern, flags.join(""));
-
       const decorations = [];
 
       let match = null;
@@ -90,7 +98,7 @@ const RegexTester = () => {
         }
 
         decorations.push({
-          range: new monaco.Range(
+          range: new monacoInstance.Range(
             startPos.row,
             startPos.col,
             endPos.row,
@@ -102,7 +110,9 @@ const RegexTester = () => {
         });
       }
 
-      setDecorationIds(editorRef.current?.deltaDecorations([], decorations));
+      if (editor && typeof editor.deltaDecorations === "function") {
+        setDecorationIds(editor.deltaDecorations([], decorations));
+      }
     } catch (error) {
       toast.error(error.message || "Regex error");
       console.error(error);
@@ -110,8 +120,12 @@ const RegexTester = () => {
   };
 
   const onCopyRegex = () => {
-    const regex = new RegExp(pattern, flags.join(""));
-    copyToClipboard(regex);
+    try {
+      const regex = new RegExp(pattern, flags.join(""));
+      copyToClipboard(regex.toString());
+    } catch (err) {
+      toast.error("Invalid regex pattern");
+    }
   };
 
   return (
@@ -220,8 +234,8 @@ const RegexTester = () => {
 
         <div className="flex flex-col space-y-2 overflow-y-auto">
           {REGEX_CHEATSHEET.map((item, index) => (
-            <>
-              <div className="font-semibold " key={index}>
+            <React.Fragment key={index}>
+              <div className="font-semibold ">
                 {item.title}
               </div>
 
@@ -231,14 +245,14 @@ const RegexTester = () => {
                   className="flex justify-between items-center text-sm"
                 >
                   <div className="flex space-x-2">
-                    {subItem.expressions.map((expression, index) => (
-                      <kbd key={index}>{expression}</kbd>
+                    {subItem.expressions.map((expression, exprIndex) => (
+                      <kbd key={exprIndex}>{expression}</kbd>
                     ))}
                   </div>
                   <span className=" text-right">{subItem.explanation}</span>
                 </div>
               ))}
-            </>
+            </React.Fragment>
           ))}
         </div>
       </TwoColumn.Right>

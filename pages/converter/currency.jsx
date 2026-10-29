@@ -38,7 +38,7 @@ const CurrencyConverter = () => {
 
           if (!ratesData) {
             const { data } = await axios.get(
-              `https://api.fxratesapi.com/latest?base=${base}&api_key=fxr_live_7907ff04e56a996e23df585446773a4b7508`,
+              `/api/currency?base=${encodeURIComponent(base)}`,
             );
 
             localStorage.setItem(
@@ -49,27 +49,30 @@ const CurrencyConverter = () => {
             ratesData = data;
           }
 
+          if (!ratesData || !ratesData.rates) {
+            return;
+          }
+
           const convertedAmount = {};
+          const numAmount = Number(amount) || 0;
+
           CURRENCIES.forEach((currency) => {
-            if (currency.code.length !== 3 || !formatOutput) {
-              convertedAmount[
-                `${currency.code} - ${currency.name} (${currency.symbol})`
-              ] = ratesData.rates[currency.code] * amount;
+            const rate = ratesData.rates[currency.code];
+            if (rate === undefined || isNaN(rate)) {
               return;
             }
 
-            // format to 000,000.00
-            let formattedAmount = new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: base,
-            }).format(ratesData.rates[currency.code] * amount);
+            const total = rate * numAmount;
+            const key = `${currency.code} - ${currency.name} (${currency.symbol})`;
 
-            // remove the first character
-            formattedAmount = formattedAmount.slice(1);
-
-            convertedAmount[
-              `${currency.code} - ${currency.name} (${currency.symbol})`
-            ] = formattedAmount;
+            if (!formatOutput) {
+              convertedAmount[key] = total;
+            } else {
+              convertedAmount[key] = new Intl.NumberFormat("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: currency.decimal_digits ?? 2,
+              }).format(total);
+            }
           });
 
           setConvertedAmount(convertedAmount);

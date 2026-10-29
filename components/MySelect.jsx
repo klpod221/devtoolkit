@@ -7,7 +7,7 @@ const MySelect = ({
   children,
   className = "",
   sizing = "sm",
-  labelStyle,
+  labelStyle = "",
   ...props
 }) => {
   const onSelectChange = (e) => {

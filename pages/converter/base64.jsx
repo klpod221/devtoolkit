@@ -11,13 +11,39 @@ const Base64EncoderDecoder = () => {
   const [output, setOutput] = React.useState("");
 
   const encode = () => {
-    setOutput(btoa(input));
-    toast.success("Encoded successfully");
+    try {
+      if (!input) {
+        setOutput("");
+        return;
+      }
+      const bytes = new TextEncoder().encode(input);
+      let binary = "";
+      for (let i = 0; i < bytes.length; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      setOutput(btoa(binary));
+      toast.success("Encoded successfully");
+    } catch (err) {
+      toast.error("Failed to encode: " + err.message);
+    }
   };
 
   const decode = () => {
-    setOutput(atob(input));
-    toast.success("Decoded successfully");
+    try {
+      if (!input) {
+        setOutput("");
+        return;
+      }
+      const binary = atob(input.trim());
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      setOutput(new TextDecoder().decode(bytes));
+      toast.success("Decoded successfully");
+    } catch (err) {
+      toast.error("Invalid base64 string: " + err.message);
+    }
   };
 
   return (

@@ -84,8 +84,8 @@ const MyTextEditor = ({ content, setContent }) => {
       type: "button",
       icon: TbH3,
       title: "Heading 3",
-      action: () => editor.chain().focus().toggleHeading({ level: 4 }).run(),
-      isActive: () => editor.isActive("heading", { level: 4 }),
+      action: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
+      isActive: () => editor.isActive("heading", { level: 3 }),
     },
     {
       type: "button",
@@ -188,7 +188,7 @@ const MyTextEditor = ({ content, setContent }) => {
               </button>
             );
           } else if (item.type === "divider") {
-            return <div key={index} className="border-r w-"></div>;
+            return <div key={index} className="border-r border-gray-200 dark:border-dark-secondary"></div>;
           }
         })}
       </div>

@@ -38,13 +38,24 @@ const DateTimeConverter = () => {
       );
     }
 
+    const baseMoment =
+      selectedTimezone && moment.tz.zone(selectedTimezone)
+        ? moment.tz(
+            moment(date).format("YYYY-MM-DD HH:mm:ss"),
+            "YYYY-MM-DD HH:mm:ss",
+            selectedTimezone,
+          )
+        : moment(date);
+
     searchTimezone.forEach((timezone) => {
-      const dateInTimezone = moment.tz(date, timezone);
-      result[timezone] = dateInTimezone.format(format);
+      const dateInTimezone = baseMoment.clone().tz(timezone);
+      result[timezone] = dateInTimezone.isValid()
+        ? dateInTimezone.format(format)
+        : "";
     });
 
     setResult(result);
-  }, [date, format, timezones, search]);
+  }, [date, format, timezones, search, selectedTimezone]);
 
   return (
     <TwoColumn>

@@ -1,6 +1,6 @@
 const MomentFormat = () => {
   return (
-    <table class="table-auto w-full border-collapse border border-gray-200 dark:border-dark-secondary">
+    <table className="table-auto w-full border-collapse border border-gray-200 dark:border-dark-secondary">
       <thead className="sticky -top-[1px] bg-gray-100 dark:bg-dark-secondary">
         <tr className="bg-gray-100 dark:bg-dark-secondary border border-gray-200 dark:border-dark-secondary">
           <th className="px-1"></th>

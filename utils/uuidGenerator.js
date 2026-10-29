@@ -1,7 +1,7 @@
 import { v1, v3, v4, v5, v6, v7 } from "uuid";
 
-const uuidGenerator = (version, options) => {
-  const quantity = options.quantity || 1;
+const uuidGenerator = (version, options = {}) => {
+  const quantity = Math.min(Math.max(Number(options.quantity) || 1, 1), 1000);
 
   switch (version) {
     case 1:

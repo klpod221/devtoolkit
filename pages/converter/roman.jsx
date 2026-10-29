@@ -103,8 +103,10 @@ const RomanNumeralConverter = () => {
           </div>
 
           <div className="flex items-center justify-end space-x-2">
-            <span className="font-semibold">{output.arabic || ""}</span>
-            {output.arabic && <MyCopyButton value={output.arabic} />}
+            <span className="font-semibold">{output.arabic !== "" ? output.arabic : ""}</span>
+            {output.arabic !== "" && output.arabic !== undefined && (
+              <MyCopyButton value={String(output.arabic)} />
+            )}
           </div>
         </div>
       </MyCard>

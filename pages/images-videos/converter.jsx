@@ -1,7 +1,6 @@
 import React from "react";
 import JSZip from "jszip";
 import { toast } from "react-toastify";
-import { Button } from "flowbite-react";
 
 import convertImageFormat from "@utils/convertImageFormat";
 
@@ -32,15 +31,13 @@ const FormatConverter = () => {
       return;
     }
 
-    setReturnImages([]);
-
     try {
-      images.forEach((image) => {
-        convertImageFormat(image, format).then((dataURL) => {
-          setReturnImages((prev) => [...prev, dataURL]);
-        });
-      });
+      setReturnImages([]);
+      const converted = await Promise.all(
+        images.map((image) => convertImageFormat(image, format)),
+      );
 
+      setReturnImages(converted);
       toast.success("Images converted successfully");
     } catch (error) {
       toast.error(error.message || "Failed to convert images");
@@ -107,18 +104,18 @@ const FormatConverter = () => {
           </MyCard.Header>
 
           <MyFileInput onChange={onFileChange} multiple={true} type="image" />
-          <Button.Group>
+          <div className="flex flex-wrap gap-2">
             {formatList.map((f) => (
-              <Button
+              <MyButton
                 key={f}
                 onClick={() => setFormat(f)}
-                color={format === f ? "blue" : "gray"}
-                size={"sm"}
+                className={format === f ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"}
+                size="sm"
               >
-                {f}
-              </Button>
+                {f.toUpperCase()}
+              </MyButton>
             ))}
-          </Button.Group>
+          </div>
 
           <MyImageViewer
             images={images.map((image) => URL.createObjectURL(image))}

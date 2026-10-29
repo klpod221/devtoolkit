@@ -1,5 +1,4 @@
 import React from "react";
-import { DiffEditor } from "@monaco-editor/react";
 
 import MyCard from "@components/MyCard";
 import MyCodeEditor from "@components/MyCodeEditor";

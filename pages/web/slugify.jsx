@@ -9,9 +9,14 @@ const SlugifyString = () => {
 
   const slugify = (str) => {
     return str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[đĐ]/g, "d")
       .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[^\w-]+/g, "");
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
   };
 
   return (

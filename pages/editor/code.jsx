@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Spinner, theme } from "flowbite-react";
+import { Spinner } from "flowbite-react";
 
 import SUPPORT_LANGUAGES from "@constants/programming_languages";
 import CODE_SAMPLES from "@constants/code_samples";
@@ -46,7 +46,7 @@ const CodeEditor = () => {
 
       setOutput(data);
     } catch (error) {
-      setOutput(error.message);
+      setOutput({ stderr: error.response?.data?.error || error.message });
       console.error(error);
     } finally {
       setLoading(false);

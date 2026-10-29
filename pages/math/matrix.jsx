@@ -8,7 +8,14 @@ import CodeOutput from "@components/CodeOutput";
 
 const parseMatrix = (str) => {
   if (!str.trim()) return null;
-  return str.trim().split('\n').map(row => row.trim().split(/[\s,]+/).map(Number));
+  const rows = str.trim().split("\n").filter((r) => r.trim() !== "");
+  return rows.map((row) =>
+    row.trim().split(/[\s,]+/).map((val) => {
+      const num = Number(val);
+      if (isNaN(num)) throw new Error("Invalid number detected in matrix");
+      return num;
+    }),
+  );
 };
 const formatMatrix = (m) => {
   return m.map(row => row.join('\t')).join('\n');

@@ -48,14 +48,16 @@ const MyColorPicker = ({
             color = Color(colorPicker.hex).alpha(colorPicker.rgb.a);
           }
 
-          if (isUpdateInput) {
+          if (isUpdateInput && colorInput.current) {
             colorInput.current.value =
               color.alpha() === 1 ? color.hex() : color.hexa();
           }
 
           setColor(color);
           onChange(color.alpha() === 1 ? color.hex() : color.hexa());
-        } catch (e) {}
+        } catch {
+          // ignore invalid color input
+        }
       }, 10),
     [onChange],
   );
@@ -64,8 +66,10 @@ const MyColorPicker = ({
     if (value) {
       handleChange(value, true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => {
+      handleChange.cancel();
+    };
+  }, [value, handleChange]);
 
   return (
     <div>

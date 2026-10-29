@@ -9,8 +9,7 @@ const wordCount = (text) => {
   text = textSimplifier(text);
 
   // Split text by white space (For European languages)
-  let words = text.split(" ");
-  words = words.filter((word) => word.trim());
+  let words = text.trim().split(/\s+/).filter(Boolean);
 
   // Match latin, cyrillic, Malayalam letters and numbers
   const common =

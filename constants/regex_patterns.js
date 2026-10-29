@@ -53,7 +53,7 @@ export const commonRegexPatterns = [
   },
   {
     name: "Password (8 char, 1 upper, 1 lower, 1 number, 1 special)",
-    pattern: `^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$`,
+    pattern: `^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\W_]).{8,}$`,
     flags: ["g", "m"],
   },
   {

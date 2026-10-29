@@ -15,34 +15,34 @@ const PasswordHashGenerator = () => {
   const [output, setOutput] = useState("");
   const [generating, setGenerating] = useState(false);
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     if (!password) {
       setOutput("");
       return;
     }
     setGenerating(true);
     
-    setTimeout(() => {
-      try {
-        let hash = "";
-        if (algorithm === "bcrypt") {
-          const salt = bcrypt.genSaltSync(parseInt(rounds) || 10);
-          hash = bcrypt.hashSync(password, salt);
-        } else if (algorithm === "MD5") {
-          hash = CryptoJS.MD5(password).toString();
-        } else if (algorithm === "SHA1") {
-          hash = CryptoJS.SHA1(password).toString();
-        } else if (algorithm === "SHA256") {
-          hash = CryptoJS.SHA256(password).toString();
-        } else if (algorithm === "SHA512") {
-          hash = CryptoJS.SHA512(password).toString();
-        }
-        setOutput(hash);
-      } catch (err) {
-        setOutput("Error generating hash");
+    try {
+      let hash = "";
+      if (algorithm === "bcrypt") {
+        const cost = Math.min(Math.max(parseInt(rounds, 10) || 10, 4), 16);
+        const salt = await bcrypt.genSalt(cost);
+        hash = await bcrypt.hash(password, salt);
+      } else if (algorithm === "MD5") {
+        hash = CryptoJS.MD5(password).toString();
+      } else if (algorithm === "SHA1") {
+        hash = CryptoJS.SHA1(password).toString();
+      } else if (algorithm === "SHA256") {
+        hash = CryptoJS.SHA256(password).toString();
+      } else if (algorithm === "SHA512") {
+        hash = CryptoJS.SHA512(password).toString();
       }
+      setOutput(hash);
+    } catch (err) {
+      setOutput("Error generating hash: " + (err.message || String(err)));
+    } finally {
       setGenerating(false);
-    }, 10);
+    }
   };
 
   return (
@@ -75,7 +75,7 @@ const PasswordHashGenerator = () => {
               value={rounds}
               onChange={(val) => setRounds(val)}
               min="4"
-              max="20"
+              max="16"
             />
           )}
           <MyButton onClick={handleGenerate} className="w-full" loading={generating}>

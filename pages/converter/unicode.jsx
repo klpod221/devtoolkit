@@ -42,6 +42,7 @@ const UnicodeConverter = () => {
           value={textToUnicodeOutput}
           placeholder="Unicode output"
           label="Unicode output"
+          readOnly
         />
       </TwoColumn.Left>
       <TwoColumn.Right>
@@ -62,6 +63,7 @@ const UnicodeConverter = () => {
           value={unicodeToTextOutput}
           placeholder="Text output"
           label="Text output"
+          readOnly
         />
       </TwoColumn.Right>
     </TwoColumn>

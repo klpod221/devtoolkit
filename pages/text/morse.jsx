@@ -1,5 +1,5 @@
 import React from "react";
-import _, { set } from "lodash";
+import _ from "lodash";
 
 import {
   morseToText,
@@ -28,9 +28,14 @@ const MorseCodeTranslator = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
 
   const playSound = async (morse) => {
-    setIsPlaying(true);
-    await playMorseCode(morse);
-    setIsPlaying(false);
+    try {
+      setIsPlaying(true);
+      await playMorseCode(morse);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsPlaying(false);
+    }
   };
 
   const textToMorseCode = React.useMemo(

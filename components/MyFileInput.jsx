@@ -9,7 +9,9 @@ const MyFileInput = ({
   accept = null,
   size = "normal",
 }) => {
-  const [id, setId] = React.useState(null);
+  const generatedId = React.useId();
+  const id = generatedId.replace(/:/g, "");
+  const dropZoneRef = React.useRef(null);
   const [isDragging, setIsDragging] = React.useState(false);
   const [message, setMessage] = React.useState(placeholder);
   const [title, setTitle] = React.useState("Upload");
@@ -21,12 +23,15 @@ const MyFileInput = ({
   };
 
   React.useEffect(() => {
+    const dropZone = dropZoneRef.current;
+    if (!dropZone) return;
+
     const dropHandler = (e) => {
       e.preventDefault();
       setIsDragging(false);
 
       const files = e.dataTransfer.files;
-      if (files.length > 0) {
+      if (files && files.length > 0) {
         const fileArray = Array.from(files);
         onChange(multiple ? fileArray : fileArray[0]);
       }
@@ -42,20 +47,14 @@ const MyFileInput = ({
       setIsDragging(false);
     };
 
-    const dropZones = document.querySelectorAll(".dropzone-file");
-
-    dropZones.forEach((dropZone) => {
-      dropZone.addEventListener("drop", dropHandler);
-      dropZone.addEventListener("dragover", dragOverHandler);
-      dropZone.addEventListener("dragleave", dragLeaveHandler);
-    });
+    dropZone.addEventListener("drop", dropHandler);
+    dropZone.addEventListener("dragover", dragOverHandler);
+    dropZone.addEventListener("dragleave", dragLeaveHandler);
 
     return () => {
-      dropZones.forEach((dropZone) => {
-        dropZone.removeEventListener("drop", dropHandler);
-        dropZone.removeEventListener("dragover", dragOverHandler);
-        dropZone.removeEventListener("dragleave", dragLeaveHandler);
-      });
+      dropZone.removeEventListener("drop", dropHandler);
+      dropZone.removeEventListener("dragover", dragOverHandler);
+      dropZone.removeEventListener("dragleave", dragLeaveHandler);
     };
   }, [onChange, multiple]);
 
@@ -74,10 +73,6 @@ const MyFileInput = ({
   }, [placeholder, type, multiple]);
 
   React.useEffect(() => {
-    setId(Math.random().toString(36).substr(2, 9));
-  }, []);
-
-  React.useEffect(() => {
     if (size === "small") {
       setTitle(isDragging ? "Drop here" : "File Upload");
     } else {
@@ -87,6 +82,7 @@ const MyFileInput = ({
 
   return (
     <label
+      ref={dropZoneRef}
       htmlFor={`dropzone-file-${id}`}
       className={`flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 hover:border-gray-500 hover:bg-gray-100 dark:border-dark-secondary dark:bg-dark dark:hover:border-dark-text-secondary dark:hover:bg-dark-secondary relative transition-all duration-300 ease-in-out dropzone-file ${
         size === "small" ? "w-28 h-28" : "w-full"
@@ -113,7 +109,7 @@ const MyFileInput = ({
         type="file"
         id={`dropzone-file-${id}`}
         multiple={multiple}
-        accept={`${type === "image" ? "image/*" : accept}`}
+        accept={type === "image" ? "image/*" : (accept || undefined)}
         onChange={onFileChange}
         className="w-full h-full absolute top-0 left-0 opacity-0 cursor-pointer"
       />

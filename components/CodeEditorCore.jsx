@@ -26,21 +26,27 @@ const CodeEditorCore = ({
   const { theme } = React.useContext(ThemeContext);
   const disposeEmmet = React.useRef();
 
-  const handleEditorWillMount = () => {
-    if (language === "html") {
-      disposeEmmet.current = emmetHTML(monaco);
-    } else if (language === "css") {
-      disposeEmmet.current = emmetCSS(monaco);
-    } else if (language === "javascript") {
-      disposeEmmet.current = emmetJSX(monaco);
-    } else {
-      disposeEmmet.current = null;
+  const handleEditorWillMount = (monaco) => {
+    if (!monaco) return;
+    try {
+      if (language === "html") {
+        disposeEmmet.current = emmetHTML(monaco);
+      } else if (language === "css") {
+        disposeEmmet.current = emmetCSS(monaco);
+      } else if (language === "javascript") {
+        disposeEmmet.current = emmetJSX(monaco);
+      } else {
+        disposeEmmet.current = null;
+      }
+    } catch {
+      // ignore emmet mount errors
     }
   };
 
   const handleEditorDidMount = (editor, monaco) => {
     if (editorRef) {
-      editorRef.current = monaco.editor;
+      editorRef.current = editor;
+      editorRef.monaco = monaco;
     }
   };
 
@@ -54,6 +60,7 @@ const CodeEditorCore = ({
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
+      document.removeEventListener("keydown", handleKeyDown);
       disposeEmmet.current && disposeEmmet.current();
     };
   }, []);

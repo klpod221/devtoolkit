@@ -40,15 +40,20 @@ const Chronometer = () => {
 
   const handleLap = () => {
     if (isRunning) {
-      setLaps([{ id: laps.length + 1, time, diff: laps.length === 0 ? time : time - laps[0].time }, ...laps]);
+      setLaps((prev) => {
+        const diff = prev.length === 0 ? time : time - prev[0].time;
+        return [{ id: prev.length + 1, time, diff }, ...prev];
+      });
     }
   };
 
   const formatTime = (ms) => {
-    const minutes = Math.floor(ms / 60000);
+    const hours = Math.floor(ms / 3600000);
+    const minutes = Math.floor((ms % 3600000) / 60000);
     const seconds = Math.floor((ms % 60000) / 1000);
     const milliseconds = Math.floor((ms % 1000) / 10);
-    return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}.${milliseconds.toString().padStart(2, "0")}`;
+    const mmssms = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}.${milliseconds.toString().padStart(2, "0")}`;
+    return hours > 0 ? `${hours.toString().padStart(2, "0")}:${mmssms}` : mmssms;
   };
 
   return (

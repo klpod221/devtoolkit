@@ -8,6 +8,14 @@ import MyCheckbox from "@components/MyCheckbox";
 import MyTextarea from "@components/MyTextarea";
 import MyImage from "@components/MyImage";
 
+const escapeXml = (unsafe) =>
+  String(unsafe)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+
 const SVGPlaceholderGenerator = () => {
   const [input, setInput] = React.useState({
     width: 200,
@@ -28,14 +36,20 @@ const SVGPlaceholderGenerator = () => {
     const { width, height, bgColor, textColor, text, fontSize, useExactSize } =
       input;
 
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" ${useExactSize ? 'width="' + width + '" height="' + height + '"': ''}>
+    const safeText = escapeXml(text || `${width}x${height}`);
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" ${useExactSize ? 'width="' + width + '" height="' + height + '"' : ""}>
   <rect width="${width}" height="${height}" fill="${bgColor}"></rect>
   <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="${fontSize}px" fill="${textColor}">
-    ${text || `${width}x${height}`}
+    ${safeText}
   </text>
 </svg>`;
 
-    const base64 = "data:image/svg+xml;base64," + btoa(svg);
+    const utf8Bytes = new TextEncoder().encode(svg);
+    let binary = "";
+    for (let i = 0; i < utf8Bytes.length; i++) {
+      binary += String.fromCharCode(utf8Bytes[i]);
+    }
+    const base64 = "data:image/svg+xml;base64," + btoa(binary);
     setOutput({ svg, base64 });
   }, [input]);
 

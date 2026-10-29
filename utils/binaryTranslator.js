@@ -6,26 +6,36 @@ const baseValues = {
 };
 
 const textToBinary = (input, base) => {
-  return input
-    .split("")
+  return Array.from(input)
     .map((char) => {
-      const binary = char.charCodeAt(0).toString(base);
-      return base === 2 ? "0".repeat(8 - binary.length) + binary : binary;
+      const code = char.codePointAt(0);
+      const binary = code.toString(base);
+      return base === 2 ? binary.padStart(8, "0") : binary;
     })
     .join(" ");
 };
 
 const binaryToText = (input, base) => {
   return input
-    .split(" ")
-    .map((binary) => String.fromCharCode(parseInt(binary, base)))
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((binary) => {
+      const parsed = parseInt(binary, base);
+      return isNaN(parsed) ? "" : String.fromCodePoint(parsed);
+    })
     .join("");
 };
 
 const binaryToBinary = (input, from, to) => {
   return input
-    .split(" ")
-    .map((binary) => parseInt(binary, from).toString(to))
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((binary) => {
+      const parsed = parseInt(binary, from);
+      return isNaN(parsed) ? "" : parsed.toString(to);
+    })
     .join(" ");
 };
 

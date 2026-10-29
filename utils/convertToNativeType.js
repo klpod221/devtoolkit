@@ -1,13 +1,17 @@
 const convertToNativeType = (value) => {
-  const number = Number(value);
+  if (typeof value !== "string") return value;
+  const trimmed = value.trim();
+  if (trimmed === "") return value;
+
+  const number = Number(trimmed);
   if (!isNaN(number)) {
     return number;
   }
 
-  const boolean = value.toLowerCase();
-  if (boolean === "true") {
+  const lower = trimmed.toLowerCase();
+  if (lower === "true") {
     return true;
-  } else if (boolean === "false") {
+  } else if (lower === "false") {
     return false;
   }
 

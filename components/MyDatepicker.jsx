@@ -10,20 +10,24 @@ const MyDatepicker = ({ value, onChange, label, type = "date", format }) => {
   const inputRef = React.useRef(null);
 
   const showPicker = () => {
-    dateInputRef.current.showPicker();
+    try {
+      dateInputRef.current?.showPicker?.();
+    } catch {
+      // fallback if showPicker is unsupported
+    }
   };
 
   const onDateChange = (value) => {
     const date = moment(value).format(dateFormat);
 
-    inputRef.current.value = date;
+    if (inputRef.current) inputRef.current.value = date;
     onChange(date);
   };
 
   const onInputChange = (value) => {
     const date = moment(value, dateFormat);
 
-    if (date.isValid()) {
+    if (date.isValid() && dateInputRef.current) {
       switch (type) {
         case "date":
           dateInputRef.current.value = date.format("YYYY-MM-DD");
@@ -32,7 +36,7 @@ const MyDatepicker = ({ value, onChange, label, type = "date", format }) => {
           dateInputRef.current.value = date.format("HH:mm:ss");
           break;
         case "datetime-local":
-          dateInputRef.current.value = date.format("YYYY-MM-DD HH:mm:ss");
+          dateInputRef.current.value = date.format("YYYY-MM-DDTHH:mm:ss");
           break;
         default:
           dateInputRef.current.value = date.format("YYYY-MM-DD");

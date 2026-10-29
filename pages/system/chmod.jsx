@@ -6,6 +6,29 @@ import MyInput from "@components/MyInput";
 import ObjectOutput from "@components/ObjectOutput";
 import { calculateChmod, octalToSymbolic } from "@utils/systemUtils";
 
+const PermissionGroup = ({ label, role, permissions, onChange }) => (
+  <div className="mb-6">
+    <label className="block text-sm font-bold mb-3 text-gray-700 dark:text-gray-300 uppercase tracking-wider">{label}</label>
+    <div className="flex space-x-6">
+      <MyCheckbox
+        label="Read"
+        checked={permissions[role].read}
+        onChange={onChange(role, "read")}
+      />
+      <MyCheckbox
+        label="Write"
+        checked={permissions[role].write}
+        onChange={onChange(role, "write")}
+      />
+      <MyCheckbox
+        label="Execute"
+        checked={permissions[role].execute}
+        onChange={onChange(role, "execute")}
+      />
+    </div>
+  </div>
+);
+
 const ChmodCalculator = () => {
   const [permissions, setPermissions] = useState({
     owner: { read: true, write: true, execute: true },
@@ -58,37 +81,29 @@ const ChmodCalculator = () => {
     }
   };
 
-  const PermissionGroup = ({ label, role }) => (
-    <div className="mb-6">
-      <label className="block text-sm font-bold mb-3 text-gray-700 dark:text-gray-300 uppercase tracking-wider">{label}</label>
-      <div className="flex space-x-6">
-        <MyCheckbox
-          label="Read"
-          checked={permissions[role].read}
-          onChange={handleCheckboxChange(role, "read")}
-        />
-        <MyCheckbox
-          label="Write"
-          checked={permissions[role].write}
-          onChange={handleCheckboxChange(role, "write")}
-        />
-        <MyCheckbox
-          label="Execute"
-          checked={permissions[role].execute}
-          onChange={handleCheckboxChange(role, "execute")}
-        />
-      </div>
-    </div>
-  );
-
   return (
     <TwoColumn>
       <TwoColumn.Left>
         <MyCard.Header title="Permissions" helper="Select file permissions for each role" />
         <div className="mt-4">
-          <PermissionGroup label="Owner (User)" role="owner" />
-          <PermissionGroup label="Group" role="group" />
-          <PermissionGroup label="Others (Public)" role="others" />
+          <PermissionGroup
+            label="Owner (User)"
+            role="owner"
+            permissions={permissions}
+            onChange={handleCheckboxChange}
+          />
+          <PermissionGroup
+            label="Group"
+            role="group"
+            permissions={permissions}
+            onChange={handleCheckboxChange}
+          />
+          <PermissionGroup
+            label="Others (Public)"
+            role="others"
+            permissions={permissions}
+            onChange={handleCheckboxChange}
+          />
         </div>
 
         <MyInput

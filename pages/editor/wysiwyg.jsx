@@ -21,6 +21,8 @@ const HTMLWYSIWYGEditor = () => {
           });
 
           setOutput(formatted);
+        } else {
+          setOutput("");
         }
       } catch (e) {
         console.error(e);
@@ -47,6 +49,7 @@ const HTMLWYSIWYGEditor = () => {
         />
 
         <MyCodeEditor
+          language="html"
           value={output}
           options={{
             readOnly: true,

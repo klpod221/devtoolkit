@@ -1,5 +1,4 @@
 import React from "react";
-import NextLink from "next/link";
 import plantumlEncoder from "plantuml-encoder";
 
 import MyCard from "@components/MyCard";
@@ -32,14 +31,16 @@ Bob -> Alice: Hi
         <MyCard.Header title="Output" helper="Generated PlantUML diagram" />
 
         <div className="flex flex-col w-fit h-fit">
-          <MyImage
-            src={output}
-            alt="Generated PlantUML diagram"
-            imageClass="w-full h-full"
-          />
+          {output && (
+            <MyImage
+              src={output}
+              alt="Generated PlantUML diagram"
+              imageClass="w-full h-full"
+            />
+          )}
           {error && (
             <div className="text-red-500 text-sm mt-2">
-              Error: {error.message}
+              Error: {typeof error === "string" ? error : error?.message}
             </div>
           )}
         </div>

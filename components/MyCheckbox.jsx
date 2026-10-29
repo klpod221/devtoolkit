@@ -1,13 +1,8 @@
 import React from "react";
 
 const MyCheckbox = ({ label, id, ...props }) => {
-  const [checkboxId, setCheckboxId] = React.useState(id);
-
-  React.useEffect(() => {
-    if (!checkboxId) {
-      setCheckboxId(Math.random().toString(36).substring(7));
-    }
-  }, [checkboxId]);
+  const autoId = React.useId();
+  const checkboxId = id || autoId;
 
   return (
     <div className="flex items-center">

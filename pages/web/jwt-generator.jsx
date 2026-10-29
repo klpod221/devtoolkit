@@ -23,9 +23,9 @@ const JWTGenerator = () => {
   const [output, setOutput] = React.useState(null);
 
   const handlePayloadChange = (value) => {
+    setPayload(value);
     try {
       JSON.parse(value);
-      setPayload(value);
       setError(null);
     } catch (e) {
       setError(e.message);

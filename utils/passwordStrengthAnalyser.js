@@ -47,7 +47,7 @@ const getHumanFriendlyDuration = (seconds) => {
       }
 
       const formattedQuantity = format(quantity);
-      return `${formattedQuantity} ${quantity === 1 ? plural : unit}`;
+      return `${formattedQuantity} ${quantity === 1 ? unit : plural}`;
     })
     .compact()
     .take(2)
@@ -88,7 +88,10 @@ const passwordStrengthAnalyser = (password) => {
   const charsetLength = getCharsetLength(password);
   const passwordLength = password.length;
   
-  const entropy = password === '' ? 0 : Math.log2(Math.pow(charsetLength, passwordLength));
+  const entropy =
+    password === "" || charsetLength === 0
+      ? 0
+      : passwordLength * Math.log2(charsetLength);
 
   const secondsToCrack = 2 ** entropy / 2e10;
 

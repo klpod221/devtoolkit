@@ -36,7 +36,7 @@ const generateEditorconfig = (opts) => {
   lines.push(`trim_trailing_whitespace = ${opts.trimTrailingWhitespace}`);
   lines.push(`insert_final_newline = ${opts.insertFinalNewline}`);
 
-  if (opts.maxLineLength) {
+  if (Number(opts.maxLineLength) > 0) {
     lines.push(`max_line_length = ${opts.maxLineLength}`);
   }
 

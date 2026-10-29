@@ -271,7 +271,7 @@ const CURRENCIES = [
   },
   {
     code: "COP",
-    name: "Coombian Peso",
+    name: "Colombian Peso",
     decimal_digits: 0,
     name_plural: "Colombian pesos",
     rounding: 0,
@@ -1617,7 +1617,7 @@ const CURRENCIES = [
     name_plural: "Indian rupees",
     rounding: 0,
     symbol: "Rs",
-    symbol_native: "টকা",
+    symbol_native: "₹",
   },
   {
     code: "LYD",

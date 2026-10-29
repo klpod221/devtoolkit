@@ -24,6 +24,11 @@ const Ipv4Converter = () => {
       });
     } else {
       setError("Invalid IPv4 address");
+      setResults({
+        decimal: "",
+        binary: "",
+        hex: "",
+      });
     }
   }, [ip]);
 

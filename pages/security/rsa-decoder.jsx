@@ -40,7 +40,6 @@ const RSADecoder = () => {
       };
 
       setOutput(parsedCertificate);
-      console.log(parsedCertificate);
     } catch (error) {
       toast.error(error.message || "An error occurred");
       console.error(error);

@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 import calculatePI from "@utils/piCalculator";
 
@@ -22,16 +23,20 @@ const PICalculator = () => {
   });
 
   const startCalculatePI = () => {
-    if (numberOfDigits < 1) {
-      alert("Please enter a number greater than 0.");
+    const digits = Number(numberOfDigits);
+    if (!digits || digits < 1) {
+      toast.error("Please enter a number greater than 0.");
       return;
     }
 
-    console.log("Calculating PI...");
+    if (digits > 10000) {
+      toast.error("Maximum supported digits is 10,000.");
+      return;
+    }
 
-    const result = calculatePI(numberOfDigits, addCount, addSpace);
+    const result = calculatePI(digits, addCount, addSpace);
     setOutput(result);
-  }
+  };
 
   return (
     <TwoColumn leftWidth="40">

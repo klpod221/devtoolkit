@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
@@ -48,7 +49,15 @@ const APITester = () => {
     const start = Date.now();
     try {
       let headers = {};
-      try { headers = JSON.parse(headersText); } catch { /* ignore */ }
+      if (headersText.trim()) {
+        try {
+          headers = JSON.parse(headersText);
+        } catch {
+          toast.error("Invalid JSON in Headers");
+          setLoading(false);
+          return;
+        }
+      }
 
       let data;
       if (hasBody) {

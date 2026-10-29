@@ -1,9 +1,9 @@
 import { parse } from "yaml";
-import formatJs from "@utils/formatJs";
 
 const yamlToJson = (yaml) => {
-  const json = formatJs(JSON.stringify(parse(yaml)));
-  return json;
+  if (!yaml || !yaml.trim()) return "";
+  const parsed = parse(yaml);
+  return JSON.stringify(parsed, null, 2);
 };
 
 export default yamlToJson;

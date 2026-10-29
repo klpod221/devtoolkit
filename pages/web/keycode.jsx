@@ -15,7 +15,9 @@ const KeycodeInfo = () => {
   });
 
   const handleKeyDown = (e) => {
-    e.preventDefault();
+    if (!["F5", "F12"].includes(e.key) && !(e.ctrlKey && e.key.toLowerCase() === "r")) {
+      e.preventDefault();
+    }
 
     const modifierKeys = {
       ShiftKey: e.shiftKey,

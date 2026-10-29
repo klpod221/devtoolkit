@@ -30,7 +30,7 @@
     height: calc(100vh - 4rem);
   }
 
-  #dropzone-file {
+  .dropzone-file {
     @apply h-full cursor-pointer;
   }
 

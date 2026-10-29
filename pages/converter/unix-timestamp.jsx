@@ -25,10 +25,21 @@ const UnixTimestampConverter = () => {
   });
 
   React.useEffect(() => {
-    const date = moment(timestamp, "x");
+    const rawNum = Number(timestamp);
+    // If it's a 10-digit number (seconds), convert to milliseconds
+    const ms =
+      Number.isFinite(rawNum) && String(Math.floor(Math.abs(rawNum))).length <= 10
+        ? rawNum * 1000
+        : rawNum;
+
+    const date = moment(ms);
+    if (!date.isValid()) {
+      return;
+    }
+
     setOutput({
-      utc: date.utc().format(),
-      local: date.local().format(),
+      utc: date.clone().utc().format(),
+      local: date.clone().local().format(),
       dayOfYear: date.dayOfYear(),
       weekOfYear: date.week(),
       dayOfWeek: date.day(),

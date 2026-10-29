@@ -1,11 +1,16 @@
 const hexToUnicode = (text) => {
-  const hexes = text.replace(/\s+/g, "").split("0x");
+  if (!text) return "";
+  const tokens = text.match(/(?:0x|\\u|U\+)?([0-9a-fA-F]{1,6})/g) || [];
 
-  return hexes
-    .map((hex) => {
+  return tokens
+    .map((token) => {
+      const clean = token.replace(/^(?:0x|\\u|U\+)/i, "");
+      if (!clean) return "";
       try {
-        return String.fromCodePoint(parseInt(hex, 16));
-      } catch (e) {
+        const codePoint = parseInt(clean, 16);
+        if (isNaN(codePoint) || codePoint > 0x10ffff) return "";
+        return String.fromCodePoint(codePoint);
+      } catch {
         return "";
       }
     })

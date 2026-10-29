@@ -1,7 +1,6 @@
 import React from "react";
 import NextImage from "next/image";
-
-const { toast } = require("react-toastify");
+import { toast } from "react-toastify";
 
 import {
   AiOutlineEye,
@@ -11,24 +10,22 @@ import {
 
 const MyImage = ({
   src,
-  alt,
+  alt = "image",
   data,
-  className,
-  imageClass,
+  className = "",
+  imageClass = "",
   preview = true,
   download = true,
 }) => {
-  const [canPreview, setCanPreview] = React.useState(preview);
-  const [canDownload, setCanDownload] = React.useState(download);
   const [isShowPreview, setIsShowPreview] = React.useState(false);
 
-  let styleClass = className || "";
+  if (!src) return null;
 
   const onDownload = () => {
     try {
       const a = document.createElement("a");
       a.href = src;
-      a.download = alt;
+      a.download = alt || "download";
       a.click();
     } catch (error) {
       toast.error(error.message || "Download failed");
@@ -39,23 +36,24 @@ const MyImage = ({
   return (
     <>
       <div
-        className={`relative min-w-20 min-h-20 overflow-hidden group ${styleClass}`}
+        className={`relative min-w-20 min-h-20 overflow-hidden group ${className}`}
       >
         <NextImage
           src={src}
           alt={alt}
           width={500}
           height={500}
+          unoptimized
           className={`object-cover w-full h-full rounded-lg border-2 border-gray-200 dark:border-dark-secondary transition-transform duration-300 ease-in-out group-hover:scale-105 cursor-pointer ${imageClass}`}
           onClick={() => {
-            if (canPreview) {
+            if (preview) {
               setIsShowPreview(!isShowPreview);
             }
           }}
         />
 
         <div className="absolute top-1 right-1 hidden justify-center items-center group-hover:flex animate-fade-in space-x-1">
-          {canDownload && (
+          {download && (
             <button
               className="bg-black bg-opacity-50 text-white rounded-lg p-1"
               onClick={onDownload}
@@ -64,7 +62,7 @@ const MyImage = ({
             </button>
           )}
 
-          {canPreview && (
+          {preview && (
             <button
               className="bg-black bg-opacity-50 text-white rounded-lg p-1"
               onClick={() => setIsShowPreview(!isShowPreview)}
@@ -84,6 +82,7 @@ const MyImage = ({
             alt={alt}
             width={1500}
             height={1500}
+            unoptimized
             className="object-contain animate-zoom-in p-5 max-w-full max-h-full"
           />
 
@@ -93,7 +92,7 @@ const MyImage = ({
           ></div>
 
           <div className="fixed top-5 right-5 flex space-x-1 animate-fade-in">
-            {canDownload && (
+            {download && (
               <button
                 className="bg-black bg-opacity-50 text-white rounded-lg p-1"
                 onClick={onDownload}

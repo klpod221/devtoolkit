@@ -11,22 +11,26 @@ const PercentageCalculator = () => {
   const [y2, setY2] = useState("100");
 
   const [x3, setX3] = useState("50");
-  const [y3, setX3_2] = useState("100");
+  const [y3, setY3] = useState("100");
 
   const calculateMode1 = () => {
-    if (!x1 || !y1) return "";
-    return ((parseFloat(x1) / 100) * parseFloat(y1)).toFixed(2).replace(/\.00$/, "");
+    const valX = parseFloat(x1);
+    const valY = parseFloat(y1);
+    if (isNaN(valX) || isNaN(valY)) return "";
+    return ((valX / 100) * valY).toFixed(2).replace(/\.00$/, "");
   };
 
   const calculateMode2 = () => {
-    if (!x2 || !y2 || parseFloat(y2) === 0) return "";
-    return ((parseFloat(x2) / parseFloat(y2)) * 100).toFixed(2).replace(/\.00$/, "") + "%";
+    const valX = parseFloat(x2);
+    const valY = parseFloat(y2);
+    if (isNaN(valX) || isNaN(valY) || valY === 0) return "";
+    return ((valX / valY) * 100).toFixed(2).replace(/\.00$/, "") + "%";
   };
 
   const calculateMode3 = () => {
-    if (!x3 || !y3 || parseFloat(x3) === 0) return "";
     const x = parseFloat(x3);
     const y = parseFloat(y3);
+    if (isNaN(x) || isNaN(y) || x === 0) return "";
     const diff = y - x;
     const percent = ((diff / Math.abs(x)) * 100).toFixed(2).replace(/\.00$/, "");
     if (diff > 0) return `+${percent}% (Increase)`;
@@ -90,7 +94,7 @@ const PercentageCalculator = () => {
             <span className="text-gray-500 whitespace-nowrap">From</span>
             <MyInput type="number" placeholder="X" value={x3} onChange={setX3} />
             <span className="text-gray-500 whitespace-nowrap">to</span>
-            <MyInput type="number" placeholder="Y" value={y3} onChange={setX3_2} />
+            <MyInput type="number" placeholder="Y" value={y3} onChange={setY3} />
             <span className="text-gray-500">?</span>
           </div>
 

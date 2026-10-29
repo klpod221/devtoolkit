@@ -55,7 +55,7 @@ const generateScript = (cfg) => {
     lines.push(`sed -i 's/#Port 22/Port ${cfg.sshPort || 22}/' /etc/ssh/sshd_config`);
     lines.push("sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config");
     lines.push("sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config");
-    lines.push("systemctl restart sshd");
+    lines.push("systemctl restart ssh || systemctl restart sshd");
     lines.push("");
   }
 

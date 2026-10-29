@@ -16,7 +16,7 @@ const MacAddressGenerator = () => {
   };
 
   useEffect(() => {
-    handleGenerate();
+    setMac(generateMacAddress(isUnicast));
   }, [isUnicast]);
 
   return (

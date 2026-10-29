@@ -22,25 +22,32 @@ const MyInput = ({
   max,
   onChange = () => {},
   label,
-  labelStyle,
+  labelStyle = "",
   helper,
+  helperText,
   additional,
-  className,
+  className = "",
   icon: Icon,
   ...props
 }) => {
   const onInputChange = (e) => {
+    const val = e.target.value;
     if (type === "number") {
-      if (min && e.target.value < min) {
-        onChange(min, e);
-        return;
-      } else if (max && e.target.value > max) {
-        onChange(max, e);
-        return;
+      if (val !== "" && val !== "-") {
+        const numVal = Number(val);
+        if (!isNaN(numVal)) {
+          if (min !== undefined && numVal < Number(min)) {
+            onChange(min, e);
+            return;
+          } else if (max !== undefined && numVal > Number(max)) {
+            onChange(max, e);
+            return;
+          }
+        }
       }
     }
 
-    onChange(e.target.value, e);
+    onChange(val, e);
   };
 
   return (
@@ -68,7 +75,9 @@ const MyInput = ({
 
         <input
           type={type}
-          value={value}
+          value={value ?? ""}
+          min={min}
+          max={max}
           onChange={onInputChange}
           className={`block w-full disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-gray-900 dark:placeholder-dark-text-secondary dark:focus:border-dark-secondary dark:focus:text-dark-text py-2.5 text-sm outline-none focus:ring-0 dark:text-dark-text border-none ${Icon ? "pl-0" : "pl-2.5"} pr-1 ${className}`}
           {...props}
@@ -84,6 +93,12 @@ const MyInput = ({
           {additional}
         </div>
       </div>
+
+      {helperText && (
+        <div className="mt-1 text-xs text-red-500 dark:text-red-400">
+          {helperText}
+        </div>
+      )}
     </div>
   );
 };

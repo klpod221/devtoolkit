@@ -6,9 +6,11 @@ const Header = ({ children, title, helper }) => {
       {title || helper ? (
         <div className="text-xl font-semibold">
           {title}
-          <p className="text-xs text-gray-400 dark:text-dark-text-secondary italic font-light">
-            <span dangerouslySetInnerHTML={{ __html: helper }} />
-          </p>
+          {helper && (
+            <p className="text-xs text-gray-400 dark:text-dark-text-secondary italic font-light">
+              {helper}
+            </p>
+          )}
         </div>
       ) : null}
 
@@ -19,7 +21,7 @@ const Header = ({ children, title, helper }) => {
   );
 };
 
-const MyCard = ({ children, className, ...props }) => {
+const MyCard = ({ children, className = "", ...props }) => {
   return (
     <div
       className={`flex rounded-lg border border-gray-200 bg-white dark:border-dark-secondary dark:bg-dark flex-col mb-4 sm:mb-0 w-full max-h-screen ${className}`}

@@ -31,7 +31,14 @@ const ETACalculator = () => {
     const processed = parseFloat(processedItems);
     const elapsed = parseFloat(elapsedSeconds) * 1000; // to ms
 
-    if (!total || !processed || !elapsed || processed <= 0 || total <= 0) {
+    if (
+      isNaN(total) ||
+      isNaN(processed) ||
+      isNaN(elapsed) ||
+      processed <= 0 ||
+      total <= 0 ||
+      elapsed <= 0
+    ) {
       return "";
     }
 

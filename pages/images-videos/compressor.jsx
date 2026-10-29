@@ -35,27 +35,26 @@ const ImageCompressor = () => {
     setImages(data);
   };
 
-  const compressImages = () => {
+  const compressImages = async () => {
     if (images.length === 0) {
       return;
     }
 
-    setReturnImages([]);
-
     try {
-      images.forEach((item) => {
-        compressImage(item.image, level).then((blob) => {
-          const output = {
+      setReturnImages([]);
+      const compressedList = await Promise.all(
+        images.map(async (item) => {
+          const blob = await compressImage(item.image, level);
+          return {
             image: blob,
             name: item.name,
             originalSize: item.size,
             compressedSize: blob.size,
           };
+        }),
+      );
 
-          setReturnImages((prev) => [...prev, output]);
-        });
-      });
-
+      setReturnImages(compressedList);
       toast.success("Images compressed successfully");
     } catch (error) {
       toast.error(error.message || "Failed to compress images");
@@ -64,10 +63,12 @@ const ImageCompressor = () => {
   };
 
   const downloadImage = (item) => {
+    const url = URL.createObjectURL(item.image);
     const a = document.createElement("a");
-    a.href = URL.createObjectURL(item.image);
+    a.href = url;
     a.download = item.name;
     a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   const downloadAll = async () => {
@@ -82,7 +83,7 @@ const ImageCompressor = () => {
 
     const zip = new JSZip();
     returnImages.forEach((item) => {
-      zip.file(item.name, item.image, { base64: true });
+      zip.file(item.name, item.image);
     });
 
     const content = await zip.generateAsync({ type: "blob" });
@@ -92,6 +93,7 @@ const ImageCompressor = () => {
     a.href = url;
     a.download = "images.zip";
     a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   return (

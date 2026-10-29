@@ -11,6 +11,7 @@ import MyImageViewer from "@components/MyImageViewer";
 
 const Base64ImageEncoder = () => {
   const [image, setImage] = React.useState(null);
+  const [previewUrl, setPreviewUrl] = React.useState(null);
   const [outputType, setOutputType] = React.useState("base64");
   const [output, setOutput] = React.useState({
     base64: "",
@@ -18,34 +19,50 @@ const Base64ImageEncoder = () => {
     imgTag: "",
   });
 
+  React.useEffect(() => {
+    if (image) {
+      const url = URL.createObjectURL(image);
+      setPreviewUrl(url);
+      return () => {
+        URL.revokeObjectURL(url);
+      };
+    } else {
+      setPreviewUrl(null);
+    }
+  }, [image]);
+
   const convertImages = () => {
-    if (image.length === 0) {
+    if (!image) {
+      toast.error("Please select an image first");
       return;
     }
 
     setOutput({ base64: "", dataUrl: "", imgTag: "" });
 
-    imageToBase64(image).then((result) => {
-      let base64 = result.split(",")[1];
-      let dataUrl = result;
-      let imgTag = `<img src="${dataUrl}" alt="image" />`;
+    imageToBase64(image)
+      .then((result) => {
+        const base64 = result.split(",")[1] || "";
+        const dataUrl = result;
+        const imgTag = `<img src="${dataUrl}" alt="image" />`;
 
-      setOutput((prev) => ({
-        base64: prev.base64 + base64,
-        dataUrl: prev.dataUrl + dataUrl,
-        imgTag: prev.imgTag + imgTag,
-      }));
-    });
-
-    toast.success("Images converted successfully");
+        setOutput({
+          base64,
+          dataUrl,
+          imgTag,
+        });
+        toast.success("Image converted successfully");
+      })
+      .catch((error) => {
+        toast.error(error.message || "Failed to convert image");
+      });
   };
 
   return (
     <>
       <div className="flex flex-wrap mb-4 space-x-2">
-        {image && (
+        {previewUrl && (
           <div className="relative group overflow-hidden rounded-lg w-32 h-32">
-            <MyImageViewer src={URL.createObjectURL(image)} />
+            <MyImageViewer src={previewUrl} />
           </div>
         )}
       </div>

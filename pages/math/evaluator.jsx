@@ -14,7 +14,7 @@ const MathEvaluator = () => {
       return;
     }
 
-    const sanitized = expression.replace(/[^0-9+\-*/().%\s]/g, "");
+    const sanitized = expression.replace(/[^0-9+\-*/().%\s^]/g, "");
     
     if (sanitized !== expression) {
         setResult("Error: Invalid characters in expression");
@@ -22,10 +22,12 @@ const MathEvaluator = () => {
     }
 
     try {
+      // Convert ^ to ** for exponentiation
+      const evalExpr = sanitized.replace(/\^/g, "**");
       // eslint-disable-next-line no-new-func
-      const calcResult = new Function(`"use strict"; return (${sanitized})`)();
+      const calcResult = new Function(`"use strict"; return (${evalExpr})`)();
       
-      if (typeof calcResult === 'number' && !isNaN(calcResult)) {
+      if (typeof calcResult === 'number' && Number.isFinite(calcResult)) {
         const formattedResult = Math.round(calcResult * 1e10) / 1e10;
         setResult(String(formattedResult));
       } else {

@@ -37,7 +37,7 @@ const Add = (n, aX, aY) => {
 };
 
 const Sub = (n, aX, aY) => {
-  for (let i = n; i >= 0; i--) {
+  for (let i = n - 1; i >= 0; i--) {
     aX[i] -= aY[i];
     if (aX[i] < 0) {
       if (i > 0) {
@@ -103,15 +103,18 @@ const ArcTan = (iAng, n, aX) => {
 };
 
 function calculatePI(n, addCount, addSpace) {
-  if (n <= 5) {
+  const targetDigits = Math.max(1, Number(n) || 1);
+  const t1 = new Date();
+
+  if (targetDigits <= 5) {
+    const timeDiff = ((new Date()).getTime() - t1.getTime()) / 1000;
     return {
-      result: Math.PI.toFixed(n),
-      time: 0
-    }
+      result: Math.PI.toFixed(targetDigits),
+      time: `${timeDiff} seconds`,
+    };
   }
 
-  const t1 = new Date();
-  n = Number(n) + 5;
+  n = targetDigits + 5;
 
   const iAng = new Array(10);
   const coeff = new Array(10);
@@ -157,25 +160,16 @@ function calculatePI(n, addCount, addSpace) {
     tempPi += aPi[i];
   }
 
-  for (let i = 0; i < n; i++) {
-    if (i == 0) {
+  for (let i = 0; i <= targetDigits; i++) {
+    if (i === 0) {
       sPi += tempPi.charAt(i) + ".\n";
     } else {
-      if (addCount) {
-        theCount = " (" + i + ")";
-      } else {
-        theCount = "";
-      }
+      const theCount = addCount ? " (" + i + ")" : "";
+      const theSpace = addSpace ? " " : "";
 
-      if (addSpace) {
-        theSpace = " ";
-      } else {
-        theSpace = "";
-      }
-
-      if (i % 50 == 0 && i != 0) {
+      if (i % 50 === 0 && i !== 0) {
         sPi += tempPi.charAt(i) + theCount + "\n";
-      } else if (i % 5 == 0) {
+      } else if (i % 5 === 0) {
         sPi += tempPi.charAt(i) + theSpace;
       } else {
         sPi += tempPi.charAt(i);
@@ -186,11 +180,9 @@ function calculatePI(n, addCount, addSpace) {
   const t2 = new Date();
   const timeDiff = (t2.getTime() - t1.getTime()) / 1000;
 
-  sPi = addSpace ? sPi.slice(0, -5) : sPi.slice(0, -4);
-
   return {
     result: sPi,
-    time: `Time: ${timeDiff} seconds`,
+    time: `${timeDiff} seconds`,
   };
 }
 

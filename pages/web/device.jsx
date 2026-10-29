@@ -26,8 +26,8 @@ const DeviceInformation = () => {
   React.useEffect(() => {
     const screen = {
       size: `${window.screen.width} x ${window.screen.height}`,
-      orientation: window.screen.orientation.type,
-      orientationAngle: window.screen.orientation.angle,
+      orientation: window.screen.orientation?.type ?? "N/A",
+      orientationAngle: window.screen.orientation?.angle ?? "N/A",
       colorDepth: window.screen.colorDepth,
       pixelRatio: window.devicePixelRatio,
       windowSize: `${window.innerWidth} x ${window.innerHeight}`,

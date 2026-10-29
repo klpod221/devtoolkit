@@ -52,8 +52,8 @@ const ColorPickerPage = () => {
                 <span className="text-3xl font-bold" style={{ color: color }}>AaBbCc</span>
              </div>
              <div className="p-4 rounded-lg border dark:border-dark-secondary flex flex-col items-center" style={{ backgroundColor: color }}>
-                <span className="text-xs opacity-70 mb-2 uppercase tracking-tighter" style={{ color: Color(color).isDark() ? 'white' : 'black' }}>Background Preview</span>
-                <span className="text-3xl font-bold" style={{ color: Color(color).isDark() ? 'white' : 'black' }}>AaBbCc</span>
+                <span className="text-xs opacity-70 mb-2 uppercase tracking-tighter" style={{ color: data?.isDark === "Yes" ? 'white' : 'black' }}>Background Preview</span>
+                <span className="text-3xl font-bold" style={{ color: data?.isDark === "Yes" ? 'white' : 'black' }}>AaBbCc</span>
              </div>
           </div>
 

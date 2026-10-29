@@ -16,17 +16,20 @@ const JWTParser = () => {
   );
   const [output, setOutput] = React.useState(null);
 
-  const parseJWT = () => {
+  const parseJWT = React.useCallback(() => {
     try {
       const parsed = jwtParser(input);
-      console.log(parsed);
       setOutput(parsed);
       toast.success("JWT token parsed successfully.");
     } catch (error) {
       toast.error(error.message || "Failed to parse JWT token.");
       console.error(error);
     }
-  };
+  }, [input]);
+
+  React.useEffect(() => {
+    parseJWT();
+  }, [parseJWT]);
 
   return (
     <TwoColumn>
@@ -48,7 +51,7 @@ const JWTParser = () => {
               <tr>
                 <th
                   colSpan="2"
-                  className="border px-4 py-2 border-gray-20 dark:border-dark-secondary text-center"
+                  className="border px-4 py-2 border-gray-200 dark:border-dark-secondary text-center"
                 >
                   Header
                 </th>
@@ -58,14 +61,14 @@ const JWTParser = () => {
             <tbody>
               {output.header.map((claim, index) => (
                 <tr key={index}>
-                  <td className="border px-4 py-2 border-gray-20 dark:border-dark-secondary">
+                  <td className="border px-4 py-2 border-gray-200 dark:border-dark-secondary">
                     {claim.claim}
                     <span className="text-xs text-gray-500 dark:text-dark-text-secondary ml-1">
                       {claim.claimDescriptions &&
                         `(${claim.claimDescriptions})`}
                     </span>
                   </td>
-                  <td className="border px-4 py-2 border-gray-20 dark:border-dark-secondary">
+                  <td className="border px-4 py-2 border-gray-200 dark:border-dark-secondary">
                     {claim.value}
                     <span className="text-xs text-gray-500 dark:text-dark-text-secondary ml-1">
                       {claim.friendlyValue && `(${claim.friendlyValue})`}
@@ -81,7 +84,7 @@ const JWTParser = () => {
           <table className="table-auto w-full mt-4">
             <thead>
               <tr>
-                <th colSpan="2" className="border px-4 py-2 border-gray-20 dark:border-dark-secondary text-center">
+                <th colSpan="2" className="border px-4 py-2 border-gray-200 dark:border-dark-secondary text-center">
                   Payload
                 </th>
               </tr>
@@ -90,14 +93,14 @@ const JWTParser = () => {
             <tbody>
               {output.payload.map((claim, index) => (
                 <tr key={index}>
-                  <td className="border px-4 py-2 border-gray-20 dark:border-dark-secondary">
+                  <td className="border px-4 py-2 border-gray-200 dark:border-dark-secondary">
                     {claim.claim}
                     <span className="text-xs text-gray-500 dark:text-dark-text-secondary ml-1">
                       {claim.claimDescriptions &&
                         `(${claim.claimDescriptions})`}
                     </span>
                   </td>
-                  <td className="border px-4 py-2 border-gray-20 dark:border-dark-secondary">
+                  <td className="border px-4 py-2 border-gray-200 dark:border-dark-secondary">
                     {claim.value}
                     <span className="text-xs text-gray-500 dark:text-dark-text-secondary ml-1">
                       {claim.friendlyValue && `(${claim.friendlyValue})`}

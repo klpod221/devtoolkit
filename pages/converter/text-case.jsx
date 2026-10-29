@@ -61,7 +61,7 @@ const TextCaseConverter = () => {
           <MySelect value={caseType} onChange={setCaseType}>
             {caseOptions.map((option) => (
               <option key={option.value} value={option.value}>
-                <span>{option.label}</span>
+                {option.label}
               </option>
             ))}
           </MySelect>

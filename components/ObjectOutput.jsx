@@ -20,8 +20,10 @@ const ObjectOutput = ({ data, beautifyKey = true }) => {
                 {beautifyKey ? objectKeyToHumanReadable(key) : key}
               </span>
               <span className="flex items-center pt-1 break-all whitespace-pre-wrap justify-between">
-                {value}
-                {value.toString().trim() && <MyCopyButton value={value} className="ml-2" />}
+                {String(value ?? "")}
+                {value !== null && value !== undefined && String(value).trim() !== "" && (
+                  <MyCopyButton value={String(value)} className="ml-2" />
+                )}
               </span>
             </div>
           ))}

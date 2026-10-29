@@ -73,7 +73,7 @@ const DataTextFormatter = () => {
             <option value="javascript">JS</option>
           </MySelect>
 
-          <MyButton color="gray" onClick={handleClear} sizing="sm">
+          <MyButton color="gray" onClick={handleClear} size="sm">
             <FaTrash className="mr-2" /> Clear
           </MyButton>
         </MyCard.Header>
@@ -96,7 +96,12 @@ const DataTextFormatter = () => {
             )}
           </div>
 
-          <CodeOutput language={format} output={output} error={error} />
+          <CodeOutput
+            language={format}
+            output={output}
+            error={error}
+            previewHtml={false}
+          />
         </div>
       </TwoColumn.Right>
     </TwoColumn>

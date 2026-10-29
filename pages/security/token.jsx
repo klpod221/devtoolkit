@@ -91,6 +91,14 @@ const TokenGenerator = () => {
             checked={options.symbols}
             onChange={set("symbols")}
           />
+          {!options.uppercase &&
+            !options.lowercase &&
+            !options.numbers &&
+            !options.symbols && (
+              <p className="text-red-500 text-sm mt-2">
+                Please select at least one character set.
+              </p>
+            )}
         </div>
       </TwoColumn.Left>
 

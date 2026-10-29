@@ -17,7 +17,7 @@ const RandomPortGenerator = () => {
   };
 
   useEffect(() => {
-    handleGenerate();
+    setPort(generateRandomPort(range.min, range.max).toString());
   }, [range.min, range.max]);
 
   return (
@@ -82,7 +82,7 @@ const RandomPortGenerator = () => {
             data={{
               "Port Number": port,
               "Range Used": `${range.min} - ${range.max}`,
-              "Classification": port < 1024 ? "Well-known/System" : (port < 49152 ? "Registered/User" : "Dynamic/Private")
+              "Classification": Number(port) < 1024 ? "Well-known/System" : (Number(port) < 49152 ? "Registered/User" : "Dynamic/Private")
             }} 
           />
         </div>

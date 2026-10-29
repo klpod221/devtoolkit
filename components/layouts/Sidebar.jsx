@@ -83,7 +83,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
     <>
       {isOpen && (
         <div
-          className="fixed top-0 left-0 z-40 w-screen h-screen bg-black bg-opacity-50 dark:bg-gray"
+          className="fixed top-0 left-0 z-40 w-screen h-screen bg-black bg-opacity-50 dark:bg-opacity-70"
           aria-label="Overlay"
           onClick={() => setIsOpen(false)}
         ></div>
@@ -114,8 +114,8 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
 
           {/* Favorite tools */}
           {favoriteTools && favoriteTools.length > 0 && (
-            <ul className="pt-4">
-              <li>
+            <div className="pt-4">
+              <div>
                 <div
                   className="text-gray-400 text-sm font-medium uppercase w-full border-gray-200 pb-1 dark:border-dark-secondary dark:text-dark-text-secondary cursor-pointer"
                   onClick={() => handleCollapse("favorite")}
@@ -127,7 +127,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                   />
                   Favorite Tools
                 </div>
-              </li>
+              </div>
               <ul
                 className={`pl-1 border-l space-y-1 overflow-hidden transition-all delay-150 duration-300 ${
                   collapsed.includes("favorite") ? "h-0" : ""
@@ -174,12 +174,12 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                   </li>
                 ))}
               </ul>
-            </ul>
+            </div>
           )}
 
           {toolkit.map((section, index) => (
-            <ul key={index} className="pt-4">
-              <li>
+            <div key={index} className="pt-4">
+              <div>
                 <div
                   className="text-gray-400 text-sm font-medium uppercase w-full border-gray-200 pb-1 dark:border-dark-secondary dark:text-dark-text-secondary cursor-pointer"
                   onClick={() => handleCollapse(index)}
@@ -191,7 +191,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                   />
                   {section.title}
                 </div>
-              </li>
+              </div>
               <ul
                 className={`pl-1 border-l space-y-1 overflow-hidden transition-all delay-150 duration-300 ${
                   collapsed.includes(index) ? "h-0" : ""
@@ -244,7 +244,7 @@ const MySidebar = ({ isOpen, setIsOpen }) => {
                   </li>
                 ))}
               </ul>
-            </ul>
+            </div>
           ))}
 
           {/* Footer */}

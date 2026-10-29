@@ -1,12 +1,13 @@
 const unicodeToHex = (text) => {
+  if (!text) return "";
   const hexes = [];
 
-  for (let i = 0; i < text.length; i++) {
-    const hex = text.charCodeAt(i).toString(16);
-    hexes.push('0x' + hex);
+  for (const char of text) {
+    const codePoint = char.codePointAt(0);
+    hexes.push("0x" + codePoint.toString(16));
   }
 
-  return hexes.join(' ');
+  return hexes.join(" ");
 };
 
 export default unicodeToHex;

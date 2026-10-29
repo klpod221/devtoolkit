@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import bcrypt from "bcryptjs";
 
 import bcryptGenerator from "@utils/bcryptGenerator";
 
@@ -86,7 +87,7 @@ const BcryptHashGenerator = () => {
           title="Encrypt"
           helper="Encrypt some text. The result shown will be a Bcrypt encrypted hash."
         >
-          <MyButton onClick={textToHash}>
+          <MyButton onClick={() => textToHash(input, salt)}>
             <AiOutlineLock className="w-5 h-5 mr-2" />
             Encrypt
           </MyButton>

@@ -1,13 +1,8 @@
 import React from "react";
 
 const MyRadio = ({ label, id, ...props }) => {
-  const [radioId, setRadioId] = React.useState(id);
-
-  React.useEffect(() => {
-    if (!radioId) {
-      setRadioId(Math.random().toString(36).substring(7));
-    }
-  }, [radioId]);
+  const autoId = React.useId();
+  const radioId = id || autoId;
 
   return (
     <div className="flex items-center">

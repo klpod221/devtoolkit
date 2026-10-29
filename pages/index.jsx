@@ -56,32 +56,37 @@ const Home = () => {
           <h3 className="text-xl tracking-tight">Favorite Tools</h3>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {favoriteTools.map((tool, index) => (
-              <div
-                key={index}
-                className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-full h-full"
+            {favoriteTools.map((tool) => (
+              <NextLink
+                key={tool.path}
+                href={tool.path}
+                passHref
+                className="block"
               >
-                <div className="flex items-center justify-between">
-                  <tool.icon className="w-10 h-10 text-blue-500" />
+                <div className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-full h-full">
+                  <div className="flex items-center justify-between">
+                    <tool.icon className="w-10 h-10 text-blue-500" />
 
-                  <div
-                    className="ml-auto text-gray-400 dark:text-dark-text-secondary cursor-pointer"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleFavorite(tool.path);
-                    }}
-                  >
-                    <FaHeart className="text-red-500 dark:text-red-400" />
+                    <div
+                      className="ml-auto text-gray-400 dark:text-dark-text-secondary cursor-pointer p-1"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        toggleFavorite(tool.path);
+                      }}
+                    >
+                      <FaHeart className="text-red-500 dark:text-red-400" />
+                    </div>
+                  </div>
+
+                  <div className="mt-2">
+                    <h5 className="text-lg font-semibold">{tool.name}</h5>
+                    <p className="text-gray-700 dark:text-gray-400 line-clamp-2">
+                      {tool.description}
+                    </p>
                   </div>
                 </div>
-
-                <div className="mt-2">
-                  <h5 className="text-lg font-semibold">{tool.name}</h5>
-                  <p className="text-gray-700 dark:text-gray-400 line-clamp-2">
-                    {tool.description}
-                  </p>
-                </div>
-              </div>
+              </NextLink>
             ))}
           </div>
         </>

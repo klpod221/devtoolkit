@@ -22,7 +22,7 @@ const Uploader = () => {
   const onChange = (files) => {
     const fileList = [];
     files.forEach((file) => {
-      if (queueList.find((f) => f.name === file.name)) {
+      if (queueList.find((f) => f.file?.name === file.name)) {
         return;
       }
 
@@ -201,10 +201,13 @@ const Uploader = () => {
     }
   }, []);
 
+  const isInitialMount = React.useRef(true);
   React.useEffect(() => {
-    if (uploadedFiles.length > 0) {
-      localStorage.setItem("uploadedFiles", JSON.stringify(uploadedFiles));
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
     }
+    localStorage.setItem("uploadedFiles", JSON.stringify(uploadedFiles));
   }, [uploadedFiles]);
 
   return (
@@ -391,8 +394,8 @@ const Uploader = () => {
                     color="red"
                     className="py-0"
                     onClick={() =>
-                      setUploadedFiles(
-                        uploadedFiles.filter((_, i) => i !== index),
+                      setUploadedFiles((prev) =>
+                        prev.filter((f) => f.url !== file.url),
                       )
                     }
                   >

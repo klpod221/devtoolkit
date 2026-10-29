@@ -13,7 +13,7 @@ const Base64ImageDecoder = () => {
       return;
     }
 
-    const isDataUrl = input.match(/^data:image\/([a-zA-Z]*);base64,([^"]*)/g);
+    const isDataUrl = input.match(/^data:image\/[a-zA-Z0-9.+-]+;base64,/i);
 
     if (!isDataUrl) {
       setOutput(`data:image/png;base64,${input}`);

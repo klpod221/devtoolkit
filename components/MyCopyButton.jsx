@@ -14,10 +14,9 @@ import MyButton from "./MyButton";
  * @param {string} props.className
  * @returns {JSX.Element}
  */
-const MyCopyButton = ({ value, type = "normal", className }) => {
+const MyCopyButton = ({ value, type = "normal", className = "" }) => {
   const types = {
-    normal:
-      "p-1 bg-gray-200 dark:bg-dark-secondary rounded-full hover:opacity-80 transition-all duration-300 ease-in-out",
+    normal: "",
     absolute: "absolute top-1 right-1",
   };
 
@@ -30,7 +29,8 @@ const MyCopyButton = ({ value, type = "normal", className }) => {
         </MyButton>
       ) : (
         <button
-          className={`p-1 bg-gray-200 dark:bg-dark-secondary rounded-full hover:opacity-80 transition-all duration-300 ease-in-out ${types[type]} ${className}`}
+          type="button"
+          className={`p-1 bg-gray-200 dark:bg-dark-secondary rounded-full hover:opacity-80 transition-all duration-300 ease-in-out ${types[type] || ""} ${className}`}
           aria-label="Copy"
           onClick={() => copyToClipboard(value)}
         >

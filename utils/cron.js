@@ -25,12 +25,16 @@ const isCronValid = (cron) => {
 const cronToHuman = (cron, option = {}) => {
   if (!isCronValid(cron)) return "Invalid cron expression";
 
-  return cronstrue.toString(cron, {
-    dayOfWeekStartIndexZero: true,
-    use24HourTimeFormat: true,
-    throwExceptionOnParseError: true,
-    ...option,
-  });
+  try {
+    return cronstrue.toString(cron, {
+      dayOfWeekStartIndexZero: true,
+      use24HourTimeFormat: true,
+      throwExceptionOnParseError: true,
+      ...option,
+    });
+  } catch {
+    return "Invalid cron expression";
+  }
 };
 
 /**
@@ -42,13 +46,17 @@ const cronToHuman = (cron, option = {}) => {
 const nextRun = (cron, format = "") => {
   if (!isCronValid(cron)) return;
 
-  const interval = parser.parseExpression(cron);
-  const next = interval.next().toDate();
+  try {
+    const interval = parser.parseExpression(cron);
+    const next = interval.next().toDate();
 
-  if (format) {
-    return moment(next).format(format);
-  } else {
-    return next.toLocaleString();
+    if (format) {
+      return moment(next).format(format);
+    } else {
+      return next.toLocaleString();
+    }
+  } catch {
+    return undefined;
   }
 };
 

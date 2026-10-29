@@ -9,11 +9,24 @@ const SimpleCalculator = () => {
   const [waitingForNewValue, setWaitingForNewValue] = useState(false);
 
   const handleNum = (num) => {
-    if (waitingForNewValue) {
+    if (waitingForNewValue || currentValue === "Error") {
       setCurrentValue(String(num));
       setWaitingForNewValue(false);
     } else {
       setCurrentValue(currentValue === "0" ? String(num) : currentValue + num);
+    }
+  };
+
+  const handleBackspace = () => {
+    if (waitingForNewValue || currentValue === "Error") {
+      setCurrentValue("0");
+      setWaitingForNewValue(false);
+      return;
+    }
+    if (currentValue.length > 1) {
+      setCurrentValue(currentValue.slice(0, -1));
+    } else {
+      setCurrentValue("0");
     }
   };
 
@@ -97,7 +110,8 @@ const SimpleCalculator = () => {
           e.preventDefault(); // Prevent triggering focused button
           calculate();
       }
-      if (key === "Escape" || key === "Backspace") handleClear(); // Simplified backspace to clear for now
+      if (key === "Escape") handleClear();
+      if (key === "Backspace") handleBackspace();
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);

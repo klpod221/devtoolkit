@@ -22,17 +22,23 @@ const ListConverter = () => {
     let sortedList = [];
     switch (sortOption) {
       case "Ascending":
-        sortedList = list.sort();
+        sortedList = [...list].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
         break;
       case "Descending":
-        sortedList = list.sort((a, b) => (a > b ? -1 : 1));
+        sortedList = [...list].sort((a, b) => (a > b ? -1 : a < b ? 1 : 0));
         break;
       case "Reverse":
-        sortedList = list.reverse();
+        sortedList = [...list].reverse();
         break;
-      case "Random":
-        sortedList = list.sort(() => Math.random() - 0.5);
+      case "Random": {
+        const arr = [...list];
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        sortedList = arr;
         break;
+      }
       default:
         sortedList = list;
         break;

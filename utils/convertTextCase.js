@@ -1,12 +1,24 @@
-import textSimplifier from "./textSimplifier";
+const splitIntoWords = (str) => {
+  if (!str) return [];
+  return str
+    .replace(/([a-z\d])([A-Z])/g, "$1 $2")
+    .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, "$1 $2")
+    .replace(/[_\-]+/g, " ")
+    .replace(/[^a-zA-Z0-9\s]/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+};
 
 const convertTextCase = (text, caseType) => {
-  if (text.trim() === "") return "";
+  if (!text || text.trim() === "") return "";
 
   const lines = text.split("\n");
 
   return lines
     .map((line) => {
+      const words = splitIntoWords(line);
+
       switch (caseType) {
         case "lowercase":
           return line.toLowerCase();
@@ -15,34 +27,29 @@ const convertTextCase = (text, caseType) => {
           return line.toUpperCase();
 
         case "capitalize":
-          return line
-            .toLowerCase()
-            .replace(/\b\w/g, (char) => char.toUpperCase());
+          return words
+            .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+            .join(" ");
 
         case "camelCase":
-          return textSimplifier(line)
-            .replace(/(?:^\w|[A-Z]|\b\w)/g, (char, index) =>
-              index === 0 ? char.toLowerCase() : char.toUpperCase()
+          return words
+            .map((w, index) =>
+              index === 0
+                ? w.toLowerCase()
+                : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
             )
-            .replace(/\s+/g, "");
+            .join("");
 
         case "pascalCase":
-          return textSimplifier(line)
-            .replace(/[^a-zA-Z0-9 ]/g, "")
-            .replace(/(?:^\w|[A-Z]|\b\w)/g, (char) => char.toUpperCase())
-            .replace(/\s+/g, "");
+          return words
+            .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+            .join("");
 
         case "snake_case":
-          return textSimplifier(line)
-            .replace(/[^a-zA-Z0-9 ]/g, "")
-            .toLowerCase()
-            .replace(/\s+/g, "_");
+          return words.map((w) => w.toLowerCase()).join("_");
 
         case "kebab-case":
-          return textSimplifier(line)
-            .replace(/[^a-zA-Z0-9 ]/g, "")
-            .toLowerCase()
-            .replace(/\s+/g, "-");
+          return words.map((w) => w.toLowerCase()).join("-");
 
         default:
           return line;

@@ -5,7 +5,7 @@ const MyDrawer = ({ title, titleIcon, children, isOpen, onClose, position = "rig
   const theme = {
     root: {
       base: "fixed z-30 overflow-y-auto bg-white p-4 transition-transform dark:bg-dark",
-      backdrop: "fixed inset-0 z-20  bg-black bg-opacity-50 dark:bg-gray",
+      backdrop: "fixed inset-0 z-20 bg-black bg-opacity-50 dark:bg-opacity-70",
       edge: "bottom-16",
       position: {
         top: {

@@ -44,7 +44,7 @@ const IPv4RangeExpander = () => {
       const endInt = ipToInt(endIp);
       
       if (startInt > endInt) throw new Error("Start IP must be less than or equal to End IP");
-      if (endInt - startInt > 100000n) throw new Error("Range too large (max 100,000 IPs)");
+      if (endInt - startInt > 10000n) throw new Error("Range too large (max 10,000 IPs)");
       
       const ips = [];
       for (let i = startInt; i <= endInt; i++) {

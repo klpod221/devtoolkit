@@ -1,5 +1,3 @@
-import { shuffleString } from "./random";
-
 const createToken = ({
   length = 64,
   dictionary,
@@ -17,7 +15,24 @@ const createToken = ({
       withSymbols ? ".,;:!?./-\"'#{([-|\\@)]=}*+" : "",
     ].join("");
 
-  return shuffleString(alphabet.repeat(length)).substring(0, length);
+  if (!alphabet || length <= 0) return "";
+
+  const tokenLength = Number(length) || 0;
+  if (typeof window !== "undefined" && window.crypto?.getRandomValues) {
+    const bytes = new Uint32Array(tokenLength);
+    window.crypto.getRandomValues(bytes);
+    let result = "";
+    for (let i = 0; i < tokenLength; i++) {
+      result += alphabet[bytes[i] % alphabet.length];
+    }
+    return result;
+  }
+
+  let result = "";
+  for (let i = 0; i < tokenLength; i++) {
+    result += alphabet[Math.floor(Math.random() * alphabet.length)];
+  }
+  return result;
 };
 
 export default createToken;

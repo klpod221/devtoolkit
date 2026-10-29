@@ -511,6 +511,7 @@ END;
 ]);
 
 db.users.find();`,
+  octave: `disp("Hello, World!");`,
 };
 
 export default CODE_SAMPLES;

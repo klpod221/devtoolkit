@@ -31,16 +31,16 @@ const ROMAN_NUMERALS_ROMAN_KEY = {
  * @returns {string}
  */
 export const arabicToRoman = (num) => {
-  if (Number.isNaN(num) || num < 1 || num > 3999) {
-    throw new Error('Invalid number 1-3999');
+  if (typeof num !== "number" || !Number.isInteger(num) || num < 1 || num > 3999) {
+    throw new Error('Invalid number. Must be an integer between 1 and 3999.');
   }
 
   let result = '';
 
   Object.keys(ROMAN_NUMERALS_ARABIC_KEY).reverse().forEach((value) => {
-    while (num >= value) {
+    while (num >= Number(value)) {
       result += ROMAN_NUMERALS_ARABIC_KEY[value];
-      num -= value;
+      num -= Number(value);
     }
   });
 
@@ -54,26 +54,26 @@ export const arabicToRoman = (num) => {
  * @returns {number}
  */
 export const romanToArabic = (str) => {
-  // Check if the string
   if (typeof str !== 'string') {
     throw new Error('Invalid input');
   }
 
-  if (str.length === 0) {
+  const clean = str.trim().toUpperCase();
+  if (clean.length === 0) {
     return null;
   }
 
-  if (!/^[IVXLCDM]+$/.test(str)) {
-    throw new Error('Invalid roman numeral string (I, V, X, L, C, D, M)');
+  if (!/^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/.test(clean)) {
+    throw new Error('Invalid roman numeral string format');
   }
 
   let result = 0;
 
-  for (let i = 0; i < str.length; i++) {
-    const current = ROMAN_NUMERALS_ROMAN_KEY[str[i]];
-    const next = ROMAN_NUMERALS_ROMAN_KEY[str[i + 1]];
+  for (let i = 0; i < clean.length; i++) {
+    const current = ROMAN_NUMERALS_ROMAN_KEY[clean[i]];
+    const next = ROMAN_NUMERALS_ROMAN_KEY[clean[i + 1]];
 
-    if (current < next) {
+    if (next && current < next) {
       result += next - current;
       i++;
     } else {

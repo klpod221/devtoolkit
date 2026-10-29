@@ -64,7 +64,6 @@ const morseCodeDictionary = {
   Ą: ".-.-",
   Ç: "-.-..",
   Ĉ: "-.-..",
-  Ç: "-.-..",
   Ch: "----",
   Ĥ: "----",
   Š: "----",
@@ -74,7 +73,6 @@ const morseCodeDictionary = {
   Ê: "-..-.",
   Ë: "..-..",
   Ĝ: "--.-.",
-  Ĥ: "----",
   Ĵ: ".---.",
   Ł: ".-..-",
   Ń: "--.--",
@@ -182,11 +180,19 @@ let gainNode = null;
 let audioContextInitialized = false;
 
 const initAudioContext = () => {
-  if (audioContextInitialized) {
+  if (audioContextInitialized && noteContext) {
+    if (noteContext.state === "suspended") {
+      noteContext.resume();
+    }
     return;
   }
 
-  noteContext = new (window.AudioContext || window.webkitAudioContext)();
+  if (typeof window === "undefined") return;
+
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass) return;
+
+  noteContext = new AudioContextClass();
   noteNode = noteContext.createOscillator();
   gainNode = noteContext.createGain();
 
@@ -237,8 +243,9 @@ const playLetter = async (letter) => {
 };
 
 const playWord = async (word) => {
-  for (let i = 0; i < word.length; i++) {
-    await playLetter(word[i]);
+  const letters = word.trim().split(/\s+/).filter(Boolean);
+  for (let i = 0; i < letters.length; i++) {
+    await playLetter(letters[i]);
     await sleep(LETTER_BREAK_DURATION);
   }
 };

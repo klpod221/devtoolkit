@@ -14,6 +14,11 @@ const NumeronymGenerator = () => {
       return;
     }
 
+    if (input.length <= 3) {
+      setOutput(input);
+      return;
+    }
+
     const firstChar = input[0];
     const lastChar = input[input.length - 1];
     const middle = input.length - 2;

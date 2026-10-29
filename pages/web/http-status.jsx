@@ -26,7 +26,7 @@ const HTTPStatusCode = () => {
           title: section.title,
           codes,
         };
-      });
+      }).filter((section) => section.codes.length > 0);
 
       setCodes(filteredCodes);
     } else {

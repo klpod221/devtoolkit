@@ -8,7 +8,7 @@ const findTextPosition = (text, index) => {
   let col = 0;
 
   for (const line of lines) {
-    if (col + line.length > index) {
+    if (col + line.length >= index) {
       col = index - col;
       break;
     }

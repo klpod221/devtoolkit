@@ -19,12 +19,16 @@ const StringObfuscator = () => {
   const handleTransform = React.useMemo(
     () =>
       _.debounce(() => {
-        const first = input.slice(0, settings.first);
-        const last = input.slice(-settings.last);
+        const firstCount = Math.max(0, parseInt(settings.first, 10) || 0);
+        const lastCount = Math.max(0, parseInt(settings.last, 10) || 0);
 
+        const first = input.slice(0, firstCount);
+        const last = lastCount > 0 ? input.slice(-lastCount) : "";
+
+        const middleLen = Math.max(0, input.length - firstCount - lastCount);
         const middle = settings.space
-          ? input.slice(settings.first, -settings.last).replace(/\S/g, "*")
-          : "*".repeat(input.length - settings.first - settings.last);
+          ? input.slice(firstCount, lastCount > 0 ? -lastCount : input.length).replace(/\S/g, "*")
+          : "*".repeat(middleLen);
 
         setOutput(`${first}${middle}${last}`);
       }, 300),

@@ -74,51 +74,59 @@ const OpenGraphMetaGenerator = () => {
   const generateMetaTags = React.useMemo(
     () =>
       _.debounce((data) => {
-        let output = `<!-- og meta -->\n`;
-        output += `<meta property="og:type" value="${data.pageType}" />\n`;
+        let output = `<!-- Open Graph Meta Tags -->\n`;
+        output += `<meta property="og:type" content="${data.pageType}" />\n`;
+
+        if (data.general.title) {
+          output += `<meta property="og:title" content="${data.general.title}" />\n`;
+        }
+        if (data.general.description) {
+          output += `<meta property="og:description" content="${data.general.description}" />\n`;
+        }
+        if (data.general.page_url) {
+          output += `<meta property="og:url" content="${data.general.page_url}" />\n`;
+        }
+
+        if (data.imageInfo.image_url) {
+          output += `<meta property="og:image" content="${data.imageInfo.image_url}" />\n`;
+          if (data.imageInfo.image_alt) {
+            output += `<meta property="og:image:alt" content="${data.imageInfo.image_alt}" />\n`;
+          }
+          if (data.imageInfo.width) {
+            output += `<meta property="og:image:width" content="${data.imageInfo.width}" />\n`;
+          }
+          if (data.imageInfo.height) {
+            output += `<meta property="og:image:height" content="${data.imageInfo.height}" />\n`;
+          }
+        }
 
         if (data.pageType === "profile") {
-          Object.keys(data.profile).forEach((key) => {
-            if (data.profile[key]) {
-              output += `<meta property="og:profile:${key}" value="${data.profile[key]}" />\n`;
-            }
-          });
+          if (data.profile.first_name) output += `<meta property="profile:first_name" content="${data.profile.first_name}" />\n`;
+          if (data.profile.last_name) output += `<meta property="profile:last_name" content="${data.profile.last_name}" />\n`;
+          if (data.profile.username) output += `<meta property="profile:username" content="${data.profile.username}" />\n`;
+          if (data.profile.gender) output += `<meta property="profile:gender" content="${data.profile.gender}" />\n`;
         }
 
         if (data.pageType === "article") {
-          Object.keys(data.article).forEach((key) => {
-            if (data.article[key]) {
-              output += `<meta property="og:article:${key}" value="${data.article[key]}" />\n`;
-            }
-          });
+          if (data.article.published_date) output += `<meta property="article:published_time" content="${data.article.published_date}" />\n`;
+          if (data.article.modified_date) output += `<meta property="article:modified_time" content="${data.article.modified_date}" />\n`;
+          if (data.article.expiration_date) output += `<meta property="article:expiration_time" content="${data.article.expiration_date}" />\n`;
+          if (data.article.author) output += `<meta property="article:author" content="${data.article.author}" />\n`;
+          if (data.article.section) output += `<meta property="article:section" content="${data.article.section}" />\n`;
+          if (data.article.tag) output += `<meta property="article:tag" content="${data.article.tag}" />\n`;
         }
 
         if (data.pageType === "book") {
-          Object.keys(data.book).forEach((key) => {
-            if (data.book[key]) {
-              output += `<meta property="og:book:${key}" value="${data.book[key]}" />\n`;
-            }
-          });
+          if (data.book.author) output += `<meta property="book:author" content="${data.book.author}" />\n`;
+          if (data.book.isbn) output += `<meta property="book:isbn" content="${data.book.isbn}" />\n`;
+          if (data.book.release_date) output += `<meta property="book:release_date" content="${data.book.release_date}" />\n`;
+          if (data.book.tag) output += `<meta property="book:tag" content="${data.book.tag}" />\n`;
         }
 
-        Object.keys(data.general).forEach((key) => {
-          if (data.general[key]) {
-            output += `<meta property="og:${key}" value="${data.general[key]}" />\n`;
-          }
-        });
-
-        Object.keys(data.imageInfo).forEach((key) => {
-          if (data.imageInfo[key]) {
-            output += `<meta property="og:image:${key}" value="${data.imageInfo[key]}" />\n`;
-          }
-        });
-
-        output += `\n<!-- twitter meta -->\n`;
-        Object.keys(data.twitter).forEach((key) => {
-          if (data.twitter[key]) {
-            output += `<meta name="twitter:${key}" value="${data.twitter[key]}" />\n`;
-          }
-        });
+        output += `\n<!-- Twitter Card Meta Tags -->\n`;
+        if (data.twitter.card_type) output += `<meta name="twitter:card" content="${data.twitter.card_type}" />\n`;
+        if (data.twitter.site_account) output += `<meta name="twitter:site" content="${data.twitter.site_account}" />\n`;
+        if (data.twitter.creator_account) output += `<meta name="twitter:creator" content="${data.twitter.creator_account}" />\n`;
 
         setOutput(output);
       }, 200),
@@ -531,4 +539,5 @@ const OpenGraphMetaGenerator = () => {
   );
 };
 
+OpenGraphMetaGenerator.title = "Open Graph Meta Generator";
 export default OpenGraphMetaGenerator;

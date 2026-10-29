@@ -46,6 +46,7 @@ const BarcodeScanner = () => {
 
   const handleFileUpload = async (file) => {
     if (!file) return;
+    stopCamera();
     setResult(null);
     setError("");
     try {

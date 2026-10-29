@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import jsQR from "jsqr";
+import { toast } from "react-toastify";
 import TwoColumn from "@components/TwoColumn";
 import MyCard from "@components/MyCard";
 import MyButton from "@components/MyButton";
@@ -54,12 +55,13 @@ const QRCodeScanner = () => {
       setMode("camera");
       animFrameRef.current = requestAnimationFrame(scanFrame);
     } catch {
-      alert("Cannot access camera. Please allow camera permission.");
+      toast.error("Cannot access camera. Please allow camera permission.");
     }
   };
 
   const handleFileUpload = (file) => {
     if (!file) return;
+    stopCamera();
     setResult(null);
     const reader = new FileReader();
     reader.onload = (e) => {

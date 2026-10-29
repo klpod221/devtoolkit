@@ -1,9 +1,14 @@
+import React from "react";
+import { Spinner } from "flowbite-react";
+
 const MyButton = ({
   children,
   size = "sm",
   disabled = false,
+  loading = false,
   color = "default",
-  className,
+  className = "",
+  type = "button",
   ...props
 }) => {
   const sizes = {
@@ -20,7 +25,7 @@ const MyButton = ({
     dark: "border border-transparent bg-gray-800 text-dark-text focus:ring-4 focus:ring-gray-300 enabled:hover:bg-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-gray-800 dark:enabled:hover:bg-gray-700",
     failure:
       "border border-transparent bg-red-700 text-dark-text focus:ring-4 focus:ring-red-300 enabled:hover:bg-red-800 dark:bg-red-600 dark:focus:ring-red-900 dark:enabled:hover:bg-red-700",
-    gray: ":ring-cyan-700 border border-gray-200 bg-white focus:text-cyan-700 focus:ring-4 enabled:hover:bg-gray-100 enabled:hover:text-cyan-700 dark:border-gray-600 dark:bg-transparent dark:enabled:hover:bg-gray-700 dark:enabled:hover:text-dark-text",
+    gray: "focus:ring-cyan-700 border border-gray-200 bg-white focus:text-cyan-700 focus:ring-4 enabled:hover:bg-gray-100 enabled:hover:text-cyan-700 dark:border-gray-600 dark:bg-transparent dark:enabled:hover:bg-gray-700 dark:enabled:hover:text-dark-text",
     info: "border border-transparent bg-cyan-700 text-dark-text focus:ring-4 focus:ring-cyan-300 enabled:hover:bg-cyan-800 dark:bg-cyan-600 dark:focus:ring-cyan-800 dark:enabled:hover:bg-cyan-700",
     light:
       "border border-gray-200 bg-white focus:ring-4 focus:ring-cyan-300 enabled:hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-600 dark:text-dark-text dark:focus:ring-gray-700 dark:enabled:hover:border-gray-700 dark:enabled:hover:bg-gray-700",
@@ -44,16 +49,22 @@ const MyButton = ({
       "border border-yellow-300 bg-white text-yellow-900 focus:ring-4 focus:ring-yellow-300 enabled:hover:bg-yellow-100 dark:border-yellow-600 dark:bg-yellow-600 dark:text-dark-text dark:focus:ring-yellow-700 dark:enabled:hover:border-yellow-700 dark:enabled:hover:bg-yellow-700",
   };
 
+  const isDisabled = disabled || loading;
+
   return (
     <button
-      className={`group relative flex items-stretch justify-center p-0.5 text-center font-medium transition-[color,background-color,border-color,text-decoration-color,fill,stroke,box-shadow] focus:z-10 focus:outline-none rounded-lg py-0 ${colors[color]} ${disabled ? "cursor-not-allowed opacity-50" : ""} ${className}`}
-      disabled={disabled}
+      type={type}
+      className={`group relative flex items-stretch justify-center p-0.5 text-center font-medium transition-[color,background-color,border-color,text-decoration-color,fill,stroke,box-shadow] focus:z-10 focus:outline-none rounded-lg py-0 ${colors[color]} ${isDisabled ? "cursor-not-allowed opacity-50" : ""} ${className}`}
+      disabled={isDisabled}
       {...props}
     >
       <span
         className={`flex items-stretch transition-all duration-200 rounded-md ${sizes[size]}`}
       >
-        <div className="flex items-center space-x-2">{children}</div>
+        <span className="flex items-center space-x-2">
+          {loading && <Spinner size="sm" className="mr-2" />}
+          {children}
+        </span>
       </span>
     </button>
   );

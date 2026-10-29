@@ -52,7 +52,19 @@ const WordCounter = () => {
   }, [text]);
 
   React.useEffect(() => {
-    if (text) countWords();
+    if (text) {
+      countWords();
+    } else {
+      setAnalysis({
+        words: 0,
+        characters: 0,
+        spaces: 0,
+        lines: 0,
+        bytes: 0,
+        readingTime: "0 sec",
+        distribution: [],
+      });
+    }
   }, [text, countWords]);
 
   return (

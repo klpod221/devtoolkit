@@ -19,19 +19,22 @@ const UrlParser = () => {
     try {
       const urlObj = new URL(url);
 
-      const query = urlObj.searchParams
-        .toString()
-        .replace(/&/g, "\n")
-        .replace(/=/g, ": ")
-        .replace(/\+/g, " ");
+      const params = {};
+      urlObj.searchParams.forEach((val, key) => {
+        params[key] = val;
+      });
 
       setParsedUrl({
         protocol: urlObj.protocol.replace(":", ""),
+        origin: urlObj.origin,
         hostname: urlObj.hostname,
-        post: urlObj.port,
-        path: urlObj.pathname,
-        query: query,
-        hash: urlObj.hash,
+        port: urlObj.port || "(default)",
+        pathname: urlObj.pathname,
+        search: urlObj.search,
+        params: Object.keys(params).length > 0 ? JSON.stringify(params, null, 2) : "None",
+        hash: urlObj.hash || "None",
+        username: urlObj.username || "None",
+        password: urlObj.password || "None",
       });
     } catch (error) {
       toast.error(error.message || "Invalid URL");
@@ -66,4 +69,5 @@ const UrlParser = () => {
   );
 };
 
+UrlParser.title = "URL Parser";
 export default UrlParser;

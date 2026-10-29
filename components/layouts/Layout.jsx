@@ -21,7 +21,8 @@ const Layout = ({ children, title }) => {
     // when press 'alt + /', focus on the search input
     const handleKeyDown = (e) => {
       if (e.altKey && e.key === "/") {
-        document.getElementById("search-input").focus();
+        e.preventDefault();
+        document.getElementById("search-input")?.focus();
       }
     };
 
